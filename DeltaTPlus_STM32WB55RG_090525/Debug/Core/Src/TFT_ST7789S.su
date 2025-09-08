@@ -1,0 +1,14 @@
+../Core/Src/TFT_ST7789S.c:21:6:LCD_WriteCommand	16	static
+../Core/Src/TFT_ST7789S.c:33:6:LCD_WriteData	16	static
+../Core/Src/TFT_ST7789S.c:46:6:LCD_WriteDataMultiple	16	static
+../Core/Src/TFT_ST7789S.c:59:6:LCD_WriteDisplayData	24	static
+../Core/Src/TFT_ST7789S.c:71:6:LCD_Init	8	static
+../Core/Src/TFT_ST7789S.c:199:6:LCD_EnterSleep	8	static
+../Core/Src/TFT_ST7789S.c:209:6:LCD_ExitSleep	8	static
+../Core/Src/TFT_ST7789S.c:223:6:LCD_SetWindow	24	static
+../Core/Src/TFT_ST7789S.c:244:6:LCD_FillScreen	1048	static
+../Core/Src/TFT_ST7789S.c:272:6:LCD_DrawPixel	16	static
+../Core/Src/TFT_ST7789S.c:288:6:LCD_FillRect	32	static
+../Core/Src/TFT_ST7789S.c:317:10:LCD_RGB565	16	static
+../Core/Src/TFT_ST7789S.c:323:6:LCD_BasicCommTest	8	static
+../Core/Src/TFT_ST7789S.c:369:6:writeLine	48	static

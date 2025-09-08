@@ -1,0 +1,23 @@
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:12:1:Adafruit_MAX31856::Adafruit_MAX31856(SPI_HandleTypeDef*, GPIO_TypeDef*, uint16_t)	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:19:1:Adafruit_MAX31856::Adafruit_MAX31856()	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:32:6:bool Adafruit_MAX31856::begin()	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:64:6:void Adafruit_MAX31856::setConversionMode(max31856_conversion_mode_t)	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:87:28:max31856_conversion_mode_t Adafruit_MAX31856::getConversionMode()	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:98:6:void Adafruit_MAX31856::setThermocoupleType(max31856_thermocoupletype_t)	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:112:29:max31856_thermocoupletype_t Adafruit_MAX31856::getThermocoupleType()	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:125:9:uint8_t Adafruit_MAX31856::readFault()	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:138:6:void Adafruit_MAX31856::setColdJunctionFaultThreshholds(int8_t, int8_t)	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:152:6:void Adafruit_MAX31856::setNoiseFilter(max31856_noise_filter_t)	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:174:6:void Adafruit_MAX31856::setTempFaultThreshholds(float, float)	32	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:197:6:void Adafruit_MAX31856::triggerOneShot()	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:215:6:bool Adafruit_MAX31856::conversionComplete()	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:228:7:float Adafruit_MAX31856::readCJTemperature()	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:239:10:uint32_t Adafruit_MAX31856::readThermocoupleTemperature()	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:272:6:void Adafruit_MAX31856::csLow()	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:282:6:void Adafruit_MAX31856::csHigh()	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:294:9:uint8_t Adafruit_MAX31856::readRegister8(uint8_t)	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:308:10:uint16_t Adafruit_MAX31856::readRegister16(uint8_t)	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:322:10:uint32_t Adafruit_MAX31856::readRegister24(uint8_t)	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:337:6:void Adafruit_MAX31856::readRegisterN(uint8_t, uint8_t*, uint8_t)	96	dynamic
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:362:6:void Adafruit_MAX31856::writeRegister8(uint8_t, uint8_t)	24	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:373:7:float Adafruit_MAX31856::convertToTemperature(int32_t)	16	static

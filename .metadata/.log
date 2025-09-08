@@ -1,0 +1,125 @@
+!SESSION 2025-09-05 05:27:42.813 -----------------------------------------------
+eclipse.buildId=Version 1.18.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-09-05 05:27:53.482
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-09-05 05:27:53.483
+!MESSAGE Log4j2 initialized with config file C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-09-05 05:27:55.758
+!MESSAGE Started RMI Server, listening on port 41338
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-05 05:28:34.940
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (79 sources, 223 headers) in 5.14 sec: 27,939 declarations; 137,781 references; 3 unresolved inclusions; 122 syntax errors; 382 unresolved names (0.23%)
+
+!ENTRY com.st.stm32cube.ide.mcu.build 1 1 2025-09-05 05:29:12.820
+!MESSAGE Converted project DeltaTPlus_STM32WB55RG_090525 to C++ in 385 (ms)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2025-09-05 08:10:27.944
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:61234
+
+Error message from debugger back end:
+localhost:61234: Connection timed out.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:61234
+
+Error message from debugger back end:
+localhost:61234: Connection timed out.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:252)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:109)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:97)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:336)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:805)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:716)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1054)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$1.run(DebugUIPlugin.java:1257)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: localhost:61234: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2025-09-05 08:10:27.945
+!MESSAGE Failed to execute MI command:
+target remote localhost:61234
+
+Error message from debugger back end:
+localhost:61234: Connection timed out.
+!STACK 0
+java.lang.Exception: localhost:61234: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-05 13:33:33.653
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (96 sources, 494 headers) in 8.83 sec: 50,331 declarations; 182,707 references; 4 unresolved inclusions; 275 syntax errors; 2,202 unresolved names (0.94%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-05 13:38:47.780
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (96 sources, 494 headers) in 5.7 sec: 50,331 declarations; 182,707 references; 4 unresolved inclusions; 275 syntax errors; 2,202 unresolved names (0.94%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-05 13:38:58.449
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (96 sources, 494 headers) in 5.49 sec: 50,331 declarations; 182,707 references; 4 unresolved inclusions; 275 syntax errors; 2,202 unresolved names (0.94%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-05 13:39:13.343
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (96 sources, 494 headers) in 6.85 sec: 50,331 declarations; 182,707 references; 4 unresolved inclusions; 275 syntax errors; 2,202 unresolved names (0.94%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-05 13:40:35.181
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (96 sources, 494 headers) in 5.61 sec: 50,331 declarations; 182,707 references; 4 unresolved inclusions; 275 syntax errors; 2,202 unresolved names (0.94%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-09-05 13:41:02.761
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (96 sources, 494 headers) in 6.25 sec: 50,331 declarations; 182,707 references; 4 unresolved inclusions; 275 syntax errors; 2,202 unresolved names (0.94%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 12:45:46.508
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 38 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 12:45:46.509
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 12:45:46.511
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 38 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 12:45:46.511
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 16:04:55.850
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 51 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 16:04:55.851
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 16:04:55.853
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 51 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 16:04:55.853
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 16:23:16.358
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 54 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 16:23:16.359
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 16:23:16.361
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 54 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-06 16:23:16.361
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-08 06:02:18.847
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 57 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-08 06:02:18.848
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-08 06:02:18.850
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 57 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-09-08 06:02:18.851
+!MESSAGE Existing sessions are:

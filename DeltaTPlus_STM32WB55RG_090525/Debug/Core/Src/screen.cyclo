@@ -1,0 +1,8 @@
+../Core/Src/screen.c:72:6:getTextBounds	1
+../Core/Src/screen.c:84:6:drawRect	5
+../Core/Src/screen.c:111:6:fillRoundRect	1
+../Core/Src/screen.c:121:6:drawLine	7
+../Core/Src/screen.c:153:6:fillCircle	4
+../Core/Src/screen.c:170:6:setCursorAndPrint	1
+../Core/Src/screen.c:188:6:drawMeterLines	7
+../Core/Src/screen.c:254:6:renderMeter	2
