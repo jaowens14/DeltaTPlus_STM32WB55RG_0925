@@ -1,0 +1,122 @@
+#ifndef _ST7789V_STM32_H
+#define _ST7789V_STM32_H
+
+#include "Adafruit_GFX.h"
+#include "spi.h"
+#include "gpio.h"
+
+// Display dimensions - adjust based on your actual display
+#define ST7789V_TFTWIDTH 240
+#define ST7789V_TFTHEIGHT 320
+
+// ST7789V Commands
+#define ST7789V_SWRESET 0x01
+#define ST7789V_SLPOUT 0x11
+#define ST7789V_NORON 0x13
+#define ST7789V_INVOFF 0x20
+#define ST7789V_INVON 0x21
+#define ST7789V_DISPOFF 0x28
+#define ST7789V_DISPON 0x29
+#define ST7789V_CASET 0x2A
+#define ST7789V_RASET 0x2B
+#define ST7789V_RAMWR 0x2C
+#define ST7789V_RAMRD 0x2E
+#define ST7789V_MADCTL 0x36
+#define ST7789V_COLMOD 0x3A
+
+// Color definitions (RGB565)
+#define ST7789V_BLACK 0x0000
+#define ST7789V_WHITE 0xFFFF
+#define ST7789V_RED 0x00F8
+#define ST7789V_GREEN 0xE007
+#define ST7789V_BLUE 0x1F00
+#define ST7789V_CYAN 0xFF07
+#define ST7789V_MAGENTA 0x1FF8
+#define ST7789V_YELLOW 0xE0FF
+
+class ST7789V_STM32 : public Adafruit_GFX
+{
+public:
+    ST7789V_STM32(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_pin,
+                  GPIO_TypeDef *dc_port, uint16_t dc_pin, GPIO_TypeDef *rst_port, uint16_t rst_pin);
+
+    void begin(void);
+    void setRotation(uint8_t r) override;
+    void invertDisplay(bool i) override;
+
+    // Core drawing function - must be implemented
+    void drawPixel(int16_t x, int16_t y, uint16_t color) override;
+
+    // Optimized drawing functions
+    void fillScreen(uint16_t color) override;
+    void fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color) override;
+    void drawFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color) override;
+    void drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color) override;
+
+    // Transaction API
+    void startWrite(void) override;
+    void endWrite(void) override;
+    void writePixel(int16_t x, int16_t y, uint16_t color) override;
+    void writeFillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color) override;
+    void writeFastVLine(int16_t x, int16_t y, int16_t h, uint16_t color) override;
+    void writeFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color) override;
+
+    // Sleep functions
+    void enterSleep(void);
+    void exitSleep(void);
+
+    // Canvas support
+    void setWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
+    void writeBuffer(uint16_t *buffer, uint32_t len);
+    void writeBufferDMA(uint16_t *buffer, uint32_t len);
+
+    void dmaTransferCompleteCallback();
+
+    volatile bool _dmaTransferComplete;
+    bool _inTransaction;
+
+    // DMA transfer parameters
+    static const uint32_t MAX_CHUNK_SIZE = 32766; // Max safe DMA transfer size
+    uint8_t *byteBuffer = nullptr;
+    uint32_t totalBytes = 0;
+    uint32_t bytesRemaining = 0;
+    uint32_t currentOffset = 0;
+
+private:
+    SPI_HandleTypeDef *_hspi;
+
+    // GPIO pins
+    GPIO_TypeDef *_cs_port, *_dc_port, *_rst_port;
+    uint16_t _cs_pin, _dc_pin, _rst_pin;
+
+
+    struct DMATransferState {
+        uint8_t* buffer;
+        uint32_t totalBytes;
+        uint32_t bytesTransferred;
+        uint32_t currentChunkSize;
+        bool isActive;
+    } _dmaState;
+
+    static const uint32_t MAX_DMA_CHUNK = 65535; // Max DMA transfer size
+
+    // Low-level hardware functions
+    void writeCommand(uint8_t cmd);
+    void writeData(uint8_t data);
+    void writeData16(uint16_t data);
+    // void setWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
+    void spiWrite(uint8_t data);
+    void spiWrite16(uint16_t data);
+
+    // Hardware control
+    void csLow(void);
+    void csHigh(void);
+    void dcLow(void);
+    void dcHigh(void);
+    void rstLow(void);
+    void rstHigh(void);
+
+    bool _inTransaction;
+};
+
+#endif // _ST7789V_STM32_H

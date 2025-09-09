@@ -1,0 +1,43 @@
+#ifndef ACCELEROMETER_HPP
+#define ACCELEROMETER_HPP
+
+#include "i2c.h"
+#include "usbd_cdc_if.h"
+#include "main.h"
+// #define STATUS_LED 0
+#define ADXL343_ADDR (0x53 << 1) // Correct 8-bit address for grounded ALT_ADDRESS
+
+class Accelerometer
+{
+public:
+    volatile int delay = 0;
+    volatile int readDelay = 0;
+    enum States
+    {
+        AWAKE,
+        IDLE,
+        SLEEP,
+
+    };
+
+    static States state;
+
+    void setup(void);
+    void stateMachine(void);
+    void readAccelerometer(void);
+
+    uint32_t activityThreshold = 50; // find this
+    uint32_t idleTime = 15;          // seconds
+    uint32_t acceleration = 0;       // return max from sensor
+
+    uint8_t powerCtl = 0x08;
+    uint8_t accreg = 0x32; // Start from DATAX0
+    uint8_t accdata[6];
+
+    char accmsg[64];
+};
+
+// state machine note:
+// if the measurements have been low for awhile go to sleep
+
+#endif // ACCELEROMETER_HPP

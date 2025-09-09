@@ -3,6 +3,8 @@
 // Static member definitions
 float Thermocouples::deltaTemp = 0.0;
 
+KALMAN_T rf;
+KALMAN_T lf;
 // Static member definitions for MAX31856 objects
 
 void Thermocouples::setup()
@@ -10,21 +12,26 @@ void Thermocouples::setup()
     // SPI_Set_Mode(1);
 
     // Re-initialize the SPI handle pointers
-    left = Adafruit_MAX31856(&hspi1, GPIOA, GPIO_PIN_8);
-    right = Adafruit_MAX31856(&hspi1, GPIOA, GPIO_PIN_9);
+    left = Adafruit_MAX31856(&hspi1, GPIOA, GPIO_PIN_9);
+    right = Adafruit_MAX31856(&hspi1, GPIOA, GPIO_PIN_8);
 
-    error = 0;
-    estimate = 20.0f; // deg C
-    process_variance = 0.1f;
-    measurement_variance = 50.0f;
+    rf.error = 0.0f;
+    rf.estimate = 0.0f;
+    rf.process_variance = 0.1f;
+    rf.measurement_variance = 50.0f;
 
-    diameter = 0.000812f;                // 20 gauge wire diameter, meters
-    length = 0.0254f;                    // 1 inch in meters
-    area = 3.14159f * diameter * length; // surface area in m^2
-    ambientTemp = 20.0f;
-    h = 500;      // W/m^2 * K
-    C = 0.000053; // J /K
-    lastTime = HAL_GetTick();
+    lf.error = 0.0f;
+    lf.estimate = 0.0f;
+    lf.process_variance = 0.1f;
+    lf.measurement_variance = 50.0f;
+
+    // diameter = 0.000812f;                // 20 gauge wire diameter, meters
+    // length = 0.0254f;                    // 1 inch in meters
+    // area = 3.14159f * diameter * length; // surface area in m^2
+    // ambientTemp = 20.0f;
+    // h = 500;      // W/m^2 * K
+    // C = 0.000053; // J /K
+    // lastTime = HAL_GetTick();
     left.begin();
     left.setThermocoupleType(MAX31856_TCTYPE_K);
     left.setConversionMode(MAX31856_CONTINUOUS);
@@ -71,20 +78,20 @@ void Thermocouples::stateMachine(void)
         rightTemp = rightRawTemp;
         leftTemp = leftRawTemp;
 
-        measurement = 0.0078125f * (rightTemp); // or use delta if necessary
+        rf.measurement = 0.0078125f * (rightTemp); // deg c
+        lf.measurement = 0.0078125f * (leftTemp);  // deg c
+                                                   //
+        rf.error = rf.error + rf.process_variance;
+        rf.gain = rf.error / (rf.error + rf.measurement_variance);
+        rf.estimate = rf.estimate + rf.gain * (rf.measurement - rf.estimate);
+        rf.error = (1.0 - rf.gain) * rf.error;
+        //
+        lf.error = lf.error + lf.process_variance;
+        lf.gain = lf.error / (lf.error + lf.measurement_variance);
+        lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
+        lf.error = (1.0 - lf.gain) * lf.error;
 
-        // Thermal model prediction (convert units if necessary for h/C)
-        prediction = estimate; //+ (area * h / C) * (ambientTemp - estimate) * ((currentTime - lastTime) / 1000.0f);
-
-        error = error + process_variance;
-        kalman_gain = error / (error + measurement_variance);
-        estimate = estimate + kalman_gain * (measurement - prediction);
-        error = (1 - kalman_gain) * error;
-        deltaTemp = estimate;
-
-        lastTime = currentTime;
-
-        // deltaTemp = rightTemp - leftTemp; // leaky integrator with a gain of 0.1
+        deltaTemp = (rf.estimate - lf.estimate) * 35.0;
 
         // snprintf(usbBuffer, sizeof(usbBuffer), "LEFT: %f     RIGHT: %f     DELTA: %f \r\n", convertToTemperature(leftRawTemp), convertToTemperature(rightRawTemp), deltaTemp);
         // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
@@ -96,11 +103,11 @@ void Thermocouples::stateMachine(void)
         // snprintf(usbBuffer, sizeof(usbBuffer), "Delta T: %f.2 Deg C\r\n", convertToTemperature(deltaTemp));
         // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
 
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Left: %f  Right: %f\r\n", lf.measurement, rf.measurement);
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
-
-
-        snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "Raw Delta T: %f\r\n", deltaTemp);
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Delta Temp: %f\r\n", deltaTemp);
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
         delay = 1; // 50 ms
     }

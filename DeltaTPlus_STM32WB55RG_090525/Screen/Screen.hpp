@@ -17,15 +17,17 @@
 
 class Screen
 {
-private:
+//private:
     // Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);
+
+
+
+public:
 
     ST7789V_STM32 tft = ST7789V_STM32(&hspi2,
                                       GPIOA, GPIO_PIN_3,  // CS pin
                                       GPIOA, GPIO_PIN_2,  // DC pin
                                       GPIOA, GPIO_PIN_1); // RST pin
-
-public:
     volatile int switchPageDelay = 0; // 200ms
     volatile int renderDelay = 0;     // 60hz
 

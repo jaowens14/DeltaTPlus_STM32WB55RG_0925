@@ -1,0 +1,57 @@
+#ifndef THERMOCOUPLES_HPP
+#define THERMOCOUPLES_HPP
+
+#include <Adafruit_MAX31856.h>
+#include "spi.h"
+#include "gpio.h"
+#include "usart.h"
+#include <stdio.h>
+#include <string.h>
+
+class Thermocouples
+{
+private:
+    Adafruit_MAX31856 left;
+    Adafruit_MAX31856 right;
+
+public:
+    volatile int delay = 1;
+    void setup(void);
+    void stateMachine(void);
+    float convertToTemperature(int32_t rawTemp);
+
+    static float deltaTemp;
+    float measurement;
+    float prediction;
+    float error;
+    float kalman_gain;
+    float estimate;
+    float process_variance;
+    float measurement_variance;
+    float h;
+    float C;
+    float ambientTemp;
+    float diameter;
+    float length;
+    float area;
+    uint32_t currentTime;
+    uint32_t lastTime;
+
+    int32_t leftRawTemp;
+    int32_t rightRawTemp;
+    float leftTemp;
+    float rightTemp;
+};
+
+typedef struct
+{
+	 float measurement;
+	    float prediction;
+	    float error;
+	    float kalman_gain;
+	    float estimate;
+	    float process_variance;
+	    float measurement_variance;
+} KALMAN_T;
+
+#endif

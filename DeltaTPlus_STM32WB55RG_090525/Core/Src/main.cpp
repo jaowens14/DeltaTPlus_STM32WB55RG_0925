@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "i2c.h"
 #include "ipcc.h"
 #include "memorymap.h"
@@ -151,6 +152,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   }
 }
 
+
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+    if (hspi == myScreen.tft._hspi) { // Make sure it's the right SPI instance
+    	myScreen.tft.dmaTransferCompleteCallback();
+    }
+}
+
 /* USER CODE END 0 */
 
 /**
@@ -190,6 +200,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_RTC_Init();
   MX_I2C1_Init();
   MX_SPI1_Init();

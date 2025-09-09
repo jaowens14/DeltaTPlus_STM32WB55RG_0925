@@ -1,2 +1,2 @@
 ../Core/Src/BatteryMonitor.cpp:9:6:void BatteryMonitor::setup()	16	static
-../Core/Src/BatteryMonitor.cpp:30:6:void BatteryMonitor::stateMachine()	16	static
+../Core/Src/BatteryMonitor.cpp:30:6:void BatteryMonitor::stateMachine()	24	static

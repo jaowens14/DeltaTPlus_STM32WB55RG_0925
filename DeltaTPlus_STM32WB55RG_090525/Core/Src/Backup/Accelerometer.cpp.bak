@@ -112,6 +112,8 @@ void Accelerometer::readAccelerometer(void)
         // float y_g = y * 0.0039f;
         // float z_g = z * 0.0039f;
 
-        // snprintf(accmsg, sizeof(accmsg), "X: %.2fg, Y: %.2fg, Z: %.2fg\r\n", x_g, y_g, z_g);
+        snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "X: %.2fg, Y: %.2fg\r\n", x, y);
+
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
     }
 }

@@ -1,7 +1,6 @@
 #include "ST7789V_STM32.h"
 #include "spi.h"
 
-ST7789V_STM32::DmaStates ST7789V_STM32::dmaState;
 
 ST7789V_STM32::ST7789V_STM32(SPI_HandleTypeDef *hspi, GPIO_TypeDef *cs_port, uint16_t cs_pin,
                              GPIO_TypeDef *dc_port, uint16_t dc_pin, GPIO_TypeDef *rst_port, uint16_t rst_pin)
@@ -16,7 +15,7 @@ void ST7789V_STM32::begin(void)
 {
   // dmaState = INIT;
 
-  dmaState = INIT;
+
 
   // Hardware reset sequence
   rstHigh();
@@ -408,97 +407,71 @@ void ST7789V_STM32::writeBuffer(uint16_t *buffer, uint32_t len)
 
 void ST7789V_STM32::writeBufferDMA(uint16_t *buffer, uint32_t len)
 {
-	   switch (dmaState)
-	    {
-	    case INIT:
-	    {
-	        // Wait for SPI to be ready before starting
-	        if (HAL_SPI_GetState(_hspi) != HAL_SPI_STATE_READY) {
-	            return; // Try again later
-	        }
+    // Don't start new transfer if one is already in progress
+    if (_dmaState.isActive) {
+        return; // Or handle this error condition as needed
+    }
 
-	        byteBuffer = (uint8_t *)buffer;
-	        totalBytes = len * 2;
-	        bytesRemaining = totalBytes;
-	        currentOffset = 0;
+    if (!_inTransaction)
+        csLow();
+    dcHigh();
 
-	        if (!_inTransaction)
-	            csLow();
-	        dcHigh();
+    // Initialize DMA transfer state
+    _dmaState.buffer = (uint8_t *)buffer;
+    _dmaState.totalBytes = len * 2; // Convert 16-bit length to bytes
+    _dmaState.bytesTransferred = 0;
+    _dmaState.isActive = true;
+    _dmaTransferComplete = false;
 
-	        uint32_t firstChunk = (bytesRemaining > MAX_CHUNK_SIZE) ? MAX_CHUNK_SIZE : bytesRemaining;
+    // Start first chunk
+    uint32_t firstChunk = (_dmaState.totalBytes > MAX_DMA_CHUNK) ?
+                         MAX_DMA_CHUNK : _dmaState.totalBytes;
 
-	        if (HAL_SPI_Transmit_DMA(_hspi, byteBuffer + currentOffset, firstChunk) == HAL_OK)
-	        {
-	            currentOffset += firstChunk;
-	            bytesRemaining -= firstChunk;
-	            dmaState = BUSY;
-	        }
-	        else
-	        {
-	            if (!_inTransaction)
-	                csHigh();
-	            dmaState = ERROR;
-	        }
-	        break;
-	    }
-	    case BUSY:
-	    {
-	        HAL_SPI_StateTypeDef spiState = HAL_SPI_GetState(_hspi);
+    _dmaState.currentChunkSize = firstChunk;
 
-	        // Check for error states first
-	        if (spiState == HAL_SPI_STATE_ERROR) {
-	            if (!_inTransaction)
-	                csHigh();
-	            dmaState = ERROR;
-	            break;
-	        }
+    // Start DMA transfer
+    HAL_StatusTypeDef status = HAL_SPI_Transmit_DMA(_hspi, _dmaState.buffer, firstChunk);
 
-	        if (spiState == HAL_SPI_STATE_READY)
-	        {
-	            if (bytesRemaining > 0)
-	            {
-	                uint32_t nextChunk = (bytesRemaining > MAX_CHUNK_SIZE) ? MAX_CHUNK_SIZE : bytesRemaining;
-
-	                if (HAL_SPI_Transmit_DMA(_hspi, byteBuffer + currentOffset, nextChunk) == HAL_OK)
-	                {
-	                    currentOffset += nextChunk;
-	                    bytesRemaining -= nextChunk;
-	                    // Stay in BUSY state
-	                }
-	                else
-	                {
-	                    if (!_inTransaction)
-	                        csHigh();
-	                    dmaState = ERROR;
-	                }
-	            }
-	            else
-	            {
-	                if (!_inTransaction)
-	                    csHigh();
-	                dmaState = DONE;
-	            }
-	        }
-	        // If still busy (HAL_SPI_STATE_BUSY_TX), just return
-	        break;
-	    }
-  case DONE:
-  {
-    // Transfer complete, reset for next transfer
-    dmaState = INIT;
-    break;
-  }
-  case ERROR:
-  {
-    // Handle error state
-    dmaState = INIT;
-    break;
-  }
-  default:
-  {
-    dmaState = INIT;
-    break;
-  }
-  }
+    if (status != HAL_OK) {
+        // Handle error - fall back to blocking mode or return error
+        _dmaState.isActive = false;
+        if (!_inTransaction)
+            csHigh();
+    }
 }
+
+void ST7789V_STM32::dmaTransferCompleteCallback()
+{
+    _dmaState.bytesTransferred += _dmaState.currentChunkSize;
+
+    // Check if there are more chunks to send
+    if (_dmaState.bytesTransferred < _dmaState.totalBytes) {
+        // Calculate next chunk size
+        uint32_t remaining = _dmaState.totalBytes - _dmaState.bytesTransferred;
+        uint32_t nextChunk = (remaining > MAX_DMA_CHUNK) ? MAX_DMA_CHUNK : remaining;
+
+        _dmaState.currentChunkSize = nextChunk;
+
+        // Start next chunk
+        HAL_StatusTypeDef status = HAL_SPI_Transmit_DMA(_hspi,
+                                                       _dmaState.buffer + _dmaState.bytesTransferred,
+                                                       nextChunk);
+
+        if (status != HAL_OK) {
+            // Handle error
+            _dmaState.isActive = false;
+            _dmaTransferComplete = true;
+            if (!_inTransaction)
+                csHigh();
+        }
+    } else {
+        // All chunks transferred
+        _dmaState.isActive = false;
+        _dmaTransferComplete = true;
+
+        if (!_inTransaction)
+            csHigh();
+    }
+}
+
+

@@ -52,11 +52,11 @@ void Screen::updateMeter(void)
     // //  Serial.println(Thermocouples::deltaTemp);
     // //  Serial.println();
 
-    needleAngle = Thermocouples::deltaTemp - 90;
+    needleAngle = Thermocouples::deltaTemp - 90.0;
 
     canvas.setCursor(batteryX * 6, batteryY * 6);
 
-    snprintf(needleBuffer, sizeof(needleBuffer), "needleAngle: %f\r\n", needleAngle);
+    snprintf(needleBuffer, sizeof(needleBuffer), "needleAngle: %ld\r\n", (long)needleAngle);
 
     canvas.print(needleBuffer);
 

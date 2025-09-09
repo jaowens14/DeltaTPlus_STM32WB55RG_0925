@@ -70,16 +70,8 @@ public:
     void writeBuffer(uint16_t *buffer, uint32_t len);
     void writeBufferDMA(uint16_t *buffer, uint32_t len);
 
-    /// dma state machine
+    void dmaTransferCompleteCallback();
 
-    enum DmaStates
-    {
-        INIT, // restart buffer counts (0 .. chunk 1, chunk 2,)
-        BUSY, // send chunks
-        DONE, // done sending chunks
-        ERROR,
-    };
-    static DmaStates dmaState;
 
     // DMA transfer parameters
     static const uint32_t MAX_CHUNK_SIZE = 32766; // Max safe DMA transfer size
@@ -87,13 +79,26 @@ public:
     uint32_t totalBytes = 0;
     uint32_t bytesRemaining = 0;
     uint32_t currentOffset = 0;
-
-private:
     SPI_HandleTypeDef *_hspi;
+private:
+
 
     // GPIO pins
     GPIO_TypeDef *_cs_port, *_dc_port, *_rst_port;
     uint16_t _cs_pin, _dc_pin, _rst_pin;
+    volatile bool _dmaTransferComplete;
+    bool _inTransaction;
+
+
+    struct DMATransferState {
+        uint8_t* buffer;
+        uint32_t totalBytes;
+        uint32_t bytesTransferred;
+        uint32_t currentChunkSize;
+        bool isActive;
+    } _dmaState;
+
+    static const uint32_t MAX_DMA_CHUNK = 65535; // Max DMA transfer size
 
     // Low-level hardware functions
     void writeCommand(uint8_t cmd);
@@ -111,7 +116,7 @@ private:
     void rstLow(void);
     void rstHigh(void);
 
-    bool _inTransaction;
+
 };
 
 #endif // _ST7789V_STM32_H

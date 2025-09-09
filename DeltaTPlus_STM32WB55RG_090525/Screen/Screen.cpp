@@ -75,10 +75,11 @@ void Screen::writeCanvas(void)
 
     // SPI_Set_Mode(0);
     uint16_t *buffer = canvas.getBuffer();
-    tft.startWrite();
-    tft.writeBuffer(buffer, totalPixels);
+    //tft.startWrite();
+    //tft.writeBuffer(buffer, totalPixels);
     // tft.writeBufferDMA(buffer, totalPixels);
-    tft.endWrite();
+    tft.writeBufferDMA(buffer, totalPixels);
+    //tft.endWrite();
     // SPI_Set_Mode(1);
 }
 

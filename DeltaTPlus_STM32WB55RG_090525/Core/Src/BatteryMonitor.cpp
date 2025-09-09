@@ -39,7 +39,11 @@ void BatteryMonitor::stateMachine(void)
         charging = (max17048.chargeRate() > 0.0);
         // Serial.println(max17048.chargeRate());
 
-        // snprintf(usbBuffer, sizeof(usbBuffer), "Battery: %f\r\n", max17048.cellPercent());
+        // snprintf(usbBuffer, sizeof(usbBuffer), );
         // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
+
+        snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
+
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
     }
 }

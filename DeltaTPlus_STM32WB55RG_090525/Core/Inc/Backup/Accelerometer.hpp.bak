@@ -2,8 +2,10 @@
 #define ACCELEROMETER_HPP
 
 #include "i2c.h"
-#include "usbd_cdc_if.h"
+#include "usart.h"
 #include "main.h"
+
+
 // #define STATUS_LED 0
 #define ADXL343_ADDR (0x53 << 1) // Correct 8-bit address for grounded ALT_ADDRESS
 

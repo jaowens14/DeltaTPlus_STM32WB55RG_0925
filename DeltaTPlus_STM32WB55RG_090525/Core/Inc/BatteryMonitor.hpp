@@ -3,7 +3,7 @@
 
 #include "Adafruit_MAX1704X.h"
 #include "i2c.h"
-#include "usbd_cdc_if.h"
+#include "usart.h"
 
 class BatteryMonitor
 {

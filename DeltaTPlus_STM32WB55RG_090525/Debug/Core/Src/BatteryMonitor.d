@@ -65,14 +65,7 @@ Core/Src/BatteryMonitor.o: ../Core/Src/BatteryMonitor.cpp \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h \
  ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h \
  ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/i2c.h \
- ../Core/Inc/i2c.h ../USB_Device/App/usbd_cdc_if.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../USB_Device/Target/usbd_conf.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h
+ ../Core/Inc/i2c.h ../Core/Inc/usart.h
 ../Core/Inc/BatteryMonitor.hpp:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library/Adafruit_MAX1704X.h:
 ../Core/Inc/gpio.h:
@@ -144,11 +137,4 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 ../Core/Inc/app_common.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/i2c.h:
-../USB_Device/App/usbd_cdc_if.h:
-../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
-../USB_Device/Target/usbd_conf.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
+../Core/Inc/usart.h:

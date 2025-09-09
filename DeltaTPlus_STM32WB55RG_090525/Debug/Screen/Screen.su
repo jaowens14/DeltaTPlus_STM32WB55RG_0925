@@ -5,4 +5,4 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 ../Screen/Screen.cpp:3:6:void Screen::setup()	32	static
 ../Screen/Screen.cpp:30:6:void Screen::stateMachine()	16	static
 ../Screen/Screen.cpp:73:6:void Screen::writeCanvas()	24	static
-../Screen/Screen.cpp:107:7:float Screen::radians(float)	16	static
+../Screen/Screen.cpp:108:7:float Screen::radians(float)	16	static

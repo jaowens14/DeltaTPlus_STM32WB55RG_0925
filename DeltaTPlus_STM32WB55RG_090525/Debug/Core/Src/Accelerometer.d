@@ -62,15 +62,7 @@ Core/Src/Accelerometer.o: ../Core/Src/Accelerometer.cpp \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_gpio.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h \
  ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h \
- ../Core/Inc/app_entry.h ../Core/Inc/app_common.h \
- ../USB_Device/App/usbd_cdc_if.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../USB_Device/Target/usbd_conf.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
+ ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/usart.h \
  ../Core/Inc/Backlight.hpp ../Core/Inc/tim.h ../Core/Inc/main.h
 ../Core/Inc/Accelerometer.hpp:
 ../Core/Inc/i2c.h:
@@ -140,14 +132,7 @@ Core/Src/Accelerometer.o: ../Core/Src/Accelerometer.cpp \
 ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h:
 ../Core/Inc/app_entry.h:
 ../Core/Inc/app_common.h:
-../USB_Device/App/usbd_cdc_if.h:
-../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
-../USB_Device/Target/usbd_conf.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
+../Core/Inc/usart.h:
 ../Core/Inc/Backlight.hpp:
 ../Core/Inc/tim.h:
 ../Core/Inc/main.h:

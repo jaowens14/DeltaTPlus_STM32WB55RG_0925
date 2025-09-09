@@ -61,10 +61,11 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_gpio.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h \
  ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h \
- ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/i2c.h \
- ../Core/Inc/main.h ../Core/Inc/ipcc.h ../Core/Inc/memorymap.h \
- ../Core/Inc/rf.h ../Core/Inc/rtc.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
- ../Core/Inc/usart.h ../USB_Device/App/usb_device.h \
+ ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/dma.h \
+ ../Core/Inc/main.h ../Core/Inc/i2c.h ../Core/Inc/ipcc.h \
+ ../Core/Inc/memorymap.h ../Core/Inc/rf.h ../Core/Inc/rtc.h \
+ ../Core/Inc/spi.h ../Core/Inc/tim.h ../Core/Inc/usart.h \
+ ../USB_Device/App/usb_device.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  ../USB_Device/Target/usbd_conf.h ../Core/Inc/gpio.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h \
@@ -77,20 +78,13 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen/Screen.hpp \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Fonts/FreeSans9pt7b.h \
- ../Core/Inc/Accelerometer.hpp ../Core/Inc/i2c.h \
- ../USB_Device/App/usbd_cdc_if.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h \
- ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h \
+ ../Core/Inc/Accelerometer.hpp ../Core/Inc/i2c.h ../Core/Inc/usart.h \
  ../Core/Inc/Backlight.hpp ../Core/Inc/tim.h \
  ../Core/Inc/Thermocouples.hpp \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library/Adafruit_MAX31856.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library/Adafruit_MAX31856.h \
- ../Core/Inc/gpio.h ../Core/Inc/usart.h ../Core/Inc/DeltaT.h \
- ../Core/Inc/screen.h ../Core/Inc/BatteryMonitor.hpp \
+ ../Core/Inc/gpio.h ../Core/Inc/DeltaT.h ../Core/Inc/screen.h \
+ ../Core/Inc/BatteryMonitor.hpp \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library/Adafruit_MAX1704X.h
 ../Core/Inc/main.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:
@@ -158,8 +152,9 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h:
 ../Core/Inc/app_entry.h:
 ../Core/Inc/app_common.h:
-../Core/Inc/i2c.h:
+../Core/Inc/dma.h:
 ../Core/Inc/main.h:
+../Core/Inc/i2c.h:
 ../Core/Inc/ipcc.h:
 ../Core/Inc/memorymap.h:
 ../Core/Inc/rf.h:
@@ -185,20 +180,13 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Fonts/FreeSans9pt7b.h:
 ../Core/Inc/Accelerometer.hpp:
 ../Core/Inc/i2c.h:
-../USB_Device/App/usbd_cdc_if.h:
-../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc/usbd_cdc.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h:
-../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h:
+../Core/Inc/usart.h:
 ../Core/Inc/Backlight.hpp:
 ../Core/Inc/tim.h:
 ../Core/Inc/Thermocouples.hpp:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library/Adafruit_MAX31856.h:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library/Adafruit_MAX31856.h:
 ../Core/Inc/gpio.h:
-../Core/Inc/usart.h:
 ../Core/Inc/DeltaT.h:
 ../Core/Inc/screen.h:
 ../Core/Inc/BatteryMonitor.hpp:

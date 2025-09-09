@@ -21,13 +21,7 @@ public:
     float convertToTemperature(int32_t rawTemp);
 
     static float deltaTemp;
-    float measurement;
-    float prediction;
-    float error;
-    float kalman_gain;
-    float estimate;
-    float process_variance;
-    float measurement_variance;
+
     float h;
     float C;
     float ambientTemp;
@@ -42,5 +36,16 @@ public:
     float leftTemp;
     float rightTemp;
 };
+
+typedef struct
+{
+	 float measurement;
+	 float prediction;
+	 float error;
+	 float gain;
+	 float estimate;
+	 float process_variance;
+	 float measurement_variance;
+} KALMAN_T;
 
 #endif
