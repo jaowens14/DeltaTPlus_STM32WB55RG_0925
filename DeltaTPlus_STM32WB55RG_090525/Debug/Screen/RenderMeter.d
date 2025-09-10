@@ -71,7 +71,9 @@ Screen/RenderMeter.o: ../Screen/RenderMeter.cpp ../Screen/Screen.hpp \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/ST7789V_STM32.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h \
  ../Core/Inc/gpio.h ../Core/Inc/Switch.hpp ../Core/Inc/gpio.h \
- ../Core/Inc/usart.h
+ ../Core/Inc/usart.h ../Core/Inc/BatteryMonitor.hpp \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library/Adafruit_MAX1704X.h \
+ ../Core/Inc/i2c.h ../Core/Inc/i2c.h
 ../Screen/Screen.hpp:
 ../Core/Inc/spi.h:
 ../Core/Inc/main.h:
@@ -151,3 +153,7 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 ../Core/Inc/Switch.hpp:
 ../Core/Inc/gpio.h:
 ../Core/Inc/usart.h:
+../Core/Inc/BatteryMonitor.hpp:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library/Adafruit_MAX1704X.h:
+../Core/Inc/i2c.h:
+../Core/Inc/i2c.h:

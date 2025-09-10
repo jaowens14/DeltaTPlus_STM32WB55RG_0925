@@ -5,7 +5,6 @@
 #include "usart.h"
 #include "main.h"
 
-
 // #define STATUS_LED 0
 #define ADXL343_ADDR (0x53 << 1) // Correct 8-bit address for grounded ALT_ADDRESS
 
@@ -17,7 +16,6 @@ public:
     enum States
     {
         AWAKE,
-        IDLE,
         SLEEP,
 
     };
@@ -28,9 +26,9 @@ public:
     void stateMachine(void);
     void readAccelerometer(void);
 
-    uint32_t activityThreshold = 50; // find this
-    uint32_t idleTime = 15;          // seconds
-    uint32_t acceleration = 0;       // return max from sensor
+    int32_t activityThreshold = 262144; // find this
+    uint32_t idleTime = 15;             // seconds
+    int32_t acceleration = 0;           // return max from sensor
 
     uint8_t powerCtl = 0x08;
     uint8_t accreg = 0x32; // Start from DATAX0

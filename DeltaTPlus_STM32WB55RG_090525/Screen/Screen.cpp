@@ -15,7 +15,7 @@ void Screen::setup(void)
     tft.setRotation(2); // places the screen connector further away from the probe tubes
     canvas.setFont(&FreeSerif9pt7b);
     canvas.setTextWrap(true);
-    canvas.setTextSize(1);
+    canvas.setTextSize(0);
     tft.setWindow(0, 0, canvas.width() - 1, canvas.height() - 1);
 
     // initial state: meter

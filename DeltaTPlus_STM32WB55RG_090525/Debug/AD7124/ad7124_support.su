@@ -1,0 +1,4 @@
+../AD7124/ad7124_support.c:62:9:ad7124_get_channel_setup	16	static
+../AD7124/ad7124_support.c:77:9:ad7124_get_channel_pga	24	static
+../AD7124/ad7124_support.c:94:6:ad7124_get_channel_bipolar	24	static
+../AD7124/ad7124_support.c:117:7:ad7124_convert_sample_to_voltage	40	static

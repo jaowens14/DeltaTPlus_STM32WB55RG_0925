@@ -120,6 +120,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       //{
       //  thermocoupleDelay--;
       //}
+
+      if (myAccelerometer.readDelay)
+      {
+        myAccelerometer.readDelay--;
+      }
     }
 
     if ((timerCounter % 1000) == 0)
@@ -138,10 +143,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       if (myAccelerometer.delay)
       {
         myAccelerometer.delay--;
-      }
-      if (myAccelerometer.readDelay)
-      {
-        myAccelerometer.readDelay--;
       }
 
       if (myBatteryMonitor.delay)

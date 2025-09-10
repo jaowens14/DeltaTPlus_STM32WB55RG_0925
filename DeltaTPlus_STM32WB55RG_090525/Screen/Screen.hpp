@@ -166,6 +166,8 @@ public:
 
     bool switchPage = false;
 
+    char lastBatteryLevel[32];
+
     char batteryLevel[32];
     char needleBuffer[32];
     char switchBuffer[32];

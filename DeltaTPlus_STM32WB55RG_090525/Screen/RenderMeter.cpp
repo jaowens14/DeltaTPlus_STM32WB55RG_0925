@@ -2,6 +2,7 @@
 #include "ST7789V_STM32.h"
 #include "Adafruit_GFX.h"
 #include <cmath>
+#include "BatteryMonitor.hpp"
 
 inline double radians(double degrees)
 {
@@ -41,9 +42,10 @@ void Screen::renderMeter()
     canvas.drawPixel(10, 11, ACCENT_COLOR);
     canvas.drawPixel(10, 12, ACCENT_COLOR);
     canvas.drawPixel(10, 13, ACCENT_COLOR);
+    snprintf(batteryLevel, sizeof(batteryLevel), "% %d\r\n", BatteryMonitor::charge);
 
     // calculate the size of a few things....
-    canvas.getTextBounds("40%", 0, 0, &batteryTextX, &batteryTextY, &batteryW, &batteryH);
+    canvas.getTextBounds(batteryLevel, 0, 0, &batteryTextX, &batteryTextY, &batteryW, &batteryH);
     // origin of battery text based on its size...
     batteryX = overallBorderWidth - batteryW - 2 * batterySpacer;
     batteryY = statusBorderY + statusHeight / 2 + batteryH / 2;
@@ -56,7 +58,7 @@ void Screen::renderMeter()
     // // Serial.println(batteryY);
     canvas.setTextColor(TEXT_COLOR);
     canvas.setCursor(batteryX, batteryY);
-    canvas.print("40%");
+    canvas.print(batteryLevel);
 
     // calculate size of charging:
     canvas.getTextBounds("+ ", 0, 0, &chargingTextX, &chargingTextY, &chargingW, &chargingH);

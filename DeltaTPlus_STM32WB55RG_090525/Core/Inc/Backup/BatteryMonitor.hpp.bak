@@ -15,7 +15,7 @@ public:
     volatile int delay = 10;
     // bool newData;
     //  char *lastPercent;
-    static float percent;
+    static uint16_t charge;
     static bool charging;
 
     void setup(void);

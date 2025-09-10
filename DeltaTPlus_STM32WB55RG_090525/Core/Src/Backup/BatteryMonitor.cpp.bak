@@ -6,6 +6,8 @@
 // char *BatteryMonitor::lastPercent = "000.00%";
 // bool BatteryMonitor::newData = false;
 bool BatteryMonitor::charging = false;
+uint16_t BatteryMonitor::charge = 0;
+
 void BatteryMonitor::setup()
 {
     // Wire1.setPins(PERIPHERAL_SDA, PERIPHERAL_SCL);
@@ -13,9 +15,9 @@ void BatteryMonitor::setup()
     while (!max17048.begin(&hi2c1, MAX17048_I2CADDR_DEFAULT))
     {
         // Serial.println(F("Couldnt find Adafruit MAX17048?\nMake sure a battery is plugged in!"));
-        snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "Couldnt find Adafruit MAX17048?\r\n");
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Couldnt find Adafruit MAX17048?\r\n");
 
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
         HAL_Delay(1000);
     }
     // Serial.print(F("Found MAX17048"));
@@ -45,13 +47,21 @@ void BatteryMonitor::stateMachine(void)
         // snprintf(usbBuffer, sizeof(usbBuffer), );
         // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
 
-        snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
 
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Charge Rate: %f\r\n", max17048.chargeRate());
 
-        snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "Charge Rate: %f\r\n", max17048.chargeRate());
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
+        if (max17048.cellPercent() >= 100)
+        {
+            charge = 100;
+        }
+        else
+        {
+            charge = (uint16_t)max17048.cellPercent();
+        }
     }
 }

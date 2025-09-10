@@ -31,6 +31,7 @@ RM := rm -rf
 -include Adafruit_MAX31856_Library/subdir.mk
 -include Adafruit_GFX_Library-1.12.0/subdir.mk
 -include Adafruit_1704X_Library/subdir.mk
+-include AD7124/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

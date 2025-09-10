@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DeltaTPlus_STM32WB55RG_090525/AD7124/ad7124_console_app.c&apos; to &apos;ad7124_console_app_c&apos;" description="Rename resource &apos;ad7124_console_app.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="AD7124/ad7124_console_app.c" name="ad7124_console_app_c" stamp="1757498020645" updateReferences="true"/>
+</session>

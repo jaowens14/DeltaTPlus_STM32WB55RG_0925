@@ -7,25 +7,14 @@
 #include <stdlib.h>
 void Screen::updateMeter(void)
 {
-    // canvas.byteSwap();
-    // if (!renderDelay)
-    //{
+    snprintf(batteryLevel, sizeof(batteryLevel), "%d %%\r\n", BatteryMonitor::charge);
 
-    // Alternative approach with double-buffering if your display supports it
-    // Add this to your setup:
-    // canvas.setTextSize(1);
-    // int previousBatteryX = 0; // Store previous position
-    //
-    // // snprintf(batteryLevel, sizeof(batteryLevel), "%.2f", BatteryMonitor::percent);
-    // //  Calculate new position
-    // canvas.getTextBounds(batteryLevel, 0, 0, &batteryTextX, &batteryTextY, &batteryW, &batteryH);
-    // batteryX = overallBorderWidth - batteryW - batterySpacer;
-    //
-    // // Clear the larger of the two areas (old and new position)
-    // int clearX = std::min(previousBatteryX, batteryX);
-    // int clearWidth = std::max(previousBatteryX + batteryW,
-    //                          batteryX + batteryW) -
-    //                 clearX;
+    canvas.getTextBounds(batteryLevel, 0, 0, &batteryTextX, &batteryTextY, &batteryW, &batteryH);
+    batteryX = overallBorderWidth - batteryW - batterySpacer;
+
+    // Clear the larger of the two areas (old and new position)
+    int clearX = batteryX;
+    int clearWidth = batteryX + batteryW - clearX;
 
     canvas.fillRect(clearX, batteryY - batteryH + 1,
                     clearWidth, batteryH, BACKGROUND_COLOR);
@@ -33,50 +22,24 @@ void Screen::updateMeter(void)
     // Draw new percentage
     canvas.setTextColor(TEXT_COLOR);
     canvas.setCursor(batteryX, batteryY);
-    // canvas.print(BatteryMonitor::percent);
-    //
-    // // Store position for next update
-    // previousBatteryX = batteryX;
-    //
-    // if (!BatteryMonitor::charging)
-    // {
-    //     canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
-    //     // Serial.println("not charging");
-    // }
-    // else
-    // {
-    //     canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
-    //     // Serial.println("charging");
-    // }
-    //
-    // //{
-    // //  Serial.println(Thermocouples::deltaTemp);
-    // //  Serial.println();
+    canvas.print(batteryLevel);
+
+    if (!BatteryMonitor::charging)
+    {
+        canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+        // Serial.println("not charging");
+    }
+    else
+    {
+        canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+        // Serial.println("charging");
+    }
+
+    //{
+    //  Serial.println(Thermocouples::deltaTemp);
+    //  Serial.println();
 
     needleAngle = Thermocouples::deltaTemp - 90.0;
-
-    // canvas.setTextColor(TEXT_COLOR);
-
-    // canvas.setCursor(switchX, switchY);
-    //
-    // if (Switch::state)
-    // {
-    //     snprintf(switchBuffer, sizeof(switchBuffer), "HIGH\r\n");
-    // }
-    // else
-    // {
-    //     snprintf(switchBuffer, sizeof(switchBuffer), "LOW\r\n");
-    // }
-    //
-    // int16_t x1, y1;
-    // uint16_t w, h;
-    // canvas.getTextBounds(lastSwitchBuffer, switchX, switchY, &x1, &y1, &w, &h);
-    // canvas.fillRect(x1, y1, w, h, BACKGROUND_COLOR);
-    //
-    // canvas.setCursor(switchX, switchY);
-    // canvas.setTextColor(TEXT_COLOR);
-    // canvas.print(switchBuffer);
-    // strcpy(lastSwitchBuffer, switchBuffer);
 
     canvas.setCursor(switchX, switchY);
     if (Switch::state)

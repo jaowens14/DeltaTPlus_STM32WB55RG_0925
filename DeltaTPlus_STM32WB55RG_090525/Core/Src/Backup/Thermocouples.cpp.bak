@@ -98,7 +98,7 @@ void Thermocouples::stateMachine(void)
     lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
     lf.error = (1.0 - lf.gain) * lf.error;
 
-    deltaTemp = (rf.estimate - lf.estimate); // * userGain;
+    deltaTemp = (rf.estimate - lf.estimate) * userGain;
 
     // snprintf(usbBuffer, sizeof(usbBuffer), "LEFT: %f     RIGHT: %f     DELTA: %f \r\n", convertToTemperature(leftRawTemp), convertToTemperature(rightRawTemp), deltaTemp);
     // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));

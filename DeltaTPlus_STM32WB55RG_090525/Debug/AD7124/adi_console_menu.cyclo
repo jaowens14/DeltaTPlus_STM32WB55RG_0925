@@ -1,0 +1,4 @@
+../AD7124/adi_console_menu.c:65:13:adi_display_console_menu	6
+../AD7124/adi_console_menu.c:110:9:adi_do_console_menu	10
+../AD7124/adi_console_menu.c:174:6:adi_clear_console	1
+../AD7124/adi_console_menu.c:197:6:adi_press_any_key_to_continue	1

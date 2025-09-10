@@ -1,0 +1,3 @@
+../AD7124/platform_support.c:63:5:__io_putchar	1
+../AD7124/platform_support.c:77:5:__io_getchar	2
+../AD7124/platform_support.c:94:9:getchar_nonblocking	2
