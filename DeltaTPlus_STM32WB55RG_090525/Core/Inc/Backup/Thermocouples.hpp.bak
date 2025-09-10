@@ -19,6 +19,7 @@ public:
     void setup(void);
     void stateMachine(void);
     float convertToTemperature(int32_t rawTemp);
+    void checkFault(char *name, uint8_t fault);
 
     static float deltaTemp;
 
@@ -35,17 +36,18 @@ public:
     int32_t rightRawTemp;
     float leftTemp;
     float rightTemp;
+    static float userGain;
 };
 
 typedef struct
 {
-	 float measurement;
-	 float prediction;
-	 float error;
-	 float gain;
-	 float estimate;
-	 float process_variance;
-	 float measurement_variance;
+    float measurement;
+    float prediction;
+    float error;
+    float gain;
+    float estimate;
+    float process_variance;
+    float measurement_variance;
 } KALMAN_T;
 
 #endif

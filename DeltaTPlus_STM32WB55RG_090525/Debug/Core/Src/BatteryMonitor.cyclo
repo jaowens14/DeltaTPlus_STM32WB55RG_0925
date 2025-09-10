@@ -1,2 +1,2 @@
-../Core/Src/BatteryMonitor.cpp:9:6:void BatteryMonitor::setup()	2
-../Core/Src/BatteryMonitor.cpp:30:6:void BatteryMonitor::stateMachine()	2
+../Core/Src/BatteryMonitor.cpp:11:6:void BatteryMonitor::setup()	2
+../Core/Src/BatteryMonitor.cpp:35:6:void BatteryMonitor::stateMachine()	3

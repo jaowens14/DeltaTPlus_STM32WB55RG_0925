@@ -48,6 +48,10 @@ void Screen::renderMeter()
     batteryX = overallBorderWidth - batteryW - 2 * batterySpacer;
     batteryY = statusBorderY + statusHeight / 2 + batteryH / 2;
 
+    canvas.getTextBounds("HIGH", 0, 0, &switchTextX, &switchTextY, &switchW, &switchH);
+    switchX = overallBorderWidth - batteryX - 2 * batterySpacer;
+    switchY = statusBorderY + statusHeight / 2 + batteryH / 2;
+
     // // Serial.println(batteryX);
     // // Serial.println(batteryY);
     canvas.setTextColor(TEXT_COLOR);

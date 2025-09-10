@@ -1,0 +1,2 @@
+../Core/Src/Switch.cpp:11:6:void Switch::setup()	16	static
+../Core/Src/Switch.cpp:34:6:void Switch::stateMachine()	16	static

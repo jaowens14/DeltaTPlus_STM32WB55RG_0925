@@ -1,0 +1,31 @@
+#include "Touch.hpp"
+
+int Touch::x = 0;
+int Touch::y = 0;
+
+void Touch::setup(void)
+{
+
+    Wire.setPins(TFT_SDA, TFT_SCL);
+    while (!controller.begin(40, &Wire))
+    { // pass in 'sensitivity' coefficient and I2C bus
+        Serial.println("Couldn't start FT6206 touchscreen controller");
+        delay(100);
+    }
+}
+
+void Touch::stateMachine(void)
+{
+    if (!dely)
+    {
+        point = controller.getPoint();
+        x = 240 - point.x;
+        y = 320 - point.y;
+        // Serial.print(x);
+        // Serial.print(", ");
+        // Serial.println(y);
+        dely = 5; // 50 ms
+
+        // Serial.println(Touch::x);
+    }
+}

@@ -13,7 +13,10 @@ void BatteryMonitor::setup()
     while (!max17048.begin(&hi2c1, MAX17048_I2CADDR_DEFAULT))
     {
         // Serial.println(F("Couldnt find Adafruit MAX17048?\nMake sure a battery is plugged in!"));
-        HAL_Delay(200);
+        snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "Couldnt find Adafruit MAX17048?\r\n");
+
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
+        HAL_Delay(1000);
     }
     // Serial.print(F("Found MAX17048"));
     // Serial.print(F(" with Chip ID: 0x"));
@@ -43,6 +46,11 @@ void BatteryMonitor::stateMachine(void)
         // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
 
         snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
+
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
+
+
+        snprintf((char*)UART_BUFFER, sizeof(UART_BUFFER), "Charge Rate: %f\r\n", max17048.chargeRate());
 
         HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char*)UART_BUFFER), 300);
     }

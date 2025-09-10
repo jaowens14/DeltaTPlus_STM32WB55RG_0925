@@ -1,0 +1,24 @@
+#ifndef BATTERY_MONITOR_HPP
+#define BATTERY_MONITOR_HPP
+
+
+#include "gpio.h"
+
+class Switch
+{
+
+private:
+    //Adafruit_MAX17048_STM32 max17048;
+
+public:
+    volatile int delay = 10;
+    // bool newData;
+    //  char *lastPercent;
+    //static float percent;
+    //static bool charging;
+
+    void setup(void);
+    void stateMachine(void);
+};
+
+#endif

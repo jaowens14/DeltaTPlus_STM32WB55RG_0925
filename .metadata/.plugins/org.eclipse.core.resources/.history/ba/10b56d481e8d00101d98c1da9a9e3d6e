@@ -1,0 +1,18 @@
+#ifndef SWITCH_HPP
+#define SWITCH_HPP
+
+
+#include "gpio.h"
+
+class Switch
+{
+
+
+public:
+    volatile int delay = 10;
+
+    void setup(void);
+    void stateMachine(void);
+};
+
+#endif

@@ -2,6 +2,7 @@
 #include "main.h"
 // Static member definitions
 float Thermocouples::deltaTemp = 0.0;
+float Thermocouples::userGain = 0.0;
 
 KALMAN_T rf;
 KALMAN_T lf;
@@ -35,12 +36,14 @@ void Thermocouples::setup()
     left.begin();
     left.setThermocoupleType(MAX31856_TCTYPE_K);
     left.setConversionMode(MAX31856_CONTINUOUS);
+    left.setTempFaultThreshholds(0.0, 100.0);
 
     right.begin();
     right.setThermocoupleType(MAX31856_TCTYPE_K);
     right.setConversionMode(MAX31856_CONTINUOUS);
+    right.setTempFaultThreshholds(0.0, 100.0);
     // SPI_Set_Mode(0);
-    HAL_Delay(250);
+    HAL_Delay(500);
 
     //// Set to continuous conversion mode
     // HAL_Delay(200);
@@ -69,48 +72,51 @@ void Thermocouples::stateMachine(void)
         // SPI_Set_Mode(1);
         rightRawTemp = (int32_t)right.readThermocoupleTemperature();
         leftRawTemp = (int32_t)left.readThermocoupleTemperature();
-        // SPI_Set_Mode(0);
-        //  deltaTemp = deltaTemp + ((rightTemp - leftTemp) - deltaTemp) * 0.9; // leaky integrator with a gain of 0.9
-        //  Average two sensors, or use one
 
-        currentTime = HAL_GetTick();
+        checkFault("------------ Right: ", right.readFault());
+        checkFault("------------ Left:  ", left.readFault());
+    };
+    // SPI_Set_Mode(0);
+    //  deltaTemp = deltaTemp + ((rightTemp - leftTemp) - deltaTemp) * 0.9; // leaky integrator with a gain of 0.9
+    //  Average two sensors, or use one
 
-        rightTemp = rightRawTemp;
-        leftTemp = leftRawTemp;
+    /// currentTime = HAL_GetTick();
 
-        rf.measurement = 0.0078125f * (rightTemp); // deg c
-        lf.measurement = 0.0078125f * (leftTemp);  // deg c
-                                                   //
-        rf.error = rf.error + rf.process_variance;
-        rf.gain = rf.error / (rf.error + rf.measurement_variance);
-        rf.estimate = rf.estimate + rf.gain * (rf.measurement - rf.estimate);
-        rf.error = (1.0 - rf.gain) * rf.error;
-        //
-        lf.error = lf.error + lf.process_variance;
-        lf.gain = lf.error / (lf.error + lf.measurement_variance);
-        lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
-        lf.error = (1.0 - lf.gain) * lf.error;
+    rightTemp = rightRawTemp;
+    leftTemp = leftRawTemp;
 
-        deltaTemp = rf.estimate - lf.estimate;
+    rf.measurement = 0.0078125f * (rightTemp); // deg c
+    lf.measurement = 0.0078125f * (leftTemp);  // deg c
+                                               //
+    rf.error = rf.error + rf.process_variance;
+    rf.gain = rf.error / (rf.error + rf.measurement_variance);
+    rf.estimate = rf.estimate + rf.gain * (rf.measurement - rf.estimate);
+    rf.error = (1.0 - rf.gain) * rf.error;
+    //
+    lf.error = lf.error + lf.process_variance;
+    lf.gain = lf.error / (lf.error + lf.measurement_variance);
+    lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
+    lf.error = (1.0 - lf.gain) * lf.error;
 
-        // snprintf(usbBuffer, sizeof(usbBuffer), "LEFT: %f     RIGHT: %f     DELTA: %f \r\n", convertToTemperature(leftRawTemp), convertToTemperature(rightRawTemp), deltaTemp);
-        // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
+    deltaTemp = (rf.estimate - lf.estimate); // * userGain;
 
-        // Use %f for float, not %ld
-        // snprintf(usbBuffer, sizeof(usbBuffer), "Raw Delta T: %f\r\n", deltaTemp);
-        // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
-        //
-        // snprintf(usbBuffer, sizeof(usbBuffer), "Delta T: %f.2 Deg C\r\n", convertToTemperature(deltaTemp));
-        // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
+    // snprintf(usbBuffer, sizeof(usbBuffer), "LEFT: %f     RIGHT: %f     DELTA: %f \r\n", convertToTemperature(leftRawTemp), convertToTemperature(rightRawTemp), deltaTemp);
+    // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Left: %f  Right: %f\r\n", lf.measurement, rf.measurement);
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+    // Use %f for float, not %ld
+    // snprintf(usbBuffer, sizeof(usbBuffer), "Raw Delta T: %f\r\n", deltaTemp);
+    // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
+    //
+    // snprintf(usbBuffer, sizeof(usbBuffer), "Delta T: %f.2 Deg C\r\n", convertToTemperature(deltaTemp));
+    // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Delta Temp: %f\r\n", deltaTemp);
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+    //     snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Left: %f  Right: %f\r\n", lf.measurement, rf.measurement);
+    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
-        delay = 1; // 50 ms
-    }
+    snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Delta Temp: %f\r\n", deltaTemp);
+    HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+
+    delay = 10; // 50 ms
 }
 
 // deg f
@@ -118,4 +124,45 @@ float Thermocouples::convertToTemperature(int32_t rawTemp)
 {
     // Raw temperature is in units of 0.0078125°C (1/128°C)
     return (rawTemp * 0.0078125f);
+}
+
+void Thermocouples::checkFault(char *name, uint8_t fault)
+{
+    // Clear buffer first
+    memset(UART_BUFFER, 0, sizeof(UART_BUFFER));
+
+    // Add the name
+    strcat((char *)UART_BUFFER, name);
+
+    if (fault == 0x00)
+    {
+        strcat((char *)UART_BUFFER, "FAULT_NONE\r\n");
+    }
+    else
+    {
+        // Check each fault bit individually for multiple faults
+        if (fault & 0x01)
+            strcat((char *)UART_BUFFER, "FAULT_CJ_HIGH ");
+        if (fault & 0x02)
+            strcat((char *)UART_BUFFER, "FAULT_CJ_LOW ");
+        if (fault & 0x04)
+            strcat((char *)UART_BUFFER, "FAULT_TC_HIGH ");
+        if (fault & 0x08)
+            strcat((char *)UART_BUFFER, "FAULT_TC_LOW ");
+        if (fault & 0x10)
+            strcat((char *)UART_BUFFER, "FAULT_OVUV ");
+        if (fault & 0x20)
+            strcat((char *)UART_BUFFER, "FAULT_OPEN ");
+        if (fault & 0x40)
+            strcat((char *)UART_BUFFER, "FAULT_CJ_RANGE ");
+        if (fault & 0x80)
+            strcat((char *)UART_BUFFER, "FAULT_TC_RANGE ");
+
+        strcat((char *)UART_BUFFER, "\r\n");
+
+        // left.begin();
+        // right.begin();
+    }
+
+    HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 }

@@ -3,6 +3,7 @@
 #include "Screen.hpp"
 #include "BatteryMonitor.hpp"
 #include "Thermocouples.hpp"
+#include "Switch.hpp"
 #include <stdlib.h>
 void Screen::updateMeter(void)
 {
@@ -23,16 +24,16 @@ void Screen::updateMeter(void)
     // // Clear the larger of the two areas (old and new position)
     // int clearX = std::min(previousBatteryX, batteryX);
     // int clearWidth = std::max(previousBatteryX + batteryW,
-    //                           batteryX + batteryW) -
-    //                  clearX;
-    //
-    // canvas.fillRect(clearX, batteryY - batteryH + 1,
-    //                 clearWidth, batteryH, BACKGROUND_COLOR);
-    //
-    // // Draw new percentage
-    // canvas.setTextColor(TEXT_COLOR);
-    // canvas.setCursor(batteryX, batteryY);
-    // // canvas.print(BatteryMonitor::percent);
+    //                          batteryX + batteryW) -
+    //                 clearX;
+
+    canvas.fillRect(clearX, batteryY - batteryH + 1,
+                    clearWidth, batteryH, BACKGROUND_COLOR);
+
+    // Draw new percentage
+    canvas.setTextColor(TEXT_COLOR);
+    canvas.setCursor(batteryX, batteryY);
+    // canvas.print(BatteryMonitor::percent);
     //
     // // Store position for next update
     // previousBatteryX = batteryX;
@@ -54,11 +55,55 @@ void Screen::updateMeter(void)
 
     needleAngle = Thermocouples::deltaTemp - 90.0;
 
-    canvas.setCursor(batteryX * 6, batteryY * 6);
+    // canvas.setTextColor(TEXT_COLOR);
 
-    snprintf(needleBuffer, sizeof(needleBuffer), "needleAngle: %ld\r\n", (long)needleAngle);
+    // canvas.setCursor(switchX, switchY);
+    //
+    // if (Switch::state)
+    // {
+    //     snprintf(switchBuffer, sizeof(switchBuffer), "HIGH\r\n");
+    // }
+    // else
+    // {
+    //     snprintf(switchBuffer, sizeof(switchBuffer), "LOW\r\n");
+    // }
+    //
+    // int16_t x1, y1;
+    // uint16_t w, h;
+    // canvas.getTextBounds(lastSwitchBuffer, switchX, switchY, &x1, &y1, &w, &h);
+    // canvas.fillRect(x1, y1, w, h, BACKGROUND_COLOR);
+    //
+    // canvas.setCursor(switchX, switchY);
+    // canvas.setTextColor(TEXT_COLOR);
+    // canvas.print(switchBuffer);
+    // strcpy(lastSwitchBuffer, switchBuffer);
 
-    canvas.print(needleBuffer);
+    canvas.setCursor(switchX, switchY);
+    if (Switch::state)
+    {
+        snprintf(switchBuffer, sizeof(switchBuffer), "HIGH\r\n");
+    }
+    else
+    {
+        snprintf(switchBuffer, sizeof(switchBuffer), "LOW\r\n");
+    }
+
+    // only if state changes
+    if (strcmp(switchBuffer, lastSwitchBuffer) != 0)
+    {
+
+        int16_t x1, y1;
+        uint16_t w, h;
+        canvas.getTextBounds(lastSwitchBuffer, switchX, switchY, &x1, &y1, &w, &h); // calculate area to erase
+        canvas.fillRect(x1, y1, w, h, BACKGROUND_COLOR);                            // erase
+
+        canvas.setCursor(switchX, switchY); // draw new text
+        canvas.setTextColor(TEXT_COLOR);
+        canvas.print(switchBuffer);
+        strcpy(lastSwitchBuffer, switchBuffer); // update buffer
+    }
+
+    // are switchbuffer, lastswitchbuffer, text position, and uint16_t passed in??
 
     if (needleAngle > -45)
     {

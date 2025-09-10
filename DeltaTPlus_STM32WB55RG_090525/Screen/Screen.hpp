@@ -3,33 +3,30 @@
 
 #include "spi.h"
 
-#include <Fonts/FreeSans9pt7b.h>
+#include <Fonts/FreeSerif9pt7b.h>
 #include "Adafruit_GFX.h"
 #include "ST7789V_STM32.h"
 #include <math.h>
 // #include "Touch/Touch.hpp"
 // #include "BatteryMonitor/BatteryMonitor.hpp"
 // #include "Thermocouples/Thermocouples.hpp"
-
+#include "Switch.hpp"
 #define BACKGROUND_COLOR 0xDCFF
 #define TEXT_COLOR 0xA329
 #define ACCENT_COLOR 0x6763
 
 class Screen
 {
-//private:
-    // Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);
-
-
+    // private:
+    //  Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC, TFT_MOSI, TFT_CLK, TFT_RST, TFT_MISO);
 
 public:
-
     ST7789V_STM32 tft = ST7789V_STM32(&hspi2,
                                       GPIOA, GPIO_PIN_3,  // CS pin
                                       GPIOA, GPIO_PIN_2,  // DC pin
                                       GPIOA, GPIO_PIN_1); // RST pin
-    volatile int switchPageDelay = 0; // 200ms
-    volatile int renderDelay = 0;     // 60hz
+    volatile int switchPageDelay = 0;                     // 200ms
+    volatile int renderDelay = 0;                         // 60hz
 
     uint32_t totalPixels;
 
@@ -55,6 +52,13 @@ public:
     int16_t batteryTextY;
     uint16_t batteryW;
     uint16_t batteryH;
+
+    int switchX;
+    int switchY;
+    int16_t switchTextX;
+    int16_t switchTextY;
+    uint16_t switchW;
+    uint16_t switchH;
 
     const int batterySpacer = 4;
     int chargingX;
@@ -164,7 +168,8 @@ public:
 
     char batteryLevel[32];
     char needleBuffer[32];
-
+    char switchBuffer[32];
+    char lastSwitchBuffer[32];
     enum Pages
     {
         METER,

@@ -2,7 +2,7 @@
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:104:20:USBD_StdDevReq	24	static
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:167:20:USBD_StdItfReq	24	static
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:239:20:USBD_StdEPReq	24	static
-../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:428:13:USBD_GetDescriptor	24	static
+../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:428:13:USBD_GetDescriptor	32	static
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:682:13:USBD_SetAddress	24	static
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:723:27:USBD_SetConfig	24	static
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c:821:13:USBD_GetConfig	16	static

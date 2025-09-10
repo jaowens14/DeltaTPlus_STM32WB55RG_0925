@@ -4,6 +4,8 @@ void Screen::setup(void)
 {
 
     needleBuffer[32] = {0};
+    switchBuffer[32] = {0};
+    lastSwitchBuffer[32] = {0};
 
     // SPI_Set_Mode(0);
 
@@ -11,9 +13,9 @@ void Screen::setup(void)
 
     tft.begin();
     tft.setRotation(2); // places the screen connector further away from the probe tubes
-    tft.setFont(&FreeSans9pt7b);
-    tft.setTextWrap(true);
-    tft.setTextSize(1);
+    canvas.setFont(&FreeSerif9pt7b);
+    canvas.setTextWrap(true);
+    canvas.setTextSize(1);
     tft.setWindow(0, 0, canvas.width() - 1, canvas.height() - 1);
 
     // initial state: meter
@@ -75,12 +77,12 @@ void Screen::writeCanvas(void)
 
     // SPI_Set_Mode(0);
     uint16_t *buffer = canvas.getBuffer();
-    //tft.startWrite();
-    //tft.writeBuffer(buffer, totalPixels);
-    // tft.writeBufferDMA(buffer, totalPixels);
+    // tft.startWrite();
+    // tft.writeBuffer(buffer, totalPixels);
+    //  tft.writeBufferDMA(buffer, totalPixels);
     tft.writeBufferDMA(buffer, totalPixels);
-    //tft.endWrite();
-    // SPI_Set_Mode(1);
+    // tft.endWrite();
+    //  SPI_Set_Mode(1);
 }
 
 // void Screen::writeNeedleFromCanvas(x0, y0, x1, y1, color);
