@@ -1,1 +1,0 @@
-Core/Src/TEMP_MAX31856.o: ../Core/Src/TEMP_MAX31856.c

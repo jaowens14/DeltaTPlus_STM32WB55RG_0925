@@ -35,8 +35,7 @@
 #include "Adafruit_GFX.h"
 // #include "usbd_cdc_if.h"
 #include "stm32_seq.h"
-#include "TEMP_MAX31856.h"
-#include "TFT_ST7789S.h"
+
 #include "ST7789V_STM32.h"
 #include "Screen.hpp"
 #include "Accelerometer.hpp"
@@ -46,6 +45,7 @@
 #include "screen.h"
 #include "BatteryMonitor.hpp"
 #include "Switch.hpp"
+#include "Touch.hpp"
 
 // #include "AD7124/ad7124_console_app.h"
 // #include "ad7124_console_app.h"
@@ -91,6 +91,7 @@ Thermocouples myThermocouples;
 Screen myScreen;
 BatteryMonitor myBatteryMonitor;
 Switch mySwitch;
+Touch myTouch;
 
 // main timer implementation
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -125,6 +126,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       //{
       //  thermocoupleDelay--;
       //}
+
+      if (myTouch.delay)
+      {
+        myTouch.delay--;
+      }
 
       if (myAccelerometer.readDelay)
       {
@@ -242,6 +248,7 @@ int main(void)
   myBatteryMonitor.setup();
   myScreen.setup();
   mySwitch.setup();
+  myTouch.setup();
 
   snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
   HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
@@ -263,130 +270,131 @@ int main(void)
     myBatteryMonitor.stateMachine();
     myScreen.stateMachine();
     mySwitch.stateMachine();
-
-    /* USER CODE END 3 */
+    myTouch.stateMachine();
   }
+  /* USER CODE END 3 */
+}
 
-  /**
-   * @brief System Clock Configuration
-   * @retval None
+/**
+ * @brief System Clock Configuration
+ * @retval None
+ */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Macro to configure the PLL multiplication factor
    */
-  void SystemClock_Config(void)
-  {
-    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  __HAL_RCC_PLL_PLLM_CONFIG(RCC_PLLM_DIV1);
 
-    /** Macro to configure the PLL multiplication factor
-     */
-    __HAL_RCC_PLL_PLLM_CONFIG(RCC_PLLM_DIV1);
-
-    /** Macro to configure the PLL clock source
-     */
-    __HAL_RCC_PLL_PLLSOURCE_CONFIG(RCC_PLLSOURCE_MSI);
-
-    /** Configure LSE Drive Capability
-     */
-    HAL_PWR_EnableBkUpAccess();
-    __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_MEDIUMHIGH);
-
-    /** Configure the main internal regulator output voltage
-     */
-    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
-
-    /** Initializes the RCC Oscillators according to the specified parameters
-     * in the RCC_OscInitTypeDef structure.
-     */
-    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSE | RCC_OSCILLATORTYPE_MSI;
-    RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-    RCC_OscInitStruct.LSEState = RCC_LSE_ON;
-    RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-    RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-    RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-    RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
-    RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
-    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    /** Configure the SYSCLKSource, HCLK, PCLK1 and PCLK2 clocks dividers
-     */
-    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK4 | RCC_CLOCKTYPE_HCLK2 | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
-    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
-    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-    RCC_ClkInitStruct.AHBCLK2Divider = RCC_SYSCLK_DIV1;
-    RCC_ClkInitStruct.AHBCLK4Divider = RCC_SYSCLK_DIV1;
-
-    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    /** Enable MSI Auto calibration
-     */
-    HAL_RCCEx_EnableMSIPLLMode();
-  }
-
-  /**
-   * @brief Peripherals Common Clock Configuration
-   * @retval None
+  /** Macro to configure the PLL clock source
    */
-  void PeriphCommonClock_Config(void)
-  {
-    RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+  __HAL_RCC_PLL_PLLSOURCE_CONFIG(RCC_PLLSOURCE_MSI);
 
-    /** Initializes the peripherals clock
-     */
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SMPS | RCC_PERIPHCLK_RFWAKEUP;
-    PeriphClkInitStruct.RFWakeUpClockSelection = RCC_RFWKPCLKSOURCE_LSE;
-    PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSE;
-    PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE1;
-
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
-    {
-      Error_Handler();
-    }
-    /* USER CODE BEGIN Smps */
-    LL_HSEM_1StepLock(HSEM, 5);
-
-    /* USER CODE END Smps */
-  }
-
-  /* USER CODE BEGIN 4 */
-
-  /* USER CODE END 4 */
-
-  /**
-   * @brief  This function is executed in case of error occurrence.
-   * @retval None
+  /** Configure LSE Drive Capability
    */
-  void Error_Handler(void)
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_MEDIUMHIGH);
+
+  /** Configure the main internal regulator output voltage
+   */
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+   * in the RCC_OscInitTypeDef structure.
+   */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSE | RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
-    /* USER CODE BEGIN Error_Handler_Debug */
-    /* User can add his own implementation to report the HAL error return state */
-    __disable_irq();
-    while (1)
-    {
-    }
-    /* USER CODE END Error_Handler_Debug */
+    Error_Handler();
   }
+
+  /** Configure the SYSCLKSource, HCLK, PCLK1 and PCLK2 clocks dividers
+   */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK4 | RCC_CLOCKTYPE_HCLK2 | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLK2Divider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLK4Divider = RCC_SYSCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Enable MSI Auto calibration
+   */
+  HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+ * @brief Peripherals Common Clock Configuration
+ * @retval None
+ */
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Initializes the peripherals clock
+   */
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SMPS | RCC_PERIPHCLK_RFWAKEUP;
+  PeriphClkInitStruct.RFWakeUpClockSelection = RCC_RFWKPCLKSOURCE_LSE;
+  PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSE;
+  PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE1;
+
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN Smps */
+  LL_HSEM_1StepLock(HSEM, 5);
+
+  /* USER CODE END Smps */
+}
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
+
+/**
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
 
 #ifdef USE_FULL_ASSERT
-  /**
-   * @brief  Reports the name of the source file and the source line number
-   *         where the assert_param error has occurred.
-   * @param  file: pointer to the source file name
-   * @param  line: assert_param error line source number
-   * @retval None
-   */
-  void assert_failed(uint8_t *file, uint32_t line)
-  {
-    /* USER CODE BEGIN 6 */
-    /* User can add his own implementation to report the file name and line number,
-       ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-    /* USER CODE END 6 */
-  }
+/**
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
 #endif /* USE_FULL_ASSERT */

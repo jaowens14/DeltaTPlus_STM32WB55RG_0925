@@ -378,6 +378,26 @@ int Ad7124Private::waitForConvReady(uint32_t timeout)
   return timeout_en && (timeout == 0) ? AD7124_TIMEOUT : ready;
 }
 
+int Ad7124Private::isConversionReady()
+{
+  int ret;
+  bool ready = false;
+
+  /* Read the value of the Status Register */
+  ret = readRegister(&reg[Status]);
+  if (ret < 0)
+  {
+
+    return ret;
+  }
+
+  /* Check the RDY bit in the Status Register */
+  ready = (reg[Status].value &
+           AD7124_STATUS_REG_RDY) == 0;
+
+  return ready;
+}
+
 /***************************************************************************/ /**
                                                                                * @brief Reads the conversion result from the device.
                                                                                *

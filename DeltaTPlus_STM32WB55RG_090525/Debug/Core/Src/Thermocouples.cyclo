@@ -1,4 +1,2 @@
-../Core/Src/Thermocouples.cpp:11:6:void Thermocouples::setup()	1
-../Core/Src/Thermocouples.cpp:70:6:void Thermocouples::stateMachine()	2
-../Core/Src/Thermocouples.cpp:125:7:float Thermocouples::convertToTemperature(int32_t)	1
-../Core/Src/Thermocouples.cpp:131:6:void Thermocouples::checkFault(char*, uint8_t)	10
+../Core/Src/Thermocouples.cpp:11:6:void Thermocouples::setup()	2
+../Core/Src/Thermocouples.cpp:88:6:void Thermocouples::stateMachine()	4

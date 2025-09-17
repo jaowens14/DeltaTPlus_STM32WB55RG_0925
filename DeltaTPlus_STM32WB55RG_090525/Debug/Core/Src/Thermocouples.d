@@ -67,6 +67,10 @@ Core/Src/Thermocouples.o: ../Core/Src/Thermocouples.cpp \
  ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h \
  ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/gpio.h \
  ../Core/Inc/spi.h ../Core/Inc/gpio.h ../Core/Inc/usart.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124-private.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124-driver.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124-defs.h \
  ../Core/Inc/main.h
 ../Core/Inc/Thermocouples.hpp:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library/Adafruit_MAX31856.h:
@@ -142,4 +146,8 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 ../Core/Inc/spi.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/usart.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124-private.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124-driver.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124-defs.h:
 ../Core/Inc/main.h:

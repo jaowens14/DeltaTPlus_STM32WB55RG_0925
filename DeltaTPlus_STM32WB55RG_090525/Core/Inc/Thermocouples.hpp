@@ -12,8 +12,7 @@
 class Thermocouples
 {
 private:
-    Adafruit_MAX31856 left;
-    Adafruit_MAX31856 right;
+    Ad7124Chip thermocoupleADC;
 
 public:
     volatile int delay = 1;
@@ -23,6 +22,14 @@ public:
     void checkFault(char *name, uint8_t fault);
 
     static float deltaTemp;
+
+    long rawData;
+    int channel;
+    int filterWord; // length of filter?
+
+    long raw[2];
+    double voltage[2];
+    double temperature[2];
 
     float h;
     float C;

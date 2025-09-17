@@ -1,10 +1,10 @@
-20:40:13 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+05:25:27 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
 make -j12 all 
 arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
    text	   data	    bss	    dec	    hex	filename
- 123376	   2989	  12379	 138744	  21df8	DeltaTPlus_STM32WB55RG_090525.elf
+ 128656	   2993	  12587	 144236	  2336c	DeltaTPlus_STM32WB55RG_090525.elf
 Finished building: default.size.stdout
  
 
-20:40:14 Build Finished. 0 errors, 0 warnings. (took 491ms)
+05:25:28 Build Finished. 0 errors, 0 warnings. (took 436ms)
 

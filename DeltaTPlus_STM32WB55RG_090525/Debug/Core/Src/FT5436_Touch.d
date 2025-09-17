@@ -1,5 +1,5 @@
-Core/Src/screen.o: ../Core/Src/screen.c ../Core/Inc/Screen.h \
- ../Core/Inc/TFT_ST7789S.h ../Core/Inc/main.h \
+Core/Src/FT5436_Touch.o: ../Core/Src/FT5436_Touch.c \
+ ../Core/Inc/FT5436_Touch.h ../Core/Inc/gpio.h ../Core/Inc/main.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h \
  ../Core/Inc/stm32wbxx_hal_conf.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_dma.h \
@@ -62,9 +62,9 @@ Core/Src/screen.o: ../Core/Src/screen.c ../Core/Inc/Screen.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_gpio.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h \
  ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h \
- ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/spi.h
-../Core/Inc/Screen.h:
-../Core/Inc/TFT_ST7789S.h:
+ ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/i2c.h
+../Core/Inc/FT5436_Touch.h:
+../Core/Inc/gpio.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:
 ../Core/Inc/stm32wbxx_hal_conf.h:
@@ -131,4 +131,4 @@ Core/Src/screen.o: ../Core/Src/screen.c ../Core/Inc/Screen.h \
 ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h:
 ../Core/Inc/app_entry.h:
 ../Core/Inc/app_common.h:
-../Core/Inc/spi.h:
+../Core/Inc/i2c.h:

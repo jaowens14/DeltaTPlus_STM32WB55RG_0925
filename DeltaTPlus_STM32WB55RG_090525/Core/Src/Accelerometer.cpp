@@ -36,12 +36,12 @@ void Accelerometer::stateMachine(void)
         break;
 
     case SLEEP:
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "SLEEP");
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "SLEEP");
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
         if (acceleration > activityThreshold && !delay)
         {
-            delay = 10; // seconds
+            delay = 30; // seconds
 
             state = AWAKE;
             Backlight::state = Backlight::States::HIGH;
@@ -87,7 +87,7 @@ void Accelerometer::readAccelerometer(void)
         // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "X: %f, Y: %f, Z: %f\r\n", x_g, y_g, z_g);
         // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "X: %.2d, Y: %.2d\r\n", x, y);
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "X: %.2d, Y: %.2d\r\n", x, y);
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
     }
 }

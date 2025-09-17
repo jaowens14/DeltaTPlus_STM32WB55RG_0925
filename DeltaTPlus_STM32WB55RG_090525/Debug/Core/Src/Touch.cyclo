@@ -1,0 +1,2 @@
+../Core/Src/Touch.cpp:9:6:void Touch::setup()	1
+../Core/Src/Touch.cpp:27:6:void Touch::stateMachine()	8
