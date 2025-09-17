@@ -6,33 +6,42 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../AD7124/ad7124.c \
+../AD7124/ad7124_console_app.c \
 ../AD7124/ad7124_regs.c \
 ../AD7124/ad7124_regs_config_a.c \
 ../AD7124/ad7124_regs_config_b.c \
 ../AD7124/ad7124_support.c \
 ../AD7124/adi_console_menu.c \
 ../AD7124/delay.c \
-../AD7124/platform_support.c 
+../AD7124/myAD7124.c \
+../AD7124/platform_support.c \
+../AD7124/spi_wrapper.c 
 
 C_DEPS += \
 ./AD7124/ad7124.d \
+./AD7124/ad7124_console_app.d \
 ./AD7124/ad7124_regs.d \
 ./AD7124/ad7124_regs_config_a.d \
 ./AD7124/ad7124_regs_config_b.d \
 ./AD7124/ad7124_support.d \
 ./AD7124/adi_console_menu.d \
 ./AD7124/delay.d \
-./AD7124/platform_support.d 
+./AD7124/myAD7124.d \
+./AD7124/platform_support.d \
+./AD7124/spi_wrapper.d 
 
 OBJS += \
 ./AD7124/ad7124.o \
+./AD7124/ad7124_console_app.o \
 ./AD7124/ad7124_regs.o \
 ./AD7124/ad7124_regs_config_a.o \
 ./AD7124/ad7124_regs_config_b.o \
 ./AD7124/ad7124_support.o \
 ./AD7124/adi_console_menu.o \
 ./AD7124/delay.o \
-./AD7124/platform_support.o 
+./AD7124/myAD7124.o \
+./AD7124/platform_support.o \
+./AD7124/spi_wrapper.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -42,7 +51,7 @@ AD7124/%.o AD7124/%.su AD7124/%.cyclo: ../AD7124/%.c AD7124/subdir.mk
 clean: clean-AD7124
 
 clean-AD7124:
-	-$(RM) ./AD7124/ad7124.cyclo ./AD7124/ad7124.d ./AD7124/ad7124.o ./AD7124/ad7124.su ./AD7124/ad7124_regs.cyclo ./AD7124/ad7124_regs.d ./AD7124/ad7124_regs.o ./AD7124/ad7124_regs.su ./AD7124/ad7124_regs_config_a.cyclo ./AD7124/ad7124_regs_config_a.d ./AD7124/ad7124_regs_config_a.o ./AD7124/ad7124_regs_config_a.su ./AD7124/ad7124_regs_config_b.cyclo ./AD7124/ad7124_regs_config_b.d ./AD7124/ad7124_regs_config_b.o ./AD7124/ad7124_regs_config_b.su ./AD7124/ad7124_support.cyclo ./AD7124/ad7124_support.d ./AD7124/ad7124_support.o ./AD7124/ad7124_support.su ./AD7124/adi_console_menu.cyclo ./AD7124/adi_console_menu.d ./AD7124/adi_console_menu.o ./AD7124/adi_console_menu.su ./AD7124/delay.cyclo ./AD7124/delay.d ./AD7124/delay.o ./AD7124/delay.su ./AD7124/platform_support.cyclo ./AD7124/platform_support.d ./AD7124/platform_support.o ./AD7124/platform_support.su
+	-$(RM) ./AD7124/ad7124.cyclo ./AD7124/ad7124.d ./AD7124/ad7124.o ./AD7124/ad7124.su ./AD7124/ad7124_console_app.cyclo ./AD7124/ad7124_console_app.d ./AD7124/ad7124_console_app.o ./AD7124/ad7124_console_app.su ./AD7124/ad7124_regs.cyclo ./AD7124/ad7124_regs.d ./AD7124/ad7124_regs.o ./AD7124/ad7124_regs.su ./AD7124/ad7124_regs_config_a.cyclo ./AD7124/ad7124_regs_config_a.d ./AD7124/ad7124_regs_config_a.o ./AD7124/ad7124_regs_config_a.su ./AD7124/ad7124_regs_config_b.cyclo ./AD7124/ad7124_regs_config_b.d ./AD7124/ad7124_regs_config_b.o ./AD7124/ad7124_regs_config_b.su ./AD7124/ad7124_support.cyclo ./AD7124/ad7124_support.d ./AD7124/ad7124_support.o ./AD7124/ad7124_support.su ./AD7124/adi_console_menu.cyclo ./AD7124/adi_console_menu.d ./AD7124/adi_console_menu.o ./AD7124/adi_console_menu.su ./AD7124/delay.cyclo ./AD7124/delay.d ./AD7124/delay.o ./AD7124/delay.su ./AD7124/myAD7124.cyclo ./AD7124/myAD7124.d ./AD7124/myAD7124.o ./AD7124/myAD7124.su ./AD7124/platform_support.cyclo ./AD7124/platform_support.d ./AD7124/platform_support.o ./AD7124/platform_support.su ./AD7124/spi_wrapper.cyclo ./AD7124/spi_wrapper.d ./AD7124/spi_wrapper.o ./AD7124/spi_wrapper.su
 
 .PHONY: clean-AD7124
 

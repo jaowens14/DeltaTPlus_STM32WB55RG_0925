@@ -75,6 +75,8 @@ void Error_Handler(void);
 #define TEMP1_CS_GPIO_Port GPIOA
 #define TEMP2_CS_Pin GPIO_PIN_9
 #define TEMP2_CS_GPIO_Port GPIOA
+#define ad7234_io_Pin GPIO_PIN_2
+#define ad7234_io_GPIO_Port GPIOB
 #define TEMP2_DRDY_Pin GPIO_PIN_10
 #define TEMP2_DRDY_GPIO_Port GPIOA
 #define ADC_CS_Pin GPIO_PIN_5

@@ -26,9 +26,9 @@ public:
     void stateMachine(void);
     void readAccelerometer(void);
 
-    int32_t activityThreshold = 262144; // find this
-    uint32_t idleTime = 15;             // seconds
-    int32_t acceleration = 0;           // return max from sensor
+    int32_t activityThreshold = 70000; // find this
+    uint32_t idleTime = 15;            // seconds
+    int32_t acceleration = 0;          // return max from sensor
 
     uint8_t powerCtl = 0x08;
     uint8_t accreg = 0x32; // Start from DATAX0

@@ -31,7 +31,8 @@ RM := rm -rf
 -include Adafruit_MAX31856_Library/subdir.mk
 -include Adafruit_GFX_Library-1.12.0/subdir.mk
 -include Adafruit_1704X_Library/subdir.mk
--include AD7124/subdir.mk
+-include AD7124_Library/examples/ad7124-cn0381/subdir.mk
+-include AD7124_Library/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -105,7 +106,7 @@ main-build: DeltaTPlus_STM32WB55RG_090525.elf secondary-outputs
 
 # Tool invocations
 DeltaTPlus_STM32WB55RG_090525.elf DeltaTPlus_STM32WB55RG_090525.map: $(OBJS) $(USER_OBJS) C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+	arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

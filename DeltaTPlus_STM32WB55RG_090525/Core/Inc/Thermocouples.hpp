@@ -7,6 +7,7 @@
 #include "usart.h"
 #include <stdio.h>
 #include <string.h>
+#include <ad7124.h>
 
 class Thermocouples
 {

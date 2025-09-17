@@ -21,3 +21,4 @@
 ../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:337:6:void Adafruit_MAX31856::readRegisterN(uint8_t, uint8_t*, uint8_t)	96	dynamic
 ../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:362:6:void Adafruit_MAX31856::writeRegister8(uint8_t, uint8_t)	24	static
 ../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:373:7:float Adafruit_MAX31856::convertToTemperature(int32_t)	16	static
+../Adafruit_MAX31856_Library/Adafruit_MAX31856.cpp:379:6:void Adafruit_MAX31856::disableBias()	24	static

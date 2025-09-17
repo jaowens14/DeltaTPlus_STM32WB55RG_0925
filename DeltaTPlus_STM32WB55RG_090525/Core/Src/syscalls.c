@@ -69,6 +69,8 @@ __attribute__((weak)) int _read(int file, char *ptr, int len)
   (void)file;
   int DataIdx;
 
+  len = 1; // development only
+
   for (DataIdx = 0; DataIdx < len; DataIdx++)
   {
     *ptr++ = __io_getchar();

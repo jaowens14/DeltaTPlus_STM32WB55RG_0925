@@ -38,7 +38,8 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-AD7124 \
+AD7124_Library \
+AD7124_Library/examples/ad7124-cn0381 \
 Adafruit_1704X_Library \
 Adafruit_GFX_Library-1.12.0 \
 Adafruit_MAX31856_Library \

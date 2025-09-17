@@ -375,3 +375,10 @@ float Adafruit_MAX31856::convertToTemperature(int32_t rawTemp)
   // Raw temperature is in units of 0.0078125°C (1/128°C)
   return rawTemp * 0.0078125f;
 }
+
+void Adafruit_MAX31856::disableBias()
+{
+  uint8_t cr0 = readRegister8(0x00); // Read CR0 register
+  cr0 &= ~(1 << 7);                  // Clear BIAS bit (bit 7)
+  writeRegister8(0x00, cr0);         // Write back to CR0 register
+}

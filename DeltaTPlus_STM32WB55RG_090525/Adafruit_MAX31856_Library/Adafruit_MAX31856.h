@@ -84,6 +84,7 @@ public:
   void triggerOneShot(void);
   bool conversionComplete(void);
   float convertToTemperature(int32_t rawTemp);
+  void disableBias(void);
 
 private:
   SPI_HandleTypeDef *_hspi;
