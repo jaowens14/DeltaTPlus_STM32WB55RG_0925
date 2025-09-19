@@ -23,7 +23,8 @@
 #define __MAIN_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -33,28 +34,28 @@ extern "C" {
 #include "app_entry.h"
 #include "app_common.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
+  /* Private includes ----------------------------------------------------------*/
+  /* USER CODE BEGIN Includes */
 
-/* USER CODE END Includes */
+  /* USER CODE END Includes */
 
-/* Exported types ------------------------------------------------------------*/
-/* USER CODE BEGIN ET */
+  /* Exported types ------------------------------------------------------------*/
+  /* USER CODE BEGIN ET */
 
-/* USER CODE END ET */
+  /* USER CODE END ET */
 
-/* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
+  /* Exported constants --------------------------------------------------------*/
+  /* USER CODE BEGIN EC */
 
-/* USER CODE END EC */
+  /* USER CODE END EC */
 
-/* Exported macro ------------------------------------------------------------*/
-/* USER CODE BEGIN EM */
+  /* Exported macro ------------------------------------------------------------*/
+  /* USER CODE BEGIN EM */
 
-/* USER CODE END EM */
+  /* USER CODE END EM */
 
-/* Exported functions prototypes ---------------------------------------------*/
-void Error_Handler(void);
+  /* Exported functions prototypes ---------------------------------------------*/
+  void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 
@@ -75,6 +76,10 @@ void Error_Handler(void);
 #define TEMP1_CS_GPIO_Port GPIOA
 #define TEMP2_CS_Pin GPIO_PIN_9
 #define TEMP2_CS_GPIO_Port GPIOA
+#define GPIO_CTP_INT_Pin GPIO_PIN_4
+#define GPIO_CTP_INT_GPIO_Port GPIOC
+#define GPIO_CTP_RESET_Pin GPIO_PIN_5
+#define GPIO_CTP_RESET_GPIO_Port GPIOC
 #define ad7234_io_Pin GPIO_PIN_2
 #define ad7234_io_GPIO_Port GPIOB
 #define TEMP2_DRDY_Pin GPIO_PIN_10
@@ -82,12 +87,12 @@ void Error_Handler(void);
 #define ADC_CS_Pin GPIO_PIN_5
 #define ADC_CS_GPIO_Port GPIOB
 
-/* USER CODE BEGIN Private defines */
+  /* USER CODE BEGIN Private defines */
   // void SPI_Set_Mode(uint8_t mode);
-extern uint8_t UART_BUFFER[64];
+  extern uint8_t UART_BUFFER[128];
 
   void SystemClock_Config(void);
-/* USER CODE END Private defines */
+  /* USER CODE END Private defines */
 
 #ifdef __cplusplus
 }

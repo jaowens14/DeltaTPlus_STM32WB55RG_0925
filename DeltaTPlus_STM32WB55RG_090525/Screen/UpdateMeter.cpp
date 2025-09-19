@@ -3,6 +3,7 @@
 #include "Screen.hpp"
 #include "BatteryMonitor.hpp"
 #include "Thermocouples.hpp"
+#include "Touch.hpp"
 #include "Switch.hpp"
 #include <stdlib.h>
 void Screen::updateMeter(void)
@@ -39,6 +40,7 @@ void Screen::updateMeter(void)
     //  Serial.println(Thermocouples::deltaTemp);
     //  Serial.println();
 
+    // rotation
     needleAngle = Thermocouples::deltaTemp - 90.0;
 
     canvas.setCursor(switchX, switchY);
@@ -118,56 +120,49 @@ void Screen::updateMeter(void)
     lastNeedleY1 = needleY1;
     lastNeedleY2 = needleY2;
     // renderDelay = 15; // about a 60hz refresh rate
-    writeCanvas();
-
     // writeCanvas();
+
+    // int minX = std::min(needleX1, needleX2) - 2; // Add small buffer
+    // int maxX = std::max(needleX1, needleX2) + 2;
+    // int minY = std::min(needleY1, needleY2) - 2;
+    // int maxY = std::max(needleY1, needleY2) + 2;
+    // writeCanvasRegion(minX, minY, maxX, maxY);
+
+    writeCanvas();
     //}
 
-    // if (button1MinX < Touch::x && Touch::x < button1MaxX && button1MinY < Touch::y && Touch::y < button1MaxY)
-    // { // touch point in the left button
-    //     Serial.println("you pressed the left button");
-    //
-    //     switchPage = true;
-    //     Serial.println("switchpage");
-    //
-    //     canvas.fillRoundRect(buttonX1, buttonY1, buttonWidth, buttonHeight, buttonRadius, TEXT_COLOR);
-    //
-    //     canvas.getTextBounds("Settings", 0, 0, &label1X, &label1Y, &label1W, &label1H);
-    //     label1X = buttonX1 + buttonWidth / 2 - label1W / 2;
-    //     label1Y = buttonY1 + buttonHeight - label1H;
-    //     canvas.setTextColor(BACKGROUND_COLOR);
-    //     Serial.println(label1X);
-    //     Serial.println(label1Y);
-    //     canvas.setCursor(label1X, label1Y);
-    //     canvas.print("Settings");
-    //
-    //     canvas.fillRoundRect(buttonX1, buttonY1, buttonWidth, buttonHeight, buttonRadius, ACCENT_COLOR);
-    //     canvas.setCursor(label1X, label1Y);
-    //
-    //     canvas.print("Settings");
-    // }
-    //
-    // if (button2MinX < Touch::x && Touch::x < button2MaxX && button2MinY < Touch::y && Touch::y < button2MaxY)
-    // { // touch point in right button
-    //     Serial.println("you pressed the right button");
-    //     canvas.fillRoundRect(buttonX2, buttonY2, buttonWidth, buttonHeight, buttonRadius, TEXT_COLOR);
-    //     canvas.getTextBounds("Sleep", 0, 0, &label2X, &label2Y, &label2W, &label2H);
-    //     label2X = buttonX2 + buttonWidth / 2 - label2W / 2;
-    //     label2Y = buttonY2 + buttonHeight - label2H;
-    //     canvas.setTextColor(BACKGROUND_COLOR);
-    //     Serial.println(label2X);
-    //     Serial.println(label2Y);
-    //     canvas.setCursor(label2X, label2Y);
-    //     canvas.print("Sleep");
-    //     canvas.fillRoundRect(buttonX2, buttonY2, buttonWidth, buttonHeight, buttonRadius, ACCENT_COLOR);
-    //     canvas.setCursor(label2X, label2Y);
-    //
-    //     canvas.print("Sleep");
-    //
-    //     // this needs work probably sleep then wait for accelerometer
-    //     ledcWrite(backlightChannel, 0);
-    //     esp_sleep_enable_timer_wakeup(1000000);
-    //     esp_light_sleep_start();
-    //     fadeIn();
-    // }
+    if (button1MinX < Touch::x && Touch::x < button1MaxX && button1MinY < Touch::y && Touch::y < button1MaxY)
+    { // touch point in the left button
+        // Serial.println("you pressed the left button");
+
+        switchPage = true;
+        // Serial.println("switchpage");
+
+        canvas.fillRoundRect(buttonX1, buttonY1, buttonWidth, buttonHeight, buttonRadius, TEXT_COLOR);
+
+        canvas.getTextBounds("Settings", 0, 0, &label1X, &label1Y, &label1W, &label1H);
+        label1X = buttonX1 + buttonWidth / 2 - label1W / 2;
+        label1Y = buttonY1 + buttonHeight - label1H;
+        canvas.setTextColor(BACKGROUND_COLOR);
+        // Serial.println(label1X);
+        // Serial.println(label1Y);
+        canvas.setCursor(label1X, label1Y);
+        canvas.print("Settings");
+
+        canvas.fillRoundRect(buttonX1, buttonY1, buttonWidth, buttonHeight, buttonRadius, ACCENT_COLOR);
+        canvas.setCursor(label1X, label1Y);
+
+        canvas.print("Settings");
+    }
+
+    if (button2MinX < Touch::x && Touch::x < button2MaxX && button2MinY < Touch::y && Touch::y < button2MaxY)
+    { // touch point in right button
+
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "CALIBRATE PRESSED\r\n");
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+
+        Thermocouples::deltaTempOffset = Thermocouples::deltaTemp;
+        Touch::x = 0;
+        Touch::y = 0;
+    }
 } // update meter f(x)

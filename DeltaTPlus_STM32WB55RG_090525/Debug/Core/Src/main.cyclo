@@ -9,12 +9,12 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 ../Core/Src/main.cpp:97:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	12
 ../Core/Src/main.cpp:173:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
 ../Core/Src/main.cpp:187:5:int main()	1
-../Core/Src/main.cpp:282:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:345:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:374:6:void Error_Handler()	1
-../Core/Src/main.cpp:383:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/main.cpp:309:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:372:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:401:6:void Error_Handler()	1
+../Core/Src/main.cpp:410:1:void __static_initialization_and_destruction_0()	1
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen/Screen.hpp:18:7:Screen::~Screen()	1
 ../Core/Inc/Thermocouples.hpp:12:7:Thermocouples::~Thermocouples()	1
-../Core/Src/main.cpp:383:1:void __static_initialization_and_destruction_1()	1
-../Core/Src/main.cpp:383:1:cpp)	1
-../Core/Src/main.cpp:383:1:cpp)	1
+../Core/Src/main.cpp:410:1:void __static_initialization_and_destruction_1()	1
+../Core/Src/main.cpp:410:1:cpp)	1
+../Core/Src/main.cpp:410:1:cpp)	1

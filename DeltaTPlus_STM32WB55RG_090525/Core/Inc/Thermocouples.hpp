@@ -22,7 +22,7 @@ public:
     void checkFault(char *name, uint8_t fault);
 
     static float deltaTemp;
-
+    static float deltaTempOffset;
     long rawData;
     int channel;
     int filterWord; // length of filter?
@@ -39,6 +39,7 @@ public:
     float area;
     uint32_t currentTime;
     uint32_t lastTime;
+    uint32_t deltaTime;
 
     int32_t leftRawTemp;
     int32_t rightRawTemp;

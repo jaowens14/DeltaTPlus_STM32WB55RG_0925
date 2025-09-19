@@ -8,7 +8,7 @@ void Accelerometer::setup(void)
 {
     // pinMode(0, OUTPUT);
     state = AWAKE;
-    delay = 1; // seconds?
+    delay = 30; // seconds?
     readAccelerometer();
 }
 
@@ -81,8 +81,8 @@ void Accelerometer::readAccelerometer(void)
         //     HAL_UART_Transmit(&huart1, (uint8_t *)"Threshold exceeded\r\n", 21, 100);
         // }
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Acceleration: %ld\r\n", acceleration);
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Acceleration: %ld\r\n", acceleration);
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
         // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "X: %f, Y: %f, Z: %f\r\n", x_g, y_g, z_g);
         // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);

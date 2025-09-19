@@ -80,14 +80,14 @@ void Screen::renderMeter()
     canvas.setCursor(label1X, label1Y);
     canvas.print("Settings");
 
-    canvas.getTextBounds("Sleep", 0, 0, &label2X, &label2Y, &label2W, &label2H);
+    canvas.getTextBounds("Calibrate", 0, 0, &label2X, &label2Y, &label2W, &label2H);
     label2X = buttonX2 + buttonWidth / 2 - label2W / 2;
     label2Y = buttonY2 + buttonHeight - label2H;
     canvas.setTextColor(BACKGROUND_COLOR);
     // Serial.println(label2X);
     // Serial.println(label2Y);
     canvas.setCursor(label2X, label2Y);
-    canvas.print("Sleep");
+    canvas.print("Calibrate");
 
     drawMeterLines(meterOriginX, meterOriginY, meterHeight - 40, -8, 8);
 

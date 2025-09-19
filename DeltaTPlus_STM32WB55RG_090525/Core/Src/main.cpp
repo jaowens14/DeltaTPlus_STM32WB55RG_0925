@@ -55,7 +55,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-uint8_t UART_BUFFER[64] = {0};
+uint8_t UART_BUFFER[128] = {0};
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -230,9 +230,9 @@ int main(void)
 
   // MX_APPE_Init();
 
-  HAL_Delay(500);
+  HAL_Delay(100);
   MX_USB_Device_Init();
-  HAL_Delay(500);
+  HAL_Delay(100);
 
   HAL_TIM_Base_Start_IT(&htim16);
   HAL_NVIC_SetPriority(TIM1_UP_TIM16_IRQn, 0, 0);
@@ -243,15 +243,42 @@ int main(void)
   MX_APPE_Init();
 
   myAccelerometer.setup();
-  myBacklight.setup();
   myThermocouples.setup();
   myBatteryMonitor.setup();
   myScreen.setup();
   mySwitch.setup();
   myTouch.setup();
+  myBacklight.setup();
 
   snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
   HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+  //  uint16_t device_addr = 0x38 << 1; // Shift left for HAL (7-bit to 8-bit)
+  //
+  //  HAL_StatusTypeDef status;
+  //
+  //  // Test if device is ready (sends device address and waits for ACK)
+  //  status = HAL_I2C_IsDeviceReady(&hi2c1, device_addr, 3, 100);
+  //
+  //  if (status == HAL_OK)
+  //  {
+  //    printf("Device at address 0x%02X is responding\r\n", device_addr >> 1);
+  //    return HAL_OK;
+  //  }
+  //  else if (status == HAL_TIMEOUT)
+  //  {
+  //    printf("Timeout: No response from device at address 0x%02X\r\n", device_addr >> 1);
+  //    return HAL_TIMEOUT;
+  //  }
+  //  else if (status == HAL_ERROR)
+  //  {
+  //    printf("Error: Communication failed with device at address 0x%02X\r\n", device_addr >> 1);
+  //    return HAL_ERROR;
+  //  }
+  //  else
+  //  {
+  //    printf("Busy: I2C bus busy when testing device at address 0x%02X\r\n", device_addr >> 1);
+  //    return HAL_BUSY;
+  //  }
 
   // configure_ad7124();
 

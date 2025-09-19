@@ -1,2 +1,2 @@
-../Core/Src/Touch.cpp:9:6:void Touch::setup()	24	static
-../Core/Src/Touch.cpp:27:6:void Touch::stateMachine()	24	static
+../Core/Src/Touch.cpp:8:6:void Touch::setup()	24	static
+../Core/Src/Touch.cpp:26:6:void Touch::stateMachine()	32	static

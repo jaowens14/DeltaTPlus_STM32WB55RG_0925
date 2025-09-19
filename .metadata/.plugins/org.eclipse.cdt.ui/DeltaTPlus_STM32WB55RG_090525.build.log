@@ -1,10 +1,28 @@
-05:25:27 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+10:59:02 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
 make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:40:9: warning: unused variable 'channel2' [-Wunused-variable]
+   40 |     int channel2 = 2;
+      |         ^~~~~~~~
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::stateMachine()':
+../Core/Src/Thermocouples.cpp:168:62: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  168 |         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%d, %f, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp, Screen::needleAngle);
+      |                                                             ~^                               ~~~~~~~~~
+      |                                                              |                               |
+      |                                                              int                             uint32_t {aka long unsigned int}
+      |                                                             %ld
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
 arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
    text	   data	    bss	    dec	    hex	filename
- 128656	   2993	  12587	 144236	  2336c	DeltaTPlus_STM32WB55RG_090525.elf
+ 129208	   2997	  12659	 144864	  235e0	DeltaTPlus_STM32WB55RG_090525.elf
 Finished building: default.size.stdout
  
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
 
-05:25:28 Build Finished. 0 errors, 0 warnings. (took 436ms)
+10:59:04 Build Finished. 0 errors, 2 warnings. (took 1s.779ms)
 

@@ -26,7 +26,14 @@ void BatteryMonitor::setup()
     max17048.quickStart();
     // delay(1000);
     // percent = String(int()) + '%';
-
+    if (max17048.cellPercent() >= 100)
+    {
+        charge = 100;
+    }
+    else
+    {
+        charge = (uint16_t)max17048.cellPercent();
+    }
     // sprintf(percent, "%f", max17048.cellPercent());
 
     // newData = true;
@@ -47,13 +54,13 @@ void BatteryMonitor::stateMachine(void)
         // snprintf(usbBuffer, sizeof(usbBuffer), );
         // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
-
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
-
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Charge Rate: %f\r\n", max17048.chargeRate());
-
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
+        //
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+        //
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Charge Rate: %f\r\n", max17048.chargeRate());
+        //
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
         if (max17048.cellPercent() >= 100)
         {

@@ -63,7 +63,17 @@ Core/Src/Touch.o: ../Core/Src/Touch.cpp ../Core/Inc/Touch.hpp \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h \
  ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h \
  ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/i2c.h \
- ../Core/Inc/main.h
+ ../Core/Inc/usart.h ../Core/Inc/main.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen/Screen.hpp \
+ ../Core/Inc/spi.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Fonts/FreeSerif9pt7b.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/gfxfont.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Print.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Printable.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/ST7789V_STM32.h \
+ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h \
+ ../Core/Inc/Switch.hpp ../Core/Inc/gpio.h
 ../Core/Inc/Touch.hpp:
 ../Core/Inc/FT5436_Touch.h:
 ../Core/Inc/gpio.h:
@@ -134,4 +144,16 @@ Core/Src/Touch.o: ../Core/Src/Touch.cpp ../Core/Inc/Touch.hpp \
 ../Core/Inc/app_entry.h:
 ../Core/Inc/app_common.h:
 ../Core/Inc/i2c.h:
+../Core/Inc/usart.h:
 ../Core/Inc/main.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen/Screen.hpp:
+../Core/Inc/spi.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Fonts/FreeSerif9pt7b.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/gfxfont.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Print.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Printable.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/ST7789V_STM32.h:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h:
+../Core/Inc/Switch.hpp:
+../Core/Inc/gpio.h:

@@ -1,5 +1,7 @@
 #include "Screen.hpp"
 
+float Screen::needleAngle = 270.0;
+
 void Screen::setup(void)
 {
 
@@ -83,6 +85,29 @@ void Screen::writeCanvas(void)
     tft.writeBufferDMA(buffer, totalPixels);
     // tft.endWrite();
     //  SPI_Set_Mode(1);
+}
+
+void Screen::writeCanvasRegion(int x0, int y0, int x1, int y1)
+{
+    // Set display window to the specific region
+    int width = abs(x0 - x1) + 1;
+    int height = abs(y0 - y1) + 1;
+
+    tft.setWindow(x0, y0, x1, y1);
+
+    uint16_t *fullBuffer = canvas.getBuffer();
+    uint16_t regionBuffer[width * height];
+
+    // Copy only the needle region from the full canvas
+    for (int row = 0; row < height; row++)
+    {
+        int srcOffset = (y0 + row) * 240 + x0;
+        int dstOffset = row * width;
+        memcpy(&regionBuffer[dstOffset], &fullBuffer[srcOffset], width * sizeof(uint16_t));
+    }
+
+    // Write just this small region via DMA
+    tft.writeBufferDMA(regionBuffer, width * height);
 }
 
 // void Screen::writeNeedleFromCanvas(x0, y0, x1, y1, color);

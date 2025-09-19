@@ -86,7 +86,7 @@ public:
     int lastNeedleY1;
     int lastNeedleY2;
     float needleRad;
-    float needleAngle = 270.0;
+    static float needleAngle;
     float currentAngle = 270.0;
 
     float angleDeadBandTolerance = 0.001;
@@ -187,6 +187,7 @@ public:
     void updateMeter();
     void drawMeterLines(int centerX, int centerY, int radius, int lineStart, int lineEnd);
     void writeCanvas(void);
+    void writeCanvasRegion(int x, int y, int width, int height);
 
     float radians(float degrees);
 

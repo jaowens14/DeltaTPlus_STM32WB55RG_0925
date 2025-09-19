@@ -1,7 +1,866 @@
-05:25:19 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+08:21:35 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
 make -j12 all 
-arm-none-eabi-gcc "../Core/Src/FT5436_Touch.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -O0 -ffunction-sections -fdata-sections -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/FT5436_Touch.d" -MT"Core/Src/FT5436_Touch.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/FT5436_Touch.o"
+arm-none-eabi-g++ "../Core/Src/Switch.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Switch.d" -MT"Core/Src/Switch.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Switch.o"
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129240	   2993	  12659	 144892	  235fc	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:22:17 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 129240	   2993	  12659	 144892	  235fc	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+08:23:29 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129240	   2993	  12659	 144892	  235fc	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:24:57 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129240	   2993	  12659	 144892	  235fc	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:27:03 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129320	   2993	  12659	 144972	  2364c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:27:46 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129320	   2993	  12659	 144972	  2364c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:28:35 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129320	   2993	  12659	 144972	  2364c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:30:22 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129320	   2993	  12659	 144972	  2364c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:31:18 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129320	   2993	  12659	 144972	  2364c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:34:56 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129312	   2993	  12659	 144964	  23644	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:44:16 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/RenderMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/RenderMeter.d" -MT"Screen/RenderMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/RenderMeter.o"
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
 arm-none-eabi-g++ "../Core/Src/Touch.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Touch.d" -MT"Core/Src/Touch.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Touch.o"
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:90:9: error: 'class ST7789V_STM32' has no member named 'setAddrWindow'; did you mean 'setWindow'?
+   90 |     tft.setAddrWindow(x, y, width, height);
+      |         ^~~~~~~~~~~~~
+      |         setWindow
+../Screen/Screen.cpp:94:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   94 |     uint16_t regionBuffer[width * height]; // Or use malloc for larger regions
+      |              ^~~~~~~~~~~~
+../Screen/RenderMeter.cpp: In member function 'void Screen::renderMeter()':
+../Screen/RenderMeter.cpp:45:52: warning: conversion lacks type at end of format [-Wformat=]
+   45 |     snprintf(batteryLevel, sizeof(batteryLevel), "% %d\r\n", BatteryMonitor::charge);
+      |                                                    ^
+../Screen/Screen.cpp:98:37: error: 'SCREEN_WIDTH' was not declared in this scope
+   98 |         int srcOffset = (y + row) * SCREEN_WIDTH + x;
+      |                                     ^~~~~~~~~~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+make: *** [Screen/subdir.mk:37: Screen/Screen.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/Touch.cpp: In member function 'void Touch::setup()':
+../Core/Src/Touch.cpp:18:30: warning: passing NULL to non-pointer argument 3 of 'void Touch_FT5436_Begin(Touch_FT5436_t*, GPIO_TypeDef*, uint16_t, GPIO_TypeDef*, uint16_t)' [-Wconversion-null]
+   18 |                        NULL, NULL,                                    // Interrupt pin (PB1)
+      |                              ^~~~
+In file included from ../Core/Inc/Touch.hpp:3,
+                 from ../Core/Src/Touch.cpp:2:
+../Core/Inc/FT5436_Touch.h:113:81: note:   declared here
+  113 | void Touch_FT5436_Begin(Touch_FT5436_t *touch, GPIO_TypeDef *int_port, uint16_t int_pin,
+      |                                                                        ~~~~~~~~~^~~~~~~
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+08:44:52 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:90:9: error: 'class ST7789V_STM32' has no member named 'setAddrWindow'; did you mean 'setWindow'?
+   90 |     tft.setAddrWindow(x, y, width, height);
+      |         ^~~~~~~~~~~~~
+      |         setWindow
+../Screen/Screen.cpp:94:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   94 |     uint16_t regionBuffer[width * height]; // Or use malloc for larger regions
+      |              ^~~~~~~~~~~~
+make: *** [Screen/subdir.mk:37: Screen/Screen.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+08:45:18 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:94:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   94 |     uint16_t regionBuffer[width * height]; // Or use malloc for larger regions
+      |              ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129624	   2993	  12659	 145276	  2377c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:48:26 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:119:20: error: 'min' was not declared in this scope; did you mean 'std::min'?
+  119 |     int minX = min(min(lastNeedleX1, lastNeedleX2), min(needleX1, needleX2)) - 2;
+      |                    ^~~
+      |                    std::min
+In file included from C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/string:51,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Print.h:28,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h:11,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Fonts/FreeSerif9pt7b.h:2,
+                 from ../Screen/Screen.hpp:6,
+                 from ../Screen/UpdateMeter.cpp:3:
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:281:5: note: 'std::min' declared here
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+../Screen/UpdateMeter.cpp:119:16: error: 'min' was not declared in this scope; did you mean 'std::min'?
+  119 |     int minX = min(min(lastNeedleX1, lastNeedleX2), min(needleX1, needleX2)) - 2;
+      |                ^~~
+      |                std::min
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:281:5: note: 'std::min' declared here
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+../Screen/UpdateMeter.cpp:120:20: error: 'max' was not declared in this scope; did you mean 'std::max'?
+  120 |     int maxX = max(max(lastNeedleX1, lastNeedleX2), max(needleX1, needleX2)) + 2;
+      |                    ^~~
+      |                    std::max
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:303:5: note: 'std::max' declared here
+  303 |     max(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+../Screen/UpdateMeter.cpp:120:16: error: 'max' was not declared in this scope; did you mean 'std::max'?
+  120 |     int maxX = max(max(lastNeedleX1, lastNeedleX2), max(needleX1, needleX2)) + 2;
+      |                ^~~
+      |                std::max
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:303:5: note: 'std::max' declared here
+  303 |     max(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+make: *** [Screen/subdir.mk:37: Screen/UpdateMeter.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+08:48:54 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:119:20: error: 'min' was not declared in this scope; did you mean 'std::min'?
+  119 |     int minX = min(min(lastNeedleX1, lastNeedleX2), min(needleX1, needleX2)) - 2;
+      |                    ^~~
+      |                    std::min
+In file included from C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/string:51,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Print.h:28,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h:11,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Fonts/FreeSerif9pt7b.h:2,
+                 from ../Screen/Screen.hpp:6,
+                 from ../Screen/UpdateMeter.cpp:3:
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:281:5: note: 'std::min' declared here
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+../Screen/UpdateMeter.cpp:119:16: error: 'min' was not declared in this scope; did you mean 'std::min'?
+  119 |     int minX = min(min(lastNeedleX1, lastNeedleX2), min(needleX1, needleX2)) - 2;
+      |                ^~~
+      |                std::min
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:281:5: note: 'std::min' declared here
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+../Screen/UpdateMeter.cpp:120:63: error: 'max' was not declared in this scope; did you mean 'std::max'?
+  120 |     int maxX = std::max(std::max(lastNeedleX1, lastNeedleX2), max(needleX1, needleX2)) + 2;
+      |                                                               ^~~
+      |                                                               std::max
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:303:5: note: 'std::max' declared here
+  303 |     max(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+make: *** [Screen/subdir.mk:37: Screen/UpdateMeter.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+08:49:16 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:119:20: error: 'min' was not declared in this scope; did you mean 'std::min'?
+  119 |     int minX = min(min(lastNeedleX1, lastNeedleX2), min(needleX1, needleX2)) - 2;
+      |                    ^~~
+      |                    std::min
+In file included from C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/string:51,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Print.h:28,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h:11,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Fonts/FreeSerif9pt7b.h:2,
+                 from ../Screen/Screen.hpp:6,
+                 from ../Screen/UpdateMeter.cpp:3:
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:281:5: note: 'std::min' declared here
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+../Screen/UpdateMeter.cpp:119:16: error: 'min' was not declared in this scope; did you mean 'std::min'?
+  119 |     int minX = min(min(lastNeedleX1, lastNeedleX2), min(needleX1, needleX2)) - 2;
+      |                ^~~
+      |                std::min
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:281:5: note: 'std::min' declared here
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+../Screen/UpdateMeter.cpp:125:12: error: 'max' was not declared in this scope; did you mean 'std::max'?
+  125 |     minX = max(0, minX);
+      |            ^~~
+      |            std::max
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:303:5: note: 'std::max' declared here
+  303 |     max(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+make: *** [Screen/subdir.mk:37: Screen/UpdateMeter.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+08:49:28 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:119:20: error: 'min' was not declared in this scope; did you mean 'std::min'?
+  119 |     int minX = min(min(lastNeedleX1, lastNeedleX2), min(needleX1, needleX2)) - 2;
+      |                    ^~~
+      |                    std::min
+In file included from C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/string:51,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Print.h:28,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Adafruit_GFX.h:11,
+                 from C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0/Fonts/FreeSerif9pt7b.h:2,
+                 from ../Screen/Screen.hpp:6,
+                 from ../Screen/UpdateMeter.cpp:3:
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:281:5: note: 'std::min' declared here
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+../Screen/UpdateMeter.cpp:119:16: error: 'min' was not declared in this scope; did you mean 'std::min'?
+  119 |     int minX = min(min(lastNeedleX1, lastNeedleX2), min(needleX1, needleX2)) - 2;
+      |                ^~~
+      |                std::min
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/bits/stl_algobase.h:281:5: note: 'std::min' declared here
+  281 |     min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+      |     ^~~
+make: *** [Screen/subdir.mk:37: Screen/UpdateMeter.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+08:50:01 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 130104	   2993	  12659	 145756	  2395c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:50:44 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 130104	   2993	  12659	 145756	  2395c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+08:51:20 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 130032	   2993	  12659	 145684	  23914	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:53:06 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:94:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   94 |     uint16_t regionBuffer[width * height]; // Or use malloc for larger regions
+      |              ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 130008	   2993	  12659	 145660	  238fc	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:54:11 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129320	   2993	  12659	 144972	  2364c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+08:58:24 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 129320	   2993	  12659	 144972	  2364c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+09:09:35 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:94:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   94 |     uint16_t regionBuffer[width * height];
+      |              ^~~~~~~~~~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129584	   2993	  12659	 145236	  23754	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+09:12:13 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:94:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   94 |     uint16_t regionBuffer[width * height];
+      |              ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129608	   2993	  12659	 145260	  2376c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+09:13:27 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:94:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   94 |     uint16_t regionBuffer[width * height];
+      |              ^~~~~~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129600	   2993	  12659	 145252	  23764	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+09:18:42 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:97:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   97 |     uint16_t regionBuffer[width * height];
+      |              ^~~~~~~~~~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129624	   2993	  12659	 145276	  2377c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+09:22:08 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129800	   2993	  12659	 145452	  2382c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+09:24:59 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+arm-none-eabi-g++ "../Core/Src/BatteryMonitor.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/BatteryMonitor.d" -MT"Core/Src/BatteryMonitor.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/BatteryMonitor.o"
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:39:9: warning: unused variable 'channel2' [-Wunused-variable]
+   39 |     int channel2 = 2;
+      |         ^~~~~~~~
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129112	   2993	  12659	 144764	  2357c	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+09:29:36 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:40:9: warning: unused variable 'channel2' [-Wunused-variable]
+   40 |     int channel2 = 2;
+      |         ^~~~~~~~
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::stateMachine()':
+../Core/Src/Thermocouples.cpp:163:142: error: invalid use of non-static data member 'Screen::needleAngle'
+  163 |         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Ch0: %f, Ch1: %f, DT: %f, A: %f\r\n", voltage[0], voltage[1], deltaTemp, Screen::needleAngle);
+      |                                                                                                                                              ^~~~~~~~~~~
+In file included from ../Core/Src/Thermocouples.cpp:2:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen/Screen.hpp:89:11: note: declared here
+   89 |     float needleAngle = 270.0;
+      |           ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:106: Core/Src/Thermocouples.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+09:31:04 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/RenderMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/RenderMeter.d" -MT"Screen/RenderMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/RenderMeter.o"
+arm-none-eabi-g++ "../Screen/Screen.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/Screen.d" -MT"Screen/Screen.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/Screen.o"
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ "../Core/Src/Touch.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Touch.d" -MT"Core/Src/Touch.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Touch.o"
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/Screen.cpp: In member function 'void Screen::writeCanvasRegion(int, int, int, int)':
+../Screen/Screen.cpp:99:14: warning: ISO C++ forbids variable length array 'regionBuffer' [-Wvla]
+   99 |     uint16_t regionBuffer[width * height];
+      |              ^~~~~~~~~~~~
+../Screen/RenderMeter.cpp: In member function 'void Screen::renderMeter()':
+../Screen/RenderMeter.cpp:45:52: warning: conversion lacks type at end of format [-Wformat=]
+   45 |     snprintf(batteryLevel, sizeof(batteryLevel), "% %d\r\n", BatteryMonitor::charge);
+      |                                                    ^
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:40:9: warning: unused variable 'channel2' [-Wunused-variable]
+   40 |     int channel2 = 2;
+      |         ^~~~~~~~
+../Core/Src/Touch.cpp: In member function 'void Touch::setup()':
+../Core/Src/Touch.cpp:18:30: warning: passing NULL to non-pointer argument 3 of 'void Touch_FT5436_Begin(Touch_FT5436_t*, GPIO_TypeDef*, uint16_t, GPIO_TypeDef*, uint16_t)' [-Wconversion-null]
+   18 |                        NULL, NULL,                                    // Interrupt pin (PB1)
+      |                              ^~~~
+In file included from ../Core/Inc/Touch.hpp:3,
+                 from ../Core/Src/Touch.cpp:2:
+../Core/Inc/FT5436_Touch.h:113:81: note:   declared here
+  113 | void Touch_FT5436_Begin(Touch_FT5436_t *touch, GPIO_TypeDef *int_port, uint16_t int_pin,
+      |                                                                        ~~~~~~~~~^~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129112	   2997	  12651	 144760	  23578	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+09:43:21 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 129112	   2997	  12651	 144760	  23578	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+10:00:23 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:40:9: warning: unused variable 'channel2' [-Wunused-variable]
+   40 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129120	   2997	  12651	 144768	  23580	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+10:24:58 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:40:9: warning: unused variable 'channel2' [-Wunused-variable]
+   40 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129144	   2997	  12651	 144792	  23598	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+10:53:05 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Screen/UpdateMeter.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Screen/UpdateMeter.d" -MT"Screen/UpdateMeter.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Screen/UpdateMeter.o"
+arm-none-eabi-g++ "../Core/Src/Switch.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Switch.d" -MT"Core/Src/Switch.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Switch.o"
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Screen/UpdateMeter.cpp:30:47: warning: multi-character character constant [-Wmultichar]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: multi-character character constant [-Wmultichar]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:40:9: warning: unused variable 'channel2' [-Wunused-variable]
+   40 |     int channel2 = 2;
+      |         ^~~~~~~~
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::stateMachine()':
+../Core/Src/Thermocouples.cpp:168:62: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  168 |         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%d, %f, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp, Screen::needleAngle);
+      |                                                             ~^                               ~~~~~~~~~
+      |                                                              |                               |
+      |                                                              int                             uint32_t {aka long unsigned int}
+      |                                                             %ld
+../Screen/UpdateMeter.cpp: In member function 'void Screen::updateMeter()':
+../Screen/UpdateMeter.cpp:30:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   30 |         canvas.drawChar(chargingX, chargingY, '+ ', BACKGROUND_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+../Screen/UpdateMeter.cpp:35:47: warning: unsigned conversion from 'int' to 'unsigned char' changes value from '11040' to '32' [-Woverflow]
+   35 |         canvas.drawChar(chargingX, chargingY, '+ ', TEXT_COLOR, BACKGROUND_COLOR, 1);
+      |                                               ^~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129208	   2997	  12659	 144864	  235e0	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+10:54:10 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
 arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
@@ -9,15 +868,86 @@ Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
 arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
 arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
    text	   data	    bss	    dec	    hex	filename
- 128656	   2993	  12587	 144236	  2336c	DeltaTPlus_STM32WB55RG_090525.elf
+ 127160	   2997	  12659	 142816	  22de0	DeltaTPlus_STM32WB55RG_090525.elf
 Finished building: default.size.stdout
  
 Finished building: DeltaTPlus_STM32WB55RG_090525.list
  
-05:25:27 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+10:54:57 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
 make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
 arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
    text	   data	    bss	    dec	    hex	filename
- 128656	   2993	  12587	 144236	  2336c	DeltaTPlus_STM32WB55RG_090525.elf
+ 125400	   2993	  12643	 141036	  226ec	DeltaTPlus_STM32WB55RG_090525.elf
 Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+10:56:54 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:40:9: warning: unused variable 'channel2' [-Wunused-variable]
+   40 |     int channel2 = 2;
+      |         ^~~~~~~~
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::stateMachine()':
+../Core/Src/Thermocouples.cpp:168:62: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  168 |         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%d, %f, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp, Screen::needleAngle);
+      |                                                             ~^                               ~~~~~~~~~
+      |                                                              |                               |
+      |                                                              int                             uint32_t {aka long unsigned int}
+      |                                                             %ld
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 125400	   2993	  12643	 141036	  226ec	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+10:57:52 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129208	   2997	  12659	 144864	  235e0	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+10:59:02 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_GFX_Library-1.12.0" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_MAX31856_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Screen" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:40:9: warning: unused variable 'channel2' [-Wunused-variable]
+   40 |     int channel2 = 2;
+      |         ^~~~~~~~
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::stateMachine()':
+../Core/Src/Thermocouples.cpp:168:62: warning: format '%d' expects argument of type 'int', but argument 4 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  168 |         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%d, %f, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp, Screen::needleAngle);
+      |                                                             ~^                               ~~~~~~~~~
+      |                                                              |                               |
+      |                                                              int                             uint32_t {aka long unsigned int}
+      |                                                             %ld
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 129208	   2997	  12659	 144864	  235e0	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
  

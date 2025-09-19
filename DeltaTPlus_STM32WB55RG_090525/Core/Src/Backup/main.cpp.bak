@@ -35,8 +35,7 @@
 #include "Adafruit_GFX.h"
 // #include "usbd_cdc_if.h"
 #include "stm32_seq.h"
-#include "TEMP_MAX31856.h"
-#include "TFT_ST7789S.h"
+
 #include "ST7789V_STM32.h"
 #include "Screen.hpp"
 #include "Accelerometer.hpp"
@@ -46,11 +45,17 @@
 #include "screen.h"
 #include "BatteryMonitor.hpp"
 #include "Switch.hpp"
+#include "Touch.hpp"
+
+// #include "AD7124/ad7124_console_app.h"
+// #include "ad7124_console_app.h"
+// #include "ad7124.h"
+// #include "ad7124_regs.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+uint8_t UART_BUFFER[64] = {0};
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -60,13 +65,12 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+// static struct ad7124_dev *pAd7124_dev = NULL;
 
 /* USER CODE BEGIN PV */
-uint8_t UART_BUFFER[64] = {0};
 
 /* USER CODE END PV */
 
@@ -87,6 +91,8 @@ Thermocouples myThermocouples;
 Screen myScreen;
 BatteryMonitor myBatteryMonitor;
 Switch mySwitch;
+Touch myTouch;
+
 // main timer implementation
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
@@ -120,6 +126,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       //{
       //  thermocoupleDelay--;
       //}
+
+      if (myTouch.delay)
+      {
+        myTouch.delay--;
+      }
 
       if (myAccelerometer.readDelay)
       {
@@ -237,9 +248,12 @@ int main(void)
   myBatteryMonitor.setup();
   myScreen.setup();
   mySwitch.setup();
+  myTouch.setup();
 
   snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
   HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+
+  // configure_ad7124();
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -256,6 +270,7 @@ int main(void)
     myBatteryMonitor.stateMachine();
     myScreen.stateMachine();
     mySwitch.stateMachine();
+    myTouch.stateMachine();
   }
   /* USER CODE END 3 */
 }

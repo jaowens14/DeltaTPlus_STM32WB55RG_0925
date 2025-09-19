@@ -1,6 +1,7 @@
 #ifndef TOUCH_HPP
 #define TOUCH_HPP
 #include <FT5436_Touch.h>
+#include "usart.h"
 
 class Touch
 {
