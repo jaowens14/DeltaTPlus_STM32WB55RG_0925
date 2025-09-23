@@ -1,6 +1,7 @@
 #include "Screen.hpp"
 
 float Screen::needleAngle = 270.0;
+float Screen::lastNeedleAngle = 270.0;
 
 void Screen::setup(void)
 {
@@ -39,7 +40,11 @@ void Screen::stateMachine(void)
     // {
     // case METER:
     //
-    updateMeter();
+    if (!renderDelay)
+    {
+        updateMeter();
+        renderDelay = 20; // 20 ms...
+    }
     //
     //     if (!switchPageDelay && switchPage)
     //     {

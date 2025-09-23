@@ -56,10 +56,13 @@ void Backlight::stateMachine(void)
 
 void Backlight::fadeScreen(int target_brightness)
 {
+    // Only update if brightness needs to change
+    if (current_brightness == target_brightness)
+        return; // Exit early if no change needed
 
     if (current_brightness < target_brightness)
     {
-        current_brightness += 1; // Adjust step size for fade speed
+        current_brightness += 1;
         if (current_brightness > target_brightness)
             current_brightness = target_brightness;
     }

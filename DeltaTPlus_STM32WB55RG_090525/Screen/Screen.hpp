@@ -87,7 +87,7 @@ public:
     int lastNeedleY2;
     float needleRad;
     static float needleAngle;
-    float currentAngle = 270.0;
+    static float lastNeedleAngle;
 
     float angleDeadBandTolerance = 0.001;
     // label
@@ -149,6 +149,13 @@ public:
     const int backlightFrequency = 5000;
     const int backlightResolution = 8;
 
+    float velocity = 0.0;
+    float stiffness = 1.0; // how strong the spring is 200 seemed ok
+    float damping = 0.1;   // resistance to motion and 0.001 seemed ok
+    float targetAngle = 270;
+    float currentAngle = 270;
+
+    float force;
     int buttonY; // these look messy but they are in the order of the elements on the screen
 
     const int needleX = screenOffset + meterWidth / 2;

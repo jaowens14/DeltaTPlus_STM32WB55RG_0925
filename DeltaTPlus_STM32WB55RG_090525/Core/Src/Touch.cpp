@@ -15,7 +15,7 @@ void Touch::setup(void)
     // Parameters: interrupt port, interrupt pin, reset port, reset pin
     // Use NULL for ports and 0 for pins if not used
     Touch_FT5436_Begin(&touch_controller,
-                       NULL, NULL,                                    // Interrupt pin (PB1)
+                       CTP_INT_GPIO_Port, CTP_INT_Pin,                // Interrupt pin (PB1)
                        GPIO_CTP_RESET_GPIO_Port, GPIO_CTP_RESET_Pin); // Reset pin (PB0)
 
     // Optional: Configure jitter margin and max points

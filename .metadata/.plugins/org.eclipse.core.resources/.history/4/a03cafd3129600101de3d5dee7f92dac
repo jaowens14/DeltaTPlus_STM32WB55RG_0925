@@ -121,14 +121,12 @@ void Screen::updateMeter(void)
     //  Calculate the endpoint of the line (on the circle's perimeter)
     needleX2 = float(meterOriginX) + (float(meterHeight) - 170) * std::cos(needleRad);
     needleY2 = float(meterOriginY) + (float(meterHeight) - 170) * std::sin(needleRad);
-    // needleX2 = float(meterOriginX) + (float(meterHeight) - 82) * std::cos(needleRad);
-    // needleY2 = float(meterOriginY) + (float(meterHeight) - 82) * std::sin(needleRad);
 
-    canvas.drawLine(lastNeedleX1, lastNeedleY1, lastNeedleX2, lastNeedleY2, BACKGROUND_COLOR);
+    tft.drawLine(lastNeedleX1, lastNeedleY1, lastNeedleX2, lastNeedleY2, BACKGROUND_COLOR);
     // writeNeedleFromCanvas(x0, y0, x1, y1, color);
 
     // Draw a normal line
-    canvas.drawLine(needleX1, needleY1, needleX2, needleY2, ST7789V_BLACK);
+    tft.drawLine(needleX1, needleY1, needleX2, needleY2, ST7789V_BLACK);
     // writeNeedleFromCanvas(x0, y0, x1, y1, color);
 
     lastNeedleX1 = needleX1;
@@ -138,10 +136,10 @@ void Screen::updateMeter(void)
     // renderDelay = 15; // about a 60hz refresh rate
     // writeCanvas();
 
-    int minX = std::min(std::min(needleX1, needleX2), std::min(lastNeedleX1, lastNeedleX2)) - 1;
-    int maxX = std::max(std::max(needleX1, needleX2), std::max(lastNeedleX1, lastNeedleX2)) + 1;
-    int minY = std::min(std::min(needleY1, needleY2), std::min(lastNeedleY1, lastNeedleY2)) - 1;
-    int maxY = std::max(std::max(needleY1, needleY2), std::max(lastNeedleY1, lastNeedleY2)) + 1;
+    int minX = std::min(needleX1, needleX2) - 4; // Add small buffer
+    int maxX = std::max(needleX1, needleX2) + 4;
+    int minY = std::min(needleY1, needleY2) - 4;
+    int maxY = std::max(needleY1, needleY2) + 4;
     writeCanvasRegion(minX, minY, maxX, maxY);
 
     // writeCanvas();

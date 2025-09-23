@@ -47,7 +47,7 @@ void Switch::stateMachine(void)
             delay = 1;
             snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "LOW SETTING --> HIGH SETTING\r\n");
             HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
-            Thermocouples::userGain = 150.0;
+            Thermocouples::userGain = 2.0;
         }
         break;
     case HIGH:

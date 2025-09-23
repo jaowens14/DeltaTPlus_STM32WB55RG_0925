@@ -8,7 +8,10 @@ void Accelerometer::setup(void)
 {
     // pinMode(0, OUTPUT);
     state = AWAKE;
-    delay = 1; // seconds?
+    delay = 30; // seconds?
+                // Set MEASURE bit (Bit 3) to enable measurement mode
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, 0x2D, I2C_MEMADD_SIZE_8BIT, &powerCtl, 1, 1000);
+
     readAccelerometer();
 }
 
@@ -58,12 +61,10 @@ void Accelerometer::stateMachine(void)
 
 void Accelerometer::readAccelerometer(void)
 {
-    // Set MEASURE bit (Bit 3) to enable measurement mode
-    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, 0x2D, I2C_MEMADD_SIZE_8BIT, &powerCtl, 1, 1000);
 
     // Read with error handling
     HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, ADXL343_ADDR, accreg, I2C_MEMADD_SIZE_8BIT, accdata, 6, 1000);
-
+    // HAL_StatusTypeDef status = HAL_BUSY;
     if (status == HAL_OK)
     {
 
@@ -81,8 +82,8 @@ void Accelerometer::readAccelerometer(void)
         //     HAL_UART_Transmit(&huart1, (uint8_t *)"Threshold exceeded\r\n", 21, 100);
         // }
 
-       // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Acceleration: %ld\r\n", acceleration);
-       // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Acceleration: %ld\r\n", acceleration);
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
         // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "X: %f, Y: %f, Z: %f\r\n", x_g, y_g, z_g);
         // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);

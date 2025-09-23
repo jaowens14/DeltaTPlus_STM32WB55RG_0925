@@ -9,6 +9,9 @@ void Accelerometer::setup(void)
     // pinMode(0, OUTPUT);
     state = AWAKE;
     delay = 30; // seconds?
+                // Set MEASURE bit (Bit 3) to enable measurement mode
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, 0x2D, I2C_MEMADD_SIZE_8BIT, &powerCtl, 1, 1000);
+
     readAccelerometer();
 }
 
@@ -58,12 +61,10 @@ void Accelerometer::stateMachine(void)
 
 void Accelerometer::readAccelerometer(void)
 {
-    // Set MEASURE bit (Bit 3) to enable measurement mode
-    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, 0x2D, I2C_MEMADD_SIZE_8BIT, &powerCtl, 1, 1000);
 
     // Read with error handling
     HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, ADXL343_ADDR, accreg, I2C_MEMADD_SIZE_8BIT, accdata, 6, 1000);
-
+    // HAL_StatusTypeDef status = HAL_BUSY;
     if (status == HAL_OK)
     {
 

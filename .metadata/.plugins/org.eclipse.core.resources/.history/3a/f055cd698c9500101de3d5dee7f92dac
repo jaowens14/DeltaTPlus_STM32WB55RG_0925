@@ -46,7 +46,7 @@
 #include "BatteryMonitor.hpp"
 #include "Switch.hpp"
 #include "Touch.hpp"
-#include "FT5436_Touch.h"
+
 // #include "AD7124/ad7124_console_app.h"
 // #include "ad7124_console_app.h"
 // #include "ad7124.h"
@@ -186,14 +186,6 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
   }
 }
 
-// GPIO EXTI Callback - this is where you connect to the library
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-
-  // Call the library's interrupt handler
-  Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -309,13 +301,13 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     // only MX_APPE_Process(); 151506 hz
-    myAccelerometer.stateMachine(); // 113495 hz
+    // myAccelerometer.stateMachine(); // 113495 hz
     myBacklight.stateMachine();     // 77963 hz -> 83350 hz
-    myThermocouples.stateMachine();
-    myBatteryMonitor.stateMachine();
+    // myThermocouples.stateMachine();
+    // myBatteryMonitor.stateMachine();
     myScreen.stateMachine(); // 10hz
-    mySwitch.stateMachine();
-    myTouch.stateMachine();
+    // mySwitch.stateMachine();
+    // myTouch.stateMachine();
 
     if (measureFlag)
     {

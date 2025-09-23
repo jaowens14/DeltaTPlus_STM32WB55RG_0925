@@ -3,7 +3,7 @@
 #include "main.h"
 // Static member definitions
 float Thermocouples::deltaTemp = 0.0;
-float Thermocouples::userGain = 0.0;
+float Thermocouples::userGain = 1.0;
 float Thermocouples::deltaTempOffset = 0.0;
 KALMAN_T rf;
 KALMAN_T lf;
@@ -85,12 +85,12 @@ void Thermocouples::setup()
     rf.error = 0.0f;
     rf.estimate = 0.0f;
     rf.process_variance = 1.0f;
-    rf.measurement_variance = 10.0f;
+    rf.measurement_variance = 50.0f;
 
     lf.error = 0.0f;
     lf.estimate = 0.0f;
     lf.process_variance = 1.0f;
-    lf.measurement_variance = 10.0f;
+    lf.measurement_variance = 50.0f;
 
     // diameter = 0.000812f;                // 20 gauge wire diameter, meters
     // length = 0.0254f;                    // 1 inch in meters
@@ -135,13 +135,14 @@ void Thermocouples::stateMachine(void)
         // rightTemp = rightRawTemp;
         // leftTemp = leftRawTemp;
 
-        currentTime = HAL_GetTick();
-        deltaTime = currentTime - lastTime;
-        lastTime = currentTime;
+        // currentTime = HAL_GetTick();
+        // deltaTime = currentTime - lastTime;
+        // lastTime = currentTime;
 
         rf.measurement = voltage[0]; // voltage
         lf.measurement = voltage[1]; // voltage
-                                     //
+
+        // the current voltage is estimated to be the last voltage + volt/second ratio (velocity) * time
         rf.error = rf.error + rf.process_variance;
         rf.gain = rf.error / (rf.error + rf.measurement_variance);
         rf.estimate = rf.estimate + rf.gain * (rf.measurement - rf.estimate);
@@ -153,7 +154,15 @@ void Thermocouples::stateMachine(void)
         lf.error = (1.0 - lf.gain) * lf.error;
 
         // roughly maps voltage to angle
-        deltaTemp = (((rf.estimate - lf.estimate) * userGain * 20000.0) - deltaTemp) * 0.6; // - deltaTempOffset;
+        // deltaTemp = ((rf.estimate - lf.estimate) * 75.0 * 20000.0); // This works really well for HIGH setting.
+        deltaTemp = ((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain); // This works really well for HIGH setting.
+
+        // deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
+
+        // deltaTemp = ((rf.estimate - lf.estimate) * 75.0 * 10000.0); // - deltaTempOffset; // this works pretty well 09/20
+
+        // deltaTemp = (((rf.estimate - lf.estimate) * 1.0 * 10000.0) - deltaTemp) * 0.6; // - deltaTempOffset;
+
         // deltaTemp = (rf.estimate - lf.estimate) * userGain * 20000.0) - deltaTemp) * 0.6; // - deltaTempOffset;
 
         // deltaTemp += ((rightTemp - leftTemp) - deltaTemp) * 0.9; // leaky integrator with a gain of 0.9
@@ -165,7 +174,7 @@ void Thermocouples::stateMachine(void)
         // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Delta Temp: %f\r\n", deltaTemp);
         // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
         //                                                  r0, r1, v0, v1, dt, angle
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%d, %f, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp, Screen::needleAngle);
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%ld, %f, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp, Screen::needleAngle);
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
     }
 }
