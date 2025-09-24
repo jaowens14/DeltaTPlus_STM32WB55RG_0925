@@ -47,7 +47,7 @@ void Thermocouples::setup()
     // Configure Setup 0 for Thermocouples
     // High gain (128) with internal reference for maximum sensitivity to µV signals
     thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga64, true);
-    thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc4Filter, filterWord);
+    thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc3Filter, filterWord);
 
     thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
     thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4Filter, filterWord);
@@ -84,12 +84,12 @@ void Thermocouples::setup()
 
     rf.error = 0.0f;
     rf.estimate = 0.0f;
-    rf.process_variance = 1.0f;
+    rf.process_variance = 2.0f;
     rf.measurement_variance = 50.0f;
 
     lf.error = 0.0f;
     lf.estimate = 0.0f;
-    lf.process_variance = 1.0f;
+    lf.process_variance = 2.0f;
     lf.measurement_variance = 50.0f;
 
     // diameter = 0.000812f;                // 20 gauge wire diameter, meters

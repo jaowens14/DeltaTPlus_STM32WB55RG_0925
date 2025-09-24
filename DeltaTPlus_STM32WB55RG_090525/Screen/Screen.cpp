@@ -94,9 +94,15 @@ void Screen::writeCanvas(void)
 
 void Screen::writeCanvasRegion(int x0, int y0, int x1, int y1)
 {
-    // Set display window to the specific region
-    int width = abs(x0 - x1) + 1;
-    int height = abs(y0 - y1) + 1;
+    // Bounds checking - clamp to canvas boundaries
+    x0 = std::max(0, std::min(x0, 239)); // Assuming 240 width
+    y0 = std::max(0, std::min(y0, 319)); // Assuming 320 height
+    x1 = std::max(0, std::min(x1, 239));
+    y1 = std::max(0, std::min(y1, 319));
+
+    // Calculate proper width and height
+    int width = x1 - x0 + 1;
+    int height = y1 - y0 + 1;
 
     tft.setWindow(x0, y0, x1, y1);
 

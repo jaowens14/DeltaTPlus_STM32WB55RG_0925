@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="false"/>
+	<list key="searchhistory">
+		<item value="writeData"/>
+		<item value="writeCommand"/>
+		<item value="measureFlag"/>
+		<item value="int_port"/>
+		<item value="FT_I2C_ADDR"/>
+	</list>
+	<list key="replacehistory">
+		<item value="writeData16"/>
+		<item value="writeCommand16"/>
+	</list>
+</section>

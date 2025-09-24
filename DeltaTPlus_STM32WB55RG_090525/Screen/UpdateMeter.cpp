@@ -114,38 +114,53 @@ void Screen::updateMeter(void)
     // Serial.println(needleAngle);
 
     // Calculate the endpoint of the line (on the circle's perimeter)
-    needleX1 = float(meterOriginX) + (float(meterHeight) - 80) * std::cos(needleRad);
-    needleY1 = float(meterOriginY) + (float(meterHeight) - 80) * std::sin(needleRad);
+    needleX1 = ceil(float(meterOriginX) + (float(meterHeight) - 80) * std::cos(needleRad));
+    needleY1 = ceil(float(meterOriginY) + (float(meterHeight) - 80) * std::sin(needleRad));
     // Serial.println(needleX1);
     // Serial.println(needleY1);
     //  Calculate the endpoint of the line (on the circle's perimeter)
-    needleX2 = float(meterOriginX) + (float(meterHeight) - 170) * std::cos(needleRad);
-    needleY2 = float(meterOriginY) + (float(meterHeight) - 170) * std::sin(needleRad);
+    needleX2 = ceil(float(meterOriginX) + (float(meterHeight) - 160) * std::cos(needleRad));
+    needleY2 = ceil(float(meterOriginY) + (float(meterHeight) - 160) * std::sin(needleRad));
     // needleX2 = float(meterOriginX) + (float(meterHeight) - 82) * std::cos(needleRad);
     // needleY2 = float(meterOriginY) + (float(meterHeight) - 82) * std::sin(needleRad);
 
-    canvas.drawLine(lastNeedleX1, lastNeedleY1, lastNeedleX2, lastNeedleY2, BACKGROUND_COLOR);
-    // writeNeedleFromCanvas(x0, y0, x1, y1, color);
+    if (needleX1 != lastNeedleX1 && needleX1 != 0 && needleY1 != 0)
+    {
 
-    // Draw a normal line
-    canvas.drawLine(needleX1, needleY1, needleX2, needleY2, ST7789V_BLACK);
-    // writeNeedleFromCanvas(x0, y0, x1, y1, color);
+        // Calculate bounding box BEFORE updating last position variables
+        int minX = std::min(std::min(lastNeedleX1, lastNeedleX2), std::min(needleX1, needleX2));
+        int maxX = std::max(std::max(lastNeedleX1, lastNeedleX2), std::max(needleX1, needleX2));
+        int minY = std::min(std::min(lastNeedleY1, lastNeedleY2), std::min(needleY1, needleY2));
+        int maxY = std::max(std::max(lastNeedleY1, lastNeedleY2), std::max(needleY1, needleY2));
+        int theWidth = maxX - minX + 1;
+        int theHeight = maxY - minY + 1;
 
-    lastNeedleX1 = needleX1;
-    lastNeedleX2 = needleX2;
-    lastNeedleY1 = needleY1;
-    lastNeedleY2 = needleY2;
-    // renderDelay = 15; // about a 60hz refresh rate
-    // writeCanvas();
+        canvas.fillRect(minX, minY, theWidth, theHeight, BACKGROUND_COLOR);
+        canvas.drawLine(needleX1, needleY1, needleX2, needleY2, ST7789V_BLACK);
 
-    int minX = std::min(std::min(needleX1, needleX2), std::min(lastNeedleX1, lastNeedleX2)) - 1;
-    int maxX = std::max(std::max(needleX1, needleX2), std::max(lastNeedleX1, lastNeedleX2)) + 1;
-    int minY = std::min(std::min(needleY1, needleY2), std::min(lastNeedleY1, lastNeedleY2)) - 1;
-    int maxY = std::max(std::max(needleY1, needleY2), std::max(lastNeedleY1, lastNeedleY2)) + 1;
-    writeCanvasRegion(minX, minY, maxX, maxY);
+        // writeCanvasRegion(minX, minY, maxX, maxY);
+        writeCanvasRegion(minX, minY, maxX, maxY);
 
-    // writeCanvas();
-    ////}
+        //
+        //
+        //
+        //
+        // minX = std::min(needleX1, needleX2);
+        // maxX = std::max(needleX1, needleX2);
+        // minY = std::min(needleY1, needleY2);
+        // maxY = std::max(needleY1, needleY2);
+        // theWidth = maxX - minX + 1;
+        // theHeight = maxY - minY + 1;
+
+        // writeCanvas();
+        ////}
+
+        // NOW update the last position variables
+        lastNeedleX1 = needleX1;
+        lastNeedleX2 = needleX2;
+        lastNeedleY1 = needleY1;
+        lastNeedleY2 = needleY2;
+    }
 
     if (button1MinX < Touch::x && Touch::x < button1MaxX && button1MinY < Touch::y && Touch::y < button1MaxY)
     { // touch point in the left button

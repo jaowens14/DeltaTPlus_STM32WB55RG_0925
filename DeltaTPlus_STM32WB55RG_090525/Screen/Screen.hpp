@@ -81,10 +81,10 @@ public:
     int needleX2;
     int needleY1;
     int needleY2;
-    int lastNeedleX1;
-    int lastNeedleX2;
-    int lastNeedleY1;
-    int lastNeedleY2;
+    int lastNeedleX1 = meterOriginX;
+    int lastNeedleX2 = meterOriginX;
+    int lastNeedleY1 = meterOriginY - 20;
+    int lastNeedleY2 = meterOriginY - 20;
     float needleRad;
     static float needleAngle;
     static float lastNeedleAngle;
