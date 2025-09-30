@@ -89,15 +89,15 @@ void Screen::renderMeter()
     canvas.setCursor(label2X, label2Y);
     canvas.print("Calibrate");
 
-    drawMeterLines(meterOriginX, meterOriginY, meterHeight - 40, -8, 8);
+    drawMeterLines(meterOriginX, meterOriginY, meterHeight - 40, -6, 6);
 
-    canvas.getTextBounds("DELTA T PROBE", 0, 0, &textOriginX, &textOriginY, &textWidth, &textHeight);
+    canvas.getTextBounds("DELTA-T Plus", 0, 0, &textOriginX, &textOriginY, &textWidth, &textHeight);
     textX = labelX + labelWidth / 2 - textWidth / 2;
     textY = labelY + textHeight + meterSpacer;
     canvas.setTextColor(TEXT_COLOR);
 
     canvas.setCursor(textX, textY);
-    canvas.print("DELTA T PROBE");
+    canvas.print("DELTA-T Plus");
 
     canvas.getTextBounds("The Instrument Company", 0, 0, &textOriginX, &textOriginY, &textWidth, &textHeight);
     textX = labelX + labelWidth / 2 - textWidth / 2;
@@ -107,13 +107,13 @@ void Screen::renderMeter()
     canvas.setCursor(textX, textY);
     canvas.print("The Instrument Company");
 
-    canvas.getTextBounds("Dr. Ed Carr, Fort Collins, CO", 0, 0, &textOriginX, &textOriginY, &textWidth, &textHeight);
+    canvas.getTextBounds("Fort Collins, CO", 0, 0, &textOriginX, &textOriginY, &textWidth, &textHeight);
     textX = labelX + labelWidth / 2 - textWidth / 2;
     textY = labelY + textHeight * 3 + meterSpacer * 2;
     canvas.setTextColor(TEXT_COLOR);
 
     canvas.setCursor(textX, textY);
-    canvas.print("Dr. Ed Carr, Fort Collins, CO");
+    canvas.print("Fort Collins, CO");
 
     // canvas.getTextBounds("The Instrument Company", 0, 0, &textOriginX, &textOriginY, &tictextWidth, &tictextHeight);
     // canvas.setCursor(width / 2 - tictextWidth / 2, screenOffset + statusHeight + meterHeight + dttextHeight + tictextHeight + screenOffset);

@@ -19,6 +19,7 @@ public:
 
     };
     static States state;
+    static States lastState;
 
     char switchBuffer[16];
     char lastSwitchBuffer[16];

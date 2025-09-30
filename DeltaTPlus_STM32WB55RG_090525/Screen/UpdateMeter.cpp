@@ -36,40 +36,19 @@ void Screen::updateMeter(void)
         // Serial.println("charging");
     }
 
-    //{
-    //  Serial.println(Thermocouples::deltaTemp);
-    //  Serial.println();
-
-    // rotation
-    // needleAngle = Thermocouples::deltaTemp - 90.0;
-
-    needleAngle = Thermocouples::deltaTemp - 90.0;
-
-    //    if (needleAngle > -45)
-    //        needleAngle = -45;
-    //    if (needleAngle < -135)
-    //        needleAngle = -135;
-    //
-    //    force = (needleAngle - currentAngle) * stiffness;
-    //    velocity += force;
-    //    velocity *= (1.0 - damping);
-    //    currentAngle += velocity;
-
-    // needleAngle = currentAngle;
-
     canvas.setCursor(switchX, switchY);
-    if (Switch::state)
-    {
-        snprintf(switchBuffer, sizeof(switchBuffer), "HIGH\r\n");
-    }
-    else
-    {
-        snprintf(switchBuffer, sizeof(switchBuffer), "LOW\r\n");
-    }
 
-    // only if state changes
-    if (strcmp(switchBuffer, lastSwitchBuffer) != 0)
+    if (Switch::state != Switch::lastState)
     {
+
+        if (Switch::state)
+        {
+            snprintf(switchBuffer, sizeof(switchBuffer), "HIGH\r\n");
+        }
+        else
+        {
+            snprintf(switchBuffer, sizeof(switchBuffer), "LOW\r\n");
+        }
 
         int16_t x1, y1;
         uint16_t w, h;
@@ -80,9 +59,13 @@ void Screen::updateMeter(void)
         canvas.setTextColor(TEXT_COLOR);
         canvas.print(switchBuffer);
         strcpy(lastSwitchBuffer, switchBuffer); // update buffer
+
+        writeCanvasRegion(x1, y1, x1 + w, y1 + h);
+        // writeCanvas();
+        Switch::lastState = Switch::state;
     }
 
-    // are switchbuffer, lastswitchbuffer, text position, and uint16_t passed in??
+    needleAngle = Thermocouples::deltaTemp - 90.0;
 
     if (needleAngle > -45)
     {
@@ -93,20 +76,6 @@ void Screen::updateMeter(void)
     {
         needleAngle = -135;
     }
-
-    //-45 to -135
-
-    // snprintf(usbBuffer, sizeof(usbBuffer), "needleAngle: %f\r\n", needleAngle);
-    //  CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
-    //
-    // if (currentAngle > needleAngle + angleDeadBandTolerance)
-    //{
-    //    needleAngle = needleAngle + 1.0; // increase by 1 deg
-    //}
-    // if (currentAngle < needleAngle - angleDeadBandTolerance)
-    //{
-    //    needleAngle = needleAngle - 1.0; // decrease by 1 deg
-    //}
 
     // 90 / 2 is degs per point
     // Convert angle to radians
@@ -128,34 +97,18 @@ void Screen::updateMeter(void)
     {
 
         // Calculate bounding box BEFORE updating last position variables
-        int minX = std::min(std::min(lastNeedleX1, lastNeedleX2), std::min(needleX1, needleX2));
-        int maxX = std::max(std::max(lastNeedleX1, lastNeedleX2), std::max(needleX1, needleX2));
-        int minY = std::min(std::min(lastNeedleY1, lastNeedleY2), std::min(needleY1, needleY2));
-        int maxY = std::max(std::max(lastNeedleY1, lastNeedleY2), std::max(needleY1, needleY2));
+        int minX = std::min(std::min(lastNeedleX1, lastNeedleX2), std::min(needleX1, needleX2)) - 2;
+        int maxX = std::max(std::max(lastNeedleX1, lastNeedleX2), std::max(needleX1, needleX2)) + 2;
+        int minY = std::min(std::min(lastNeedleY1, lastNeedleY2), std::min(needleY1, needleY2)) - 2;
+        int maxY = std::max(std::max(lastNeedleY1, lastNeedleY2), std::max(needleY1, needleY2)) + 2;
         int theWidth = maxX - minX + 1;
         int theHeight = maxY - minY + 1;
 
         canvas.fillRect(minX, minY, theWidth, theHeight, BACKGROUND_COLOR);
         canvas.drawLine(needleX1, needleY1, needleX2, needleY2, ST7789V_BLACK);
 
-        // writeCanvasRegion(minX, minY, maxX, maxY);
         writeCanvasRegion(minX, minY, maxX, maxY);
 
-        //
-        //
-        //
-        //
-        // minX = std::min(needleX1, needleX2);
-        // maxX = std::max(needleX1, needleX2);
-        // minY = std::min(needleY1, needleY2);
-        // maxY = std::max(needleY1, needleY2);
-        // theWidth = maxX - minX + 1;
-        // theHeight = maxY - minY + 1;
-
-        // writeCanvas();
-        ////}
-
-        // NOW update the last position variables
         lastNeedleX1 = needleX1;
         lastNeedleX2 = needleX2;
         lastNeedleY1 = needleY1;

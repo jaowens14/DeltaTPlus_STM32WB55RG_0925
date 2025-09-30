@@ -34,7 +34,7 @@ void Accelerometer::stateMachine(void)
             delay = 3; // seconds
 
             state = SLEEP;
-            Backlight::state = Backlight::States::OFF;
+            Backlight::state = Backlight::States::HIGH;
         }
         break;
 
