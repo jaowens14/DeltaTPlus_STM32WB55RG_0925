@@ -155,8 +155,10 @@ void Thermocouples::stateMachine(void)
 
         // roughly maps voltage to angle
         // deltaTemp = ((rf.estimate - lf.estimate) * 75.0 * 20000.0); // This works really well for HIGH setting.
-        deltaTemp = ((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain); // This works really well for HIGH setting.
+        deltaTemp = ((rf.estimate - lf.estimate) * 4615384.615 * userGain); // NEW WITH LVGL
 
+        // deltaTemp = ((rf.estimate - lf.estimate) * 100.0 * 10000.0 * userGain); // NEW WITH LVGL
+        // 32307692.31
         // deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
 
         // deltaTemp = ((rf.estimate - lf.estimate) * 75.0 * 10000.0); // - deltaTempOffset; // this works pretty well 09/20
@@ -174,7 +176,7 @@ void Thermocouples::stateMachine(void)
         // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Delta Temp: %f\r\n", deltaTemp);
         // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
         //                                                  r0, r1, v0, v1, dt, angle
-        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%ld, %f, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp, Screen::needleAngle);
-        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%ld, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp);
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
     }
 }

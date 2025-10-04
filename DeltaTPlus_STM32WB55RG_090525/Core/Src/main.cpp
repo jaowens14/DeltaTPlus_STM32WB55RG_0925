@@ -51,6 +51,7 @@
 #define WEB_LIGHT_TAN 0xf0ead0
 #define WEB_BLACK 0x382922
 #define WEB_ORANGE 0xdf571d
+#include <math.h>
 
 #include "lvgl.h"
 #include "ST7789.h"
@@ -72,6 +73,10 @@ static lv_obj_t *meter_arc = NULL;
 static lv_obj_t *leftHeaderLabel = NULL;
 static lv_obj_t *rightHeaderLabel = NULL;
 static lv_obj_t *needle = NULL;
+
+int meter_angle;
+int meter_angle_width;
+int angle;
 
 // Configuration
 #define METER_MIN_VALUE -25
@@ -126,7 +131,10 @@ Thermocouples myThermocouples;
 Touch myTouch;
 
 ///////////////////////////////////////////////////
-
+float round_to_tenth(float value)
+{
+  return roundf(value * 10.0f) / 10.0f;
+}
 /* Timer callback to update the text area with sensor data */
 static void updateLeftHeaderLabel(lv_timer_t *timer)
 {
@@ -166,30 +174,44 @@ static void updateRightHeaderLabel(lv_timer_t *timer)
 static void updateNeedle(lv_timer_t *timer)
 {
 
-  int data = get_sensor_data();
-  int16_t angle = data * scale_factor; // map your data to angle
+  int min_angle = 1800 - (meter_angle_width * 10 / 2);
+  int max_angle = 1800 + (meter_angle_width * 10 / 2);
 
+  int angle = (myThermocouples.deltaTemp + 1800);
+
+  if (angle < min_angle)
+  {
+    angle = min_angle;
+  }
+
+  if (angle > max_angle)
+  {
+    angle = max_angle;
+  }
+
+  snprintf((char *)UART_BUFFER, 64, "ANGLE: %d\r\n", angle);
+  HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
   lv_obj_set_style_transform_angle(needle, angle, 0);
 }
 
 void brookes_meter(void)
 {
   {
+
     /* Create a scale object */
     lv_obj_t *scale = lv_scale_create(lv_screen_active());
-    lv_obj_set_size(scale, 250, 250);
-    // lv_obj_center(scale);
-    lv_obj_align(scale, LV_ALIGN_CENTER, 0, 30); // Shift down 30 pixels from center
-
-    /* Configure the scale to go from -45 to 45 degrees */
+    lv_obj_set_size(scale, 400, 400);
+    lv_obj_align(scale, LV_ALIGN_CENTER, 0, 100); // Shift down 50 pixels from center
     lv_scale_set_mode(scale, LV_SCALE_MODE_ROUND_OUTER);
 
     /* Set the range from -25 to 25 */
     lv_scale_set_range(scale, -25, 25);
 
-    /* Configure angle range: start at 210° , total arc of 120*/
-    lv_scale_set_rotation(scale, 210);
-    lv_scale_set_angle_range(scale, 120);
+    /* Configure angle range: start at 240° , total arc of 60*/
+    meter_angle = 240;
+    meter_angle_width = 60;
+    lv_scale_set_rotation(scale, meter_angle);
+    lv_scale_set_angle_range(scale, meter_angle_width);
 
     /* Set total number of ticks */
     lv_scale_set_total_tick_count(scale, 51); /* Major + minor ticks */
@@ -198,8 +220,6 @@ void brookes_meter(void)
     /* Style the scale */
     lv_obj_set_style_bg_opa(scale, LV_OPA_TRANSP, 0);
     lv_obj_set_style_border_width(scale, 0, 0);
-    // lv_obj_set_style_border_color(scale, lv_color_hex(0x000000 ), 0);
-    // lv_obj_set_style_radius(scale, LV_RADIUS_CIRCLE, 0);
     lv_obj_set_style_pad_all(scale, 20, 0);
 
     /* Style minor ticks */
@@ -210,10 +230,10 @@ void brookes_meter(void)
     /* Style major ticks */
     lv_obj_set_style_length(scale, 15, LV_PART_INDICATOR);
     lv_obj_set_style_line_width(scale, 2, LV_PART_INDICATOR);
-    lv_obj_set_style_line_color(scale, lv_color_black(), LV_PART_INDICATOR);
+    lv_obj_set_style_line_color(scale, lv_color_hex(0x36454F), LV_PART_INDICATOR);
 
     /* Add text labels at major ticks */
-    static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", " ", "25", NULL};
+    static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
     lv_scale_set_text_src(scale, angle_labels);
 
     /* Create a needle/indicator pointing to 0 degrees */
@@ -223,7 +243,7 @@ void brookes_meter(void)
     needle_points[0].x = 0;
     needle_points[0].y = 0;
     needle_points[1].x = 0;
-    needle_points[1].y = 120; /* Needle length */
+    needle_points[1].y = 100; /* Needle length */
 
     lv_line_set_points(needle, needle_points, 2);
     lv_obj_align(needle, LV_ALIGN_CENTER, 0, 0);
@@ -233,26 +253,36 @@ void brookes_meter(void)
     lv_obj_set_style_line_color(needle, lv_color_hex(0x000000), 0);
     lv_obj_set_style_line_rounded(needle, true, 0);
 
-    lv_obj_t *label = lv_label_create(lv_screen_active());
-    lv_label_set_text(label, "Delta-T+\n The Instrument Company\n");
-    lv_obj_align_to(label, scale, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+    // Create a container for the label
+    lv_obj_t *label_box = lv_obj_create(lv_screen_active());
+    lv_obj_set_size(label_box, 240, 80);                // Set size as needed
+    lv_obj_align(label_box, LV_ALIGN_BOTTOM_MID, 0, 0); // Position in scale center
 
-    /* Style the label */
+    // Set the background color and opacity for container
+    lv_obj_set_style_bg_color(label_box, lv_color_hex(0xf0ead1), 0); // cream background
+    lv_obj_set_style_bg_opa(label_box, LV_OPA_COVER, 0);             // Fully opaque
+    lv_obj_set_style_radius(label_box, 0, 0);                        // Rounded corners
+
+    // Create the label inside the box
+    lv_obj_t *label = lv_label_create(label_box);
+    lv_label_set_text(label, "DELTA-T+\n The Instrument Company\n Fort Collins, CO");
+    lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0); // center text in box
+    lv_obj_set_style_border_width(label, 0, 0);
+
+    // Style the label as before
     lv_obj_set_style_text_color(label, lv_color_black(), 0);
     lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
   }
 
   /// updating text fields
 
-  lv_obj_t *headerTextArea = lv_textarea_create(lv_scr_act());
-  lv_textarea_set_one_line(headerTextArea, true);
-  lv_obj_set_size(headerTextArea, 240, 24);
-  lv_obj_align(headerTextArea, LV_ALIGN_TOP_MID, 0, 0);
-  lv_textarea_set_text(headerTextArea, "Waiting for sensor data...");
-
   lv_obj_t *headerContainer = lv_obj_create(lv_scr_act());
   lv_obj_set_size(headerContainer, 240, 32);
   lv_obj_align(headerContainer, LV_ALIGN_TOP_MID, 0, 0);
+  lv_obj_set_scrollbar_mode(headerContainer, LV_SCROLLBAR_MODE_OFF);
+  lv_obj_set_style_bg_color(headerContainer, lv_color_hex(WEB_LIGHT_TAN), 0); // cream background
+
+  lv_obj_set_style_radius(headerContainer, 0, 0);
 
   // Left label for switch state
   leftHeaderLabel = lv_label_create(headerContainer);
@@ -266,8 +296,7 @@ void brookes_meter(void)
 
   lv_timer_create(updateLeftHeaderLabel, 200, leftHeaderLabel);
   lv_timer_create(updateRightHeaderLabel, 3000, rightHeaderLabel);
-
-  lv_timer_create(updateNeedle, 100, needle);
+  lv_timer_create(updateNeedle, 20, needle);
 }
 
 //////////////////////////////////////////////////
@@ -289,10 +318,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       lv_tick_inc(1);
       //  lv_timer_handler(); // Call every ~5-10ms
 
-      if (myThermocouples.delay)
-      {
-        myThermocouples.delay--;
-      }
       // increment / decrement 1 ms timers here.
     }
 

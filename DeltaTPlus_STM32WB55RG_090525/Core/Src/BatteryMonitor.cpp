@@ -28,9 +28,9 @@ uint16_t getChargeLevel(void)
         return (uint16_t)max17048.cellPercent();
     }
 
-    snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
+    // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
 
-    HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 }
 
 bool getChargeStatus(void)
