@@ -32,32 +32,64 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "Adafruit_GFX.h"
-// #include "usbd_cdc_if.h"
+// #include "Adafruit_GFX.h"
+//  #include "usbd_cdc_if.h"
 #include "stm32_seq.h"
 
-#include "ST7789V_STM32.h"
-#include "Screen.hpp"
+// #include "ST7789V_STM32.h"
+// #include "Screen.hpp"
 #include "Accelerometer.hpp"
 #include "Backlight.hpp"
 #include "Thermocouples.hpp"
 #include "DeltaT.h"
 #include "screen.h"
-#include "BatteryMonitor.hpp"
-#include "Switch.hpp"
+#include "BatteryMonitor.h"
 #include "Touch.hpp"
 #include "FT5436_Touch.h"
+#define LV_LVGL_H_INCLUDE_SIMPLE
+
+#define WEB_LIGHT_TAN 0xf0ead0
+#define WEB_BLACK 0x382922
+#define WEB_ORANGE 0xdf571d
+
+#include "lvgl.h"
+#include "ST7789.h"
+// #include "lv_port_disp.h"
+// #include "examples/anim/lv_example_anim.h"
+// #include "examples/widgets/arclabel/lv_example_arclabel.h"
+#include "examples/anim/lv_example_anim.h"
 // #include "AD7124/ad7124_console_app.h"
 // #include "ad7124_console_app.h"
 // #include "ad7124.h"
 // #include "ad7124_regs.h"
 /* USER CODE END Includes */
 
+// Global pointer to update the meter value
+static lv_obj_t *meter_needle = NULL;
+static lv_obj_t *meter_value_label = NULL;
+static lv_obj_t *meter_arc = NULL;
+
+static lv_obj_t *leftHeaderLabel = NULL;
+static lv_obj_t *rightHeaderLabel = NULL;
+static lv_obj_t *needle = NULL;
+
+// Configuration
+#define METER_MIN_VALUE -25
+#define METER_MAX_VALUE 25
+#define METER_RANGE (METER_MAX_VALUE - METER_MIN_VALUE)
+#define METER_START_ANGLE 225 // Start angle (225° = bottom-left)
+#define METER_END_ANGLE 315   // End angle (315° = bottom-right, 90° span)
+
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 uint8_t UART_BUFFER[128] = {0};
-/* USER CODE END PTD */
+#define BYTE_PER_PIXEL 2
+lv_display_t *display1 = NULL; // Global variable
 
+static uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 10 * BYTE_PER_PIXEL];
+// static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 32 * BYTE_PER_PIXEL];
+
+/* USER CODE END PTD */
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
@@ -87,14 +119,158 @@ volatile int timerCounter = 0;
 volatile uint32_t loopCounter = 0;
 volatile uint32_t loopsPerSecond = 0;
 volatile uint8_t measureFlag = 0;
-
 Accelerometer myAccelerometer;
 Backlight myBacklight;
 Thermocouples myThermocouples;
-Screen myScreen;
-BatteryMonitor myBatteryMonitor;
-Switch mySwitch;
+// Screen myScreen;
 Touch myTouch;
+
+///////////////////////////////////////////////////
+
+/* Timer callback to update the text area with sensor data */
+static void updateLeftHeaderLabel(lv_timer_t *timer)
+{
+  char *switchState;
+
+  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0))
+  {
+    switchState = "HIGH";
+    Thermocouples::userGain = 2.0;
+  }
+  else
+  {
+    switchState = "LOW";
+    Thermocouples::userGain = 1.0;
+  }
+
+  lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
+
+  char buf[32];
+  snprintf(buf, sizeof(buf), "%s", switchState);
+
+  lv_label_set_text(ta, buf);
+}
+
+static void updateRightHeaderLabel(lv_timer_t *timer)
+{
+  int batteryLevel = getChargeLevel();
+
+  lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
+
+  char buf[32];
+  snprintf(buf, sizeof(buf), "%d%%", batteryLevel);
+
+  lv_label_set_text(ta, buf);
+}
+
+static void updateNeedle(lv_timer_t *timer)
+{
+
+  int data = get_sensor_data();
+  int16_t angle = data * scale_factor; // map your data to angle
+
+  lv_obj_set_style_transform_angle(needle, angle, 0);
+}
+
+void brookes_meter(void)
+{
+  {
+    /* Create a scale object */
+    lv_obj_t *scale = lv_scale_create(lv_screen_active());
+    lv_obj_set_size(scale, 250, 250);
+    // lv_obj_center(scale);
+    lv_obj_align(scale, LV_ALIGN_CENTER, 0, 30); // Shift down 30 pixels from center
+
+    /* Configure the scale to go from -45 to 45 degrees */
+    lv_scale_set_mode(scale, LV_SCALE_MODE_ROUND_OUTER);
+
+    /* Set the range from -25 to 25 */
+    lv_scale_set_range(scale, -25, 25);
+
+    /* Configure angle range: start at 210° , total arc of 120*/
+    lv_scale_set_rotation(scale, 210);
+    lv_scale_set_angle_range(scale, 120);
+
+    /* Set total number of ticks */
+    lv_scale_set_total_tick_count(scale, 51); /* Major + minor ticks */
+    lv_scale_set_major_tick_every(scale, 5);
+
+    /* Style the scale */
+    lv_obj_set_style_bg_opa(scale, LV_OPA_TRANSP, 0);
+    lv_obj_set_style_border_width(scale, 0, 0);
+    // lv_obj_set_style_border_color(scale, lv_color_hex(0x000000 ), 0);
+    // lv_obj_set_style_radius(scale, LV_RADIUS_CIRCLE, 0);
+    lv_obj_set_style_pad_all(scale, 20, 0);
+
+    /* Style minor ticks */
+    lv_obj_set_style_length(scale, 10, LV_PART_ITEMS);
+    lv_obj_set_style_line_width(scale, 1, LV_PART_ITEMS);
+    lv_obj_set_style_line_color(scale, lv_color_hex(0x888888), LV_PART_ITEMS);
+
+    /* Style major ticks */
+    lv_obj_set_style_length(scale, 15, LV_PART_INDICATOR);
+    lv_obj_set_style_line_width(scale, 2, LV_PART_INDICATOR);
+    lv_obj_set_style_line_color(scale, lv_color_black(), LV_PART_INDICATOR);
+
+    /* Add text labels at major ticks */
+    static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", " ", "25", NULL};
+    lv_scale_set_text_src(scale, angle_labels);
+
+    /* Create a needle/indicator pointing to 0 degrees */
+    needle = lv_line_create(scale);
+
+    static lv_point_precise_t needle_points[2];
+    needle_points[0].x = 0;
+    needle_points[0].y = 0;
+    needle_points[1].x = 0;
+    needle_points[1].y = 120; /* Needle length */
+
+    lv_line_set_points(needle, needle_points, 2);
+    lv_obj_align(needle, LV_ALIGN_CENTER, 0, 0);
+
+    /* Style the needle */
+    lv_obj_set_style_line_width(needle, 4, 0);
+    lv_obj_set_style_line_color(needle, lv_color_hex(0x000000), 0);
+    lv_obj_set_style_line_rounded(needle, true, 0);
+
+    lv_obj_t *label = lv_label_create(lv_screen_active());
+    lv_label_set_text(label, "Delta-T+\n The Instrument Company\n");
+    lv_obj_align_to(label, scale, LV_ALIGN_OUT_BOTTOM_MID, 0, 10);
+
+    /* Style the label */
+    lv_obj_set_style_text_color(label, lv_color_black(), 0);
+    lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
+  }
+
+  /// updating text fields
+
+  lv_obj_t *headerTextArea = lv_textarea_create(lv_scr_act());
+  lv_textarea_set_one_line(headerTextArea, true);
+  lv_obj_set_size(headerTextArea, 240, 24);
+  lv_obj_align(headerTextArea, LV_ALIGN_TOP_MID, 0, 0);
+  lv_textarea_set_text(headerTextArea, "Waiting for sensor data...");
+
+  lv_obj_t *headerContainer = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(headerContainer, 240, 32);
+  lv_obj_align(headerContainer, LV_ALIGN_TOP_MID, 0, 0);
+
+  // Left label for switch state
+  leftHeaderLabel = lv_label_create(headerContainer);
+  lv_label_set_text(leftHeaderLabel, "LOW");
+  lv_obj_align(leftHeaderLabel, LV_ALIGN_LEFT_MID, 0, 0);
+
+  // Right label for battery
+  rightHeaderLabel = lv_label_create(headerContainer);
+  lv_label_set_text(rightHeaderLabel, "100%");
+  lv_obj_align(rightHeaderLabel, LV_ALIGN_RIGHT_MID, 0, 0);
+
+  lv_timer_create(updateLeftHeaderLabel, 200, leftHeaderLabel);
+  lv_timer_create(updateRightHeaderLabel, 3000, rightHeaderLabel);
+
+  lv_timer_create(updateNeedle, 100, needle);
+}
+
+//////////////////////////////////////////////////
 
 // main timer implementation
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -110,10 +286,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     if ((timerCounter % 10) == 0)
     {
 
-      if (myScreen.renderDelay)
-      {
-        myScreen.renderDelay--;
-      }
+      lv_tick_inc(1);
+      //  lv_timer_handler(); // Call every ~5-10ms
 
       if (myThermocouples.delay)
       {
@@ -163,16 +337,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       {
         myAccelerometer.delay--;
       }
-
-      if (myBatteryMonitor.delay)
-      {
-        myBatteryMonitor.delay--;
-      }
-
-      if (mySwitch.delay)
-      {
-        mySwitch.delay--;
-      }
     }
     //}
   }
@@ -180,9 +344,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
 {
-  if (hspi == myScreen.tft._hspi)
-  { // Make sure it's the right SPI instance
-    myScreen.tft.dmaTransferCompleteCallback();
+  if (hspi == &hspi2)
+  {
+    ST7789_CS_HIGH();
+    lv_display_flush_ready(display1);
   }
 }
 
@@ -192,6 +357,61 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
   // Call the library's interrupt handler
   Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
+}
+
+void my_flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *px_map)
+{
+#define USE_DMA_FOR_CB
+#ifdef USE_DMA_FOR_CB
+  /* The most simple case (also the slowest) to send all rendered pixels to the
+   * screen one-by-one.  `put_px` is just an example.  It needs to be implemented by you. */
+  ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
+
+  ST7789_CS_LOW();
+  ST7789_DC_HIGH();
+
+  int32_t width = area->x2 - area->x1 + 1;
+  int32_t height = area->y2 - area->y1 + 1;
+  uint32_t size = width * height * 2; // 2 bytes per pixel for RGB565
+
+  lv_draw_sw_rgb565_swap(px_map, (area->x2 - area->x1 + 1) * (area->y2 - area->y1 + 1));
+
+  HAL_SPI_Transmit_DMA(&hspi2, (uint8_t *)px_map, size);
+
+#endif
+
+#ifdef USE_LARGE_SPI_FOR_CB
+
+  ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
+
+  int32_t width = area->x2 - area->x1 + 1;
+  int32_t height = area->y2 - area->y1 + 1;
+  uint32_t size = width * height * 2;
+
+  // Use polling instead of DMA for testing
+  HAL_SPI_Transmit(&hspi2, (uint8_t *)px_map, size, 1000);
+
+  // Immediately notify LVGL that flush is complete
+  lv_display_flush_ready(display);
+#endif
+
+#ifdef USE_SPI_IN_SLOW_FOR_LOOP
+  uint16_t *buf16 = (uint16_t *)px_map; /* Let's say it's a 16 bit (RGB565) display */
+  int32_t x, y;
+  for (y = area->y1; y <= area->y2; y++)
+  {
+    for (x = area->x1; x <= area->x2; x++)
+    {
+      ST7789_WriteData16(*buf16);
+      // put_px(x, y, *buf16);
+      buf16++;
+    }
+  }
+
+  /* IMPORTANT!!!
+   * Inform LVGL that flushing is complete so buffer can be modified again. */
+  lv_display_flush_ready(display);
+#endif
 }
 
 /* USER CODE END 0 */
@@ -260,69 +480,94 @@ int main(void)
 
   myAccelerometer.setup();
   myThermocouples.setup();
-  myBatteryMonitor.setup();
-  myScreen.setup();
-  mySwitch.setup();
+  // myScreen.setup();
   myTouch.setup();
   myBacklight.setup();
 
+  setupBatteryMonitor();
+
   snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
   HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
-  //  uint16_t device_addr = 0x38 << 1; // Shift left for HAL (7-bit to 8-bit)
-  //
-  //  HAL_StatusTypeDef status;
-  //
-  //  // Test if device is ready (sends device address and waits for ACK)
-  //  status = HAL_I2C_IsDeviceReady(&hi2c1, device_addr, 3, 100);
-  //
-  //  if (status == HAL_OK)
-  //  {
-  //    printf("Device at address 0x%02X is responding\r\n", device_addr >> 1);
-  //    return HAL_OK;
-  //  }
-  //  else if (status == HAL_TIMEOUT)
-  //  {
-  //    printf("Timeout: No response from device at address 0x%02X\r\n", device_addr >> 1);
-  //    return HAL_TIMEOUT;
-  //  }
-  //  else if (status == HAL_ERROR)
-  //  {
-  //    printf("Error: Communication failed with device at address 0x%02X\r\n", device_addr >> 1);
-  //    return HAL_ERROR;
-  //  }
-  //  else
-  //  {
-  //    printf("Busy: I2C bus busy when testing device at address 0x%02X\r\n", device_addr >> 1);
-  //    return HAL_BUSY;
-  //  }
 
-  // configure_ad7124();
+  // 1. Initialize LVLG early lv_init
+  lv_init();
+  // 2. Initialize TFT Driver
+  ST7789_Init();
+
+  // ST7789_FillScreen(0xf400);
+  HAL_Delay(1000);
+  // 3. Connect tick interface
+  lv_tick_set_cb(HAL_GetTick);
+  // 4. Connect display interface
+  // 4.a create display
+  display1 = lv_display_create(ST7789_WIDTH, ST7789_HEIGHT);
+
+  // 4.b buffers
+  lv_display_set_buffers(display1, buffer1, NULL, sizeof(buffer1), LV_DISPLAY_RENDER_MODE_PARTIAL);
+  // 4.c flush callback
+  lv_display_set_flush_cb(display1, my_flush_cb);
+
+  // lv_example_analog_meter();
+
+  brookes_meter();
+
+  // lv_example_anim_timeline_1();
+
+  // HAL_Delay(1000);
+
+  // lv_obj_t *spinner = lv_spinner_create(lv_screen_active());
+  // lv_obj_set_size(spinner, 100, 100);
+  // lv_obj_center(spinner);
+  // lv_spinner_set_anim_params(spinner, 1000, 90);  // 1 sec rotation, 90 degree arc
+
+  // lv_tick_set_cb(HAL_GetTick);
+
+  // lv_display_t *disp = lv_display_create(ST7789_WIDTH, ST7789_HEIGHT);
+
+  // lv_display_set_flush_cb(disp, my_flush_cb);
+
+  // LV_ATTRIBUTE_MEM_ALIGN
+
+  // lv_display_set_buffers(disp, buffer1, NULL, sizeof(buffer1), LV_DISPLAY_RENDER_MODE_PARTIAL);
+
+  // Create a simple test UI (v9 syntax)
+  // lv_obj_t *label = lv_label_create(lv_screen_active());
+  // lv_label_set_text(label, "Hello LVGL v9!");
+  // lv_obj_center(label);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    loopCounter++; // Increment at start of each iteration
+    // loopCounter++; // Increment at start of each iteration
 
     /* USER CODE END WHILE */
-    MX_APPE_Process();
+    // MX_APPE_Process();
 
     /* USER CODE BEGIN 3 */
     // only MX_APPE_Process(); 151506 hz
-    myAccelerometer.stateMachine(); // 113495 hz
-    myBacklight.stateMachine();     // 77963 hz -> 83350 hz
+    // myAccelerometer.stateMachine(); // 113495 hz
+    // myBacklight.stateMachine(); // 77963 hz -> 83350 hz
     myThermocouples.stateMachine();
-    myBatteryMonitor.stateMachine();
-    myScreen.stateMachine(); // 10hz
-    mySwitch.stateMachine();
-    myTouch.stateMachine();
 
-    if (measureFlag)
-    {
-      measureFlag = 0;
-      snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
-      HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
-    }
+    // myScreen.stateMachine(); // 10hz
+    // myTouch.stateMachine();
+
+    // lv_example_event_draw();
+    uint32_t time_till_next = lv_timer_handler();
+    if (time_till_next == LV_NO_TIMER_READY)
+      time_till_next = LV_DEF_REFR_PERIOD; /*handle LV_NO_TIMER_READY. Another option is to `sleep` for longer*/
+
+    // meter_set_value(myThermocouples.deltaTemp);
+    HAL_Delay(time_till_next);
+    // HAL_Delay(5);
+
+    // if (measureFlag)
+    //{
+    //  measureFlag = 0;
+    // snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+    //}
   }
   /* USER CODE END 3 */
 }

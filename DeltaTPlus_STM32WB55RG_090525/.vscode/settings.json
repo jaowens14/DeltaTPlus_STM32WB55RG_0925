@@ -22,6 +22,7 @@
         "type_traits": "cpp",
         "xmemory": "cpp",
         "xstring": "cpp",
-        "xtr1common": "cpp"
+        "xtr1common": "cpp",
+        "lv_port_disp.h": "c"
     }
 }

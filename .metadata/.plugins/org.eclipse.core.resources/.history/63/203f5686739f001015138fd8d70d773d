@@ -1,0 +1,51 @@
+#include "lvgl.h"
+#include "st7789.h"
+#include <string.h>
+
+// Draw buffer - 1/10 of screen is a good start
+#define DISP_BUF_SIZE (ST7789_WIDTH * ST7789_HEIGHT / 10)
+
+static lv_color_t buf1[DISP_BUF_SIZE];
+static lv_display_t *disp;
+
+// Flush callback for LVGL v9
+static void disp_flush(lv_display_t *display, const lv_area_t *area, uint8_t *px_map)
+{
+    // Wait for any previous DMA transfer
+    while(ST7789_IsDMABusy());
+
+    // Set drawing window
+    ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
+
+    // Calculate size
+    uint32_t size = (area->x2 - area->x1 + 1) * (area->y2 - area->y1 + 1);
+
+    // Send data via DMA
+    ST7789_WriteDataDMA(px_map, size * 2);
+
+    // Note: lv_display_flush_ready() will be called in DMA complete callback
+}
+
+// Call this from your SPI DMA complete callback
+void lv_port_disp_dma_complete(void)
+{
+    lv_display_flush_ready(disp);
+}
+
+void lv_port_disp_init(void)
+{
+    // Initialize ST7789
+    ST7789_Init();
+
+    // Clear screen
+    ST7789_FillColor(0x0000);
+
+    // Create display in LVGL v9
+    disp = lv_display_create(ST7789_WIDTH, ST7789_HEIGHT);
+
+    // Set draw buffers
+    lv_display_set_buffers(disp, buf1, NULL, DISP_BUF_SIZE * sizeof(lv_color_t), LV_DISPLAY_RENDER_MODE_PARTIAL);
+
+    // Set flush callback
+    lv_display_set_flush_cb(disp, disp_flush);
+}

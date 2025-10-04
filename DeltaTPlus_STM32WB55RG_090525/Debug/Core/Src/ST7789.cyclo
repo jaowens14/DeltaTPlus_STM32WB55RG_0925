@@ -1,0 +1,8 @@
+../Core/Src/ST7789.c:33:6:ST7789_Init	1
+../Core/Src/ST7789.c:152:6:ST7789_WritePixel	5
+../Core/Src/ST7789.c:161:6:ST7789_WriteFillRect	10
+../Core/Src/ST7789.c:191:6:ST7789_FillScreen	1
+../Core/Src/ST7789.c:198:6:ST7789_SetWindow	1
+../Core/Src/ST7789.c:216:6:ST7789_WriteCommand	1
+../Core/Src/ST7789.c:225:6:ST7789_WriteData8	1
+../Core/Src/ST7789.c:233:6:ST7789_WriteData16	1

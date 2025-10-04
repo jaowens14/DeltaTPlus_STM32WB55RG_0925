@@ -1,0 +1,47 @@
+#ifndef ST7789_H
+#define ST7789_H
+
+#include "main.h"
+#include <stdint.h>
+
+// Adjust these pins to match your hardware connections
+#define ST7789_CS_PORT GPIOA
+#define ST7789_CS_PIN GPIO_PIN_3
+#define ST7789_DC_PORT GPIOA
+#define ST7789_DC_PIN GPIO_PIN_2
+#define ST7789_RST_PORT GPIOA
+#define ST7789_RST_PIN GPIO_PIN_1
+
+// Display dimensions (based on vendor code)
+#define ST7789_WIDTH 240
+#define ST7789_HEIGHT 320
+
+// Pin control macros
+#define ST7789_CS_LOW() HAL_GPIO_WritePin(ST7789_CS_PORT, ST7789_CS_PIN, GPIO_PIN_RESET)
+#define ST7789_CS_HIGH() HAL_GPIO_WritePin(ST7789_CS_PORT, ST7789_CS_PIN, GPIO_PIN_SET)
+#define ST7789_DC_LOW() HAL_GPIO_WritePin(ST7789_DC_PORT, ST7789_DC_PIN, GPIO_PIN_RESET)
+#define ST7789_DC_HIGH() HAL_GPIO_WritePin(ST7789_DC_PORT, ST7789_DC_PIN, GPIO_PIN_SET)
+#define ST7789_RST_LOW() HAL_GPIO_WritePin(ST7789_RST_PORT, ST7789_RST_PIN, GPIO_PIN_RESET)
+#define ST7789_RST_HIGH() HAL_GPIO_WritePin(ST7789_RST_PORT, ST7789_RST_PIN, GPIO_PIN_SET)
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+    // Initialization and control functions
+    void ST7789_Init(void);
+    void ST7789_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
+    void ST7789_WriteData(uint8_t *data, uint32_t len);
+    void ST7789_WriteDataDMA(uint8_t *data, uint32_t len);
+    void ST7789_DMA_TransferComplete(void);
+    uint8_t ST7789_IsDMABusy(void);
+    void ST7789_FillColor(uint16_t color);
+    void ST7789_EnterSleep(void);
+    void ST7789_ExitSleep(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif // ST7789_H

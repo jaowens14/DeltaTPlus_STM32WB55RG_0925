@@ -1,0 +1,125 @@
+#include "Screen.hpp"
+
+float Screen::needleAngle = 270.0;
+float Screen::lastNeedleAngle = 270.0;
+
+void Screen::setup(void)
+{
+
+    needleBuffer[32] = {0};
+    switchBuffer[32] = {0};
+    lastSwitchBuffer[32] = {0};
+
+    totalPixels = canvas.width() * canvas.height();
+
+    tft.begin();
+    tft.setRotation(2); // places the screen connector further away from the probe tubes
+    canvas.setFont(&FreeSerif9pt7b);
+    canvas.setTextWrap(true);
+    canvas.setTextSize(1);
+    tft.setWindow(0, 0, canvas.width() - 1, canvas.height() - 1);
+
+    page = METER;
+    renderMeter();
+
+    writeCanvas();
+}
+
+void Screen::stateMachine(void)
+
+{
+
+    switch (page)
+    {
+    case METER:
+
+        if (!renderDelay)
+        {
+            updateMeter();
+            renderDelay = 20; // 20 ms...
+        }
+        ///
+        //     if (!switchPageDelay && switchPage)
+        //     {
+        //         //Serial.println("Going to settings");
+        //         page = SETTINGS;
+        //         //renderSettings();
+        //         switchPage = false;
+        //         switchPageDelay = 2; // 200ms
+        //     }
+        //
+        //     break;
+        //
+        // case SETTINGS:
+        //
+        //     updateSettings();
+        //     if (!switchPageDelay && switchPage)
+        //     {
+        //         Serial.println("Going to meter");
+        //         page = METER;
+        //         renderMeter();
+        //         switchPage = false;
+        //         switchPageDelay = 2; // 200ms
+        //     }
+        //
+        //     break;
+        //
+        // case CALIBRATION:
+        //     break;
+        //
+        // default:
+        //     break;
+        // }
+    }
+}
+void Screen::writeCanvas(void)
+{
+
+    // SPI_Set_Mode(0);
+    uint16_t *buffer = canvas.getBuffer();
+    // tft.startWrite();
+    // tft.writeBuffer(buffer, totalPixels);
+    //  tft.writeBufferDMA(buffer, totalPixels);
+    // setWindow(0, 0, 239, 319);
+
+    tft.writeBufferDMA(0, 0, 239, 319, buffer, totalPixels);
+    // tft.endWrite();
+    //  SPI_Set_Mode(1);
+}
+
+void Screen::writeCanvasRegion(int x0, int y0, int x1, int y1)
+{
+    if (tft.inTransaction)
+    {
+        return;
+    }
+
+    // Calculate proper width and height
+    int width = x1 - x0 + 1;
+    int height = y1 - y0 + 1;
+    uint32_t bufferSize = width * height;
+
+    // Allocate buffer that persists until DMA completes
+    if (dmaRegionBuffer != nullptr)
+    {
+        delete[] dmaRegionBuffer;
+    }
+    dmaRegionBuffer = new uint16_t[bufferSize];
+
+    uint16_t *fullBuffer = canvas.getBuffer();
+
+    // Copy only the needle region from the full canvas
+    for (int row = 0; row < height; row++)
+    {
+        int srcOffset = (y0 + row) * 240 + x0;
+        int dstOffset = row * width;
+        memcpy(&dmaRegionBuffer[dstOffset], &fullBuffer[srcOffset], width * sizeof(uint16_t));
+    }
+
+    tft.writeBufferDMA(x0, y0, x1, y1, dmaRegionBuffer, bufferSize);
+}
+
+float Screen::radians(float degrees)
+{
+    return degrees * M_PI / 180.0f;
+}

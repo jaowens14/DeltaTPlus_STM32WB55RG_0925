@@ -1,0 +1,247 @@
+#include "st7789.h"
+
+extern SPI_HandleTypeDef hspi2; // Adjust to your SPI handle name
+
+static volatile uint8_t dma_transfer_complete = 1;
+
+// ST7789 Command definitions
+#define ST7789_NOP 0x00
+#define ST7789_SWRESET 0x01
+#define ST7789_SLPIN 0x10
+#define ST7789_SLPOUT 0x11
+#define ST7789_INVOFF 0x20
+#define ST7789_INVON 0x21
+#define ST7789_DISPOFF 0x28
+#define ST7789_DISPON 0x29
+#define ST7789_CASET 0x2A
+#define ST7789_RASET 0x2B
+#define ST7789_RAMWR 0x2C
+#define ST7789_MADCTL 0x36
+#define ST7789_COLMOD 0x3A
+#define ST7789_PORCTRL 0xB2
+#define ST7789_GCTRL 0xB7
+#define ST7789_VCOMS 0xBB
+#define ST7789_LCMCTRL 0xC0
+#define ST7789_VDVVRHEN 0xC2
+#define ST7789_VRHS 0xC3
+#define ST7789_VDVS 0xC4
+#define ST7789_FRCTRL2 0xC6
+#define ST7789_PWCTRL1 0xD0
+#define ST7789_PVGAMCTRL 0xE0
+#define ST7789_NVGAMCTRL 0xE1
+#define ST7789_PORCTRL2 0xE8
+#define ST7789_PORCTRL3 0xE9
+
+// Internal helper functions
+static void ST7789_WriteCommand(uint8_t cmd)
+{
+    ST7789_DC_LOW();
+    ST7789_CS_LOW();
+    HAL_SPI_Transmit(&hspi2, &cmd, 1, 100);
+    ST7789_CS_HIGH();
+}
+
+static void ST7789_WriteDataByte(uint8_t data)
+{
+    ST7789_DC_HIGH();
+    ST7789_CS_LOW();
+    HAL_SPI_Transmit(&hspi2, &data, 1, 100);
+    ST7789_CS_HIGH();
+}
+
+static void ST7789_WriteDataMulti(uint8_t *data, uint16_t len)
+{
+    ST7789_DC_HIGH();
+    ST7789_CS_LOW();
+    HAL_SPI_Transmit(&hspi2, data, len, 1000);
+    ST7789_CS_HIGH();
+}
+
+// Public API functions
+void ST7789_WriteData(uint8_t *data, uint32_t len)
+{
+    ST7789_DC_HIGH();
+    ST7789_CS_LOW();
+    HAL_SPI_Transmit(&hspi2, data, len, 1000);
+    ST7789_CS_HIGH();
+}
+
+void ST7789_WriteDataDMA(uint8_t *data, uint32_t len)
+{
+    dma_transfer_complete = 0;
+    ST7789_DC_HIGH();
+    ST7789_CS_LOW();
+    HAL_SPI_Transmit_DMA(&hspi2, data, len);
+}
+
+void ST7789_DMA_TransferComplete(void)
+{
+    ST7789_CS_HIGH();
+    dma_transfer_complete = 1;
+}
+
+uint8_t ST7789_IsDMABusy(void)
+{
+    return !dma_transfer_complete;
+}
+
+void ST7789_Init(void)
+{
+    // Hardware reset sequence
+    ST7789_RST_HIGH();
+    HAL_Delay(1);
+    ST7789_RST_LOW();
+    HAL_Delay(10);
+    ST7789_RST_HIGH();
+    HAL_Delay(120);
+
+    // Color mode: 16-bit RGB565
+    ST7789_WriteCommand(ST7789_COLMOD);
+    ST7789_WriteDataByte(0x05);
+
+    // Memory Data Access Control - Normal orientation
+    ST7789_WriteCommand(ST7789_MADCTL);
+    ST7789_WriteDataByte(0x00);
+
+    // Frame Rate Control - MAXIMUM SPEED
+    // Front porch: 1, Back porch: 1 (minimum values for fastest refresh)
+    ST7789_WriteCommand(ST7789_PORCTRL);
+    uint8_t frc_data1[] = {0x01, 0x01, 0x00, 0x33, 0x33};
+    ST7789_WriteDataMulti(frc_data1, 5);
+
+    // Gate Control - VGH/VGL settings
+    ST7789_WriteCommand(ST7789_GCTRL);
+    ST7789_WriteDataByte(0x35);
+
+    // VCOM Setting
+    ST7789_WriteCommand(ST7789_VCOMS);
+    ST7789_WriteDataByte(0x3F);
+
+    // LCM Control
+    ST7789_WriteCommand(ST7789_LCMCTRL);
+    ST7789_WriteDataByte(0x2C);
+
+    // VDV and VRH Command Enable
+    ST7789_WriteCommand(ST7789_VDVVRHEN);
+    ST7789_WriteDataByte(0x01);
+
+    // VRH Set
+    ST7789_WriteCommand(ST7789_VRHS);
+    ST7789_WriteDataByte(0x0F);
+
+    // VDV Set
+    ST7789_WriteCommand(ST7789_VDVS);
+    ST7789_WriteDataByte(0x20);
+
+    // Frame Rate Control in Normal Mode - FASTEST SETTING
+    // 0x01 = 111Hz (maximum frame rate)
+    ST7789_WriteCommand(ST7789_FRCTRL2);
+    ST7789_WriteDataByte(0x01); // Fastest: 111Hz frame rate
+
+    // Power Control 1
+    ST7789_WriteCommand(ST7789_PWCTRL1);
+    uint8_t pwr_data[] = {0xA4, 0xA1};
+    ST7789_WriteDataMulti(pwr_data, 2);
+
+    // Additional frame rate optimization
+    ST7789_WriteCommand(ST7789_PORCTRL2);
+    ST7789_WriteDataByte(0x03);
+
+    ST7789_WriteCommand(ST7789_PORCTRL3);
+    uint8_t frc_data2[] = {0x09, 0x09, 0x08};
+    ST7789_WriteDataMulti(frc_data2, 3);
+
+    // Positive Voltage Gamma Control
+    ST7789_WriteCommand(ST7789_PVGAMCTRL);
+    uint8_t gamma_pos[] = {
+        0xD0, 0x05, 0x09, 0x09, 0x08, 0x14, 0x28,
+        0x33, 0x3F, 0x07, 0x13, 0x14, 0x28, 0x30};
+    ST7789_WriteDataMulti(gamma_pos, 14);
+
+    // Negative Voltage Gamma Control
+    ST7789_WriteCommand(ST7789_NVGAMCTRL);
+    uint8_t gamma_neg[] = {
+        0xD0, 0x05, 0x09, 0x09, 0x08, 0x03, 0x24,
+        0x32, 0x32, 0x3B, 0x38, 0x14, 0x13, 0x28, 0x2F};
+    ST7789_WriteDataMulti(gamma_neg, 15);
+
+    // Display Inversion ON (from vendor code)
+    ST7789_WriteCommand(ST7789_INVON);
+
+    // Column Address Set (full width)
+    ST7789_WriteCommand(ST7789_CASET);
+    uint8_t col_data[] = {0x00, 0x00, 0x00, 0xEF}; // 0 to 239
+    ST7789_WriteDataMulti(col_data, 4);
+
+    // Row Address Set (full height)
+    ST7789_WriteCommand(ST7789_RASET);
+    uint8_t row_data[] = {0x00, 0x00, 0x01, 0x3F}; // 0 to 319
+    ST7789_WriteDataMulti(row_data, 4);
+
+    // Sleep Out
+    ST7789_WriteCommand(ST7789_SLPOUT);
+    HAL_Delay(120);
+
+    // Display ON
+    ST7789_WriteCommand(ST7789_DISPON);
+
+    // Start memory write
+    ST7789_WriteCommand(ST7789_RAMWR);
+}
+
+void ST7789_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
+{
+    // Column Address Set
+    ST7789_WriteCommand(ST7789_CASET);
+    uint8_t col_data[4];
+    col_data[0] = (x0 >> 8) & 0xFF;
+    col_data[1] = x0 & 0xFF;
+    col_data[2] = (x1 >> 8) & 0xFF;
+    col_data[3] = x1 & 0xFF;
+    ST7789_WriteDataMulti(col_data, 4);
+
+    // Row Address Set
+    ST7789_WriteCommand(ST7789_RASET);
+    uint8_t row_data[4];
+    row_data[0] = (y0 >> 8) & 0xFF;
+    row_data[1] = y0 & 0xFF;
+    row_data[2] = (y1 >> 8) & 0xFF;
+    row_data[3] = y1 & 0xFF;
+    ST7789_WriteDataMulti(row_data, 4);
+
+    // Write to RAM
+    ST7789_WriteCommand(ST7789_RAMWR);
+}
+
+void ST7789_FillColor(uint16_t color)
+{
+    uint8_t buffer[ST7789_WIDTH * 2];
+
+    // Fill buffer with color (RGB565 format)
+    for (int i = 0; i < ST7789_WIDTH * 2; i += 2)
+    {
+        buffer[i] = (color >> 8) & 0xFF;
+        buffer[i + 1] = color & 0xFF;
+    }
+
+    ST7789_SetWindow(0, 0, ST7789_WIDTH - 1, ST7789_HEIGHT - 1);
+
+    for (int i = 0; i < ST7789_HEIGHT; i++)
+    {
+        ST7789_WriteData(buffer, ST7789_WIDTH * 2);
+    }
+}
+
+void ST7789_EnterSleep(void)
+{
+    ST7789_WriteCommand(ST7789_DISPOFF);
+    HAL_Delay(20);
+    ST7789_WriteCommand(ST7789_SLPIN);
+}
+
+void ST7789_ExitSleep(void)
+{
+    ST7789_WriteCommand(ST7789_SLPOUT);
+    HAL_Delay(120);
+    ST7789_WriteCommand(ST7789_DISPON);
+}

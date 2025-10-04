@@ -1,5 +1,5 @@
 Core/Src/BatteryMonitor.o: ../Core/Src/BatteryMonitor.cpp \
- ../Core/Inc/BatteryMonitor.hpp \
+ ../Core/Inc/BatteryMonitor.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library/Adafruit_MAX1704X.h \
  ../Core/Inc/gpio.h ../Core/Inc/main.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h \
@@ -66,7 +66,7 @@ Core/Src/BatteryMonitor.o: ../Core/Src/BatteryMonitor.cpp \
  ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h \
  ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/i2c.h \
  ../Core/Inc/i2c.h ../Core/Inc/usart.h
-../Core/Inc/BatteryMonitor.hpp:
+../Core/Inc/BatteryMonitor.h:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library/Adafruit_MAX1704X.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/main.h:

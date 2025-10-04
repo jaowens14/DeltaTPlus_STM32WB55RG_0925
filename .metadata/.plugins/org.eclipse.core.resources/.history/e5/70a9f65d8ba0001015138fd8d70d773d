@@ -1,0 +1,9 @@
+../Core/Src/lvgl_st7789.c:19:13:ST7789_WriteCommand	1
+../Core/Src/lvgl_st7789.c:27:13:ST7789_WriteDataByte	1
+../Core/Src/lvgl_st7789.c:35:6:ST7789_WriteData	1
+../Core/Src/lvgl_st7789.c:43:6:ST7789_WriteDataDMA	1
+../Core/Src/lvgl_st7789.c:52:6:ST7789_DMA_TransferComplete	1
+../Core/Src/lvgl_st7789.c:58:9:ST7789_IsDMABusy	1
+../Core/Src/lvgl_st7789.c:63:6:ST7789_Init	1
+../Core/Src/lvgl_st7789.c:101:6:ST7789_SetWindow	1
+../Core/Src/lvgl_st7789.c:124:6:ST7789_FillColor	3

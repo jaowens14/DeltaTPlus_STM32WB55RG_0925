@@ -1,5 +1,5 @@
 #include "Thermocouples.hpp"
-#include "Screen.hpp"
+
 #include "main.h"
 // Static member definitions
 float Thermocouples::deltaTemp = 0.0;

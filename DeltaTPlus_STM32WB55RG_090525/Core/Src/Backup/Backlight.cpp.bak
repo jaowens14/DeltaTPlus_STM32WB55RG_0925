@@ -8,7 +8,7 @@ void Backlight::setup(void)
 
     HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
 
-    __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0); // turn off screen to start
+    __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 50); // turn off screen to start
 
     state = HIGH;
     // pinMode(0, OUTPUT);

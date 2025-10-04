@@ -54,7 +54,7 @@ void MX_GPIO_Init(void)
                           |TEMP2_CS_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIO_CTP_RESET_GPIO_Port, GPIO_CTP_RESET_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIO_CTP_RESET_GPIO_Port, GPIO_CTP_RESET_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, ad7234_io_Pin|ADC_CS_Pin, GPIO_PIN_RESET);
@@ -74,11 +74,11 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pin : GPIO_CTP_INT_Pin */
-  GPIO_InitStruct.Pin = GPIO_CTP_INT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIO_CTP_INT_GPIO_Port, &GPIO_InitStruct);
+  /*Configure GPIO pin : CTP_INT_Pin */
+  GPIO_InitStruct.Pin = CTP_INT_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(CTP_INT_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : GPIO_CTP_RESET_Pin */
   GPIO_InitStruct.Pin = GPIO_CTP_RESET_Pin;
@@ -99,6 +99,10 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI4_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI4_IRQn);
 
 }
 

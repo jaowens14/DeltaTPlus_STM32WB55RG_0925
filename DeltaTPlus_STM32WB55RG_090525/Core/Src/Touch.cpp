@@ -1,7 +1,6 @@
 
 #include "Touch.hpp"
 #include "main.h"
-#include "Screen.hpp"
 int Touch::x = 0;
 int Touch::y = 0;
 
