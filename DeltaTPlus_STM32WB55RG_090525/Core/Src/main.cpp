@@ -58,7 +58,7 @@
 // #include "lv_port_disp.h"
 // #include "examples/anim/lv_example_anim.h"
 // #include "examples/widgets/arclabel/lv_example_arclabel.h"
-#include "examples/anim/lv_example_anim.h"
+// #include "examples/anim/lv_example_anim.h"
 // #include "AD7124/ad7124_console_app.h"
 // #include "ad7124_console_app.h"
 // #include "ad7124.h"
@@ -77,13 +77,7 @@ static lv_obj_t *needle = NULL;
 int meter_angle;
 int meter_angle_width;
 int angle;
-
-// Configuration
-#define METER_MIN_VALUE -25
-#define METER_MAX_VALUE 25
-#define METER_RANGE (METER_MAX_VALUE - METER_MIN_VALUE)
-#define METER_START_ANGLE 225 // Start angle (225° = bottom-left)
-#define METER_END_ANGLE 315   // End angle (315° = bottom-right, 90° span)
+uint32_t lv_delay = 0;
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
@@ -91,7 +85,9 @@ uint8_t UART_BUFFER[128] = {0};
 #define BYTE_PER_PIXEL 2
 lv_display_t *display1 = NULL; // Global variable
 
-static uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 10 * BYTE_PER_PIXEL];
+static uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 8 * BYTE_PER_PIXEL];
+static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 8 * BYTE_PER_PIXEL];
+
 // static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 32 * BYTE_PER_PIXEL];
 
 /* USER CODE END PTD */
@@ -131,10 +127,7 @@ Thermocouples myThermocouples;
 Touch myTouch;
 
 ///////////////////////////////////////////////////
-float round_to_tenth(float value)
-{
-  return roundf(value * 10.0f) / 10.0f;
-}
+
 /* Timer callback to update the text area with sensor data */
 static void updateLeftHeaderLabel(lv_timer_t *timer)
 {
@@ -189,92 +182,73 @@ static void updateNeedle(lv_timer_t *timer)
     angle = max_angle;
   }
 
-  snprintf((char *)UART_BUFFER, 64, "ANGLE: %d\r\n", angle);
-  HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
   lv_obj_set_style_transform_angle(needle, angle, 0);
 }
 
 void brookes_meter(void)
 {
-  {
 
-    /* Create a scale object */
-    lv_obj_t *scale = lv_scale_create(lv_screen_active());
-    lv_obj_set_size(scale, 400, 400);
-    lv_obj_align(scale, LV_ALIGN_CENTER, 0, 100); // Shift down 50 pixels from center
-    lv_scale_set_mode(scale, LV_SCALE_MODE_ROUND_OUTER);
+  /* Create a scale object */
+  lv_obj_t *scale = lv_scale_create(lv_scr_act());
+  lv_obj_set_size(scale, 400, 400);
+  lv_obj_align(scale, LV_ALIGN_CENTER, 0, 100); // Shift down 100 pixels from center
+  lv_scale_set_mode(scale, LV_SCALE_MODE_ROUND_OUTER);
+  lv_scale_set_range(scale, -25, 25);
+  /* Configure angle range: start at 240° , total arc of 60*/
+  meter_angle = 240;
+  meter_angle_width = 60;
+  lv_scale_set_rotation(scale, meter_angle);
+  lv_scale_set_angle_range(scale, meter_angle_width);
+  lv_scale_set_total_tick_count(scale, 51); /* Major + minor ticks */
+  lv_scale_set_major_tick_every(scale, 5);
+  lv_obj_set_style_bg_opa(scale, LV_OPA_TRANSP, 0);
+  lv_obj_set_style_border_width(scale, 0, 0);
+  lv_obj_set_style_pad_all(scale, 20, 0);
+  lv_obj_set_style_length(scale, 10, LV_PART_ITEMS);
+  lv_obj_set_style_line_width(scale, 1, LV_PART_ITEMS);
+  lv_obj_set_style_line_color(scale, lv_color_hex(0x888888), LV_PART_ITEMS);
+  lv_obj_set_style_length(scale, 15, LV_PART_INDICATOR);
+  lv_obj_set_style_line_width(scale, 2, LV_PART_INDICATOR);
+  lv_obj_set_style_line_color(scale, lv_color_hex(0x36454F), LV_PART_INDICATOR);
 
-    /* Set the range from -25 to 25 */
-    lv_scale_set_range(scale, -25, 25);
+  /* Add text labels at major ticks */
+  static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
+  lv_scale_set_text_src(scale, angle_labels);
 
-    /* Configure angle range: start at 240° , total arc of 60*/
-    meter_angle = 240;
-    meter_angle_width = 60;
-    lv_scale_set_rotation(scale, meter_angle);
-    lv_scale_set_angle_range(scale, meter_angle_width);
+  /* Create a needle/indicator pointing to 0 degrees */
+  needle = lv_line_create(scale);
 
-    /* Set total number of ticks */
-    lv_scale_set_total_tick_count(scale, 51); /* Major + minor ticks */
-    lv_scale_set_major_tick_every(scale, 5);
+  static lv_point_precise_t needle_points[2];
+  needle_points[0].x = 0;
+  needle_points[0].y = 0;
+  needle_points[1].x = 0;
+  needle_points[1].y = 100; /* Needle length */
 
-    /* Style the scale */
-    lv_obj_set_style_bg_opa(scale, LV_OPA_TRANSP, 0);
-    lv_obj_set_style_border_width(scale, 0, 0);
-    lv_obj_set_style_pad_all(scale, 20, 0);
+  lv_line_set_points(needle, needle_points, 2);
+  lv_obj_align(needle, LV_ALIGN_CENTER, 0, 0);
 
-    /* Style minor ticks */
-    lv_obj_set_style_length(scale, 10, LV_PART_ITEMS);
-    lv_obj_set_style_line_width(scale, 1, LV_PART_ITEMS);
-    lv_obj_set_style_line_color(scale, lv_color_hex(0x888888), LV_PART_ITEMS);
+  /* Style the needle */
+  lv_obj_set_style_line_width(needle, 4, 0);
+  lv_obj_set_style_line_color(needle, lv_color_hex(0x000000), 0);
+  lv_obj_set_style_line_rounded(needle, true, 0);
 
-    /* Style major ticks */
-    lv_obj_set_style_length(scale, 15, LV_PART_INDICATOR);
-    lv_obj_set_style_line_width(scale, 2, LV_PART_INDICATOR);
-    lv_obj_set_style_line_color(scale, lv_color_hex(0x36454F), LV_PART_INDICATOR);
+  // Create a container for the label
+  lv_obj_t *label_box = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(label_box, 240, 80);                // Set size as needed
+  lv_obj_align(label_box, LV_ALIGN_BOTTOM_MID, 0, 0); // Position in scale center
 
-    /* Add text labels at major ticks */
-    static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
-    lv_scale_set_text_src(scale, angle_labels);
+  // Set the background color and opacity for container
+  lv_obj_set_style_bg_color(label_box, lv_color_hex(WEB_LIGHT_TAN), 0); // cream background
+  lv_obj_set_style_bg_opa(label_box, LV_OPA_COVER, 0);                  // Fully opaque
+  lv_obj_set_style_radius(label_box, 0, 0);                             // Rounded corners
 
-    /* Create a needle/indicator pointing to 0 degrees */
-    needle = lv_line_create(scale);
-
-    static lv_point_precise_t needle_points[2];
-    needle_points[0].x = 0;
-    needle_points[0].y = 0;
-    needle_points[1].x = 0;
-    needle_points[1].y = 100; /* Needle length */
-
-    lv_line_set_points(needle, needle_points, 2);
-    lv_obj_align(needle, LV_ALIGN_CENTER, 0, 0);
-
-    /* Style the needle */
-    lv_obj_set_style_line_width(needle, 4, 0);
-    lv_obj_set_style_line_color(needle, lv_color_hex(0x000000), 0);
-    lv_obj_set_style_line_rounded(needle, true, 0);
-
-    // Create a container for the label
-    lv_obj_t *label_box = lv_obj_create(lv_screen_active());
-    lv_obj_set_size(label_box, 240, 80);                // Set size as needed
-    lv_obj_align(label_box, LV_ALIGN_BOTTOM_MID, 0, 0); // Position in scale center
-
-    // Set the background color and opacity for container
-    lv_obj_set_style_bg_color(label_box, lv_color_hex(0xf0ead1), 0); // cream background
-    lv_obj_set_style_bg_opa(label_box, LV_OPA_COVER, 0);             // Fully opaque
-    lv_obj_set_style_radius(label_box, 0, 0);                        // Rounded corners
-
-    // Create the label inside the box
-    lv_obj_t *label = lv_label_create(label_box);
-    lv_label_set_text(label, "DELTA-T+\n The Instrument Company\n Fort Collins, CO");
-    lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0); // center text in box
-    lv_obj_set_style_border_width(label, 0, 0);
-
-    // Style the label as before
-    lv_obj_set_style_text_color(label, lv_color_black(), 0);
-    lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
-  }
-
-  /// updating text fields
+  // Create the label inside the box
+  lv_obj_t *label = lv_label_create(label_box);
+  // lv_label_set_text(label, "Delta-T Plus\n The Instrument Company\n Fort Collins, CO");
+  lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0); // center text in box
+  lv_obj_set_style_border_width(label, 0, 0);
+  lv_obj_set_style_text_color(label, lv_color_black(), 0);
+  lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
 
   lv_obj_t *headerContainer = lv_obj_create(lv_scr_act());
   lv_obj_set_size(headerContainer, 240, 32);
@@ -316,18 +290,15 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     {
 
       lv_tick_inc(1);
-      //  lv_timer_handler(); // Call every ~5-10ms
 
-      // increment / decrement 1 ms timers here.
+      if (lv_delay)
+      {
+        lv_delay--;
+      }
     }
 
     if ((timerCounter % 100) == 0)
     {
-      // increment / decrement 10 ms timers here.
-      // if (thermocoupleDelay)
-      //{
-      //  thermocoupleDelay--;
-      //}
 
       if (myTouch.delay)
       {
@@ -528,7 +499,7 @@ int main(void)
   display1 = lv_display_create(ST7789_WIDTH, ST7789_HEIGHT);
 
   // 4.b buffers
-  lv_display_set_buffers(display1, buffer1, NULL, sizeof(buffer1), LV_DISPLAY_RENDER_MODE_PARTIAL);
+  lv_display_set_buffers(display1, buffer1, buffer2, sizeof(buffer1), LV_DISPLAY_RENDER_MODE_PARTIAL);
   // 4.c flush callback
   lv_display_set_flush_cb(display1, my_flush_cb);
 
@@ -536,35 +507,11 @@ int main(void)
 
   brookes_meter();
 
-  // lv_example_anim_timeline_1();
-
-  // HAL_Delay(1000);
-
-  // lv_obj_t *spinner = lv_spinner_create(lv_screen_active());
-  // lv_obj_set_size(spinner, 100, 100);
-  // lv_obj_center(spinner);
-  // lv_spinner_set_anim_params(spinner, 1000, 90);  // 1 sec rotation, 90 degree arc
-
-  // lv_tick_set_cb(HAL_GetTick);
-
-  // lv_display_t *disp = lv_display_create(ST7789_WIDTH, ST7789_HEIGHT);
-
-  // lv_display_set_flush_cb(disp, my_flush_cb);
-
-  // LV_ATTRIBUTE_MEM_ALIGN
-
-  // lv_display_set_buffers(disp, buffer1, NULL, sizeof(buffer1), LV_DISPLAY_RENDER_MODE_PARTIAL);
-
-  // Create a simple test UI (v9 syntax)
-  // lv_obj_t *label = lv_label_create(lv_screen_active());
-  // lv_label_set_text(label, "Hello LVGL v9!");
-  // lv_obj_center(label);
-
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    // loopCounter++; // Increment at start of each iteration
+    loopCounter++; // Increment at start of each iteration
 
     /* USER CODE END WHILE */
     // MX_APPE_Process();
@@ -575,24 +522,17 @@ int main(void)
     // myBacklight.stateMachine(); // 77963 hz -> 83350 hz
     myThermocouples.stateMachine();
 
-    // myScreen.stateMachine(); // 10hz
-    // myTouch.stateMachine();
+    if (measureFlag)
+    {
+      measureFlag = 0;
+      snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+      HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+    }
 
-    // lv_example_event_draw();
-    uint32_t time_till_next = lv_timer_handler();
-    if (time_till_next == LV_NO_TIMER_READY)
-      time_till_next = LV_DEF_REFR_PERIOD; /*handle LV_NO_TIMER_READY. Another option is to `sleep` for longer*/
-
-    // meter_set_value(myThermocouples.deltaTemp);
-    HAL_Delay(time_till_next);
-    // HAL_Delay(5);
-
-    // if (measureFlag)
-    //{
-    //  measureFlag = 0;
-    // snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
-    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
-    //}
+    if (!lv_delay)
+    {
+      lv_delay = lv_timer_handler();
+    }
   }
   /* USER CODE END 3 */
 }

@@ -560,6 +560,7 @@ lvgl/examples/widgets/chart/lv_example_chart_5.o: \
  ../lvgl/examples/widgets/chart/../../../src/display/../core/lv_obj.h \
  ../lvgl/examples/widgets/chart/../../../src/display/../draw/lv_draw.h \
  ../lvgl/examples/widgets/chart/../../../src/display/lv_display.h \
+ ../lvgl/examples/widgets/chart/../../../src/display/../others/sysmon/lv_sysmon_private.h \
  ../lvgl/examples/widgets/chart/../../../src/indev/lv_indev_private.h \
  ../lvgl/examples/widgets/chart/../../../src/indev/lv_indev.h \
  ../lvgl/examples/widgets/chart/../../../src/indev/../misc/lv_anim.h \
@@ -1317,6 +1318,7 @@ lvgl/examples/widgets/chart/lv_example_chart_5.o: \
 ../lvgl/examples/widgets/chart/../../../src/display/../core/lv_obj.h:
 ../lvgl/examples/widgets/chart/../../../src/display/../draw/lv_draw.h:
 ../lvgl/examples/widgets/chart/../../../src/display/lv_display.h:
+../lvgl/examples/widgets/chart/../../../src/display/../others/sysmon/lv_sysmon_private.h:
 ../lvgl/examples/widgets/chart/../../../src/indev/lv_indev_private.h:
 ../lvgl/examples/widgets/chart/../../../src/indev/lv_indev.h:
 ../lvgl/examples/widgets/chart/../../../src/indev/../misc/lv_anim.h:

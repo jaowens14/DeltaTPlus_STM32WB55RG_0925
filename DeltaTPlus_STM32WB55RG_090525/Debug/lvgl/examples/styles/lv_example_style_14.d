@@ -560,6 +560,7 @@ lvgl/examples/styles/lv_example_style_14.o: \
  ../lvgl/examples/styles/../../src/display/../core/lv_obj.h \
  ../lvgl/examples/styles/../../src/display/../draw/lv_draw.h \
  ../lvgl/examples/styles/../../src/display/lv_display.h \
+ ../lvgl/examples/styles/../../src/display/../others/sysmon/lv_sysmon_private.h \
  ../lvgl/examples/styles/../../src/indev/lv_indev_private.h \
  ../lvgl/examples/styles/../../src/indev/lv_indev.h \
  ../lvgl/examples/styles/../../src/indev/../misc/lv_anim.h \
@@ -1317,6 +1318,7 @@ lvgl/examples/styles/lv_example_style_14.o: \
 ../lvgl/examples/styles/../../src/display/../core/lv_obj.h:
 ../lvgl/examples/styles/../../src/display/../draw/lv_draw.h:
 ../lvgl/examples/styles/../../src/display/lv_display.h:
+../lvgl/examples/styles/../../src/display/../others/sysmon/lv_sysmon_private.h:
 ../lvgl/examples/styles/../../src/indev/lv_indev_private.h:
 ../lvgl/examples/styles/../../src/indev/lv_indev.h:
 ../lvgl/examples/styles/../../src/indev/../misc/lv_anim.h:

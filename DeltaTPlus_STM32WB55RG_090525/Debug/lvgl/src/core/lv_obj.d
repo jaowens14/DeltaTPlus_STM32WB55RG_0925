@@ -115,6 +115,11 @@ lvgl/src/core/lv_obj.o: ../lvgl/src/core/lv_obj.c \
  ../lvgl/src/core/../display/../core/lv_obj.h \
  ../lvgl/src/core/../display/../draw/lv_draw.h \
  ../lvgl/src/core/../display/lv_display.h \
+ ../lvgl/src/core/../display/../others/sysmon/lv_sysmon_private.h \
+ ../lvgl/src/core/../display/../others/sysmon/lv_sysmon.h \
+ ../lvgl/src/core/../display/../others/sysmon/../../misc/lv_timer.h \
+ ../lvgl/src/core/../display/../others/sysmon/../../others/observer/lv_observer.h \
+ ../lvgl/src/core/../display/../others/sysmon/../../others/observer/../../core/lv_obj.h \
  ../lvgl/src/core/../themes/lv_theme.h \
  ../lvgl/src/core/../themes/../core/lv_obj.h \
  ../lvgl/src/core/../themes/default/lv_theme_default.h \
@@ -261,6 +266,11 @@ lvgl/src/core/lv_obj.o: ../lvgl/src/core/lv_obj.c \
 ../lvgl/src/core/../display/../core/lv_obj.h:
 ../lvgl/src/core/../display/../draw/lv_draw.h:
 ../lvgl/src/core/../display/lv_display.h:
+../lvgl/src/core/../display/../others/sysmon/lv_sysmon_private.h:
+../lvgl/src/core/../display/../others/sysmon/lv_sysmon.h:
+../lvgl/src/core/../display/../others/sysmon/../../misc/lv_timer.h:
+../lvgl/src/core/../display/../others/sysmon/../../others/observer/lv_observer.h:
+../lvgl/src/core/../display/../others/sysmon/../../others/observer/../../core/lv_obj.h:
 ../lvgl/src/core/../themes/lv_theme.h:
 ../lvgl/src/core/../themes/../core/lv_obj.h:
 ../lvgl/src/core/../themes/default/lv_theme_default.h:

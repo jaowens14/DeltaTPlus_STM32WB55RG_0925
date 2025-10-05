@@ -560,6 +560,7 @@ lvgl/examples/porting/osal/lv_example_osal.o: \
  ../lvgl/examples/porting/osal/../../../src/display/../core/lv_obj.h \
  ../lvgl/examples/porting/osal/../../../src/display/../draw/lv_draw.h \
  ../lvgl/examples/porting/osal/../../../src/display/lv_display.h \
+ ../lvgl/examples/porting/osal/../../../src/display/../others/sysmon/lv_sysmon_private.h \
  ../lvgl/examples/porting/osal/../../../src/indev/lv_indev_private.h \
  ../lvgl/examples/porting/osal/../../../src/indev/lv_indev.h \
  ../lvgl/examples/porting/osal/../../../src/indev/../misc/lv_anim.h \
@@ -1317,6 +1318,7 @@ lvgl/examples/porting/osal/lv_example_osal.o: \
 ../lvgl/examples/porting/osal/../../../src/display/../core/lv_obj.h:
 ../lvgl/examples/porting/osal/../../../src/display/../draw/lv_draw.h:
 ../lvgl/examples/porting/osal/../../../src/display/lv_display.h:
+../lvgl/examples/porting/osal/../../../src/display/../others/sysmon/lv_sysmon_private.h:
 ../lvgl/examples/porting/osal/../../../src/indev/lv_indev_private.h:
 ../lvgl/examples/porting/osal/../../../src/indev/lv_indev.h:
 ../lvgl/examples/porting/osal/../../../src/indev/../misc/lv_anim.h:

@@ -3174,3 +3174,21 @@ Binding(F3,
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-04 18:12:11.287
 !MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-04 19:09:45.964
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 178 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-04 19:09:45.965
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-04 20:27:58.504
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 186 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-04 20:27:58.505
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-04 20:47:56.452
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 189 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-04 20:47:56.453
+!MESSAGE Existing sessions are:

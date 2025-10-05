@@ -5,21 +5,20 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124.h:207:7:Ad7124Chip::Ad7124Chip()	16	static
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124.h:207:7:Ad7124Chip::~Ad7124Chip()	16	static
 ../Core/Inc/Thermocouples.hpp:12:7:Thermocouples::Thermocouples()	16	static
-../Core/Src/main.cpp:134:7:float round_to_tenth(float)	16	static
-../Core/Src/main.cpp:139:13:void updateLeftHeaderLabel(lv_timer_t*)	56	static
-../Core/Src/main.cpp:162:13:void updateRightHeaderLabel(lv_timer_t*)	56	static
-../Core/Src/main.cpp:174:13:void updateNeedle(lv_timer_t*)	32	static
-../Core/Src/main.cpp:197:6:void brookes_meter()	56	static
-../Core/Src/main.cpp:305:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
-../Core/Src/main.cpp:370:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	16	static
-../Core/Src/main.cpp:380:6:void HAL_GPIO_EXTI_Callback(uint16_t)	16	static
-../Core/Src/main.cpp:387:6:void my_flush_cb(lv_display_t*, const lv_area_t*, uint8_t*)	40	static
-../Core/Src/main.cpp:448:5:int main()	24	static
-../Core/Src/main.cpp:604:6:void SystemClock_Config()	112	static
-../Core/Src/main.cpp:667:6:void PeriphCommonClock_Config()	88	static
-../Core/Src/main.cpp:696:6:void Error_Handler()	4	static,ignoring_inline_asm
-../Core/Src/main.cpp:705:1:void __static_initialization_and_destruction_0()	8	static
+../Core/Src/main.cpp:132:13:void updateLeftHeaderLabel(lv_timer_t*)	56	static
+../Core/Src/main.cpp:155:13:void updateRightHeaderLabel(lv_timer_t*)	56	static
+../Core/Src/main.cpp:167:13:void updateNeedle(lv_timer_t*)	32	static
+../Core/Src/main.cpp:188:6:void brookes_meter()	56	static
+../Core/Src/main.cpp:279:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	16	static
+../Core/Src/main.cpp:341:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	16	static
+../Core/Src/main.cpp:351:6:void HAL_GPIO_EXTI_Callback(uint16_t)	16	static
+../Core/Src/main.cpp:358:6:void my_flush_cb(lv_display_t*, const lv_area_t*, uint8_t*)	40	static
+../Core/Src/main.cpp:419:5:int main()	16	static
+../Core/Src/main.cpp:544:6:void SystemClock_Config()	112	static
+../Core/Src/main.cpp:607:6:void PeriphCommonClock_Config()	88	static
+../Core/Src/main.cpp:636:6:void Error_Handler()	4	static,ignoring_inline_asm
+../Core/Src/main.cpp:645:1:void __static_initialization_and_destruction_0()	8	static
 ../Core/Inc/Thermocouples.hpp:12:7:Thermocouples::~Thermocouples()	16	static
-../Core/Src/main.cpp:705:1:void __static_initialization_and_destruction_1()	8	static
-../Core/Src/main.cpp:705:1:cpp)	8	static
-../Core/Src/main.cpp:705:1:cpp)	8	static
+../Core/Src/main.cpp:645:1:void __static_initialization_and_destruction_1()	8	static
+../Core/Src/main.cpp:645:1:cpp)	8	static
+../Core/Src/main.cpp:645:1:cpp)	8	static
