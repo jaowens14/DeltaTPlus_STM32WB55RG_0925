@@ -23,6 +23,14 @@
         "xmemory": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "lv_port_disp.h": "c"
+        "lv_port_disp.h": "c",
+        "algorithm": "cpp",
+        "chrono": "cpp",
+        "functional": "cpp",
+        "optional": "cpp",
+        "regex": "cpp",
+        "system_error": "cpp",
+        "xlocmon": "cpp",
+        "xiosbase": "cpp"
     }
 }

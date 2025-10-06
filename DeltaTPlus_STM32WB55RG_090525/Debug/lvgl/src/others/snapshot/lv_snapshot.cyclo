@@ -1,0 +1,6 @@
+../lvgl/src/others/snapshot/lv_snapshot.c:48:17:lv_snapshot_create_draw_buf	3
+../lvgl/src/others/snapshot/lv_snapshot.c:61:13:lv_snapshot_reshape_draw_buf	3
+../lvgl/src/others/snapshot/lv_snapshot.c:75:13:lv_snapshot_take_to_draw_buf	14
+../lvgl/src/others/snapshot/lv_snapshot.c:184:17:lv_snapshot_take	4
+../lvgl/src/others/snapshot/lv_snapshot.c:198:6:lv_snapshot_free	1
+../lvgl/src/others/snapshot/lv_snapshot.c:204:13:lv_snapshot_take_to_buf	2

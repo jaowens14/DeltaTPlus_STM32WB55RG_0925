@@ -138,7 +138,23 @@ lvgl/src/others/snapshot/lv_snapshot.o: \
  ../lvgl/src/others/snapshot/../../core/../indev/../misc/lv_area.h \
  ../lvgl/src/others/snapshot/../../core/../indev/../misc/lv_timer.h \
  ../lvgl/src/others/snapshot/../../core/../indev/../misc/lv_event.h \
- ../lvgl/src/others/snapshot/../../core/lv_group.h
+ ../lvgl/src/others/snapshot/../../core/lv_group.h \
+ ../lvgl/src/others/snapshot/../../display/lv_display.h \
+ ../lvgl/src/others/snapshot/../../core/lv_refr_private.h \
+ ../lvgl/src/others/snapshot/../../core/lv_refr.h \
+ ../lvgl/src/others/snapshot/../../core/lv_obj.h \
+ ../lvgl/src/others/snapshot/../../display/lv_display_private.h \
+ ../lvgl/src/others/snapshot/../../display/../misc/lv_types.h \
+ ../lvgl/src/others/snapshot/../../display/../core/lv_obj.h \
+ ../lvgl/src/others/snapshot/../../display/../draw/lv_draw.h \
+ ../lvgl/src/others/snapshot/../../display/lv_display.h \
+ ../lvgl/src/others/snapshot/../../display/../others/sysmon/lv_sysmon_private.h \
+ ../lvgl/src/others/snapshot/../../display/../others/sysmon/lv_sysmon.h \
+ ../lvgl/src/others/snapshot/../../display/../others/sysmon/../../misc/lv_timer.h \
+ ../lvgl/src/others/snapshot/../../display/../others/sysmon/../../others/observer/lv_observer.h \
+ ../lvgl/src/others/snapshot/../../display/../others/sysmon/../../others/observer/../../core/lv_obj.h \
+ ../lvgl/src/others/snapshot/../../stdlib/lv_string.h \
+ ../lvgl/src/others/snapshot/../../core/lv_obj_private.h
 ../lvgl/src/others/snapshot/../../draw/lv_draw_private.h:
 ../lvgl/src/others/snapshot/../../draw/lv_draw.h:
 ../lvgl/src/others/snapshot/../../draw/../lv_conf_internal.h:
@@ -278,3 +294,19 @@ lvgl/src/others/snapshot/lv_snapshot.o: \
 ../lvgl/src/others/snapshot/../../core/../indev/../misc/lv_timer.h:
 ../lvgl/src/others/snapshot/../../core/../indev/../misc/lv_event.h:
 ../lvgl/src/others/snapshot/../../core/lv_group.h:
+../lvgl/src/others/snapshot/../../display/lv_display.h:
+../lvgl/src/others/snapshot/../../core/lv_refr_private.h:
+../lvgl/src/others/snapshot/../../core/lv_refr.h:
+../lvgl/src/others/snapshot/../../core/lv_obj.h:
+../lvgl/src/others/snapshot/../../display/lv_display_private.h:
+../lvgl/src/others/snapshot/../../display/../misc/lv_types.h:
+../lvgl/src/others/snapshot/../../display/../core/lv_obj.h:
+../lvgl/src/others/snapshot/../../display/../draw/lv_draw.h:
+../lvgl/src/others/snapshot/../../display/lv_display.h:
+../lvgl/src/others/snapshot/../../display/../others/sysmon/lv_sysmon_private.h:
+../lvgl/src/others/snapshot/../../display/../others/sysmon/lv_sysmon.h:
+../lvgl/src/others/snapshot/../../display/../others/sysmon/../../misc/lv_timer.h:
+../lvgl/src/others/snapshot/../../display/../others/sysmon/../../others/observer/lv_observer.h:
+../lvgl/src/others/snapshot/../../display/../others/sysmon/../../others/observer/../../core/lv_obj.h:
+../lvgl/src/others/snapshot/../../stdlib/lv_string.h:
+../lvgl/src/others/snapshot/../../core/lv_obj_private.h:

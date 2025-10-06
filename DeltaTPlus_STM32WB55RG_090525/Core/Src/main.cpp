@@ -51,9 +51,17 @@
 #define WEB_LIGHT_TAN 0xf0ead0
 #define WEB_BLACK 0x382922
 #define WEB_ORANGE 0xdf571d
+#define Charcoal 0x36454F
+
+#define HEADER_HEIGHT 32
+#define LABEL_HEIGHT 64
+#define METER_HEIGHT (320 - LABEL_HEIGHT - HEADER_HEIGHT)
+
 #include <math.h>
 
 #include "lvgl.h"
+#include "src/misc/lv_math.h"
+#include "src/others/snapshot/lv_snapshot.h"
 #include "ST7789.h"
 // #include "lv_port_disp.h"
 // #include "examples/anim/lv_example_anim.h"
@@ -69,14 +77,25 @@
 static lv_obj_t *meter_needle = NULL;
 static lv_obj_t *meter_value_label = NULL;
 static lv_obj_t *meter_arc = NULL;
+static lv_draw_buf_t *snapshot = NULL;
 
-static lv_obj_t *leftHeaderLabel = NULL;
-static lv_obj_t *rightHeaderLabel = NULL;
+static lv_obj_t *settingLabel = NULL;
+static lv_obj_t *batteryLabel = NULL;
 static lv_obj_t *needle = NULL;
+static lv_obj_t *tickMarks = NULL;
+static lv_obj_t *scr = NULL;
+static lv_obj_t *needle_line = NULL;
+
+int needleLength = 80;
+const int needleOriginX = ST7789_WIDTH / 2;
+const int needleOriginY = ST7789_HEIGHT / 2;
 
 int meter_angle;
 int meter_angle_width;
 int angle;
+int min_angle = -60; // zero is vertical i think
+int max_angle = 60;
+int lastAngle;
 uint32_t lv_delay = 0;
 
 /* Private typedef -----------------------------------------------------------*/
@@ -85,8 +104,8 @@ uint8_t UART_BUFFER[128] = {0};
 #define BYTE_PER_PIXEL 2
 lv_display_t *display1 = NULL; // Global variable
 
-static uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 8 * BYTE_PER_PIXEL];
-static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 8 * BYTE_PER_PIXEL];
+static uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
+static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
 
 // static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 32 * BYTE_PER_PIXEL];
 
@@ -128,8 +147,23 @@ Touch myTouch;
 
 ///////////////////////////////////////////////////
 
+int32_t get_cos(int32_t deg, int32_t a)
+{
+  int32_t r = (lv_trigo_cos(deg) * a);
+
+  r += LV_TRIGO_SIN_MAX / 2;
+  return r >> LV_TRIGO_SHIFT;
+}
+
+int32_t get_sin(int32_t deg, int32_t a)
+{
+  int32_t r = lv_trigo_sin(deg) * a;
+
+  return (r + LV_TRIGO_SIN_MAX / 2) >> LV_TRIGO_SHIFT;
+}
+
 /* Timer callback to update the text area with sensor data */
-static void updateLeftHeaderLabel(lv_timer_t *timer)
+static void updateSettingLabel(lv_timer_t *timer)
 {
   char *switchState;
 
@@ -152,7 +186,7 @@ static void updateLeftHeaderLabel(lv_timer_t *timer)
   lv_label_set_text(ta, buf);
 }
 
-static void updateRightHeaderLabel(lv_timer_t *timer)
+static void updateBatteryLabel(lv_timer_t *timer)
 {
   int batteryLevel = getChargeLevel();
 
@@ -167,110 +201,285 @@ static void updateRightHeaderLabel(lv_timer_t *timer)
 static void updateNeedle(lv_timer_t *timer)
 {
 
-  int min_angle = 1800 - (meter_angle_width * 10 / 2);
-  int max_angle = 1800 + (meter_angle_width * 10 / 2);
-
-  int angle = (myThermocouples.deltaTemp + 1800);
+  angle = int(myThermocouples.deltaTemp);
 
   if (angle < min_angle)
-  {
     angle = min_angle;
-  }
-
   if (angle > max_angle)
-  {
     angle = max_angle;
-  }
 
-  lv_obj_set_style_transform_angle(needle, angle, 0);
+  if (angle != lastAngle)
+  {
+
+    lastAngle = angle;
+
+    static lv_point_precise_t needle_points[2];
+    needle_points[0].x = needleOriginX;
+    needle_points[0].y = needleOriginY;
+    // Use needleLength (80) and keep precision by not casting to int early
+    needle_points[1].x = needleOriginX + get_sin(angle, needleLength);
+    needle_points[1].y = needleOriginY - get_cos(angle, needleLength);
+    // Negative because Y increases downward
+
+    lv_line_set_points(needle, needle_points, 2);
+  }
+}
+
+static void set_needle_line_value(void *obj, int32_t v)
+{
+  lv_scale_set_line_needle_value((lv_obj_t *)obj, needle_line, 60, v);
+}
+
+void lv_example_scale_3_line_only(void)
+{
+  // 1. Create the Scale Widget
+  lv_obj_t *scale_line = lv_scale_create(lv_screen_active());
+
+  // 2. Configure Appearance and Geometry
+  lv_obj_set_size(scale_line, 150, 150);
+  lv_scale_set_mode(scale_line, LV_SCALE_MODE_ROUND_INNER);
+  lv_obj_set_style_bg_opa(scale_line, LV_OPA_COVER, 0);
+  lv_obj_set_style_bg_color(scale_line, lv_palette_lighten(LV_PALETTE_RED, 5), 0);
+  lv_obj_set_style_radius(scale_line, LV_RADIUS_CIRCLE, 0);
+  lv_obj_set_style_clip_corner(scale_line, true, 0);
+  lv_obj_align(scale_line, LV_ALIGN_CENTER, 0, 0); // Aligned to center for a single widget example
+
+  // 3. Configure Scale Ticks and Range
+  lv_scale_set_label_show(scale_line, true);
+  lv_scale_set_total_tick_count(scale_line, 31);
+  lv_scale_set_major_tick_every(scale_line, 5);
+  lv_obj_set_style_length(scale_line, 5, LV_PART_ITEMS);
+  lv_obj_set_style_length(scale_line, 10, LV_PART_INDICATOR);
+  lv_scale_set_range(scale_line, 10, 40);
+
+  // 4. Configure Scale Arc
+  lv_scale_set_angle_range(scale_line, 270);
+  lv_scale_set_rotation(scale_line, 135);
+
+  // 5. Create the Line Needle Object
+  needle_line = lv_line_create(scale_line);
+  lv_obj_set_style_line_width(needle_line, 6, LV_PART_MAIN);
+  lv_obj_set_style_line_rounded(needle_line, true, LV_PART_MAIN);
+
+  // 6. Set up and Start Animation
+  lv_anim_t anim_scale_line;
+  lv_anim_init(&anim_scale_line);
+  lv_anim_set_var(&anim_scale_line, scale_line);
+  lv_anim_set_exec_cb(&anim_scale_line, set_needle_line_value);
+  lv_anim_set_duration(&anim_scale_line, 1000);
+  lv_anim_set_repeat_count(&anim_scale_line, LV_ANIM_REPEAT_INFINITE);
+  lv_anim_set_reverse_duration(&anim_scale_line, 1000);
+  lv_anim_set_values(&anim_scale_line, 10, 40);
+  lv_anim_start(&anim_scale_line);
 }
 
 void brookes_meter(void)
 {
 
-  /* Create a scale object */
-  lv_obj_t *scale = lv_scale_create(lv_scr_act());
-  lv_obj_set_size(scale, 400, 400);
-  lv_obj_align(scale, LV_ALIGN_CENTER, 0, 100); // Shift down 100 pixels from center
-  lv_scale_set_mode(scale, LV_SCALE_MODE_ROUND_OUTER);
-  lv_scale_set_range(scale, -25, 25);
-  /* Configure angle range: start at 240° , total arc of 60*/
+  // root widget / base screen - tan, no features
+  lv_obj_t *scr = lv_scr_act();
+
+  lv_obj_clear_flag(scr, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(scr, LV_OBJ_FLAG_SCROLLABLE);
+
+  lv_obj_set_style_border_width(scr, 0, 0);
+  lv_obj_set_style_pad_all(scr, 0, 0);
+  lv_obj_set_style_bg_color(scr, lv_color_hex(WEB_LIGHT_TAN), 0);
+
+#if 0
+
+  // --- START STATIC SCALE PRE-RENDERING ---
+  // 1. Create temporary container for rendering
+  lv_obj_t *temp_cont = lv_obj_create(scr);
+  // Use the maximum necessary size/position to capture the full scale and its labels
+  lv_obj_set_size(temp_cont, ST7789_WIDTH, ST7789_HEIGHT);
+  lv_obj_set_pos(temp_cont, 0, 0);
+  lv_obj_set_style_bg_color(temp_cont, lv_color_hex(WEB_LIGHT_TAN), 0);
+  lv_obj_set_style_border_width(temp_cont, 0, 0);
+  lv_obj_set_style_radius(temp_cont, 0, 0);
+  lv_obj_clear_flag(temp_cont, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_clear_flag(temp_cont, LV_OBJ_FLAG_CLICKABLE);
+
+  // 2. Create the scale object as a child of the temporary container
+  tickMarks = lv_scale_create(temp_cont);
+  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_add_flag(tickMarks, LV_OBJ_FLAG_IGNORE_LAYOUT);
+  lv_obj_set_style_line_opa(tickMarks, LV_OPA_COVER, LV_PART_ITEMS);
+  lv_obj_set_style_opa(tickMarks, LV_OPA_COVER, 0);
+  lv_obj_set_size(tickMarks, 400, 400);
+  lv_obj_align(tickMarks, LV_ALIGN_CENTER, 0, 100); // Shift down 100 pixels from center
+  lv_scale_set_mode(tickMarks, LV_SCALE_MODE_ROUND_OUTER);
+  lv_scale_set_range(tickMarks, -25, 25);
   meter_angle = 240;
   meter_angle_width = 60;
-  lv_scale_set_rotation(scale, meter_angle);
-  lv_scale_set_angle_range(scale, meter_angle_width);
-  lv_scale_set_total_tick_count(scale, 51); /* Major + minor ticks */
-  lv_scale_set_major_tick_every(scale, 5);
-  lv_obj_set_style_bg_opa(scale, LV_OPA_TRANSP, 0);
-  lv_obj_set_style_border_width(scale, 0, 0);
-  lv_obj_set_style_pad_all(scale, 20, 0);
-  lv_obj_set_style_length(scale, 10, LV_PART_ITEMS);
-  lv_obj_set_style_line_width(scale, 1, LV_PART_ITEMS);
-  lv_obj_set_style_line_color(scale, lv_color_hex(0x888888), LV_PART_ITEMS);
-  lv_obj_set_style_length(scale, 15, LV_PART_INDICATOR);
-  lv_obj_set_style_line_width(scale, 2, LV_PART_INDICATOR);
-  lv_obj_set_style_line_color(scale, lv_color_hex(0x36454F), LV_PART_INDICATOR);
-
-  /* Add text labels at major ticks */
+  lv_scale_set_rotation(tickMarks, meter_angle);
+  lv_scale_set_angle_range(tickMarks, meter_angle_width);
+  lv_scale_set_total_tick_count(tickMarks, 11); /* Major + minor ticks */
+  lv_scale_set_major_tick_every(tickMarks, 1);
+  lv_obj_set_style_border_width(tickMarks, 0, 0);
+  lv_obj_set_style_pad_all(tickMarks, 20, 0);
+  lv_obj_set_style_length(tickMarks, 10, LV_PART_ITEMS);
+  lv_obj_set_style_line_width(tickMarks, 1, LV_PART_ITEMS);
+  lv_obj_set_style_line_color(tickMarks, lv_color_hex(0x888888), LV_PART_ITEMS);
+  lv_obj_set_style_length(tickMarks, 15, LV_PART_INDICATOR);
+  lv_obj_set_style_line_width(tickMarks, 2, LV_PART_INDICATOR);
+  lv_obj_set_style_line_color(tickMarks, lv_color_hex(Charcoal), LV_PART_INDICATOR);
   static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
-  lv_scale_set_text_src(scale, angle_labels);
+  lv_scale_set_text_src(tickMarks, angle_labels);
+  lv_obj_move_background(tickMarks);
+
+  // 3. Force render
+  lv_refr_now(NULL);
+
+  // 4. Take snapshot
+  // Captures the rendered scale and its background color into the global snapshot buffer.
+  snapshot = lv_snapshot_take(temp_cont, LV_COLOR_FORMAT_RGB565);
+
+  // 5. Delete temporary container (this also deletes the resource-intensive scale object)
+  lv_obj_del(temp_cont);
+
+  // 6. Create image from snapshot and place it on the screen
+  if (snapshot)
+
+  {
+    lv_obj_t *img = lv_image_create(scr);
+    lv_image_set_src(img, snapshot);
+    // Align image to the same position as the temporary container was, effectively full screen
+    lv_obj_set_size(img, ST7789_WIDTH, ST7789_HEIGHT);
+    lv_obj_align(img, LV_ALIGN_TOP_LEFT, 0, 0);
+    lv_obj_move_background(img); // Ensure it stays behind the needle
+  }
+  // --- END STATIC SCALE PRE-RENDERING ---
+#endif
+///* Create a scale object */
+
+// Create temporary container for rendering
+// lv_obj_t *temp_cont = lv_obj_create(scr);
+// lv_obj_set_size(temp_cont, 400, 400);
+// lv_obj_set_style_bg_color(temp_cont, lv_color_hex(0xf0ead1), 0);
+#if 0
+  tickMarks = lv_scale_create(scr);
+  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_add_flag(tickMarks, LV_OBJ_FLAG_IGNORE_LAYOUT);
+  lv_obj_set_style_line_opa(tickMarks, LV_OPA_COVER, LV_PART_ITEMS);
+  lv_obj_set_style_opa(tickMarks, LV_OPA_COVER, 0);
+  lv_obj_set_size(tickMarks, 400, 400);
+  lv_obj_align(tickMarks, LV_ALIGN_CENTER, 0, 100); // Shift down 100 pixels from center
+  lv_scale_set_mode(tickMarks, LV_SCALE_MODE_ROUND_OUTER);
+  lv_scale_set_range(tickMarks, -25, 25);
+  meter_angle = 240;
+  meter_angle_width = 60;
+  lv_scale_set_rotation(tickMarks, meter_angle);
+  lv_scale_set_angle_range(tickMarks, meter_angle_width);
+  lv_scale_set_total_tick_count(tickMarks, 11); /* Major + minor ticks */
+  lv_scale_set_major_tick_every(tickMarks, 1);
+  lv_obj_set_style_border_width(tickMarks, 0, 0);
+  lv_obj_set_style_pad_all(tickMarks, 20, 0);
+  lv_obj_set_style_length(tickMarks, 10, LV_PART_ITEMS);
+  lv_obj_set_style_line_width(tickMarks, 1, LV_PART_ITEMS);
+  lv_obj_set_style_line_color(tickMarks, lv_color_hex(0x888888), LV_PART_ITEMS);
+  lv_obj_set_style_length(tickMarks, 15, LV_PART_INDICATOR);
+  lv_obj_set_style_line_width(tickMarks, 2, LV_PART_INDICATOR);
+  lv_obj_set_style_line_color(tickMarks, lv_color_hex(Charcoal), LV_PART_INDICATOR);
+  static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
+  lv_scale_set_text_src(tickMarks, angle_labels);
+  lv_obj_move_background(tickMarks);
+#endif
+#if 0
+  // Force render
+  lv_refr_now(NULL);
+
+  // Take snapshot
+  snapshot = lv_snapshot_take(temp_cont, LV_COLOR_FORMAT_RGB565);
+
+  // Create image from snapshot
+  lv_obj_t *img = lv_image_create(scr);
+  lv_image_set_src(img, snapshot);
+  lv_obj_align(img, LV_ALIGN_CENTER, 0, 100);
+
+  // Delete temporary container (and scale)
+  lv_obj_del(temp_cont);
+#endif
+  // lv_obj_t *tickMarkCanvas = lv_canvas_create(scr);
+  // lv_canvas_set_buffer(tickMarkCanvas, tickMarkCanvasBuffer, 400, 400, LV_COLOR_FORMAT_RGB565);
+  // lv_obj_update_layout(tickMarks);
+  // lv_canvas_fill_bg(tickMarkCanvas, lv_color_hex(WEB_LIGHT_TAN), LV_OPA_COVER);
+  //
+  // lv_obj_del(tickMarks);
 
   /* Create a needle/indicator pointing to 0 degrees */
-  needle = lv_line_create(scale);
 
+  // needle widget - child of root
+  needle = lv_line_create(scr);
+
+  lv_obj_clear_flag(needle, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(needle, LV_OBJ_FLAG_SCROLLABLE);
+
+  // init needle at origin, and origin plus length
   static lv_point_precise_t needle_points[2];
-  needle_points[0].x = 0;
-  needle_points[0].y = 0;
-  needle_points[1].x = 0;
-  needle_points[1].y = 100; /* Needle length */
+  needle_points[0].x = needleOriginX;
+  needle_points[0].y = needleOriginY; // origin placed at the center of the screen
+  needle_points[1].x = needleOriginX;
+  needle_points[1].y = needleOriginY + needleLength;
 
   lv_line_set_points(needle, needle_points, 2);
-  lv_obj_align(needle, LV_ALIGN_CENTER, 0, 0);
-
-  /* Style the needle */
-  lv_obj_set_style_line_width(needle, 4, 0);
-  lv_obj_set_style_line_color(needle, lv_color_hex(0x000000), 0);
+  // lv_obj_align(needle, LV_ALIGN_CENTER, 0, needleLength / 2);
+  lv_obj_set_style_line_width(needle, 2, 0);
+  lv_obj_set_style_line_color(needle, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_line_rounded(needle, true, 0);
 
-  // Create a container for the label
-  lv_obj_t *label_box = lv_obj_create(lv_scr_act());
-  lv_obj_set_size(label_box, 240, 80);                // Set size as needed
-  lv_obj_align(label_box, LV_ALIGN_BOTTOM_MID, 0, 0); // Position in scale center
+  lv_timer_create(updateNeedle, 15, needle);
 
-  // Set the background color and opacity for container
-  lv_obj_set_style_bg_color(label_box, lv_color_hex(WEB_LIGHT_TAN), 0); // cream background
-  lv_obj_set_style_bg_opa(label_box, LV_OPA_COVER, 0);                  // Fully opaque
-  lv_obj_set_style_radius(label_box, 0, 0);                             // Rounded corners
-
+  //
   // Create the label inside the box
-  lv_obj_t *label = lv_label_create(label_box);
-  // lv_label_set_text(label, "Delta-T Plus\n The Instrument Company\n Fort Collins, CO");
+  lv_obj_t *label = lv_label_create(scr);
+  lv_obj_set_size(label, 240, 80);
+  lv_label_set_text(label, "Delta-T Plus\n The Instrument Company\n Fort Collins, CO");
   lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0); // center text in box
   lv_obj_set_style_border_width(label, 0, 0);
-  lv_obj_set_style_text_color(label, lv_color_black(), 0);
+  lv_obj_set_style_text_color(label, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
+  lv_obj_align(label, LV_ALIGN_BOTTOM_MID, 0, 0);
+//
+// lv_obj_t *headerContainer = lv_obj_create(lv_scr_act());
+// lv_obj_set_size(headerContainer, 240, 32);
+// lv_obj_align(headerContainer, LV_ALIGN_TOP_MID, 0, 0);
+// lv_obj_set_scrollbar_mode(headerContainer, LV_SCROLLBAR_MODE_OFF);
+// lv_obj_set_style_bg_color(headerContainer, lv_color_hex(WEB_LIGHT_TAN), 0); // cream background
+//
+// lv_obj_set_style_radius(headerContainer, 0, 0);
+//
+//// Left label for switch state
+// leftHeaderLabel = lv_label_create(headerContainer);
+// lv_label_set_text(leftHeaderLabel, "LOW");
+// lv_obj_align(leftHeaderLabel, LV_ALIGN_LEFT_MID, 0, 0);
+//
+//// Right label for battery
+#if 1
+  batteryLabel = lv_label_create(scr);
+  lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(batteryLabel, "100%");
+  lv_obj_set_size(batteryLabel, 64, 32);
+  lv_obj_align(batteryLabel, LV_ALIGN_TOP_RIGHT, 0, 5);
+  lv_timer_create(updateBatteryLabel, 3000, batteryLabel);
 
-  lv_obj_t *headerContainer = lv_obj_create(lv_scr_act());
-  lv_obj_set_size(headerContainer, 240, 32);
-  lv_obj_align(headerContainer, LV_ALIGN_TOP_MID, 0, 0);
-  lv_obj_set_scrollbar_mode(headerContainer, LV_SCROLLBAR_MODE_OFF);
-  lv_obj_set_style_bg_color(headerContainer, lv_color_hex(WEB_LIGHT_TAN), 0); // cream background
+  // lv_timer_create(updateRightHeaderLabel, 3000, rightHeaderLabel);
 
-  lv_obj_set_style_radius(headerContainer, 0, 0);
+#endif
 
-  // Left label for switch state
-  leftHeaderLabel = lv_label_create(headerContainer);
-  lv_label_set_text(leftHeaderLabel, "LOW");
-  lv_obj_align(leftHeaderLabel, LV_ALIGN_LEFT_MID, 0, 0);
-
-  // Right label for battery
-  rightHeaderLabel = lv_label_create(headerContainer);
-  lv_label_set_text(rightHeaderLabel, "100%");
-  lv_obj_align(rightHeaderLabel, LV_ALIGN_RIGHT_MID, 0, 0);
-
-  lv_timer_create(updateLeftHeaderLabel, 200, leftHeaderLabel);
-  lv_timer_create(updateRightHeaderLabel, 3000, rightHeaderLabel);
-  lv_timer_create(updateNeedle, 20, needle);
+#if 1
+  settingLabel = lv_label_create(scr);
+  lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(settingLabel, "LOW");
+  lv_obj_set_size(settingLabel, 64, 32);
+  lv_obj_align(settingLabel, LV_ALIGN_TOP_LEFT, 10, 5);
+  lv_timer_create(updateSettingLabel, 500, settingLabel);
+#endif
+  // lv_timer_create(updateNeedle, 20, needle);
 }
 
 //////////////////////////////////////////////////
@@ -357,57 +566,19 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 void my_flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *px_map)
 {
-#define USE_DMA_FOR_CB
-#ifdef USE_DMA_FOR_CB
-  /* The most simple case (also the slowest) to send all rendered pixels to the
-   * screen one-by-one.  `put_px` is just an example.  It needs to be implemented by you. */
+
   ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
 
-  ST7789_CS_LOW();
-  ST7789_DC_HIGH();
+  ST7789_CS_LOW_DC_HIGH();
 
   int32_t width = area->x2 - area->x1 + 1;
   int32_t height = area->y2 - area->y1 + 1;
+
   uint32_t size = width * height * 2; // 2 bytes per pixel for RGB565
 
   lv_draw_sw_rgb565_swap(px_map, (area->x2 - area->x1 + 1) * (area->y2 - area->y1 + 1));
 
   HAL_SPI_Transmit_DMA(&hspi2, (uint8_t *)px_map, size);
-
-#endif
-
-#ifdef USE_LARGE_SPI_FOR_CB
-
-  ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
-
-  int32_t width = area->x2 - area->x1 + 1;
-  int32_t height = area->y2 - area->y1 + 1;
-  uint32_t size = width * height * 2;
-
-  // Use polling instead of DMA for testing
-  HAL_SPI_Transmit(&hspi2, (uint8_t *)px_map, size, 1000);
-
-  // Immediately notify LVGL that flush is complete
-  lv_display_flush_ready(display);
-#endif
-
-#ifdef USE_SPI_IN_SLOW_FOR_LOOP
-  uint16_t *buf16 = (uint16_t *)px_map; /* Let's say it's a 16 bit (RGB565) display */
-  int32_t x, y;
-  for (y = area->y1; y <= area->y2; y++)
-  {
-    for (x = area->x1; x <= area->x2; x++)
-    {
-      ST7789_WriteData16(*buf16);
-      // put_px(x, y, *buf16);
-      buf16++;
-    }
-  }
-
-  /* IMPORTANT!!!
-   * Inform LVGL that flushing is complete so buffer can be modified again. */
-  lv_display_flush_ready(display);
-#endif
 }
 
 /* USER CODE END 0 */
@@ -427,8 +598,6 @@ int main(void)
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-  /* Config code for STM32_WPAN (HSE Tuning must be done before system clock configuration) */
-  MX_APPE_Config();
 
   /* USER CODE BEGIN Init */
 
@@ -439,6 +608,9 @@ int main(void)
 
   /* Configure the peripherals common clocks */
   PeriphCommonClock_Config();
+
+  /* Config code for STM32_WPAN (HSE Tuning must be done before system clock configuration) */
+  MX_APPE_Config();
 
   /* IPCC initialisation */
   MX_IPCC_Init();
@@ -485,12 +657,20 @@ int main(void)
   snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
   HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
+  uint32_t freq = HAL_RCC_GetSysClockFreq();
+  snprintf((char *)UART_BUFFER, 64, "SYSCLK: %lu MHz\r\n", freq / 1000000);
+  HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+
+  HAL_Delay(1000);
+
   // 1. Initialize LVLG early lv_init
   lv_init();
   // 2. Initialize TFT Driver
   ST7789_Init();
 
-  // ST7789_FillScreen(0xf400);
+  ST7789V_SetRotation(2);
+
+  ST7789_FillScreen(0xf400);
   HAL_Delay(1000);
   // 3. Connect tick interface
   lv_tick_set_cb(HAL_GetTick);
@@ -505,7 +685,8 @@ int main(void)
 
   // lv_example_analog_meter();
 
-  brookes_meter();
+  // brookes_meter();
+  lv_example_scale_3_line_only();
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -546,14 +727,6 @@ void SystemClock_Config(void)
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
-  /** Macro to configure the PLL multiplication factor
-   */
-  __HAL_RCC_PLL_PLLM_CONFIG(RCC_PLLM_DIV1);
-
-  /** Macro to configure the PLL clock source
-   */
-  __HAL_RCC_PLL_PLLSOURCE_CONFIG(RCC_PLLSOURCE_MSI);
-
   /** Configure LSE Drive Capability
    */
   HAL_PWR_EnableBkUpAccess();
@@ -574,7 +747,13 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV1;
+  RCC_OscInitStruct.PLL.PLLN = 32;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -583,14 +762,14 @@ void SystemClock_Config(void)
   /** Configure the SYSCLKSource, HCLK, PCLK1 and PCLK2 clocks dividers
    */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK4 | RCC_CLOCKTYPE_HCLK2 | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSE;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct.AHBCLK2Divider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLK2Divider = RCC_SYSCLK_DIV2;
   RCC_ClkInitStruct.AHBCLK4Divider = RCC_SYSCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
   {
     Error_Handler();
   }

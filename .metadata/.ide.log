@@ -1,1 +1,1367 @@
-2025-10-04 14:08:11,206 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2025-10-06 04:01:02,949 [INFO] WebApp:191 - Connection restablished
+2025-10-06 04:01:05,911 [INFO] WebApp:194 - Connection lost
+2025-10-06 04:01:06,016 [INFO] WebApp:191 - Connection restablished
+2025-10-06 04:01:08,988 [INFO] WebApp:194 - Connection lost
+2025-10-06 04:01:09,098 [INFO] WebApp:191 - Connection restablished
+2025-10-06 05:36:27,698 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-06 05:36:28,698 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 942974904 Bytes (1073741824)
+2025-10-06 05:36:29,796 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 965963120 Bytes (1073741824)
+2025-10-06 05:36:32,639 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 885996816 Bytes (1073741824)
+2025-10-06 05:36:33,390 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RTC
+2025-10-06 05:36:33,390 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 05:36:33,391 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 05:36:33,391 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-06 05:36:33,391 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SEQUENCER
+2025-10-06 05:36:33,391 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STM32_WPAN
+2025-10-06 05:36:33,391 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-10-06 05:36:33,391 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: HSEM
+2025-10-06 05:36:33,391 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_Device
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: IPCC
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RF
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-10-06 05:36:33,392 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TINY_LPM
+2025-10-06 05:36:33,394 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.0.202502271554\\db\
+2025-10-06 05:36:33,423 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-06 05:36:33,423 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 05:36:33,424 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 05:36:33,424 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 05:36:33,424 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-06 05:36:33,424 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 05:36:33,424 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 05:36:33,424 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 05:36:33,424 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 05:36:33,424 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 05:36:33,424 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 05:36:33,424 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 05:36:33,424 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 05:36:33,424 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 05:36:33,424 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 05:36:33,425 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 05:36:33,425 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 05:36:33,425 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 05:36:33,425 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 05:36:33,425 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 05:36:33,425 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 05:36:33,425 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 05:36:33,425 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-06 05:36:33,425 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-06 05:36:33,425 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-06 05:36:33,425 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-06 05:36:33,425 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-06 05:36:33,425 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-06 05:36:33,425 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:325 - Argument : DMAmuxChannelvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : DMAmuxChannelvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:325 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 05:36:33,426 [INFO] Argument:335 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 05:36:33,428 [INFO] Argument:325 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 05:36:33,428 [INFO] Argument:335 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 05:36:33,428 [INFO] Argument:325 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 05:36:33,428 [INFO] Argument:335 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 05:36:33,428 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 05:36:33,428 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 05:36:33,428 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 05:36:33,428 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 05:36:33,480 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 05:36:33,506 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 05:36:33,510 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 05:36:33,513 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 05:36:33,724 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp_save
+2025-10-06 05:36:34,132 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp
+2025-10-06 05:36:34,326 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c_save
+2025-10-06 05:36:34,631 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c
+2025-10-06 05:36:34,641 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h_save
+2025-10-06 05:36:34,805 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h
+2025-10-06 05:36:35,072 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp_save
+2025-10-06 05:36:35,219 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp
+2025-10-06 05:36:35,224 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp_save
+2025-10-06 05:36:35,329 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp
+2025-10-06 05:36:35,344 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp_save
+2025-10-06 05:36:35,472 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp
+2025-10-06 05:36:35,480 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp_save
+2025-10-06 05:36:35,612 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp
+2025-10-06 05:36:35,918 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-10-06 05:36:35,919 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-10-06 05:36:36,018 [WARN] IPConfigManager:103 - WARNING: Missing Config File for RF ip!!
+2025-10-06 05:36:37,456 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 05:36:37,503 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 05:36:37,547 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c_save
+2025-10-06 05:36:37,638 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c
+2025-10-06 05:36:37,646 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h_save
+2025-10-06 05:36:37,717 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h
+2025-10-06 05:36:37,733 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c_save
+2025-10-06 05:36:37,849 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c
+2025-10-06 05:36:37,857 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h_save
+2025-10-06 05:36:37,944 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h
+2025-10-06 05:36:37,958 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c_save
+2025-10-06 05:36:38,056 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c
+2025-10-06 05:36:38,064 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h_save
+2025-10-06 05:36:38,132 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h
+2025-10-06 05:36:38,149 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c_save
+2025-10-06 05:36:38,255 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c
+2025-10-06 05:36:38,263 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h_save
+2025-10-06 05:36:38,346 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h
+2025-10-06 05:36:38,360 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c_save
+2025-10-06 05:36:38,457 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c
+2025-10-06 05:36:38,463 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h_save
+2025-10-06 05:36:38,543 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h
+2025-10-06 05:36:38,558 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c_save
+2025-10-06 05:36:38,664 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c
+2025-10-06 05:36:38,672 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h_save
+2025-10-06 05:36:38,763 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h
+2025-10-06 05:36:38,783 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c_save
+2025-10-06 05:36:38,939 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c
+2025-10-06 05:36:38,949 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h_save
+2025-10-06 05:36:39,051 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h
+2025-10-06 05:36:39,113 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 05:36:39,167 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h_save
+2025-10-06 05:36:39,266 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h
+2025-10-06 05:36:39,276 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h_save
+2025-10-06 05:36:39,467 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h
+2025-10-06 05:36:39,479 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h_save
+2025-10-06 05:36:39,703 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h
+2025-10-06 05:36:39,715 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h_save
+2025-10-06 05:36:39,784 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h
+2025-10-06 05:36:39,792 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h_save
+2025-10-06 05:36:39,867 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h
+2025-10-06 05:36:39,876 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h_save
+2025-10-06 05:36:39,960 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h
+2025-10-06 05:36:39,967 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h_save
+2025-10-06 05:36:40,047 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h
+2025-10-06 05:36:40,053 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h_save
+2025-10-06 05:36:40,123 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h
+2025-10-06 05:36:40,130 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c_save
+2025-10-06 05:36:40,205 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c
+2025-10-06 05:36:40,214 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c_save
+2025-10-06 05:36:40,290 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c
+2025-10-06 05:36:40,296 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c_save
+2025-10-06 05:36:40,356 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c
+2025-10-06 05:36:40,363 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c_save
+2025-10-06 05:36:40,428 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c
+2025-10-06 05:36:40,435 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c_save
+2025-10-06 05:36:40,565 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c
+2025-10-06 05:36:40,572 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h_save
+2025-10-06 05:36:40,629 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h
+2025-10-06 05:36:40,635 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h_save
+2025-10-06 05:36:40,691 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h
+2025-10-06 05:36:40,699 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h_save
+2025-10-06 05:36:40,763 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h
+2025-10-06 05:36:40,770 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h_save
+2025-10-06 05:36:40,826 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h
+2025-10-06 05:36:40,832 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h_save
+2025-10-06 05:36:40,896 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h
+2025-10-06 05:36:40,903 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c_save
+2025-10-06 05:36:42,339 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c
+2025-10-06 05:36:42,362 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h_save
+2025-10-06 05:36:42,591 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h
+2025-10-06 05:36:42,608 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c_save
+2025-10-06 05:36:42,812 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c
+2025-10-06 05:36:42,818 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h_save
+2025-10-06 05:36:42,875 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h
+2025-10-06 05:36:42,880 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c_save
+2025-10-06 05:36:42,935 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c
+2025-10-06 05:36:42,947 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c_save
+2025-10-06 05:36:43,027 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c
+2025-10-06 05:36:43,033 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h_save
+2025-10-06 05:36:43,088 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h
+2025-10-06 05:36:43,103 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c_save
+2025-10-06 05:36:43,202 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c
+2025-10-06 05:36:43,209 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h_save
+2025-10-06 05:36:43,266 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h
+2025-10-06 05:36:43,277 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 05:36:43,286 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c_save
+2025-10-06 05:36:43,361 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c
+2025-10-06 05:36:43,367 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h_save
+2025-10-06 05:36:43,422 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h
+2025-10-06 05:36:43,429 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h_save
+2025-10-06 05:36:43,482 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h
+2025-10-06 05:36:43,489 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c_save
+2025-10-06 05:36:43,559 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c
+2025-10-06 05:36:43,566 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h_save
+2025-10-06 05:36:43,624 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h
+2025-10-06 05:36:43,631 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c_save
+2025-10-06 05:36:43,689 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c
+2025-10-06 05:36:43,695 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h_save
+2025-10-06 05:36:43,752 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h
+2025-10-06 05:36:43,758 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c_save
+2025-10-06 05:36:43,812 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c
+2025-10-06 05:36:43,832 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c_save
+2025-10-06 05:36:43,992 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c
+2025-10-06 05:36:43,999 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h_save
+2025-10-06 05:36:44,052 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h
+2025-10-06 05:36:44,075 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c_save
+2025-10-06 05:36:44,181 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c
+2025-10-06 05:36:44,186 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp_save
+2025-10-06 05:36:44,271 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp
+2025-10-06 05:36:44,285 [INFO] CodeEngine:319 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h_save
+2025-10-06 05:36:44,372 [INFO] CodeEngine:343 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h
+2025-10-06 05:36:44,390 [WARN] IPConfigManager:3174 - Warning: the RefConfig RCC_PClockConfig is not available in your config.xml file
+2025-10-06 05:36:44,402 [ERROR] ApiDbMcu:464 - Can't load MEMORYMAP-STM32xx root dir null
+2025-10-06 05:36:44,402 [ERROR] ApiDbMcu:536 - Cannot parse MEMORYMAP_Config file : file do not exist
+2025-10-06 05:36:44,402 [ERROR] ApiDbMcu:536 - Cannot parse RF_Config file : file do not exist
+2025-10-06 05:36:44,418 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h_save
+2025-10-06 05:36:44,523 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h
+2025-10-06 05:36:44,531 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c_save
+2025-10-06 05:36:44,695 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c
+2025-10-06 05:36:45,725 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 632mS.
+2025-10-06 05:36:45,739 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0-B36
+2025-10-06 05:36:45,843 [INFO] ConfigFileManager:1590 - The Die is : DIE495
+2025-10-06 05:36:55,340 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 9601mS.
+2025-10-06 05:36:55,342 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2025-10-06 05:36:55,367 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-10-06 06:19:31,969 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-06 06:19:33,860 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 993794728 Bytes (1073741824)
+2025-10-06 06:19:35,102 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 854976272 Bytes (1073741824)
+2025-10-06 06:19:35,787 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 899016464 Bytes (1073741824)
+2025-10-06 06:19:36,294 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RTC
+2025-10-06 06:19:36,294 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:19:36,294 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:19:36,294 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-06 06:19:36,294 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SEQUENCER
+2025-10-06 06:19:36,294 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STM32_WPAN
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: HSEM
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_Device
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: IPCC
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-06 06:19:36,295 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-06 06:19:36,296 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-06 06:19:36,296 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RF
+2025-10-06 06:19:36,296 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-10-06 06:19:36,296 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TINY_LPM
+2025-10-06 06:19:36,297 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.0.202502271554\\db\
+2025-10-06 06:19:36,322 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-06 06:19:36,322 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:19:36,322 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:19:36,323 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:19:36,323 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-06 06:19:36,323 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:19:36,323 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:19:36,323 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:19:36,323 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:19:36,323 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:19:36,323 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:19:36,323 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:19:36,323 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:19:36,323 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:19:36,323 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:19:36,323 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:19:36,323 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:19:36,323 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:19:36,324 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:19:36,324 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:19:36,324 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:19:36,324 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:19:36,324 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-06 06:19:36,324 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-06 06:19:36,324 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-06 06:19:36,324 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-06 06:19:36,324 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-06 06:19:36,324 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:19:36,325 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:19:36,326 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2025-10-06 06:19:36,326 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2025-10-06 06:19:36,326 [INFO] Argument:325 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:19:36,326 [INFO] Argument:335 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:325 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:335 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:325 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:335 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:325 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:335 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:19:36,327 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:19:36,381 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:19:36,384 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:19:36,387 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:19:36,391 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:19:36,597 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp_save
+2025-10-06 06:19:36,916 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp
+2025-10-06 06:19:37,070 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c_save
+2025-10-06 06:19:37,365 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c
+2025-10-06 06:19:37,375 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h_save
+2025-10-06 06:19:37,555 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h
+2025-10-06 06:19:37,786 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp_save
+2025-10-06 06:19:37,939 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp
+2025-10-06 06:19:37,945 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp_save
+2025-10-06 06:19:38,090 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp
+2025-10-06 06:19:38,107 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp_save
+2025-10-06 06:19:38,265 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp
+2025-10-06 06:19:38,269 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp_save
+2025-10-06 06:19:38,379 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp
+2025-10-06 06:19:38,767 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-10-06 06:19:38,769 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-10-06 06:19:38,865 [WARN] IPConfigManager:103 - WARNING: Missing Config File for RF ip!!
+2025-10-06 06:19:40,153 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:19:40,185 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:19:40,234 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c_save
+2025-10-06 06:19:40,316 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c
+2025-10-06 06:19:40,324 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h_save
+2025-10-06 06:19:40,409 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h
+2025-10-06 06:19:40,430 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c_save
+2025-10-06 06:19:40,552 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c
+2025-10-06 06:19:40,561 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h_save
+2025-10-06 06:19:40,640 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h
+2025-10-06 06:19:40,656 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c_save
+2025-10-06 06:19:40,759 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c
+2025-10-06 06:19:40,766 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h_save
+2025-10-06 06:19:40,833 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h
+2025-10-06 06:19:40,851 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c_save
+2025-10-06 06:19:40,955 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c
+2025-10-06 06:19:40,964 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h_save
+2025-10-06 06:19:41,038 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h
+2025-10-06 06:19:41,057 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c_save
+2025-10-06 06:19:41,167 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c
+2025-10-06 06:19:41,174 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h_save
+2025-10-06 06:19:41,254 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h
+2025-10-06 06:19:41,273 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c_save
+2025-10-06 06:19:41,354 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c
+2025-10-06 06:19:41,360 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h_save
+2025-10-06 06:19:41,430 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h
+2025-10-06 06:19:41,443 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c_save
+2025-10-06 06:19:41,631 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c
+2025-10-06 06:19:41,652 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h_save
+2025-10-06 06:19:41,757 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h
+2025-10-06 06:19:41,806 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:19:41,874 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h_save
+2025-10-06 06:19:41,959 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h
+2025-10-06 06:19:41,969 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h_save
+2025-10-06 06:19:42,096 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h
+2025-10-06 06:19:42,107 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h_save
+2025-10-06 06:19:42,332 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h
+2025-10-06 06:19:42,341 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h_save
+2025-10-06 06:19:42,417 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h
+2025-10-06 06:19:42,426 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h_save
+2025-10-06 06:19:42,508 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h
+2025-10-06 06:19:42,516 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h_save
+2025-10-06 06:19:42,600 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h
+2025-10-06 06:19:42,607 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h_save
+2025-10-06 06:19:42,695 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h
+2025-10-06 06:19:42,703 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h_save
+2025-10-06 06:19:42,809 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h
+2025-10-06 06:19:42,820 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c_save
+2025-10-06 06:19:42,933 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c
+2025-10-06 06:19:42,946 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c_save
+2025-10-06 06:19:43,046 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c
+2025-10-06 06:19:43,057 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c_save
+2025-10-06 06:19:43,189 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c
+2025-10-06 06:19:43,200 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c_save
+2025-10-06 06:19:43,346 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c
+2025-10-06 06:19:43,356 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c_save
+2025-10-06 06:19:43,553 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c
+2025-10-06 06:19:43,563 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h_save
+2025-10-06 06:19:43,627 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h
+2025-10-06 06:19:43,634 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h_save
+2025-10-06 06:19:43,734 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h
+2025-10-06 06:19:43,747 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h_save
+2025-10-06 06:19:43,838 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h
+2025-10-06 06:19:43,849 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h_save
+2025-10-06 06:19:43,913 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h
+2025-10-06 06:19:43,918 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h_save
+2025-10-06 06:19:43,976 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h
+2025-10-06 06:19:43,983 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c_save
+2025-10-06 06:19:45,373 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c
+2025-10-06 06:19:45,387 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h_save
+2025-10-06 06:19:45,718 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h
+2025-10-06 06:19:45,731 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c_save
+2025-10-06 06:19:46,045 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c
+2025-10-06 06:19:46,063 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h_save
+2025-10-06 06:19:46,177 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h
+2025-10-06 06:19:46,186 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c_save
+2025-10-06 06:19:46,287 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c
+2025-10-06 06:19:46,309 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c_save
+2025-10-06 06:19:46,435 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c
+2025-10-06 06:19:46,441 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h_save
+2025-10-06 06:19:46,510 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h
+2025-10-06 06:19:46,525 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c_save
+2025-10-06 06:19:46,624 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c
+2025-10-06 06:19:46,632 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h_save
+2025-10-06 06:19:46,717 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h
+2025-10-06 06:19:46,731 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:19:46,743 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c_save
+2025-10-06 06:19:46,835 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c
+2025-10-06 06:19:46,845 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h_save
+2025-10-06 06:19:46,913 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h
+2025-10-06 06:19:46,918 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h_save
+2025-10-06 06:19:46,977 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h
+2025-10-06 06:19:46,983 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c_save
+2025-10-06 06:19:47,056 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c
+2025-10-06 06:19:47,063 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h_save
+2025-10-06 06:19:47,118 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h
+2025-10-06 06:19:47,123 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c_save
+2025-10-06 06:19:47,180 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c
+2025-10-06 06:19:47,186 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h_save
+2025-10-06 06:19:47,246 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h
+2025-10-06 06:19:47,251 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c_save
+2025-10-06 06:19:47,319 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c
+2025-10-06 06:19:47,343 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c_save
+2025-10-06 06:19:47,590 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c
+2025-10-06 06:19:47,598 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h_save
+2025-10-06 06:19:47,666 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h
+2025-10-06 06:19:47,686 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c_save
+2025-10-06 06:19:47,762 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c
+2025-10-06 06:19:47,766 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp_save
+2025-10-06 06:19:47,814 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp
+2025-10-06 06:19:47,824 [INFO] CodeEngine:319 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h_save
+2025-10-06 06:19:47,892 [INFO] CodeEngine:343 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h
+2025-10-06 06:19:47,907 [WARN] IPConfigManager:3174 - Warning: the RefConfig RCC_PClockConfig is not available in your config.xml file
+2025-10-06 06:19:47,915 [ERROR] ApiDbMcu:464 - Can't load MEMORYMAP-STM32xx root dir null
+2025-10-06 06:19:47,916 [ERROR] ApiDbMcu:536 - Cannot parse MEMORYMAP_Config file : file do not exist
+2025-10-06 06:19:47,916 [ERROR] ApiDbMcu:536 - Cannot parse RF_Config file : file do not exist
+2025-10-06 06:19:47,930 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h_save
+2025-10-06 06:19:48,004 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h
+2025-10-06 06:19:48,015 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c_save
+2025-10-06 06:19:48,127 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c
+2025-10-06 06:19:49,145 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 706mS.
+2025-10-06 06:19:49,157 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0-B36
+2025-10-06 06:19:49,265 [INFO] ConfigFileManager:1590 - The Die is : DIE495
+2025-10-06 06:19:57,287 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 8130mS.
+2025-10-06 06:19:57,288 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2025-10-06 06:19:57,306 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-10-06 06:43:24,408 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-06 06:43:24,972 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 826636856 Bytes (1073741824)
+2025-10-06 06:43:26,583 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 851280440 Bytes (1073741824)
+2025-10-06 06:43:28,666 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 910009904 Bytes (1073741824)
+2025-10-06 06:43:29,751 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RTC
+2025-10-06 06:43:29,751 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:43:29,751 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:43:29,751 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-06 06:43:29,751 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SEQUENCER
+2025-10-06 06:43:29,751 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STM32_WPAN
+2025-10-06 06:43:29,752 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-10-06 06:43:29,752 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: HSEM
+2025-10-06 06:43:29,752 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-06 06:43:29,752 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-10-06 06:43:29,752 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:43:29,752 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:43:29,752 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_Device
+2025-10-06 06:43:29,753 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: IPCC
+2025-10-06 06:43:29,753 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB
+2025-10-06 06:43:29,753 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-06 06:43:29,753 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-06 06:43:29,753 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-06 06:43:29,753 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RF
+2025-10-06 06:43:29,754 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-10-06 06:43:29,754 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TINY_LPM
+2025-10-06 06:43:29,755 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.0.202502271554\\db\
+2025-10-06 06:43:29,779 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-06 06:43:29,780 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-06 06:43:29,780 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-06 06:43:29,780 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-06 06:43:29,780 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:325 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:43:29,781 [INFO] Argument:335 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:43:29,782 [INFO] Argument:325 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:43:29,782 [INFO] Argument:335 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:43:29,782 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:43:29,782 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:43:29,782 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:43:29,782 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:43:29,818 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:43:29,822 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:43:29,825 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:43:29,828 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:43:30,008 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp_save
+2025-10-06 06:43:30,282 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp
+2025-10-06 06:43:30,403 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c_save
+2025-10-06 06:43:30,578 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c
+2025-10-06 06:43:30,588 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h_save
+2025-10-06 06:43:30,734 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h
+2025-10-06 06:43:30,915 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp_save
+2025-10-06 06:43:31,115 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp
+2025-10-06 06:43:31,121 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp_save
+2025-10-06 06:43:31,259 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp
+2025-10-06 06:43:31,265 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp_save
+2025-10-06 06:43:31,402 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp
+2025-10-06 06:43:31,409 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp_save
+2025-10-06 06:43:31,572 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp
+2025-10-06 06:43:31,998 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-10-06 06:43:31,998 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-10-06 06:43:32,104 [WARN] IPConfigManager:103 - WARNING: Missing Config File for RF ip!!
+2025-10-06 06:43:33,308 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:43:33,356 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:43:33,426 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c_save
+2025-10-06 06:43:33,533 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c
+2025-10-06 06:43:33,541 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h_save
+2025-10-06 06:43:33,641 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h
+2025-10-06 06:43:33,660 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c_save
+2025-10-06 06:43:33,808 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c
+2025-10-06 06:43:33,816 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h_save
+2025-10-06 06:43:33,930 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h
+2025-10-06 06:43:33,946 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c_save
+2025-10-06 06:43:34,060 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c
+2025-10-06 06:43:34,067 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h_save
+2025-10-06 06:43:34,153 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h
+2025-10-06 06:43:34,171 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c_save
+2025-10-06 06:43:34,275 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c
+2025-10-06 06:43:34,281 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h_save
+2025-10-06 06:43:34,352 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h
+2025-10-06 06:43:34,365 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c_save
+2025-10-06 06:43:34,453 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c
+2025-10-06 06:43:34,460 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h_save
+2025-10-06 06:43:34,530 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h
+2025-10-06 06:43:34,544 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c_save
+2025-10-06 06:43:34,661 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c
+2025-10-06 06:43:34,668 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h_save
+2025-10-06 06:43:34,744 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h
+2025-10-06 06:43:34,762 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c_save
+2025-10-06 06:43:34,880 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c
+2025-10-06 06:43:34,888 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h_save
+2025-10-06 06:43:34,971 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h
+2025-10-06 06:43:35,011 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:43:35,048 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h_save
+2025-10-06 06:43:35,113 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h
+2025-10-06 06:43:35,121 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h_save
+2025-10-06 06:43:35,183 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h
+2025-10-06 06:43:35,191 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h_save
+2025-10-06 06:43:35,343 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h
+2025-10-06 06:43:35,352 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h_save
+2025-10-06 06:43:35,441 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h
+2025-10-06 06:43:35,449 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h_save
+2025-10-06 06:43:35,545 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h
+2025-10-06 06:43:35,555 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h_save
+2025-10-06 06:43:35,632 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h
+2025-10-06 06:43:35,640 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h_save
+2025-10-06 06:43:35,727 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h
+2025-10-06 06:43:35,734 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h_save
+2025-10-06 06:43:35,798 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h
+2025-10-06 06:43:35,804 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c_save
+2025-10-06 06:43:35,885 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c
+2025-10-06 06:43:35,892 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c_save
+2025-10-06 06:43:35,960 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c
+2025-10-06 06:43:35,967 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c_save
+2025-10-06 06:43:36,049 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c
+2025-10-06 06:43:36,060 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c_save
+2025-10-06 06:43:36,135 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c
+2025-10-06 06:43:36,145 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c_save
+2025-10-06 06:43:36,283 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c
+2025-10-06 06:43:36,290 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h_save
+2025-10-06 06:43:36,346 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h
+2025-10-06 06:43:36,352 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h_save
+2025-10-06 06:43:36,415 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h
+2025-10-06 06:43:36,423 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h_save
+2025-10-06 06:43:36,497 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h
+2025-10-06 06:43:36,505 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h_save
+2025-10-06 06:43:36,583 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h
+2025-10-06 06:43:36,591 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h_save
+2025-10-06 06:43:36,657 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h
+2025-10-06 06:43:36,664 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c_save
+2025-10-06 06:43:38,032 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c
+2025-10-06 06:43:38,042 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h_save
+2025-10-06 06:43:38,269 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h
+2025-10-06 06:43:38,285 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c_save
+2025-10-06 06:43:38,512 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c
+2025-10-06 06:43:38,517 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h_save
+2025-10-06 06:43:38,572 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h
+2025-10-06 06:43:38,577 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c_save
+2025-10-06 06:43:38,632 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c
+2025-10-06 06:43:38,645 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c_save
+2025-10-06 06:43:38,728 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c
+2025-10-06 06:43:38,733 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h_save
+2025-10-06 06:43:38,791 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h
+2025-10-06 06:43:38,801 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c_save
+2025-10-06 06:43:38,887 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c
+2025-10-06 06:43:38,892 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h_save
+2025-10-06 06:43:38,949 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h
+2025-10-06 06:43:38,959 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:43:38,978 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c_save
+2025-10-06 06:43:39,049 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c
+2025-10-06 06:43:39,056 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h_save
+2025-10-06 06:43:39,114 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h
+2025-10-06 06:43:39,121 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h_save
+2025-10-06 06:43:39,185 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h
+2025-10-06 06:43:39,192 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c_save
+2025-10-06 06:43:39,257 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c
+2025-10-06 06:43:39,263 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h_save
+2025-10-06 06:43:39,317 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h
+2025-10-06 06:43:39,323 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c_save
+2025-10-06 06:43:39,389 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c
+2025-10-06 06:43:39,396 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h_save
+2025-10-06 06:43:39,478 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h
+2025-10-06 06:43:39,486 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c_save
+2025-10-06 06:43:39,571 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c
+2025-10-06 06:43:39,597 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c_save
+2025-10-06 06:43:39,805 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c
+2025-10-06 06:43:39,813 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h_save
+2025-10-06 06:43:39,893 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h
+2025-10-06 06:43:39,921 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c_save
+2025-10-06 06:43:40,066 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c
+2025-10-06 06:43:40,076 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp_save
+2025-10-06 06:43:40,160 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp
+2025-10-06 06:43:40,177 [INFO] CodeEngine:319 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h_save
+2025-10-06 06:43:40,288 [INFO] CodeEngine:343 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h
+2025-10-06 06:43:40,303 [WARN] IPConfigManager:3174 - Warning: the RefConfig RCC_PClockConfig is not available in your config.xml file
+2025-10-06 06:43:40,313 [ERROR] ApiDbMcu:464 - Can't load MEMORYMAP-STM32xx root dir null
+2025-10-06 06:43:40,313 [ERROR] ApiDbMcu:536 - Cannot parse MEMORYMAP_Config file : file do not exist
+2025-10-06 06:43:40,313 [ERROR] ApiDbMcu:536 - Cannot parse RF_Config file : file do not exist
+2025-10-06 06:43:40,327 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h_save
+2025-10-06 06:43:40,416 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h
+2025-10-06 06:43:40,426 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c_save
+2025-10-06 06:43:40,527 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c
+2025-10-06 06:43:41,204 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 407mS.
+2025-10-06 06:43:41,220 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0-B36
+2025-10-06 06:43:41,319 [INFO] ConfigFileManager:1590 - The Die is : DIE495
+2025-10-06 06:43:48,032 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 6812mS.
+2025-10-06 06:43:48,033 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2025-10-06 06:43:48,054 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-10-06 06:44:58,737 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-06 06:45:00,685 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 1003729520 Bytes (1073741824)
+2025-10-06 06:45:01,888 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 866534344 Bytes (1073741824)
+2025-10-06 06:45:04,287 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 940523072 Bytes (1073741824)
+2025-10-06 06:45:05,204 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RTC
+2025-10-06 06:45:05,204 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:45:05,204 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:45:05,204 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-06 06:45:05,204 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SEQUENCER
+2025-10-06 06:45:05,204 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STM32_WPAN
+2025-10-06 06:45:05,204 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-10-06 06:45:05,204 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: HSEM
+2025-10-06 06:45:05,205 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-06 06:45:05,205 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-10-06 06:45:05,205 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:45:05,205 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:45:05,205 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_Device
+2025-10-06 06:45:05,205 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: IPCC
+2025-10-06 06:45:05,205 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB
+2025-10-06 06:45:05,205 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-06 06:45:05,206 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-06 06:45:05,206 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-06 06:45:05,206 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RF
+2025-10-06 06:45:05,206 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-10-06 06:45:05,206 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TINY_LPM
+2025-10-06 06:45:05,207 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.0.202502271554\\db\
+2025-10-06 06:45:05,234 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-06 06:45:05,234 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:45:05,234 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:45:05,234 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:45:05,234 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-06 06:45:05,234 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:45:05,234 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-06 06:45:05,235 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-06 06:45:05,235 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:325 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:45:05,236 [INFO] Argument:335 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:45:05,237 [INFO] Argument:325 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:45:05,237 [INFO] Argument:335 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:45:05,237 [INFO] Argument:325 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:45:05,237 [INFO] Argument:335 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:45:05,237 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:45:05,237 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:45:05,237 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:45:05,237 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:45:05,275 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:45:05,278 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:45:05,282 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:45:05,301 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:45:05,502 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp_save
+2025-10-06 06:45:05,744 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp
+2025-10-06 06:45:05,924 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c_save
+2025-10-06 06:45:06,101 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c
+2025-10-06 06:45:06,143 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h_save
+2025-10-06 06:45:06,287 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h
+2025-10-06 06:45:06,517 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp_save
+2025-10-06 06:45:06,677 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp
+2025-10-06 06:45:06,683 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp_save
+2025-10-06 06:45:06,799 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp
+2025-10-06 06:45:06,805 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp_save
+2025-10-06 06:45:06,929 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp
+2025-10-06 06:45:06,936 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp_save
+2025-10-06 06:45:07,059 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp
+2025-10-06 06:45:07,354 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-10-06 06:45:07,354 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-10-06 06:45:07,435 [WARN] IPConfigManager:103 - WARNING: Missing Config File for RF ip!!
+2025-10-06 06:45:08,702 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:45:08,753 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:45:08,808 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c_save
+2025-10-06 06:45:08,899 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c
+2025-10-06 06:45:08,905 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h_save
+2025-10-06 06:45:08,973 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h
+2025-10-06 06:45:08,989 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c_save
+2025-10-06 06:45:09,085 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c
+2025-10-06 06:45:09,091 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h_save
+2025-10-06 06:45:09,155 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h
+2025-10-06 06:45:09,167 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c_save
+2025-10-06 06:45:09,254 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c
+2025-10-06 06:45:09,261 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h_save
+2025-10-06 06:45:09,324 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h
+2025-10-06 06:45:09,336 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c_save
+2025-10-06 06:45:09,422 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c
+2025-10-06 06:45:09,430 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h_save
+2025-10-06 06:45:09,508 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h
+2025-10-06 06:45:09,525 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c_save
+2025-10-06 06:45:09,623 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c
+2025-10-06 06:45:09,630 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h_save
+2025-10-06 06:45:09,697 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h
+2025-10-06 06:45:09,711 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c_save
+2025-10-06 06:45:09,801 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c
+2025-10-06 06:45:09,807 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h_save
+2025-10-06 06:45:09,872 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h
+2025-10-06 06:45:09,885 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c_save
+2025-10-06 06:45:09,987 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c
+2025-10-06 06:45:09,996 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h_save
+2025-10-06 06:45:10,062 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h
+2025-10-06 06:45:10,103 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:45:10,136 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h_save
+2025-10-06 06:45:10,212 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h
+2025-10-06 06:45:10,221 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h_save
+2025-10-06 06:45:10,289 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h
+2025-10-06 06:45:10,296 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h_save
+2025-10-06 06:45:10,431 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h
+2025-10-06 06:45:10,441 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h_save
+2025-10-06 06:45:10,537 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h
+2025-10-06 06:45:10,544 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h_save
+2025-10-06 06:45:10,648 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h
+2025-10-06 06:45:10,656 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h_save
+2025-10-06 06:45:10,746 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h
+2025-10-06 06:45:10,754 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h_save
+2025-10-06 06:45:10,876 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h
+2025-10-06 06:45:10,883 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h_save
+2025-10-06 06:45:10,981 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h
+2025-10-06 06:45:10,988 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c_save
+2025-10-06 06:45:11,092 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c
+2025-10-06 06:45:11,099 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c_save
+2025-10-06 06:45:11,198 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c
+2025-10-06 06:45:11,206 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c_save
+2025-10-06 06:45:11,290 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c
+2025-10-06 06:45:11,297 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c_save
+2025-10-06 06:45:11,361 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c
+2025-10-06 06:45:11,369 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c_save
+2025-10-06 06:45:11,507 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c
+2025-10-06 06:45:11,513 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h_save
+2025-10-06 06:45:11,566 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h
+2025-10-06 06:45:11,572 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h_save
+2025-10-06 06:45:11,628 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h
+2025-10-06 06:45:11,632 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h_save
+2025-10-06 06:45:11,690 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h
+2025-10-06 06:45:11,694 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h_save
+2025-10-06 06:45:11,748 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h
+2025-10-06 06:45:11,753 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h_save
+2025-10-06 06:45:11,806 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h
+2025-10-06 06:45:11,812 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c_save
+2025-10-06 06:45:13,078 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c
+2025-10-06 06:45:13,091 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h_save
+2025-10-06 06:45:13,376 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h
+2025-10-06 06:45:13,385 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c_save
+2025-10-06 06:45:13,719 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c
+2025-10-06 06:45:13,725 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h_save
+2025-10-06 06:45:13,788 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h
+2025-10-06 06:45:13,793 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c_save
+2025-10-06 06:45:13,862 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c
+2025-10-06 06:45:13,874 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c_save
+2025-10-06 06:45:13,951 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c
+2025-10-06 06:45:13,957 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h_save
+2025-10-06 06:45:14,027 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h
+2025-10-06 06:45:14,039 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c_save
+2025-10-06 06:45:14,121 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c
+2025-10-06 06:45:14,127 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h_save
+2025-10-06 06:45:14,192 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h
+2025-10-06 06:45:14,202 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:45:14,210 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c_save
+2025-10-06 06:45:14,278 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c
+2025-10-06 06:45:14,285 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h_save
+2025-10-06 06:45:14,348 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h
+2025-10-06 06:45:14,354 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h_save
+2025-10-06 06:45:14,419 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h
+2025-10-06 06:45:14,424 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c_save
+2025-10-06 06:45:14,498 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c
+2025-10-06 06:45:14,503 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h_save
+2025-10-06 06:45:14,556 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h
+2025-10-06 06:45:14,562 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c_save
+2025-10-06 06:45:14,629 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c
+2025-10-06 06:45:14,635 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h_save
+2025-10-06 06:45:14,693 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h
+2025-10-06 06:45:14,700 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c_save
+2025-10-06 06:45:14,760 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c
+2025-10-06 06:45:14,778 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c_save
+2025-10-06 06:45:14,880 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c
+2025-10-06 06:45:14,886 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h_save
+2025-10-06 06:45:14,947 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h
+2025-10-06 06:45:14,967 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c_save
+2025-10-06 06:45:15,052 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c
+2025-10-06 06:45:15,056 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp_save
+2025-10-06 06:45:15,108 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp
+2025-10-06 06:45:15,119 [INFO] CodeEngine:319 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h_save
+2025-10-06 06:45:15,177 [INFO] CodeEngine:343 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h
+2025-10-06 06:45:15,195 [WARN] IPConfigManager:3174 - Warning: the RefConfig RCC_PClockConfig is not available in your config.xml file
+2025-10-06 06:45:15,202 [ERROR] ApiDbMcu:464 - Can't load MEMORYMAP-STM32xx root dir null
+2025-10-06 06:45:15,202 [ERROR] ApiDbMcu:536 - Cannot parse MEMORYMAP_Config file : file do not exist
+2025-10-06 06:45:15,202 [ERROR] ApiDbMcu:536 - Cannot parse RF_Config file : file do not exist
+2025-10-06 06:45:15,215 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h_save
+2025-10-06 06:45:15,281 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h
+2025-10-06 06:45:15,287 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c_save
+2025-10-06 06:45:15,384 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c
+2025-10-06 06:45:15,987 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 351mS.
+2025-10-06 06:45:16,000 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0-B36
+2025-10-06 06:45:16,126 [INFO] ConfigFileManager:1590 - The Die is : DIE495
+2025-10-06 06:45:23,607 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 7606mS.
+2025-10-06 06:45:23,607 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-10-06 06:45:23,628 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-10-06 06:51:23,586 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-06 06:51:24,756 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 938613336 Bytes (1073741824)
+2025-10-06 06:51:25,719 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 960833552 Bytes (1073741824)
+2025-10-06 06:51:28,391 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 942972856 Bytes (1073741824)
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RTC
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SEQUENCER
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STM32_WPAN
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: HSEM
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:51:28,868 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_Device
+2025-10-06 06:51:28,869 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: IPCC
+2025-10-06 06:51:28,869 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB
+2025-10-06 06:51:28,869 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-06 06:51:28,870 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-06 06:51:28,870 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-06 06:51:28,870 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RF
+2025-10-06 06:51:28,870 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-10-06 06:51:28,870 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TINY_LPM
+2025-10-06 06:51:28,871 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.0.202502271554\\db\
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-06 06:51:28,937 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:51:28,937 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-06 06:51:28,937 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:51:28,937 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:51:28,937 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:51:28,937 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:51:28,937 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:51:28,937 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:51:28,937 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:51:28,937 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:51:28,937 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2025-10-06 06:51:28,938 [INFO] Argument:325 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:51:28,939 [INFO] Argument:335 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:51:28,939 [INFO] Argument:325 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:51:28,939 [INFO] Argument:335 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:51:28,939 [INFO] Argument:325 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:51:28,939 [INFO] Argument:335 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:51:28,939 [INFO] Argument:325 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:51:28,940 [INFO] Argument:335 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:51:28,940 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:51:28,940 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:51:28,940 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:51:28,940 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:51:29,023 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:51:29,032 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:51:29,040 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:51:29,050 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:51:29,331 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp_save
+2025-10-06 06:51:29,837 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp
+2025-10-06 06:51:29,988 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c_save
+2025-10-06 06:51:30,171 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c
+2025-10-06 06:51:30,181 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h_save
+2025-10-06 06:51:30,371 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h
+2025-10-06 06:51:30,626 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp_save
+2025-10-06 06:51:30,786 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp
+2025-10-06 06:51:30,792 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp_save
+2025-10-06 06:51:30,946 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp
+2025-10-06 06:51:30,954 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp_save
+2025-10-06 06:51:31,131 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp
+2025-10-06 06:51:31,136 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp_save
+2025-10-06 06:51:31,279 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp
+2025-10-06 06:51:31,634 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-10-06 06:51:31,635 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-10-06 06:51:31,725 [WARN] IPConfigManager:103 - WARNING: Missing Config File for RF ip!!
+2025-10-06 06:51:33,283 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:51:33,327 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:51:33,378 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c_save
+2025-10-06 06:51:33,448 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c
+2025-10-06 06:51:33,454 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h_save
+2025-10-06 06:51:33,531 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h
+2025-10-06 06:51:33,549 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c_save
+2025-10-06 06:51:33,654 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c
+2025-10-06 06:51:33,661 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h_save
+2025-10-06 06:51:33,731 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h
+2025-10-06 06:51:33,740 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c_save
+2025-10-06 06:51:33,831 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c
+2025-10-06 06:51:33,838 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h_save
+2025-10-06 06:51:33,907 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h
+2025-10-06 06:51:33,925 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c_save
+2025-10-06 06:51:34,024 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c
+2025-10-06 06:51:34,034 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h_save
+2025-10-06 06:51:34,105 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h
+2025-10-06 06:51:34,119 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c_save
+2025-10-06 06:51:34,210 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c
+2025-10-06 06:51:34,216 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h_save
+2025-10-06 06:51:34,270 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h
+2025-10-06 06:51:34,281 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c_save
+2025-10-06 06:51:34,363 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c
+2025-10-06 06:51:34,369 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h_save
+2025-10-06 06:51:34,428 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h
+2025-10-06 06:51:34,439 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c_save
+2025-10-06 06:51:34,541 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c
+2025-10-06 06:51:34,550 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h_save
+2025-10-06 06:51:34,615 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h
+2025-10-06 06:51:34,651 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:51:34,680 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h_save
+2025-10-06 06:51:34,752 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h
+2025-10-06 06:51:34,762 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h_save
+2025-10-06 06:51:34,845 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h
+2025-10-06 06:51:34,853 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h_save
+2025-10-06 06:51:35,009 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h
+2025-10-06 06:51:35,019 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h_save
+2025-10-06 06:51:35,086 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h
+2025-10-06 06:51:35,092 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h_save
+2025-10-06 06:51:35,177 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h
+2025-10-06 06:51:35,188 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h_save
+2025-10-06 06:51:35,289 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h
+2025-10-06 06:51:35,299 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h_save
+2025-10-06 06:51:35,384 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h
+2025-10-06 06:51:35,392 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h_save
+2025-10-06 06:51:35,479 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h
+2025-10-06 06:51:35,487 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c_save
+2025-10-06 06:51:35,578 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c
+2025-10-06 06:51:35,586 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c_save
+2025-10-06 06:51:35,670 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c
+2025-10-06 06:51:35,678 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c_save
+2025-10-06 06:51:35,798 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c
+2025-10-06 06:51:35,806 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c_save
+2025-10-06 06:51:35,898 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c
+2025-10-06 06:51:35,907 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c_save
+2025-10-06 06:51:36,089 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c
+2025-10-06 06:51:36,099 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h_save
+2025-10-06 06:51:36,158 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h
+2025-10-06 06:51:36,165 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h_save
+2025-10-06 06:51:36,227 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h
+2025-10-06 06:51:36,234 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h_save
+2025-10-06 06:51:36,296 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h
+2025-10-06 06:51:36,301 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h_save
+2025-10-06 06:51:36,357 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h
+2025-10-06 06:51:36,366 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h_save
+2025-10-06 06:51:36,418 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h
+2025-10-06 06:51:36,423 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c_save
+2025-10-06 06:51:37,647 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c
+2025-10-06 06:51:37,656 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h_save
+2025-10-06 06:51:37,926 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h
+2025-10-06 06:51:37,934 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c_save
+2025-10-06 06:51:38,209 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c
+2025-10-06 06:51:38,217 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h_save
+2025-10-06 06:51:38,301 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h
+2025-10-06 06:51:38,308 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c_save
+2025-10-06 06:51:38,397 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c
+2025-10-06 06:51:38,410 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c_save
+2025-10-06 06:51:38,495 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c
+2025-10-06 06:51:38,500 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h_save
+2025-10-06 06:51:38,571 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h
+2025-10-06 06:51:38,584 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c_save
+2025-10-06 06:51:38,664 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c
+2025-10-06 06:51:38,668 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h_save
+2025-10-06 06:51:38,720 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h
+2025-10-06 06:51:38,732 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:51:38,740 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c_save
+2025-10-06 06:51:38,836 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c
+2025-10-06 06:51:38,842 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h_save
+2025-10-06 06:51:38,914 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h
+2025-10-06 06:51:38,920 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h_save
+2025-10-06 06:51:38,988 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h
+2025-10-06 06:51:38,993 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c_save
+2025-10-06 06:51:39,063 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c
+2025-10-06 06:51:39,069 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h_save
+2025-10-06 06:51:39,122 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h
+2025-10-06 06:51:39,127 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c_save
+2025-10-06 06:51:39,183 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c
+2025-10-06 06:51:39,188 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h_save
+2025-10-06 06:51:39,239 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h
+2025-10-06 06:51:39,245 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c_save
+2025-10-06 06:51:39,295 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c
+2025-10-06 06:51:39,312 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c_save
+2025-10-06 06:51:39,487 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c
+2025-10-06 06:51:39,504 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h_save
+2025-10-06 06:51:39,570 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h
+2025-10-06 06:51:39,598 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c_save
+2025-10-06 06:51:39,725 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c
+2025-10-06 06:51:39,736 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp_save
+2025-10-06 06:51:39,829 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp
+2025-10-06 06:51:39,849 [INFO] CodeEngine:319 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h_save
+2025-10-06 06:51:39,922 [INFO] CodeEngine:343 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h
+2025-10-06 06:51:39,936 [WARN] IPConfigManager:3174 - Warning: the RefConfig RCC_PClockConfig is not available in your config.xml file
+2025-10-06 06:51:39,941 [ERROR] ApiDbMcu:464 - Can't load MEMORYMAP-STM32xx root dir null
+2025-10-06 06:51:39,941 [ERROR] ApiDbMcu:536 - Cannot parse MEMORYMAP_Config file : file do not exist
+2025-10-06 06:51:39,941 [ERROR] ApiDbMcu:536 - Cannot parse RF_Config file : file do not exist
+2025-10-06 06:51:39,953 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h_save
+2025-10-06 06:51:40,035 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h
+2025-10-06 06:51:40,041 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c_save
+2025-10-06 06:51:40,149 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c
+2025-10-06 06:51:40,964 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 493mS.
+2025-10-06 06:51:40,983 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0-B36
+2025-10-06 06:51:41,115 [INFO] ConfigFileManager:1590 - The Die is : DIE495
+2025-10-06 06:51:48,181 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 7198mS.
+2025-10-06 06:51:48,183 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 1mS.
+2025-10-06 06:51:48,208 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-10-06 06:53:14,032 [INFO] NvicIntPanel:101 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2025-10-06 06:53:16,384 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 947139864 Bytes (1073741824)
+2025-10-06 06:53:17,699 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 971783448 Bytes (1073741824)
+2025-10-06 06:53:21,352 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 911761432 Bytes (1073741824)
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RTC
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SEQUENCER
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STM32_WPAN
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: HSEM
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_Device
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: IPCC
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB
+2025-10-06 06:53:21,713 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2025-10-06 06:53:21,714 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2025-10-06 06:53:21,714 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2025-10-06 06:53:21,714 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RF
+2025-10-06 06:53:21,714 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2025-10-06 06:53:21,714 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TINY_LPM
+2025-10-06 06:53:21,715 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.0.202502271554\\db\
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : hdmavalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Initvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:327 - 	 sub Args: 
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_SPI2_TX
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Lockvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : Lockvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Statevalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : Statevalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : Parentvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : Parentvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2025-10-06 06:53:21,763 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : DMAmuxChannelvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : DMAmuxChannelStatusvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : DMAmuxChannelStatusMaskvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : DMAmuxRequestGenvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:53:21,765 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2025-10-06 06:53:21,819 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:53:21,825 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:53:21,831 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:53:21,837 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2025-10-06 06:53:22,047 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp_save
+2025-10-06 06:53:22,143 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp
+2025-10-06 06:53:22,295 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c_save
+2025-10-06 06:53:22,415 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c
+2025-10-06 06:53:22,423 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h_save
+2025-10-06 06:53:22,518 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h
+2025-10-06 06:53:22,861 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp_save
+2025-10-06 06:53:22,967 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp
+2025-10-06 06:53:22,973 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp_save
+2025-10-06 06:53:23,079 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp
+2025-10-06 06:53:23,084 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp_save
+2025-10-06 06:53:23,179 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp
+2025-10-06 06:53:23,185 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp_save
+2025-10-06 06:53:23,275 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp
+2025-10-06 06:53:23,614 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2025-10-06 06:53:23,616 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2025-10-06 06:53:23,712 [WARN] IPConfigManager:103 - WARNING: Missing Config File for RF ip!!
+2025-10-06 06:53:25,117 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:53:25,182 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:53:25,251 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c_save
+2025-10-06 06:53:25,356 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c
+2025-10-06 06:53:25,363 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h_save
+2025-10-06 06:53:25,447 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h
+2025-10-06 06:53:25,476 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c_save
+2025-10-06 06:53:25,601 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c
+2025-10-06 06:53:25,609 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h_save
+2025-10-06 06:53:25,693 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h
+2025-10-06 06:53:25,710 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c_save
+2025-10-06 06:53:25,820 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c
+2025-10-06 06:53:25,827 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h_save
+2025-10-06 06:53:25,909 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h
+2025-10-06 06:53:25,925 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c_save
+2025-10-06 06:53:26,023 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c
+2025-10-06 06:53:26,033 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h_save
+2025-10-06 06:53:26,113 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h
+2025-10-06 06:53:26,130 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c_save
+2025-10-06 06:53:26,223 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c
+2025-10-06 06:53:26,230 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h_save
+2025-10-06 06:53:26,293 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h
+2025-10-06 06:53:26,304 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c_save
+2025-10-06 06:53:26,397 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c
+2025-10-06 06:53:26,413 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h_save
+2025-10-06 06:53:26,509 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h
+2025-10-06 06:53:26,528 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c_save
+2025-10-06 06:53:26,690 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c
+2025-10-06 06:53:26,701 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h_save
+2025-10-06 06:53:26,795 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h
+2025-10-06 06:53:26,846 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:53:26,881 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h_save
+2025-10-06 06:53:26,957 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h
+2025-10-06 06:53:26,963 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h_save
+2025-10-06 06:53:27,028 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h
+2025-10-06 06:53:27,035 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h_save
+2025-10-06 06:53:27,187 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h
+2025-10-06 06:53:27,205 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h_save
+2025-10-06 06:53:27,314 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h
+2025-10-06 06:53:27,327 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h_save
+2025-10-06 06:53:27,409 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h
+2025-10-06 06:53:27,417 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h_save
+2025-10-06 06:53:27,499 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h
+2025-10-06 06:53:27,507 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h_save
+2025-10-06 06:53:27,619 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h
+2025-10-06 06:53:27,637 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h_save
+2025-10-06 06:53:27,737 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h
+2025-10-06 06:53:27,748 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c_save
+2025-10-06 06:53:27,824 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c
+2025-10-06 06:53:27,829 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c_save
+2025-10-06 06:53:27,893 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c
+2025-10-06 06:53:27,901 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c_save
+2025-10-06 06:53:27,996 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c
+2025-10-06 06:53:28,002 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c_save
+2025-10-06 06:53:28,080 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c
+2025-10-06 06:53:28,087 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c_save
+2025-10-06 06:53:28,265 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c
+2025-10-06 06:53:28,275 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h_save
+2025-10-06 06:53:28,346 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h
+2025-10-06 06:53:28,351 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h_save
+2025-10-06 06:53:28,443 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h
+2025-10-06 06:53:28,451 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h_save
+2025-10-06 06:53:28,531 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h
+2025-10-06 06:53:28,536 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h_save
+2025-10-06 06:53:28,609 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h
+2025-10-06 06:53:28,616 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h_save
+2025-10-06 06:53:28,692 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\template_server_app.h
+2025-10-06 06:53:28,699 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c_save
+2025-10-06 06:53:30,484 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.c
+2025-10-06 06:53:30,497 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h_save
+2025-10-06 06:53:30,756 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_stm.h
+2025-10-06 06:53:30,762 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c_save
+2025-10-06 06:53:31,052 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.c
+2025-10-06 06:53:31,068 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h_save
+2025-10-06 06:53:31,175 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\custom_app.h
+2025-10-06 06:53:31,188 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c_save
+2025-10-06 06:53:31,323 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c
+2025-10-06 06:53:31,350 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c_save
+2025-10-06 06:53:31,502 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c
+2025-10-06 06:53:31,511 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h_save
+2025-10-06 06:53:31,615 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h
+2025-10-06 06:53:31,634 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c_save
+2025-10-06 06:53:31,892 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c
+2025-10-06 06:53:31,901 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h_save
+2025-10-06 06:53:32,015 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h
+2025-10-06 06:53:32,032 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2025-10-06 06:53:32,047 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c_save
+2025-10-06 06:53:32,149 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c
+2025-10-06 06:53:32,159 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h_save
+2025-10-06 06:53:32,254 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h
+2025-10-06 06:53:32,269 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h_save
+2025-10-06 06:53:32,366 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h
+2025-10-06 06:53:32,376 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c_save
+2025-10-06 06:53:32,476 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c
+2025-10-06 06:53:32,483 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h_save
+2025-10-06 06:53:32,547 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h
+2025-10-06 06:53:32,553 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c_save
+2025-10-06 06:53:32,627 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c
+2025-10-06 06:53:32,635 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h_save
+2025-10-06 06:53:32,703 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h
+2025-10-06 06:53:32,710 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c_save
+2025-10-06 06:53:32,777 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c
+2025-10-06 06:53:32,806 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c_save
+2025-10-06 06:53:32,917 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c
+2025-10-06 06:53:32,926 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h_save
+2025-10-06 06:53:32,999 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h
+2025-10-06 06:53:33,026 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c_save
+2025-10-06 06:53:33,119 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c
+2025-10-06 06:53:33,124 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp_save
+2025-10-06 06:53:33,181 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp
+2025-10-06 06:53:33,192 [INFO] CodeEngine:319 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h_save
+2025-10-06 06:53:33,256 [INFO] CodeEngine:343 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h
+2025-10-06 06:53:33,270 [WARN] IPConfigManager:3174 - Warning: the RefConfig RCC_PClockConfig is not available in your config.xml file
+2025-10-06 06:53:33,277 [ERROR] ApiDbMcu:464 - Can't load MEMORYMAP-STM32xx root dir null
+2025-10-06 06:53:33,277 [ERROR] ApiDbMcu:536 - Cannot parse MEMORYMAP_Config file : file do not exist
+2025-10-06 06:53:33,277 [ERROR] ApiDbMcu:536 - Cannot parse RF_Config file : file do not exist
+2025-10-06 06:53:33,287 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h_save
+2025-10-06 06:53:33,366 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h
+2025-10-06 06:53:33,376 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c_save
+2025-10-06 06:53:33,485 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c
+2025-10-06 06:53:34,173 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 445mS.
+2025-10-06 06:53:34,195 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0-B36
+2025-10-06 06:53:34,364 [INFO] ConfigFileManager:1590 - The Die is : DIE495
+2025-10-06 06:53:42,640 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 8446mS.
+2025-10-06 06:53:42,641 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2025-10-06 06:53:42,662 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.

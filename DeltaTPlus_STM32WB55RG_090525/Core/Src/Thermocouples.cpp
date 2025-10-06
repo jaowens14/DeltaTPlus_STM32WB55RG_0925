@@ -152,11 +152,12 @@ void Thermocouples::stateMachine(void)
         lf.gain = lf.error / (lf.error + lf.measurement_variance);
         lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
         lf.error = (1.0 - lf.gain) * lf.error;
+        deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
 
-        // roughly maps voltage to angle
-        // deltaTemp = ((rf.estimate - lf.estimate) * 75.0 * 20000.0); // This works really well for HIGH setting.
-        deltaTemp = ((rf.estimate - lf.estimate) * 4615384.615 * userGain); // NEW WITH LVGL
+        // deltaTemp = ((rf.estimate - lf.estimate) * 4500000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
 
+        // deltaTemp = ((rf.estimate - lf.estimate) * 4615384.615 * userGain); // SEEMS REALLLY FAST>>>>>>
+        // 4500000
         // deltaTemp = ((rf.estimate - lf.estimate) * 100.0 * 10000.0 * userGain); // NEW WITH LVGL
         // 32307692.31
         // deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
