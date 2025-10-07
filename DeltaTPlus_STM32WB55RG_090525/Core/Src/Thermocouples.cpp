@@ -152,7 +152,8 @@ void Thermocouples::stateMachine(void)
         lf.gain = lf.error / (lf.error + lf.measurement_variance);
         lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
         lf.error = (1.0 - lf.gain) * lf.error;
-        deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
+        // 2615384.615
+        deltaTemp = ((lf.estimate - rf.estimate) * 1000000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
 
         // deltaTemp = ((rf.estimate - lf.estimate) * 4500000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
 
@@ -177,7 +178,7 @@ void Thermocouples::stateMachine(void)
         // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Delta Temp: %f\r\n", deltaTemp);
         // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
         //                                                  r0, r1, v0, v1, dt, angle
-        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%ld, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp);
-        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%ld, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp);
+         HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
     }
 }

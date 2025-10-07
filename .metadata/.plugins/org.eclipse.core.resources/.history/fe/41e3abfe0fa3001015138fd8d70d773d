@@ -1,0 +1,3 @@
+../lvgl/examples/scroll/../../src/core/lv_obj_style_gen.h:172:23:lv_obj_get_style_pad_right	1
+../lvgl/examples/scroll/lv_example_scroll_3.c:6:13:float_button_event_cb	2
+../lvgl/examples/scroll/lv_example_scroll_3.c:28:6:lv_example_scroll_3	2

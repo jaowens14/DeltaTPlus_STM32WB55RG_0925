@@ -52,8 +52,8 @@ extern "C"
     void ST7789_SetWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
     void ST7789V_SetRotation(uint8_t rotation);
     void ST7789_WriteCommand(uint8_t cmd);
-    void ST7789_WriteData8(uint8_t data);
-    void ST7789_WriteData16(uint16_t data);
+    void ST7789_WriteData(uint8_t data);
+
 
 #ifdef __cplusplus
 }

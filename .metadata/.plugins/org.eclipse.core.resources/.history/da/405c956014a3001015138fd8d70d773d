@@ -1,0 +1,37 @@
+#ifndef ACCELEROMETER_H
+#define ACCELEROMETER_H
+
+#include "i2c.h"
+#include "usart.h"
+#include "Backlight.h"
+#include "main.h"
+
+#define ADXL343_ADDR (0x53 << 1) // Correct 8-bit address for grounded ALT_ADDRESS
+
+extern volatile int accelerometer_delay;
+extern volatile int accelerometer_read_delay;
+
+extern int ACCELEROMETER_STATE;
+enum
+{
+    _AWAKE,
+    _SLEEP
+};
+
+// Function declarations
+void accelerometerSetup(void);
+void accelerometerLoop(void);
+void accelerometerProcessData(void);
+void accelerometerRead(void);
+
+extern uint8_t accdata[6];
+extern uint8_t accmsg[64];
+
+extern int32_t acceleration;
+
+extern const uint32_t activityThreshold;
+extern const uint32_t idleTime;
+extern uint8_t powerCtl;
+extern const uint8_t accreg;
+
+#endif // ACCELEROMETER_H

@@ -1,0 +1,39 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (13.3.rel1)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../lvgl/examples/widgets/image/lv_example_image_1.c \
+../lvgl/examples/widgets/image/lv_example_image_2.c \
+../lvgl/examples/widgets/image/lv_example_image_3.c \
+../lvgl/examples/widgets/image/lv_example_image_4.c \
+../lvgl/examples/widgets/image/lv_example_image_5.c 
+
+C_DEPS += \
+./lvgl/examples/widgets/image/lv_example_image_1.d \
+./lvgl/examples/widgets/image/lv_example_image_2.d \
+./lvgl/examples/widgets/image/lv_example_image_3.d \
+./lvgl/examples/widgets/image/lv_example_image_4.d \
+./lvgl/examples/widgets/image/lv_example_image_5.d 
+
+OBJS += \
+./lvgl/examples/widgets/image/lv_example_image_1.o \
+./lvgl/examples/widgets/image/lv_example_image_2.o \
+./lvgl/examples/widgets/image/lv_example_image_3.o \
+./lvgl/examples/widgets/image/lv_example_image_4.o \
+./lvgl/examples/widgets/image/lv_example_image_5.o 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+lvgl/examples/widgets/image/%.o lvgl/examples/widgets/image/%.su lvgl/examples/widgets/image/%.cyclo: ../lvgl/examples/widgets/image/%.c lvgl/examples/widgets/image/subdir.mk
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -Os -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+
+clean: clean-lvgl-2f-examples-2f-widgets-2f-image
+
+clean-lvgl-2f-examples-2f-widgets-2f-image:
+	-$(RM) ./lvgl/examples/widgets/image/lv_example_image_1.cyclo ./lvgl/examples/widgets/image/lv_example_image_1.d ./lvgl/examples/widgets/image/lv_example_image_1.o ./lvgl/examples/widgets/image/lv_example_image_1.su ./lvgl/examples/widgets/image/lv_example_image_2.cyclo ./lvgl/examples/widgets/image/lv_example_image_2.d ./lvgl/examples/widgets/image/lv_example_image_2.o ./lvgl/examples/widgets/image/lv_example_image_2.su ./lvgl/examples/widgets/image/lv_example_image_3.cyclo ./lvgl/examples/widgets/image/lv_example_image_3.d ./lvgl/examples/widgets/image/lv_example_image_3.o ./lvgl/examples/widgets/image/lv_example_image_3.su ./lvgl/examples/widgets/image/lv_example_image_4.cyclo ./lvgl/examples/widgets/image/lv_example_image_4.d ./lvgl/examples/widgets/image/lv_example_image_4.o ./lvgl/examples/widgets/image/lv_example_image_4.su ./lvgl/examples/widgets/image/lv_example_image_5.cyclo ./lvgl/examples/widgets/image/lv_example_image_5.d ./lvgl/examples/widgets/image/lv_example_image_5.o ./lvgl/examples/widgets/image/lv_example_image_5.su
+
+.PHONY: clean-lvgl-2f-examples-2f-widgets-2f-image
+

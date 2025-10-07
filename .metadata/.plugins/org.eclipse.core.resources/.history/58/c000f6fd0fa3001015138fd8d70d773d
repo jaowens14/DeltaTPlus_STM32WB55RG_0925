@@ -1,0 +1,28 @@
+../AD7124_Library/ad7124-private.h:102:19:uint32_t Ad7124Private::timeout() const	1
+../AD7124_Library/ad7124.h:423:19:uint32_t Ad7124Chip::timeout() const	1
+../AD7124_Library/ad7124.cpp:28:5:int Ad7124Chip::begin(int)	2
+../AD7124_Library/ad7124.cpp:43:5:int Ad7124Chip::reset()	1
+../AD7124_Library/ad7124.cpp:50:5:int Ad7124Chip::status()	1
+../AD7124_Library/ad7124.cpp:57:5:int Ad7124Chip::currentChannel()	2
+../AD7124_Library/ad7124.cpp:70:5:int Ad7124Chip::setChannel(uint8_t, uint8_t, Ad7124::InputSel, Ad7124::InputSel, bool)	4
+../AD7124_Library/ad7124.cpp:92:5:int Ad7124Chip::enableChannel(uint8_t, bool)	4
+../AD7124_Library/ad7124.cpp:126:5:int Ad7124Chip::channelConfig(uint8_t)	2
+../AD7124_Library/ad7124.cpp:144:5:int Ad7124Chip::setConfig(uint8_t, Ad7124::RefSel, Ad7124::PgaSel, bool, Ad7124::BurnoutCurrent)	3
+../AD7124_Library/ad7124.cpp:167:5:int Ad7124Chip::setConfigFilter(uint8_t, Ad7124::FilterType, uint16_t, Ad7124::PostFilterType, bool, bool)	4
+../AD7124_Library/ad7124.cpp:188:5:int Ad7124Chip::setConfigOffset(uint8_t, uint32_t)	2
+../AD7124_Library/ad7124.cpp:201:5:int Ad7124Chip::setConfigGain(uint8_t, uint32_t)	2
+../AD7124_Library/ad7124.cpp:214:5:int Ad7124Chip::setCurrentSource(uint8_t, uint8_t, Ad7124::IoutCurrent)	2
+../AD7124_Library/ad7124.cpp:235:5:int Ad7124Chip::setBiasPins(uint16_t)	1
+../AD7124_Library/ad7124.cpp:248:5:int Ad7124Chip::setAdcControl(Ad7124::OperatingMode, Ad7124::PowerMode, bool, Ad7124::ClkSel)	2
+../AD7124_Library/ad7124.cpp:265:5:int Ad7124Chip::setMode(Ad7124::OperatingMode)	1
+../AD7124_Library/ad7124.cpp:276:5:int Ad7124Chip::waitEndOfConversion(uint32_t)	1
+../AD7124_Library/ad7124.cpp:282:5:int Ad7124Chip::isConversionReady()	1
+../AD7124_Library/ad7124.cpp:288:6:long int Ad7124Chip::getData()	2
+../AD7124_Library/ad7124.cpp:302:5:int Ad7124Chip::startSingleConversion(uint8_t)	3
+../AD7124_Library/ad7124.cpp:320:6:long int Ad7124Chip::read(uint8_t)	5
+../AD7124_Library/ad7124.cpp:353:5:int Ad7124Chip::internalCalibration(uint8_t)	8
+../AD7124_Library/ad7124.cpp:408:6:long int Ad7124Chip::getRegister(Ad7124::RegisterId)	3
+../AD7124_Library/ad7124.cpp:427:5:int Ad7124Chip::setRegister(Ad7124::RegisterId, long int)	2
+../AD7124_Library/ad7124.cpp:441:1:static double Ad7124Chip::toVoltage(long int, int, double, bool)	2
+../AD7124_Library/ad7124.cpp:465:5:int Ad7124Chip::readRegister(Ad7124::RegisterId)	1
+../AD7124_Library/ad7124.cpp:472:5:int Ad7124Chip::writeRegister(Ad7124::RegisterId)	1

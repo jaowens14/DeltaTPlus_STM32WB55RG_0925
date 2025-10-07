@@ -41,7 +41,6 @@ SUBDIRS := \
 AD7124_Library \
 AD7124_Library/examples/ad7124-cn0381 \
 Adafruit_1704X_Library \
-Adafruit_MAX31856_Library \
 Core/Src \
 Core/Startup \
 Drivers/STM32WBxx_HAL_Driver/Src \

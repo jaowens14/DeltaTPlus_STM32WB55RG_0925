@@ -31,6 +31,8 @@
         "regex": "cpp",
         "system_error": "cpp",
         "xlocmon": "cpp",
-        "xiosbase": "cpp"
+        "xiosbase": "cpp",
+        "xlocbuf": "c",
+        "tim.h": "c"
     }
 }

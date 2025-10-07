@@ -5,8 +5,19 @@
 #include "i2c.h"
 #include "usart.h"
 
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void setupBatteryMonitor(void);
 uint16_t getChargeLevel(void);
 bool getChargeStatus(void);
+
+#ifdef __cplusplus
+}
+#endif
+
+
 
 #endif

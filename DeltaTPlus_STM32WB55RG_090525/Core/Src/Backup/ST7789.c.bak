@@ -2,7 +2,7 @@
 
 extern SPI_HandleTypeDef hspi2;
 
-volatile uint8_t dma_transfer_complete = 1;
+
 
 // ST7789 Command definitions
 #define ST7789_NOP 0x00

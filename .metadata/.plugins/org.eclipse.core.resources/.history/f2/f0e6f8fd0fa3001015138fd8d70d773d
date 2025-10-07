@@ -1,0 +1,35 @@
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:7:1:Adafruit_MAX17048_STM32::Adafruit_MAX17048_STM32()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:14:6:bool Adafruit_MAX17048_STM32::begin(I2C_HandleTypeDef*, uint16_t)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:35:6:bool Adafruit_MAX17048_STM32::writeRegister8(uint8_t, uint8_t)	32	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:42:6:bool Adafruit_MAX17048_STM32::writeRegister16(uint8_t, uint16_t)	32	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:49:9:uint8_t Adafruit_MAX17048_STM32::readRegister8(uint8_t)	32	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:65:10:uint16_t Adafruit_MAX17048_STM32::readRegister16(uint8_t)	32	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:84:6:bool Adafruit_MAX17048_STM32::writeBits(uint8_t, uint8_t, uint8_t, uint8_t)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:95:9:uint8_t Adafruit_MAX17048_STM32::readBits(uint8_t, uint8_t, uint8_t)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:104:10:uint16_t Adafruit_MAX17048_STM32::getICversion()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:109:9:uint8_t Adafruit_MAX17048_STM32::getChipID()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:114:6:bool Adafruit_MAX17048_STM32::isDeviceReady()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:119:6:bool Adafruit_MAX17048_STM32::reset()	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:140:6:bool Adafruit_MAX17048_STM32::clearAlertFlag(uint8_t)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:147:7:float Adafruit_MAX17048_STM32::cellVoltage()	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:158:7:float Adafruit_MAX17048_STM32::cellPercent()	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:169:7:float Adafruit_MAX17048_STM32::chargeRate()	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:180:6:void Adafruit_MAX17048_STM32::setResetVoltage(float)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:187:7:float Adafruit_MAX17048_STM32::getResetVoltage()	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:193:6:void Adafruit_MAX17048_STM32::setAlertVoltages(float, float)	32	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:202:6:void Adafruit_MAX17048_STM32::getAlertVoltages(float&, float&)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:208:6:bool Adafruit_MAX17048_STM32::isActiveAlert()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:213:9:uint8_t Adafruit_MAX17048_STM32::getAlertStatus()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:218:7:float Adafruit_MAX17048_STM32::getActivityThreshold()	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:224:6:void Adafruit_MAX17048_STM32::setActivityThreshold(float)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:230:7:float Adafruit_MAX17048_STM32::getHibernationThreshold()	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:236:6:void Adafruit_MAX17048_STM32::setHibernationThreshold(float)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:242:6:bool Adafruit_MAX17048_STM32::isHibernating()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:247:6:void Adafruit_MAX17048_STM32::hibernate()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:253:6:void Adafruit_MAX17048_STM32::wake()	16	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:259:6:void Adafruit_MAX17048_STM32::sleep(bool)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:264:6:void Adafruit_MAX17048_STM32::enableSleep(bool)	24	static
+../Adafruit_1704X_Library/Adafruit_MAX1704X.cpp:269:6:void Adafruit_MAX17048_STM32::quickStart()	24	static
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:3495:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::fmin(_Tp, _Up) [with _Tp = int; _Up = float]	24	static
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:3487:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::fmax(_Tp, _Up) [with _Tp = int; _Up = double]	24	static
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:3495:5:constexpr typename __gnu_cxx::__promote_2<_Tp, _Up>::__type std::fmin(_Tp, _Up) [with _Tp = int; _Up = double]	24	static

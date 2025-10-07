@@ -1,0 +1,74 @@
+#include <Accelerometer.hpp>
+
+// Volatile timing variables
+volatile int accelerometer_delay = 0;
+volatile int accelerometer_read_delay = 0;
+
+// State variable
+int ACCELEROMETER_STATE;
+
+// Data buffers
+uint8_t accdata[6];
+uint8_t accmsg[64];
+
+// Variables
+int32_t acceleration = 0;
+uint8_t powerCtl = 0x08;  // NOT const - passed by pointer to HAL function
+
+// Constants
+const uint32_t activityThreshold = 75000;
+const uint32_t idleTime = 15;
+const uint8_t accreg = 0x32;
+
+void accelerometerSetup(void)
+{
+    ACCELEROMETER_STATE = _AWAKE;
+    accelerometer_delay = 30;
+
+    // Set MEASURE bit (Bit 3) to enable measurement mode
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, 0x2D, I2C_MEMADD_SIZE_8BIT, &powerCtl, 1, 1000);
+
+    accelerometerRead();
+}
+
+void accelerometerProcessData(void)
+{
+    int16_t x = (int16_t)((accdata[1] << 8) | accdata[0]);
+    int16_t y = (int16_t)((accdata[3] << 8) | accdata[2]);
+    int16_t z = (int16_t)((accdata[5] << 8) | accdata[4]);
+
+    acceleration = (int32_t)x * x + (int32_t)y * y + (int32_t)z * z;
+}
+
+void accelerometerLoop(void)
+{
+    if (!accelerometer_read_delay)
+    {
+        HAL_I2C_Mem_Read_IT(&hi2c1, ADXL343_ADDR, accreg, I2C_MEMADD_SIZE_8BIT, accdata, 6);
+        accelerometer_read_delay = 10;
+    }
+
+    switch (ACCELEROMETER_STATE)
+    {
+    case _AWAKE:
+        if (acceleration < activityThreshold && !accelerometer_delay)
+        {
+            accelerometer_delay = 3;
+            ACCELEROMETER_STATE = _SLEEP;
+            BACKLIGHT_STATE = _OFF;
+        }
+        break;
+
+    case _SLEEP:
+        if (acceleration > activityThreshold && !accelerometer_delay)
+        {
+            accelerometer_delay = 30;
+            ACCELEROMETER_STATE = _AWAKE;
+            BACKLIGHT_STATE = _HIGH;
+        }
+        break;
+
+    default:
+        break;
+    }
+}

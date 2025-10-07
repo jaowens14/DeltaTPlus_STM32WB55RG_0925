@@ -1,0 +1,7 @@
+../STM32_WPAN/App/custom_app.c:92:6:Custom_STM_App_Notification	1
+../STM32_WPAN/App/custom_app.c:164:6:Custom_APP_Notification	3
+../STM32_WPAN/App/custom_app.c:201:6:Custom_APP_Init	1
+../STM32_WPAN/App/custom_app.c:220:13:Custom_Switch_c_Update_Char	2
+../STM32_WPAN/App/custom_app.c:239:6:Custom_Switch_c_Send_Notification	2
+../STM32_WPAN/App/custom_app.c:259:13:Custom_Delta_t_ch_Update_Char	2
+../STM32_WPAN/App/custom_app.c:278:6:Custom_Delta_t_ch_Send_Notification	2

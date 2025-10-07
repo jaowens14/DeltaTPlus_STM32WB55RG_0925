@@ -267,7 +267,6 @@ RM := rm -rf
 -include Drivers/STM32WBxx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
--include Adafruit_MAX31856_Library/subdir.mk
 -include Adafruit_1704X_Library/subdir.mk
 -include AD7124_Library/examples/ad7124-cn0381/subdir.mk
 -include AD7124_Library/subdir.mk

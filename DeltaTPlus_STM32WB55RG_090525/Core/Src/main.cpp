@@ -17,6 +17,8 @@
  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <Accelerometer.hpp>
+#include <Backlight.hpp>
 #include "main.h"
 #include "dma.h"
 #include "i2c.h"
@@ -36,13 +38,9 @@
 //  #include "usbd_cdc_if.h"
 #include "stm32_seq.h"
 
-// #include "ST7789V_STM32.h"
-// #include "Screen.hpp"
-#include "Accelerometer.hpp"
-#include "Backlight.hpp"
 #include "Thermocouples.hpp"
 #include "DeltaT.h"
-#include "screen.h"
+
 #include "BatteryMonitor.h"
 #include "Touch.hpp"
 #include "FT5436_Touch.h"
@@ -60,8 +58,7 @@
 #include <math.h>
 
 #include "lvgl.h"
-#include "src/misc/lv_math.h"
-#include "src/others/snapshot/lv_snapshot.h"
+
 #include "ST7789.h"
 // #include "lv_port_disp.h"
 // #include "examples/anim/lv_example_anim.h"
@@ -74,27 +71,26 @@
 /* USER CODE END Includes */
 
 // Global pointer to update the meter value
-static lv_obj_t *meter_needle = NULL;
-static lv_obj_t *meter_value_label = NULL;
-static lv_obj_t *meter_arc = NULL;
-static lv_draw_buf_t *snapshot = NULL;
 
 static lv_obj_t *settingLabel = NULL;
 static lv_obj_t *batteryLabel = NULL;
 static lv_obj_t *needle = NULL;
 static lv_obj_t *tickMarks = NULL;
-static lv_obj_t *scr = NULL;
+
 static lv_obj_t *needle_line = NULL;
 
-int needleLength = 80;
+int needleLength = 70;
+
 const int needleOriginX = ST7789_WIDTH / 2;
 const int needleOriginY = ST7789_HEIGHT / 2;
 
 int meter_angle;
 int meter_angle_width;
 int angle;
-int min_angle = -60; // zero is vertical i think
-int max_angle = 60;
+int xValue;
+int lastXValue;
+int minXValue = 35; // zero is vertical i think
+int maxXValue = 205;
 int lastAngle;
 uint32_t lv_delay = 0;
 
@@ -139,28 +135,15 @@ volatile int timerCounter = 0;
 volatile uint32_t loopCounter = 0;
 volatile uint32_t loopsPerSecond = 0;
 volatile uint8_t measureFlag = 0;
+
+Thermocouples myThermocouples;
 Accelerometer myAccelerometer;
 Backlight myBacklight;
-Thermocouples myThermocouples;
-// Screen myScreen;
 Touch myTouch;
 
 ///////////////////////////////////////////////////
 
-int32_t get_cos(int32_t deg, int32_t a)
-{
-  int32_t r = (lv_trigo_cos(deg) * a);
 
-  r += LV_TRIGO_SIN_MAX / 2;
-  return r >> LV_TRIGO_SHIFT;
-}
-
-int32_t get_sin(int32_t deg, int32_t a)
-{
-  int32_t r = lv_trigo_sin(deg) * a;
-
-  return (r + LV_TRIGO_SIN_MAX / 2) >> LV_TRIGO_SHIFT;
-}
 
 /* Timer callback to update the text area with sensor data */
 static void updateSettingLabel(lv_timer_t *timer)
@@ -200,111 +183,58 @@ static void updateBatteryLabel(lv_timer_t *timer)
 
 static void updateNeedle(lv_timer_t *timer)
 {
+  xValue = int(needleOriginX - myThermocouples.deltaTemp);
 
-  angle = int(myThermocouples.deltaTemp);
-
-  if (angle < min_angle)
-    angle = min_angle;
-  if (angle > max_angle)
-    angle = max_angle;
-
-  if (angle != lastAngle)
+  if (xValue != lastXValue)
   {
+    if (xValue < minXValue)
+      xValue = minXValue;
+    if (xValue > maxXValue)
+      xValue = maxXValue;
 
-    lastAngle = angle;
+    lastXValue = xValue;
 
     static lv_point_precise_t needle_points[2];
-    needle_points[0].x = needleOriginX;
-    needle_points[0].y = needleOriginY;
-    // Use needleLength (80) and keep precision by not casting to int early
-    needle_points[1].x = needleOriginX + get_sin(angle, needleLength);
-    needle_points[1].y = needleOriginY - get_cos(angle, needleLength);
-    // Negative because Y increases downward
+
+    // Calculate distance from center for outer point
+    int dx_outer = xValue - needleOriginX;
+
+    // Tip point on radius 170 arc
+    needle_points[1].x = xValue;
+    needle_points[1].y = needleOriginY + 100 - sqrt(170 * 170 - dx_outer * dx_outer);
+
+    // Calculate the angle/direction from origin to tip
+    // Then find where that line intersects the inner circle (radius 100)
+    // Using similar triangles: inner_radius / outer_radius = scale factor
+    float scale = 100.0 / 170.0;
+
+    // Base point on radius 100 arc (scaled from tip position)
+    needle_points[0].x = needleOriginX + dx_outer * scale;
+
+    int dx_inner = needle_points[0].x - needleOriginX;
+    needle_points[0].y = needleOriginY + 100 - sqrt(100 * 100 - dx_inner * dx_inner);
 
     lv_line_set_points(needle, needle_points, 2);
+
+    lv_obj_invalidate(needle);
   }
-}
-
-static void set_needle_line_value(void *obj, int32_t v)
-{
-  lv_scale_set_line_needle_value((lv_obj_t *)obj, needle_line, 60, v);
-}
-
-void lv_example_scale_3_line_only(void)
-{
-  // 1. Create the Scale Widget
-  lv_obj_t *scale_line = lv_scale_create(lv_screen_active());
-
-  // 2. Configure Appearance and Geometry
-  lv_obj_set_size(scale_line, 150, 150);
-  lv_scale_set_mode(scale_line, LV_SCALE_MODE_ROUND_INNER);
-  lv_obj_set_style_bg_opa(scale_line, LV_OPA_COVER, 0);
-  lv_obj_set_style_bg_color(scale_line, lv_palette_lighten(LV_PALETTE_RED, 5), 0);
-  lv_obj_set_style_radius(scale_line, LV_RADIUS_CIRCLE, 0);
-  lv_obj_set_style_clip_corner(scale_line, true, 0);
-  lv_obj_align(scale_line, LV_ALIGN_CENTER, 0, 0); // Aligned to center for a single widget example
-
-  // 3. Configure Scale Ticks and Range
-  lv_scale_set_label_show(scale_line, true);
-  lv_scale_set_total_tick_count(scale_line, 31);
-  lv_scale_set_major_tick_every(scale_line, 5);
-  lv_obj_set_style_length(scale_line, 5, LV_PART_ITEMS);
-  lv_obj_set_style_length(scale_line, 10, LV_PART_INDICATOR);
-  lv_scale_set_range(scale_line, 10, 40);
-
-  // 4. Configure Scale Arc
-  lv_scale_set_angle_range(scale_line, 270);
-  lv_scale_set_rotation(scale_line, 135);
-
-  // 5. Create the Line Needle Object
-  needle_line = lv_line_create(scale_line);
-  lv_obj_set_style_line_width(needle_line, 6, LV_PART_MAIN);
-  lv_obj_set_style_line_rounded(needle_line, true, LV_PART_MAIN);
-
-  // 6. Set up and Start Animation
-  lv_anim_t anim_scale_line;
-  lv_anim_init(&anim_scale_line);
-  lv_anim_set_var(&anim_scale_line, scale_line);
-  lv_anim_set_exec_cb(&anim_scale_line, set_needle_line_value);
-  lv_anim_set_duration(&anim_scale_line, 1000);
-  lv_anim_set_repeat_count(&anim_scale_line, LV_ANIM_REPEAT_INFINITE);
-  lv_anim_set_reverse_duration(&anim_scale_line, 1000);
-  lv_anim_set_values(&anim_scale_line, 10, 40);
-  lv_anim_start(&anim_scale_line);
 }
 
 void brookes_meter(void)
 {
+  // root / base screen config
+  lv_obj_clear_flag(lv_screen_active(), LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(lv_screen_active(), LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_style_border_width(lv_screen_active(), 0, 0);
+  lv_obj_set_style_pad_all(lv_screen_active(), 0, 0);
+  lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(WEB_LIGHT_TAN), 0);
 
-  // root widget / base screen - tan, no features
-  lv_obj_t *scr = lv_scr_act();
-
-  lv_obj_clear_flag(scr, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(scr, LV_OBJ_FLAG_SCROLLABLE);
-
-  lv_obj_set_style_border_width(scr, 0, 0);
-  lv_obj_set_style_pad_all(scr, 0, 0);
-  lv_obj_set_style_bg_color(scr, lv_color_hex(WEB_LIGHT_TAN), 0);
-
-#if 0
-
-  // --- START STATIC SCALE PRE-RENDERING ---
-  // 1. Create temporary container for rendering
-  lv_obj_t *temp_cont = lv_obj_create(scr);
-  // Use the maximum necessary size/position to capture the full scale and its labels
-  lv_obj_set_size(temp_cont, ST7789_WIDTH, ST7789_HEIGHT);
-  lv_obj_set_pos(temp_cont, 0, 0);
-  lv_obj_set_style_bg_color(temp_cont, lv_color_hex(WEB_LIGHT_TAN), 0);
-  lv_obj_set_style_border_width(temp_cont, 0, 0);
-  lv_obj_set_style_radius(temp_cont, 0, 0);
-  lv_obj_clear_flag(temp_cont, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_clear_flag(temp_cont, LV_OBJ_FLAG_CLICKABLE);
-
-  // 2. Create the scale object as a child of the temporary container
-  tickMarks = lv_scale_create(temp_cont);
+#if 1 // OG somewhat working tick marks
+  tickMarks = lv_scale_create(lv_screen_active());
   lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_SCROLLABLE);
   lv_obj_add_flag(tickMarks, LV_OBJ_FLAG_IGNORE_LAYOUT);
+  lv_obj_add_flag(tickMarks, LV_OBJ_FLAG_FLOATING);
   lv_obj_set_style_line_opa(tickMarks, LV_OPA_COVER, LV_PART_ITEMS);
   lv_obj_set_style_opa(tickMarks, LV_OPA_COVER, 0);
   lv_obj_set_size(tickMarks, 400, 400);
@@ -327,114 +257,34 @@ void brookes_meter(void)
   lv_obj_set_style_line_color(tickMarks, lv_color_hex(Charcoal), LV_PART_INDICATOR);
   static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
   lv_scale_set_text_src(tickMarks, angle_labels);
-  lv_obj_move_background(tickMarks);
 
-  // 3. Force render
-  lv_refr_now(NULL);
-
-  // 4. Take snapshot
-  // Captures the rendered scale and its background color into the global snapshot buffer.
-  snapshot = lv_snapshot_take(temp_cont, LV_COLOR_FORMAT_RGB565);
-
-  // 5. Delete temporary container (this also deletes the resource-intensive scale object)
-  lv_obj_del(temp_cont);
-
-  // 6. Create image from snapshot and place it on the screen
-  if (snapshot)
-
-  {
-    lv_obj_t *img = lv_image_create(scr);
-    lv_image_set_src(img, snapshot);
-    // Align image to the same position as the temporary container was, effectively full screen
-    lv_obj_set_size(img, ST7789_WIDTH, ST7789_HEIGHT);
-    lv_obj_align(img, LV_ALIGN_TOP_LEFT, 0, 0);
-    lv_obj_move_background(img); // Ensure it stays behind the needle
-  }
-  // --- END STATIC SCALE PRE-RENDERING ---
-#endif
-///* Create a scale object */
-
-// Create temporary container for rendering
-// lv_obj_t *temp_cont = lv_obj_create(scr);
-// lv_obj_set_size(temp_cont, 400, 400);
-// lv_obj_set_style_bg_color(temp_cont, lv_color_hex(0xf0ead1), 0);
-#if 0
-  tickMarks = lv_scale_create(scr);
-  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_add_flag(tickMarks, LV_OBJ_FLAG_IGNORE_LAYOUT);
-  lv_obj_set_style_line_opa(tickMarks, LV_OPA_COVER, LV_PART_ITEMS);
-  lv_obj_set_style_opa(tickMarks, LV_OPA_COVER, 0);
-  lv_obj_set_size(tickMarks, 400, 400);
-  lv_obj_align(tickMarks, LV_ALIGN_CENTER, 0, 100); // Shift down 100 pixels from center
-  lv_scale_set_mode(tickMarks, LV_SCALE_MODE_ROUND_OUTER);
-  lv_scale_set_range(tickMarks, -25, 25);
-  meter_angle = 240;
-  meter_angle_width = 60;
-  lv_scale_set_rotation(tickMarks, meter_angle);
-  lv_scale_set_angle_range(tickMarks, meter_angle_width);
-  lv_scale_set_total_tick_count(tickMarks, 11); /* Major + minor ticks */
-  lv_scale_set_major_tick_every(tickMarks, 1);
-  lv_obj_set_style_border_width(tickMarks, 0, 0);
-  lv_obj_set_style_pad_all(tickMarks, 20, 0);
-  lv_obj_set_style_length(tickMarks, 10, LV_PART_ITEMS);
-  lv_obj_set_style_line_width(tickMarks, 1, LV_PART_ITEMS);
-  lv_obj_set_style_line_color(tickMarks, lv_color_hex(0x888888), LV_PART_ITEMS);
-  lv_obj_set_style_length(tickMarks, 15, LV_PART_INDICATOR);
-  lv_obj_set_style_line_width(tickMarks, 2, LV_PART_INDICATOR);
-  lv_obj_set_style_line_color(tickMarks, lv_color_hex(Charcoal), LV_PART_INDICATOR);
-  static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
-  lv_scale_set_text_src(tickMarks, angle_labels);
-  lv_obj_move_background(tickMarks);
-#endif
-#if 0
-  // Force render
-  lv_refr_now(NULL);
-
-  // Take snapshot
-  snapshot = lv_snapshot_take(temp_cont, LV_COLOR_FORMAT_RGB565);
-
-  // Create image from snapshot
-  lv_obj_t *img = lv_image_create(scr);
-  lv_image_set_src(img, snapshot);
-  lv_obj_align(img, LV_ALIGN_CENTER, 0, 100);
-
-  // Delete temporary container (and scale)
-  lv_obj_del(temp_cont);
-#endif
-  // lv_obj_t *tickMarkCanvas = lv_canvas_create(scr);
-  // lv_canvas_set_buffer(tickMarkCanvas, tickMarkCanvasBuffer, 400, 400, LV_COLOR_FORMAT_RGB565);
-  // lv_obj_update_layout(tickMarks);
-  // lv_canvas_fill_bg(tickMarkCanvas, lv_color_hex(WEB_LIGHT_TAN), LV_OPA_COVER);
-  //
-  // lv_obj_del(tickMarks);
-
-  /* Create a needle/indicator pointing to 0 degrees */
-
-  // needle widget - child of root
-  needle = lv_line_create(scr);
-
+  needle = lv_line_create(lv_screen_active());
   lv_obj_clear_flag(needle, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(needle, LV_OBJ_FLAG_SCROLLABLE);
 
   // init needle at origin, and origin plus length
   static lv_point_precise_t needle_points[2];
   needle_points[0].x = needleOriginX;
-  needle_points[0].y = needleOriginY; // origin placed at the center of the screen
+  needle_points[0].y = needleOriginY + 100; // origin placed at the center of the screen
   needle_points[1].x = needleOriginX;
-  needle_points[1].y = needleOriginY + needleLength;
+  needle_points[1].y = needleOriginY + 100 - needleLength;
 
   lv_line_set_points(needle, needle_points, 2);
-  // lv_obj_align(needle, LV_ALIGN_CENTER, 0, needleLength / 2);
   lv_obj_set_style_line_width(needle, 2, 0);
   lv_obj_set_style_line_color(needle, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_line_rounded(needle, true, 0);
 
-  lv_timer_create(updateNeedle, 15, needle);
+  lv_timer_create(updateNeedle, 33, needle);
 
-  //
-  // Create the label inside the box
-  lv_obj_t *label = lv_label_create(scr);
+#endif
+
+// main product label
+#if 1
+  lv_obj_t *label = lv_label_create(lv_screen_active());
+  lv_obj_clear_flag(label, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(label, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_add_flag(label, LV_OBJ_FLAG_FLOATING);
+
   lv_obj_set_size(label, 240, 80);
   lv_label_set_text(label, "Delta-T Plus\n The Instrument Company\n Fort Collins, CO");
   lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0); // center text in box
@@ -442,36 +292,24 @@ void brookes_meter(void)
   lv_obj_set_style_text_color(label, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
   lv_obj_align(label, LV_ALIGN_BOTTOM_MID, 0, 0);
-//
-// lv_obj_t *headerContainer = lv_obj_create(lv_scr_act());
-// lv_obj_set_size(headerContainer, 240, 32);
-// lv_obj_align(headerContainer, LV_ALIGN_TOP_MID, 0, 0);
-// lv_obj_set_scrollbar_mode(headerContainer, LV_SCROLLBAR_MODE_OFF);
-// lv_obj_set_style_bg_color(headerContainer, lv_color_hex(WEB_LIGHT_TAN), 0); // cream background
-//
-// lv_obj_set_style_radius(headerContainer, 0, 0);
-//
-//// Left label for switch state
-// leftHeaderLabel = lv_label_create(headerContainer);
-// lv_label_set_text(leftHeaderLabel, "LOW");
-// lv_obj_align(leftHeaderLabel, LV_ALIGN_LEFT_MID, 0, 0);
-//
+#endif
+
 //// Right label for battery
 #if 1
-  batteryLabel = lv_label_create(scr);
+  batteryLabel = lv_label_create(lv_screen_active());
   lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_SCROLLABLE);
   lv_label_set_text(batteryLabel, "100%");
   lv_obj_set_size(batteryLabel, 64, 32);
-  lv_obj_align(batteryLabel, LV_ALIGN_TOP_RIGHT, 0, 5);
+  lv_obj_set_style_text_align(batteryLabel, LV_TEXT_ALIGN_RIGHT, 0); // Add this line
+
+  lv_obj_align(batteryLabel, LV_ALIGN_TOP_RIGHT, -10, 5);
   lv_timer_create(updateBatteryLabel, 3000, batteryLabel);
-
-  // lv_timer_create(updateRightHeaderLabel, 3000, rightHeaderLabel);
-
 #endif
 
+//// left label for setting
 #if 1
-  settingLabel = lv_label_create(scr);
+  settingLabel = lv_label_create(lv_screen_active());
   lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_SCROLLABLE);
   lv_label_set_text(settingLabel, "LOW");
@@ -479,7 +317,8 @@ void brookes_meter(void)
   lv_obj_align(settingLabel, LV_ALIGN_TOP_LEFT, 10, 5);
   lv_timer_create(updateSettingLabel, 500, settingLabel);
 #endif
-  // lv_timer_create(updateNeedle, 20, needle);
+
+
 }
 
 //////////////////////////////////////////////////
@@ -553,6 +392,14 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
   {
     ST7789_CS_HIGH();
     lv_display_flush_ready(display1);
+  }
+}
+
+void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+  if (hi2c->Instance == hi2c1.Instance)
+  {
+    //accelerometerProcessData();
   }
 }
 
@@ -648,7 +495,7 @@ int main(void)
 
   myAccelerometer.setup();
   myThermocouples.setup();
-  // myScreen.setup();
+
   myTouch.setup();
   myBacklight.setup();
 
@@ -671,7 +518,7 @@ int main(void)
   ST7789V_SetRotation(2);
 
   ST7789_FillScreen(0xf400);
-  HAL_Delay(1000);
+
   // 3. Connect tick interface
   lv_tick_set_cb(HAL_GetTick);
   // 4. Connect display interface
@@ -683,10 +530,7 @@ int main(void)
   // 4.c flush callback
   lv_display_set_flush_cb(display1, my_flush_cb);
 
-  // lv_example_analog_meter();
-
-  // brookes_meter();
-  lv_example_scale_3_line_only();
+  brookes_meter();
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -695,12 +539,12 @@ int main(void)
     loopCounter++; // Increment at start of each iteration
 
     /* USER CODE END WHILE */
-    // MX_APPE_Process();
+    MX_APPE_Process();
 
     /* USER CODE BEGIN 3 */
     // only MX_APPE_Process(); 151506 hz
-    // myAccelerometer.stateMachine(); // 113495 hz
-    // myBacklight.stateMachine(); // 77963 hz -> 83350 hz
+    myAccelerometer.stateMachine();        // 113495 hz
+    myBacklight.stateMachine(); // 77963 hz -> 83350 hz
     myThermocouples.stateMachine();
 
     if (measureFlag)

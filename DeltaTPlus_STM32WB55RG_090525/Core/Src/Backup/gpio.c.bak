@@ -59,14 +59,19 @@ void MX_GPIO_Init(void)
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, ad7234_io_Pin|ADC_CS_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pins : TFT_RESET_Pin TFT_RS_DC_Pin TFT_CS_Pin TEMP1_CS_Pin
-                           TEMP2_CS_Pin */
-  GPIO_InitStruct.Pin = TFT_RESET_Pin|TFT_RS_DC_Pin|TFT_CS_Pin|TEMP1_CS_Pin
-                          |TEMP2_CS_Pin;
+  /*Configure GPIO pins : TFT_RESET_Pin TFT_RS_DC_Pin TEMP1_CS_Pin TEMP2_CS_Pin */
+  GPIO_InitStruct.Pin = TFT_RESET_Pin|TFT_RS_DC_Pin|TEMP1_CS_Pin|TEMP2_CS_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : TFT_CS_Pin */
+  GPIO_InitStruct.Pin = TFT_CS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+  HAL_GPIO_Init(TFT_CS_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : TEMP1_DRDY_Pin TEMP2_DRDY_Pin */
   GPIO_InitStruct.Pin = TEMP1_DRDY_Pin|TEMP2_DRDY_Pin;

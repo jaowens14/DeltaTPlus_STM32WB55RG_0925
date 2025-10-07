@@ -1,7 +1,6 @@
 #ifndef THERMOCOUPLES_HPP
 #define THERMOCOUPLES_HPP
 
-#include <Adafruit_MAX31856.h>
 #include "spi.h"
 #include "gpio.h"
 #include "usart.h"

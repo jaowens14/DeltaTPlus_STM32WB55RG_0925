@@ -1,28 +1,26 @@
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rcc.h:1679:22:void LL_RCC_LSE_SetDriveCapability(uint32_t)	1
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_hsem.h:233:26:uint32_t LL_HSEM_1StepLock(const HSEM_TypeDef*, uint32_t)	2
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/core/lv_obj_style.h:264:20:void lv_obj_set_style_pad_all(lv_obj_t*, int32_t, lv_style_selector_t)	1
-../Core/Inc/Accelerometer.hpp:11:7:Accelerometer::Accelerometer()	1
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124.h:207:7:Ad7124Chip::Ad7124Chip()	1
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124.h:207:7:Ad7124Chip::~Ad7124Chip()	1
-../Core/Inc/Thermocouples.hpp:12:7:Thermocouples::Thermocouples()	1
-../Core/Src/main.cpp:150:9:int32_t get_cos(int32_t, int32_t)	1
-../Core/Src/main.cpp:158:9:int32_t get_sin(int32_t, int32_t)	1
-../Core/Src/main.cpp:166:13:void updateSettingLabel(lv_timer_t*)	2
-../Core/Src/main.cpp:189:13:void updateBatteryLabel(lv_timer_t*)	1
-../Core/Src/main.cpp:201:13:void updateNeedle(lv_timer_t*)	4
-../Core/Src/main.cpp:228:13:void set_needle_line_value(void*, int32_t)	1
-../Core/Src/main.cpp:233:6:void lv_example_scale_3_line_only()	1
-../Core/Src/main.cpp:276:6:void brookes_meter()	1
-../Core/Src/main.cpp:488:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	9
-../Core/Src/main.cpp:550:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
-../Core/Src/main.cpp:560:6:void HAL_GPIO_EXTI_Callback(uint16_t)	1
-../Core/Src/main.cpp:567:6:void my_flush_cb(lv_display_t*, const lv_area_t*, uint8_t*)	1
-../Core/Src/main.cpp:590:5:int main()	3
-../Core/Src/main.cpp:725:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:786:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:815:6:void Error_Handler()	1
-../Core/Src/main.cpp:824:1:void __static_initialization_and_destruction_0()	1
-../Core/Inc/Thermocouples.hpp:12:7:Thermocouples::~Thermocouples()	1
-../Core/Src/main.cpp:824:1:void __static_initialization_and_destruction_1()	1
-../Core/Src/main.cpp:824:1:cpp)	1
-../Core/Src/main.cpp:824:1:cpp)	1
+../Core/Inc/Thermocouples.hpp:11:7:Thermocouples::Thermocouples()	1
+../Core/Inc/Accelerometer.hpp:11:7:Accelerometer::Accelerometer()	1
+../Core/Src/main.cpp:149:13:void updateSettingLabel(lv_timer_t*)	2
+../Core/Src/main.cpp:172:13:void updateBatteryLabel(lv_timer_t*)	1
+../Core/Src/main.cpp:184:13:void updateNeedle(lv_timer_t*)	4
+../Core/Src/main.cpp:223:6:void brookes_meter()	1
+../Core/Src/main.cpp:327:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	9
+../Core/Src/main.cpp:389:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
+../Core/Src/main.cpp:398:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	1
+../Core/Src/main.cpp:407:6:void HAL_GPIO_EXTI_Callback(uint16_t)	1
+../Core/Src/main.cpp:414:6:void my_flush_cb(lv_display_t*, const lv_area_t*, uint8_t*)	1
+../Core/Src/main.cpp:437:5:int main()	3
+../Core/Src/main.cpp:569:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:630:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:659:6:void Error_Handler()	1
+C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:450:5:constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::sqrt(_Tp) [with _Tp = int]	1
+../Core/Src/main.cpp:668:1:void __static_initialization_and_destruction_0()	1
+../Core/Inc/Thermocouples.hpp:11:7:Thermocouples::~Thermocouples()	1
+../Core/Src/main.cpp:668:1:void __static_initialization_and_destruction_1()	1
+../Core/Src/main.cpp:668:1:cpp)	1
+../Core/Src/main.cpp:668:1:cpp)	1

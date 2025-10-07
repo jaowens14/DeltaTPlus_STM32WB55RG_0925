@@ -3,7 +3,6 @@
 "./AD7124_Library/ad7124.o"
 "./AD7124_Library/examples/ad7124-cn0381/rtd.o"
 "./Adafruit_1704X_Library/Adafruit_MAX1704X.o"
-"./Adafruit_MAX31856_Library/Adafruit_MAX31856.o"
 "./Core/Src/Accelerometer.o"
 "./Core/Src/Backlight.o"
 "./Core/Src/BatteryMonitor.o"

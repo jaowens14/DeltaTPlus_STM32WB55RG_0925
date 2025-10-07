@@ -1,0 +1,3 @@
+../lvgl/examples/widgets/scale/lv_example_scale_12.c:32:13:draw_event_cb	16	static
+../lvgl/examples/widgets/scale/lv_example_scale_12.c:25:13:set_heading_value	16	static
+../lvgl/examples/widgets/scale/lv_example_scale_12.c:55:6:lv_example_scale_12	120	static
