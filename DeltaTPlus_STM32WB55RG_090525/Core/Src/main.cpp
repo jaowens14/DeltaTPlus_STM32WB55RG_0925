@@ -48,6 +48,7 @@
 #define LV_LVGL_H_INCLUDE_SIMPLE
 
 #define WEB_LIGHT_TAN 0xf0ead0
+#define WEB_DARK_TAN 0xBEB89E
 #define WEB_BLACK 0x382922
 #define WEB_ORANGE 0xdf571d
 #define Charcoal 0x36454F
@@ -64,8 +65,14 @@
 
 static lv_obj_t *settingLabel = NULL;
 static lv_obj_t *batteryLabel = NULL;
-static lv_obj_t *productLabel = NULL;
+static lv_obj_t *productLabel1 = NULL;
+static lv_obj_t *productLabel2 = NULL;
+
 static lv_obj_t *needle = NULL;
+
+static lv_obj_t *zero = NULL;
+static lv_obj_t *right_25 = NULL;
+static lv_obj_t *left_25 = NULL;
 
 static lv_obj_t *root = NULL;
 
@@ -237,21 +244,40 @@ void brookes_meter(void)
   lv_obj_set_style_bg_opa(root, LV_OPA_COVER, 0);
   lv_obj_set_style_bg_color(root, lv_color_hex(WEB_LIGHT_TAN), 0);
 
-#if 1 // main product label
-  productLabel = lv_label_create(root);
-  lv_obj_clear_flag(productLabel, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(productLabel, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_set_size(productLabel, 240, 80);
-  lv_label_set_text(productLabel, "Delta-T Plus\n The Instrument Company\n Fort Collins, CO");
-  lv_obj_set_style_text_align(productLabel, LV_TEXT_ALIGN_CENTER, 0); // center text in box
-  lv_obj_set_style_border_width(productLabel, 0, 0);
-  lv_obj_set_style_text_color(productLabel, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_text_font(productLabel, &lv_font_montserrat_14, 0);
-  lv_obj_align(productLabel, LV_ALIGN_BOTTOM_MID, 0, 0);
+#if 1 // 0 label
+  zero = lv_label_create(root);
+  lv_obj_clear_flag(zero, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(zero, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(zero, "0");
+  lv_obj_set_style_text_align(zero, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_set_size(zero, 16, 32);
+  lv_obj_align(zero, LV_ALIGN_CENTER, 0, -105);
+
 #endif
 
-#if 1
+#if 1 // 25 label r
+  right_25 = lv_label_create(root);
+  lv_obj_clear_flag(right_25, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(right_25, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(right_25, "25");
+  lv_obj_set_style_text_align(right_25, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_set_size(right_25, 32, 32);
+  lv_obj_align(right_25, LV_ALIGN_CENTER, 80, -90);
 
+#endif
+
+#if 1 // 25 label r
+  left_25 = lv_label_create(root);
+  lv_obj_clear_flag(left_25, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(left_25, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(left_25, "25");
+  lv_obj_set_style_text_align(left_25, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_set_size(left_25, 32, 32);
+  lv_obj_align(left_25, LV_ALIGN_CENTER, -80, -90);
+
+#endif
+
+#if 1 // major tick marks
   for (int xValue = minXValue, i = 0; xValue <= maxXValue; xValue += 10, i++)
   {
 
@@ -274,34 +300,61 @@ void brookes_meter(void)
   }
 #endif
 
-#if 0 // OG somewhat working tick marks
-  tickMarks = lv_scale_create(root);
-  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_set_style_line_opa(tickMarks, LV_OPA_COVER, LV_PART_ITEMS);
-  lv_obj_set_style_opa(tickMarks, LV_OPA_COVER, 0);
-  lv_obj_set_size(tickMarks, 400, 400);
-  lv_obj_align(tickMarks, LV_ALIGN_CENTER, 0, 100); // Shift down 100 pixels from center
-  lv_scale_set_mode(tickMarks, LV_SCALE_MODE_ROUND_OUTER);
-  lv_scale_set_range(tickMarks, -25, 25);
-  meter_angle = 240;
-  meter_angle_width = 60;
-  lv_scale_set_rotation(tickMarks, meter_angle);
-  lv_scale_set_angle_range(tickMarks, meter_angle_width);
-  lv_scale_set_total_tick_count(tickMarks, 51); /* Major + minor ticks */
-  lv_scale_set_major_tick_every(tickMarks, 5);
-  lv_obj_set_style_border_width(tickMarks, 0, 0);
-  lv_obj_set_style_pad_all(tickMarks, 20, 0);
-  lv_obj_set_style_length(tickMarks, 10, LV_PART_ITEMS);
-  lv_obj_set_style_line_width(tickMarks, 1, LV_PART_ITEMS);
-  lv_obj_set_style_line_color(tickMarks, lv_color_hex(0x888888), LV_PART_ITEMS);
-  lv_obj_set_style_length(tickMarks, 15, LV_PART_INDICATOR);
-  lv_obj_set_style_line_width(tickMarks, 2, LV_PART_INDICATOR);
-  lv_obj_set_style_line_color(tickMarks, lv_color_hex(Charcoal), LV_PART_INDICATOR);
-  static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
-  lv_scale_set_text_src(tickMarks, angle_labels);
+#if 1 // lower arch
 
-  //lv_screen_load(static_layer); //LOAD??
+  lv_obj_t *circle = lv_obj_create(root);
+  lv_obj_set_size(circle, 400, 400);
+  lv_obj_set_style_radius(circle, LV_RADIUS_CIRCLE, 0);
+  lv_obj_set_style_bg_color(circle, lv_color_hex(0xd8d3bb), 0);
+  lv_obj_set_style_border_width(circle, 2, 0);
+  lv_obj_set_style_border_color(circle, lv_color_hex(0xd8d3bb), 0);
+  lv_obj_set_style_border_opa(circle, LV_OPA_COVER, 0);
+  lv_obj_align(circle, LV_ALIGN_CENTER, 0, 100 + needleLength + 35);
+
+  lv_obj_t *rect = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_set_size(rect, 15, 135);                                  // Set width and height of the rectangle
+  lv_obj_set_style_radius(rect, 0, 0);                             // Set radius to 0 for sharp corners (rectangle)
+  lv_obj_set_style_bg_color(rect, lv_color_hex(WEB_LIGHT_TAN), 0); // Set background color (red here)
+  lv_obj_align(rect, LV_ALIGN_BOTTOM_RIGHT, 0, 0);
+
+  lv_obj_t *rect2 = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_set_size(rect2, 15, 135);                                  // Set width and height of the rectangle
+  lv_obj_set_style_radius(rect2, 0, 0);                             // Set radius to 0 for sharp corners (rectangle)
+  lv_obj_set_style_bg_color(rect2, lv_color_hex(WEB_LIGHT_TAN), 0); // Set background color (red here)
+  lv_obj_align(rect2, LV_ALIGN_BOTTOM_LEFT, 0, 0);
+
+  lv_obj_t *rect3 = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_set_size(rect3, 240, 15);                                  // Set width and height of the rectangle
+  lv_obj_set_style_radius(rect3, 0, 0);                             // Set radius to 0 for sharp corners (rectangle)
+  lv_obj_set_style_bg_color(rect3, lv_color_hex(WEB_LIGHT_TAN), 0); // Set background color (red here)
+  lv_obj_align(rect3, LV_ALIGN_BOTTOM_LEFT, 0, 0);
+
+#endif
+
+#if 1 // main product label
+  productLabel1 = lv_label_create(root);
+  lv_obj_clear_flag(productLabel1, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(productLabel1, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_size(productLabel1, 240, 32);
+  lv_label_set_text(productLabel1, "Delta-T Plus");
+  lv_obj_set_style_text_align(productLabel1, LV_TEXT_ALIGN_CENTER, 0); // center text in box
+  lv_obj_set_style_border_width(productLabel1, 0, 0);
+  lv_obj_set_style_text_color(productLabel1, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(productLabel1, &lv_font_montserrat_14, 0);
+  lv_obj_align(productLabel1, LV_ALIGN_BOTTOM_MID, 0, -80);
+#endif
+
+#if 1 // main product label
+  productLabel2 = lv_label_create(root);
+  lv_obj_clear_flag(productLabel2, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(productLabel2, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_size(productLabel2, 240, 32);
+  lv_label_set_text(productLabel2, "The Instrument Company\n Fort Collins, CO");
+  lv_obj_set_style_text_align(productLabel2, LV_TEXT_ALIGN_CENTER, 0); // center text in box
+  lv_obj_set_style_border_width(productLabel2, 0, 0);
+  lv_obj_set_style_text_color(productLabel2, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(productLabel2, &lv_font_montserrat_10, 0);
+  lv_obj_align(productLabel2, LV_ALIGN_BOTTOM_MID, 0, -40);
 #endif
 
 #if 1 // Right label for battery
@@ -567,13 +620,13 @@ int main(void)
     myThermocouples.stateMachine();
     // myTouch.stateMachine();
 
-     if (measureFlag && uart_ready)
+    if (measureFlag && uart_ready)
     {
-    	uart_ready = 0;
-       measureFlag = 0;
-       snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
-       HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
-     }
+      uart_ready = 0;
+      measureFlag = 0;
+      snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+      HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
+    }
 
     // should run at 20ms / 50fps
     if (run_lv_timer_handler)
