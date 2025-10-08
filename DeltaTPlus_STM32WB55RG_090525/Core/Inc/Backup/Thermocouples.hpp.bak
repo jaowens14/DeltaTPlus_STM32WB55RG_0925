@@ -10,10 +10,11 @@
 
 class Thermocouples
 {
-private:
-    Ad7124Chip thermocoupleADC;
+
 
 public:
+    Ad7124Chip thermocoupleADC;
+
     volatile int delay = 1;
     void setup(void);
     void stateMachine(void);

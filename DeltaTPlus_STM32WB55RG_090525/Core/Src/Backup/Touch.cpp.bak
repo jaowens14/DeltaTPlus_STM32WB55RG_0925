@@ -43,7 +43,7 @@ void Touch::stateMachine(void)
                 {
 
                     snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Touch point %d: X=%d, Y=%d\r\n", i, x, y);
-                    HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+                    HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
 
                     // Add your touch handling code here
                     // For example:

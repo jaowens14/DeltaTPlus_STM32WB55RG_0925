@@ -1,2 +1,3 @@
-../Core/Src/Thermocouples.cpp:12:6:void Thermocouples::setup()	56	static
-../Core/Src/Thermocouples.cpp:104:6:void Thermocouples::stateMachine()	96	static
+../Core/Src/Thermocouples.cpp:12:6:void Thermocouples::setup()	72	static
+../Core/Src/Thermocouples.cpp:124:6:void Thermocouples::stateMachine()	152	static
+../Core/Src/Thermocouples.cpp:198:7:float Thermocouples::thermocoupleVoltageToTemp(float, float)	40	static

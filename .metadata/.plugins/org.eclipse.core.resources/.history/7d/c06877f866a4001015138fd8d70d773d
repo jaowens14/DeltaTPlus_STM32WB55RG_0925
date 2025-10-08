@@ -1,0 +1,77 @@
+#ifndef THERMOCOUPLES_HPP
+#define THERMOCOUPLES_HPP
+
+#include "spi.h"
+#include "gpio.h"
+#include "usart.h"
+#include <stdio.h>
+#include <string.h>
+#include <ad7124.h>
+#include <math.h>
+
+class Thermocouples
+{
+
+public:
+    Ad7124Chip thermocoupleADC;
+
+    volatile int delay = 1;
+    void setup(void);
+    void stateMachine(void);
+    float convertToTemperature(int32_t rawTemp);
+    void checkFault(char *name, uint8_t fault);
+    float thermocoupleVoltageToTemp(float voltage_V, float coldJunctionTemp_C);
+
+    static float deltaTemp;
+    static float deltaTempOffset;
+    long rawData;
+    int channel;
+    int filterWord; // length of filter?
+
+    long raw[2];
+    double voltage[2];
+    double temperature[2];
+
+    // Calculate cold junction temperature from thermistor
+    float R_thermistor;
+    const float R0 = 2000.0f;
+    const float T0 = 298.15f;
+    const float B = 3435.0f;
+
+    float temp_kelvin;
+    float coldJunctionTemp;
+
+    // Convert cold junction temperature to equivalent K-type thermocouple voltage
+    // K-type Seebeck coefficient: ~41µV/°C (average from 0-100°C)
+    const float SEEBECK_COEFF = 0.000041f; // V/°C for K-type
+    float coldJunctionVoltage;
+
+    float h;
+    float C;
+    float ambientTemp;
+    float diameter;
+    float length;
+    float area;
+    uint32_t currentTime;
+    uint32_t lastTime;
+    uint32_t deltaTime;
+
+    int32_t leftRawTemp;
+    int32_t rightRawTemp;
+    float leftTemp;
+    float rightTemp;
+    static float userGain;
+};
+
+typedef struct
+{
+    float measurement;
+    float prediction;
+    float error;
+    float gain;
+    float estimate;
+    float process_variance;
+    float measurement_variance;
+} KALMAN_T;
+
+#endif

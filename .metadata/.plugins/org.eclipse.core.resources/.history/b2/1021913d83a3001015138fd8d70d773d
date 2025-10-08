@@ -1,0 +1,677 @@
+/* USER CODE BEGIN Header */
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include <Accelerometer.hpp>
+#include <Backlight.hpp>
+#include "main.h"
+#include "dma.h"
+#include "i2c.h"
+#include "ipcc.h"
+#include "memorymap.h"
+#include "rf.h"
+#include "rtc.h"
+#include "spi.h"
+#include "tim.h"
+#include "usart.h"
+#include "usb_device.h"
+#include "gpio.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+// #include "Adafruit_GFX.h"
+//  #include "usbd_cdc_if.h"
+#include "stm32_seq.h"
+
+#include "Thermocouples.hpp"
+#include "DeltaT.h"
+
+#include "BatteryMonitor.h"
+#include "Touch.hpp"
+#include "FT5436_Touch.h"
+#define LV_LVGL_H_INCLUDE_SIMPLE
+
+#define WEB_LIGHT_TAN 0xf0ead0
+#define WEB_BLACK 0x382922
+#define WEB_ORANGE 0xdf571d
+#define Charcoal 0x36454F
+
+#define HEADER_HEIGHT 32
+#define LABEL_HEIGHT 64
+#define METER_HEIGHT (320 - LABEL_HEIGHT - HEADER_HEIGHT)
+
+#include <math.h>
+
+#include "lvgl.h"
+
+#include "ST7789.h"
+// #include "lv_port_disp.h"
+// #include "examples/anim/lv_example_anim.h"
+// #include "examples/widgets/arclabel/lv_example_arclabel.h"
+// #include "examples/anim/lv_example_anim.h"
+// #include "AD7124/ad7124_console_app.h"
+// #include "ad7124_console_app.h"
+// #include "ad7124.h"
+// #include "ad7124_regs.h"
+/* USER CODE END Includes */
+
+// Global pointer to update the meter value
+
+static lv_obj_t *settingLabel = NULL;
+static lv_obj_t *batteryLabel = NULL;
+static lv_obj_t *needle = NULL;
+static lv_obj_t *tickMarks = NULL;
+
+static lv_obj_t *needle_line = NULL;
+
+int needleLength = 70;
+
+const int needleOriginX = ST7789_WIDTH / 2;
+const int needleOriginY = ST7789_HEIGHT / 2;
+
+int meter_angle;
+int meter_angle_width;
+int angle;
+int xValue;
+int lastXValue;
+int minXValue = 35; // zero is vertical i think
+int maxXValue = 205;
+int lastAngle;
+uint32_t lv_delay = 0;
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+uint8_t UART_BUFFER[128] = {0};
+#define BYTE_PER_PIXEL 2
+lv_display_t *display1 = NULL; // Global variable
+
+static uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
+static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
+
+// static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 32 * BYTE_PER_PIXEL];
+
+/* USER CODE END PTD */
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+// static struct ad7124_dev *pAd7124_dev = NULL;
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+void PeriphCommonClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+volatile int timerCounter = 0;
+volatile uint32_t loopCounter = 0;
+volatile uint32_t loopsPerSecond = 0;
+volatile uint8_t measureFlag = 0;
+
+Thermocouples myThermocouples;
+Accelerometer myAccelerometer;
+Backlight myBacklight;
+Touch myTouch;
+
+///////////////////////////////////////////////////
+
+
+
+/* Timer callback to update the text area with sensor data */
+static void updateSettingLabel(lv_timer_t *timer)
+{
+  char *switchState;
+
+  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0))
+  {
+    switchState = "HIGH";
+    Thermocouples::userGain = 2.0;
+  }
+  else
+  {
+    switchState = "LOW";
+    Thermocouples::userGain = 1.0;
+  }
+
+  lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
+
+  char buf[32];
+  snprintf(buf, sizeof(buf), "%s", switchState);
+
+  lv_label_set_text(ta, buf);
+}
+
+static void updateBatteryLabel(lv_timer_t *timer)
+{
+  int batteryLevel = getChargeLevel();
+
+  lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
+
+  char buf[32];
+  snprintf(buf, sizeof(buf), "%d%%", batteryLevel);
+
+  lv_label_set_text(ta, buf);
+}
+
+static void updateNeedle(lv_timer_t *timer)
+{
+  xValue = int(needleOriginX - myThermocouples.deltaTemp);
+
+  if (xValue != lastXValue)
+  {
+    if (xValue < minXValue)
+      xValue = minXValue;
+    if (xValue > maxXValue)
+      xValue = maxXValue;
+
+    lastXValue = xValue;
+
+    static lv_point_precise_t needle_points[2];
+
+    // Calculate distance from center for outer point
+    int dx_outer = xValue - needleOriginX;
+
+    // Tip point on radius 170 arc
+    needle_points[1].x = xValue;
+    needle_points[1].y = needleOriginY + 100 - sqrt(170 * 170 - dx_outer * dx_outer);
+
+    // Calculate the angle/direction from origin to tip
+    // Then find where that line intersects the inner circle (radius 100)
+    // Using similar triangles: inner_radius / outer_radius = scale factor
+    float scale = 100.0 / 170.0;
+
+    // Base point on radius 100 arc (scaled from tip position)
+    needle_points[0].x = needleOriginX + dx_outer * scale;
+
+    int dx_inner = needle_points[0].x - needleOriginX;
+    needle_points[0].y = needleOriginY + 100 - sqrt(100 * 100 - dx_inner * dx_inner);
+
+    lv_line_set_points(needle, needle_points, 2);
+
+    lv_obj_invalidate(needle);
+  }
+}
+
+void brookes_meter(void)
+{
+  // root / base screen config
+  lv_obj_clear_flag(lv_screen_active(), LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(lv_screen_active(), LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_style_border_width(lv_screen_active(), 0, 0);
+  lv_obj_set_style_pad_all(lv_screen_active(), 0, 0);
+  lv_obj_set_style_bg_color(lv_screen_active(), lv_color_hex(WEB_LIGHT_TAN), 0);
+
+#if 1 // OG somewhat working tick marks
+  tickMarks = lv_scale_create(lv_screen_active());
+  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(tickMarks, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_add_flag(tickMarks, LV_OBJ_FLAG_IGNORE_LAYOUT);
+  lv_obj_add_flag(tickMarks, LV_OBJ_FLAG_FLOATING);
+  lv_obj_set_style_line_opa(tickMarks, LV_OPA_COVER, LV_PART_ITEMS);
+  lv_obj_set_style_opa(tickMarks, LV_OPA_COVER, 0);
+  lv_obj_set_size(tickMarks, 400, 400);
+  lv_obj_align(tickMarks, LV_ALIGN_CENTER, 0, 100); // Shift down 100 pixels from center
+  lv_scale_set_mode(tickMarks, LV_SCALE_MODE_ROUND_OUTER);
+  lv_scale_set_range(tickMarks, -25, 25);
+  meter_angle = 240;
+  meter_angle_width = 60;
+  lv_scale_set_rotation(tickMarks, meter_angle);
+  lv_scale_set_angle_range(tickMarks, meter_angle_width);
+  lv_scale_set_total_tick_count(tickMarks, 11); /* Major + minor ticks */
+  lv_scale_set_major_tick_every(tickMarks, 1);
+  lv_obj_set_style_border_width(tickMarks, 0, 0);
+  lv_obj_set_style_pad_all(tickMarks, 20, 0);
+  lv_obj_set_style_length(tickMarks, 10, LV_PART_ITEMS);
+  lv_obj_set_style_line_width(tickMarks, 1, LV_PART_ITEMS);
+  lv_obj_set_style_line_color(tickMarks, lv_color_hex(0x888888), LV_PART_ITEMS);
+  lv_obj_set_style_length(tickMarks, 15, LV_PART_INDICATOR);
+  lv_obj_set_style_line_width(tickMarks, 2, LV_PART_INDICATOR);
+  lv_obj_set_style_line_color(tickMarks, lv_color_hex(Charcoal), LV_PART_INDICATOR);
+  static const char *angle_labels[] = {"25", " ", " ", " ", " ", "0", " ", " ", " ", "", "25", NULL};
+  lv_scale_set_text_src(tickMarks, angle_labels);
+
+  needle = lv_line_create(lv_screen_active());
+  lv_obj_clear_flag(needle, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(needle, LV_OBJ_FLAG_SCROLLABLE);
+
+  // init needle at origin, and origin plus length
+  static lv_point_precise_t needle_points[2];
+  needle_points[0].x = needleOriginX;
+  needle_points[0].y = needleOriginY + 100; // origin placed at the center of the screen
+  needle_points[1].x = needleOriginX;
+  needle_points[1].y = needleOriginY + 100 - needleLength;
+
+  lv_line_set_points(needle, needle_points, 2);
+  lv_obj_set_style_line_width(needle, 2, 0);
+  lv_obj_set_style_line_color(needle, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_line_rounded(needle, true, 0);
+
+  lv_timer_create(updateNeedle, 33, needle);
+
+#endif
+
+// main product label
+#if 1
+  lv_obj_t *label = lv_label_create(lv_screen_active());
+  lv_obj_clear_flag(label, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(label, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_add_flag(label, LV_OBJ_FLAG_FLOATING);
+
+  lv_obj_set_size(label, 240, 80);
+  lv_label_set_text(label, "Delta-T Plus\n The Instrument Company\n Fort Collins, CO");
+  lv_obj_set_style_text_align(label, LV_TEXT_ALIGN_CENTER, 0); // center text in box
+  lv_obj_set_style_border_width(label, 0, 0);
+  lv_obj_set_style_text_color(label, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
+  lv_obj_align(label, LV_ALIGN_BOTTOM_MID, 0, 0);
+#endif
+
+//// Right label for battery
+#if 1
+  batteryLabel = lv_label_create(lv_screen_active());
+  lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(batteryLabel, "100%");
+  lv_obj_set_size(batteryLabel, 64, 32);
+  lv_obj_set_style_text_align(batteryLabel, LV_TEXT_ALIGN_RIGHT, 0); // Add this line
+
+  lv_obj_align(batteryLabel, LV_ALIGN_TOP_RIGHT, -10, 5);
+  lv_timer_create(updateBatteryLabel, 3000, batteryLabel);
+#endif
+
+//// left label for setting
+#if 1
+  settingLabel = lv_label_create(lv_screen_active());
+  lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(settingLabel, "LOW");
+  lv_obj_set_size(settingLabel, 64, 32);
+  lv_obj_align(settingLabel, LV_ALIGN_TOP_LEFT, 10, 5);
+  lv_timer_create(updateSettingLabel, 500, settingLabel);
+#endif
+
+
+}
+
+//////////////////////////////////////////////////
+
+// main timer implementation
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+
+  if (htim == &htim16)
+  {
+    // if(init_finished) {
+    //  increment / decrement 0.1ms timers here.
+
+    timerCounter++;
+
+    if ((timerCounter % 10) == 0)
+    {
+
+      lv_tick_inc(1);
+
+      if (lv_delay)
+      {
+        lv_delay--;
+      }
+    }
+
+    if ((timerCounter % 100) == 0)
+    {
+
+      if (myTouch.delay)
+      {
+        myTouch.delay--;
+      }
+
+      if (myAccelerometer.readDelay)
+      {
+        myAccelerometer.readDelay--;
+      }
+    }
+
+    if ((timerCounter % 1000) == 0)
+    {
+      // increment / decrement 100 ms timers here.
+      // if (helloWorldDelay)
+      //{
+      //  helloWorldDelay--;
+      //}
+    }
+
+    if ((timerCounter % 10000) == 0)
+    {
+      // increment / decrement 1000 ms timers here.  Note this resets the timer variable.
+
+      loopsPerSecond = loopCounter;
+      loopCounter = 0;
+      measureFlag = 1; // Signal to print result
+
+      timerCounter = 0;
+      if (myAccelerometer.delay)
+      {
+        myAccelerometer.delay--;
+      }
+    }
+    //}
+  }
+}
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+  if (hspi == &hspi2)
+  {
+    ST7789_CS_HIGH();
+    lv_display_flush_ready(display1);
+  }
+}
+
+void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+  if (hi2c->Instance == hi2c1.Instance)
+  {
+    //accelerometerProcessData();
+  }
+}
+
+// GPIO EXTI Callback - this is where you connect to the library
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+
+  // Call the library's interrupt handler
+  Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
+}
+
+void my_flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *px_map)
+{
+
+  ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
+
+  ST7789_CS_LOW_DC_HIGH();
+
+  int32_t width = area->x2 - area->x1 + 1;
+  int32_t height = area->y2 - area->y1 + 1;
+
+  uint32_t size = width * height * 2; // 2 bytes per pixel for RGB565
+
+  lv_draw_sw_rgb565_swap(px_map, (area->x2 - area->x1 + 1) * (area->y2 - area->y1 + 1));
+
+  HAL_SPI_Transmit_DMA(&hspi2, (uint8_t *)px_map, size);
+}
+
+/* USER CODE END 0 */
+
+/**
+ * @brief  The application entry point.
+ * @retval int
+ */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* Configure the peripherals common clocks */
+  PeriphCommonClock_Config();
+
+  /* Config code for STM32_WPAN (HSE Tuning must be done before system clock configuration) */
+  MX_APPE_Config();
+
+  /* IPCC initialisation */
+  MX_IPCC_Init();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_RTC_Init();
+  MX_I2C1_Init();
+  MX_SPI1_Init();
+  MX_SPI2_Init();
+  MX_TIM2_Init();
+  MX_USART1_UART_Init();
+  MX_TIM16_Init();
+  MX_RF_Init();
+  /* USER CODE BEGIN 2 */
+
+  // MX_APPE_Init();
+
+  HAL_Delay(100);
+  MX_USB_Device_Init();
+  HAL_Delay(100);
+
+  HAL_TIM_Base_Start_IT(&htim16);
+  HAL_NVIC_SetPriority(TIM1_UP_TIM16_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM1_UP_TIM16_IRQn);
+  /* USER CODE END 2 */
+
+  /* Init code for STM32_WPAN */
+  MX_APPE_Init();
+
+  myAccelerometer.setup();
+  myThermocouples.setup();
+
+  myTouch.setup();
+
+  setupBatteryMonitor();
+
+  // 1. Initialize LVLG early lv_init
+  lv_init();
+  // 2. Initialize TFT Driver
+  ST7789_Init();
+  ST7789V_SetRotation(2);
+  //ST7789_FillScreen(0xf400);
+  // 3. Connect tick interface
+  lv_tick_set_cb(HAL_GetTick);
+  // 4. Connect display interface
+  // 4.a create display
+  display1 = lv_display_create(ST7789_WIDTH, ST7789_HEIGHT);
+  // 4.b buffers
+  lv_display_set_buffers(display1, buffer1, buffer2, sizeof(buffer1), LV_DISPLAY_RENDER_MODE_PARTIAL);
+  // 4.c flush callback
+  lv_display_set_flush_cb(display1, my_flush_cb);
+
+  brookes_meter();
+
+  myBacklight.setup();
+
+
+  snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
+  HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    loopCounter++; // Increment at start of each iteration
+
+    /* USER CODE END WHILE */
+    MX_APPE_Process();
+
+    /* USER CODE BEGIN 3 */
+    // only MX_APPE_Process(); 151506 hz
+    myAccelerometer.stateMachine();        // 113495 hz
+    myBacklight.stateMachine(); // 77963 hz -> 83350 hz
+    myThermocouples.stateMachine();
+
+    if (measureFlag)
+    {
+      measureFlag = 0;
+      snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+      HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+    }
+
+    if (!lv_delay)
+    {
+      lv_delay = lv_timer_handler();
+    }
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+ * @brief System Clock Configuration
+ * @retval None
+ */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure LSE Drive Capability
+   */
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_MEDIUMHIGH);
+
+  /** Configure the main internal regulator output voltage
+   */
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+   * in the RCC_OscInitTypeDef structure.
+   */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSE | RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV1;
+  RCC_OscInitStruct.PLL.PLLN = 32;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure the SYSCLKSource, HCLK, PCLK1 and PCLK2 clocks dividers
+   */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK4 | RCC_CLOCKTYPE_HCLK2 | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLK2Divider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.AHBCLK4Divider = RCC_SYSCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Enable MSI Auto calibration
+   */
+  HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+ * @brief Peripherals Common Clock Configuration
+ * @retval None
+ */
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Initializes the peripherals clock
+   */
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SMPS | RCC_PERIPHCLK_RFWAKEUP;
+  PeriphClkInitStruct.RFWakeUpClockSelection = RCC_RFWKPCLKSOURCE_LSE;
+  PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSE;
+  PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE1;
+
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN Smps */
+  LL_HSEM_1StepLock(HSEM, 5);
+
+  /* USER CODE END Smps */
+}
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
+
+/**
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef USE_FULL_ASSERT
+/**
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

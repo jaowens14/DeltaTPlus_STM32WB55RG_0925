@@ -1,0 +1,6 @@
+../AD7124_Library/examples/ad7124-cn0381/rtd.cpp:12:5:int Rtd::begin(int, Ad7124::IoutCurrent)	48	static
+../AD7124_Library/examples/ad7124-cn0381/rtd.cpp:39:6:long int Rtd::code(uint8_t)	32	static
+../AD7124_Library/examples/ad7124-cn0381/rtd.cpp:76:8:static double Rtd::toResistance(long int)	16	static
+../AD7124_Library/examples/ad7124-cn0381/rtd.cpp:82:8:static double Rtd::toTemperature(double)	16	static
+../AD7124_Library/examples/ad7124-cn0381/rtd.cpp:88:8:double Rtd::resistance(uint8_t)	24	static
+../AD7124_Library/examples/ad7124-cn0381/rtd.cpp:97:8:double Rtd::temperature(uint8_t)	24	static

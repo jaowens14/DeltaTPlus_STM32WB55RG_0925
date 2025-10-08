@@ -18,7 +18,8 @@ void Thermocouples::setup()
     //  100 |   60  |    10
     //   40 |  156  |    26
     //   20 |  300  |    50
-    filterWord = 600;
+    filterWord0 = 600;
+    filterWord1 = 600;
 
     int state = thermocoupleADC.begin(0);
     while (state < 0)
@@ -26,6 +27,11 @@ void Thermocouples::setup()
         HAL_Delay(100);
         state = thermocoupleADC.begin(0);
     }
+
+    // Calculate cold junction temperature from thermistor
+
+    // Convert cold junction temperature to equivalent K-type thermocouple voltage
+    // K-type Seebeck coefficient: ~41µV/°C (average from 0-100°C)
 
     // AD7124 Thermocouple Configuration
     // Channel 0: Thermocouple 1 (AIN0+/AIN1-)
@@ -47,10 +53,10 @@ void Thermocouples::setup()
     // Configure Setup 0 for Thermocouples
     // High gain (128) with internal reference for maximum sensitivity to µV signals
     thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga64, true);
-    thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc3Filter, filterWord);
+    thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc3Filter, filterWord0);
 
     thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
-    thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4Filter, filterWord);
+    thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4Filter, filterWord1);
 
     // Configure Channel 0: Thermocouple 1 (AIN0+/AIN1-) using Setup 0
     thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN0Input, Ad7124::AIN1Input, true);
@@ -58,13 +64,27 @@ void Thermocouples::setup()
     // Configure Channel 1: Thermocouple 2 (AIN2+/AIN3-) using Setup 0
     thermocoupleADC.setChannel(channel1, setup0, Ad7124::AIN2Input, Ad7124::AIN3Input, true);
 
+    // Configure Channel 2: Thermistor (AIN5+/AIN6-) using Setup 1
+    thermocoupleADC.setChannel(channel2, setup1, Ad7124::AIN5Input, Ad7124::AIN6Input, true);
+
+    thermocoupleADC.setCurrentSource(0, Ad7124::IoutCh4, Ad7124::Current500uA);
+
+    int ch_0_cal = thermocoupleADC.internalCalibration(0);
+    int ch_1_cal = thermocoupleADC.internalCalibration(1);
+    int ch_2_cal = thermocoupleADC.internalCalibration(2);
+
+    snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "calibration res: %d, %d, %d\r\n", ch_0_cal, ch_1_cal, ch_2_cal);
+    HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+
+    thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
+
     // Configure Channel 1: Thermocouple 2 (AIN2+/AIN3-) using Setup 0
     // thermocoupleADC.setChannel(channel2, setup0, Ad7124::AIN5Input, Ad7124::AIN6Input, true);
 
     // Enable only the channels we're using
     thermocoupleADC.enableChannel(0, true);   // Thermocouple 1
     thermocoupleADC.enableChannel(1, true);   // Thermocouple 2
-    thermocoupleADC.enableChannel(2, false);  // Thermistor (cold junction)
+    thermocoupleADC.enableChannel(2, true);   // Thermistor (cold junction)
     thermocoupleADC.enableChannel(3, false);  // Disabled
     thermocoupleADC.enableChannel(4, false);  // Disabled
     thermocoupleADC.enableChannel(5, false);  // Disabled
@@ -84,8 +104,8 @@ void Thermocouples::setup()
 
     rf.error = 0.0f;
     rf.estimate = 0.0f;
-    rf.process_variance = 2.0f;
-    rf.measurement_variance = 50.0f;
+    rf.process_variance = 2.0f;      // was 2 and
+    rf.measurement_variance = 50.0f; // 50
 
     lf.error = 0.0f;
     lf.estimate = 0.0f;
@@ -98,7 +118,7 @@ void Thermocouples::setup()
     // ambientTemp = 20.0f;
     // h = 500;      // W/m^2 * K
     // C = 0.000053; // J /K
-    // lastTime = HAL_GetTick();
+    lastTime = HAL_GetTick();
 }
 
 void Thermocouples::stateMachine(void)
@@ -115,32 +135,35 @@ void Thermocouples::stateMachine(void)
         {
             raw[channel] = rawData;
             voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 64, 2.5, true);
-            // temperature[channel] = voltage[channel] * 24390.2439 * 10;
+            temperature[channel] = thermocoupleVoltageToTemp(voltage[channel], coldJunctionTemp);
         }
 
         if (channel == 1)
         {
             raw[channel] = rawData;
             voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 64, 2.5, true);
-            // temperature[channel] = voltage[channel] * 24390.2439 * 10;
+            temperature[channel] = thermocoupleVoltageToTemp(voltage[channel], coldJunctionTemp);
         }
 
-        // if (channel == 2)
-        //{
-        //     raw[channel] = rawData;
-        //     voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 1, 2.5, true);
-        //     // temperature[channel] = voltage[channel] * 24390.2439 * 10;
-        // }
+        if (channel == 2)
+        {
 
-        // rightTemp = rightRawTemp;
-        // leftTemp = leftRawTemp;
+            raw[channel] = rawData;
+            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 1, 2.5, true);
 
-        // currentTime = HAL_GetTick();
-        // deltaTime = currentTime - lastTime;
-        // lastTime = currentTime;
+            // Calculate cold junction temperature from thermistor
+            R_thermistor = voltage[channel] / 0.0005f;
 
-        rf.measurement = voltage[0]; // voltage
-        lf.measurement = voltage[1]; // voltage
+            temp_kelvin = 1.0f / ((1.0f / T0) + (1.0f / B) * logf(R_thermistor / R0));
+            coldJunctionTemp = temp_kelvin - 273.15f;
+            temperature[channel] = coldJunctionTemp;
+        }
+
+        // rf.measurement = voltage[0] + coldJunctionVoltage; // voltage
+        // lf.measurement = voltage[1] + coldJunctionVoltage; // voltage
+
+        rf.measurement = temperature[0]; // voltage
+        lf.measurement = temperature[1]; // voltage
 
         // the current voltage is estimated to be the last voltage + volt/second ratio (velocity) * time
         rf.error = rf.error + rf.process_variance;
@@ -152,8 +175,12 @@ void Thermocouples::stateMachine(void)
         lf.gain = lf.error / (lf.error + lf.measurement_variance);
         lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
         lf.error = (1.0 - lf.gain) * lf.error;
+
+        // gain is estimated at 1789473 intercept at 120 pixels when deltat is zero
+        deltaTemp = ((rf.estimate - lf.estimate) * 34.0 * userGain) + 120.0; // SEEMS REALLLY FAST>>>>>>
+
         // 2615384.615
-        deltaTemp = ((lf.estimate - rf.estimate) * 1000000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
+        // deltaTemp = ((rf.estimate - lf.estimate) * 2000000.0 * userGain) + 85.0; // SEEMS REALLLY FAST>>>>>>
 
         // deltaTemp = ((rf.estimate - lf.estimate) * 4500000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
 
@@ -163,22 +190,21 @@ void Thermocouples::stateMachine(void)
         // 32307692.31
         // deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
 
-        // deltaTemp = ((rf.estimate - lf.estimate) * 75.0 * 10000.0); // - deltaTempOffset; // this works pretty well 09/20
-
-        // deltaTemp = (((rf.estimate - lf.estimate) * 1.0 * 10000.0) - deltaTemp) * 0.6; // - deltaTempOffset;
-
-        // deltaTemp = (rf.estimate - lf.estimate) * userGain * 20000.0) - deltaTemp) * 0.6; // - deltaTempOffset;
-
-        // deltaTemp += ((rightTemp - leftTemp) - deltaTemp) * 0.9; // leaky integrator with a gain of 0.9
-
-        // deltaTemp = ((rf.estimate - lf.estimate) * userGain * 10000.0 * 2.0); // - deltaTempOffset;
-
-        // deltaTemp = (temperature[0] - temperature[1]);
-
-        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Delta Temp: %f\r\n", deltaTemp);
-        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
-        //                                                  r0, r1, v0, v1, dt, angle
-         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%ld, %f, %f, %f, %f, %f\r\n", deltaTime, rf.estimate, lf.estimate, voltage[0], voltage[1], deltaTemp);
-         HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f, %f, %f, %f, %f\r\n", voltage[0], voltage[1], voltage[2], temperature[0], temperature[1], temperature[2], rf.estimate, lf.estimate, deltaTemp);
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
     }
+}
+
+float Thermocouples::thermocoupleVoltageToTemp(float voltage_V, float coldJunctionTemp_C)
+{
+    // K-type thermocouple: ~41µV/°C (average Seebeck coefficient)
+    const float SEEBECK_COEFF = 0.000041f; // V/°C
+
+    // Convert voltage to temperature difference
+    float tempDifference = voltage_V / SEEBECK_COEFF;
+
+    // Add cold junction temperature to get absolute temperature
+    float absoluteTemp = tempDifference + coldJunctionTemp_C;
+
+    return absoluteTemp;
 }

@@ -89,7 +89,7 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN Private defines */
   // void SPI_Set_Mode(uint8_t mode);
-  extern uint8_t UART_BUFFER[128];
+  extern uint8_t UART_BUFFER[256];
 
   void SystemClock_Config(void);
 /* USER CODE END Private defines */
