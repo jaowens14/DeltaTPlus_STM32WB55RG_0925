@@ -691,3 +691,4 @@ java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()"
 2025-10-08 04:13:56,647 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
 2025-10-08 04:13:56,666 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
 2025-10-08 12:51:17,279 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out
+2025-10-08 14:31:10,171 [ERROR] ConfigurationRetriever:142 - IOException on connection: Read timed out

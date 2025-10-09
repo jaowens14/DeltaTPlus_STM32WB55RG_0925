@@ -18,8 +18,7 @@ void Thermocouples::setup()
     //  100 |   60  |    10
     //   40 |  156  |    26
     //   20 |  300  |    50
-    filterWord0 = 600;
-    filterWord1 = 600;
+    filterWord = 600;
 
     int state = thermocoupleADC.begin(0);
     while (state < 0)
@@ -46,17 +45,16 @@ void Thermocouples::setup()
     int channel2 = 2;
 
     // ADC Control: Continuous Mode, Full Power, Internal Reference enabled
-    thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
-
     // thermocoupleADC.setCurrentSource(0, Ad7124::IoutCh4, Ad7124::Current500uA);
+    thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input | Ad7124::AIN5Input);
 
     // Configure Setup 0 for Thermocouples
     // High gain (128) with internal reference for maximum sensitivity to µV signals
-    thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga64, true);
-    thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc3Filter, filterWord0);
+    thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, true);
+    thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc4Filter, filterWord);
 
     thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
-    thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4Filter, filterWord1);
+    thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4FastFilter, filterWord);
 
     // Configure Channel 0: Thermocouple 1 (AIN0+/AIN1-) using Setup 0
     thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN0Input, Ad7124::AIN1Input, true);
@@ -66,20 +64,16 @@ void Thermocouples::setup()
 
     // Configure Channel 2: Thermistor (AIN5+/AIN6-) using Setup 1
     thermocoupleADC.setChannel(channel2, setup1, Ad7124::AIN5Input, Ad7124::AIN6Input, true);
-
     thermocoupleADC.setCurrentSource(0, Ad7124::IoutCh4, Ad7124::Current500uA);
-
-    int ch_0_cal = thermocoupleADC.internalCalibration(0);
-    int ch_1_cal = thermocoupleADC.internalCalibration(1);
-    int ch_2_cal = thermocoupleADC.internalCalibration(2);
-
-    snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "calibration res: %d, %d, %d\r\n", ch_0_cal, ch_1_cal, ch_2_cal);
-    HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
 
     thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
 
-    // Configure Channel 1: Thermocouple 2 (AIN2+/AIN3-) using Setup 0
-    // thermocoupleADC.setChannel(channel2, setup0, Ad7124::AIN5Input, Ad7124::AIN6Input, true);
+    // int ch_0_cal = thermocoupleADC.internalCalibration(0);
+    // int ch_1_cal = thermocoupleADC.internalCalibration(1);
+    // int ch_2_cal = thermocoupleADC.internalCalibration(2);
+
+    // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "calibration res: %d, %d, %d\r\n", ch_0_cal, ch_1_cal, ch_2_cal);
+    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
 
     // Enable only the channels we're using
     thermocoupleADC.enableChannel(0, true);   // Thermocouple 1
@@ -104,13 +98,13 @@ void Thermocouples::setup()
 
     rf.error = 0.0f;
     rf.estimate = 0.0f;
-    rf.process_variance = 2.0f;      // was 2 and
-    rf.measurement_variance = 50.0f; // 50
+    rf.process_variance = 0.001f;     // was 2 and
+    rf.measurement_variance = 0.017f; // 50
 
     lf.error = 0.0f;
     lf.estimate = 0.0f;
-    lf.process_variance = 2.0f;
-    lf.measurement_variance = 50.0f;
+    lf.process_variance = 0.001f;
+    lf.measurement_variance = 0.017f;
 
     // diameter = 0.000812f;                // 20 gauge wire diameter, meters
     // length = 0.0254f;                    // 1 inch in meters
@@ -134,15 +128,25 @@ void Thermocouples::stateMachine(void)
         if (channel == 0)
         {
             raw[channel] = rawData;
-            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 64, 2.5, true);
-            temperature[channel] = thermocoupleVoltageToTemp(voltage[channel], coldJunctionTemp);
+            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 128, 2.5, true);
+            temp_temp = thermocoupleVoltageToTemp(voltage[channel], coldJunctionTemp);
+
+            if (10.0 < temp_temp && temp_temp < 50.0)
+            {
+                temperature[channel] = temp_temp;
+            }
         }
 
         if (channel == 1)
         {
             raw[channel] = rawData;
-            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 64, 2.5, true);
-            temperature[channel] = thermocoupleVoltageToTemp(voltage[channel], coldJunctionTemp);
+            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 128, 2.5, true);
+            temp_temp = thermocoupleVoltageToTemp(voltage[channel], coldJunctionTemp);
+
+            if (10.0 < temp_temp && temp_temp < 50.0)
+            {
+                temperature[channel] = temp_temp;
+            }
         }
 
         if (channel == 2)
@@ -156,7 +160,10 @@ void Thermocouples::stateMachine(void)
 
             temp_kelvin = 1.0f / ((1.0f / T0) + (1.0f / B) * logf(R_thermistor / R0));
             coldJunctionTemp = temp_kelvin - 273.15f;
-            temperature[channel] = coldJunctionTemp;
+            if (10.0 < coldJunctionTemp && coldJunctionTemp < 50.0)
+            {
+                temperature[channel] = coldJunctionTemp;
+            }
         }
 
         // rf.measurement = voltage[0] + coldJunctionVoltage; // voltage

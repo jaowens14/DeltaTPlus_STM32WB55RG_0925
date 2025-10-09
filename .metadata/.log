@@ -4762,3 +4762,15 @@ java.lang.IllegalStateException: Call stack for thread main
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-08 15:50:04.803
 !MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-08 18:35:42.110
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 625 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-08 18:35:42.112
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-08 18:35:42.113
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 625 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-10-08 18:35:42.113
+!MESSAGE Existing sessions are:

@@ -278,7 +278,7 @@ void brookes_meter(void)
 #endif
 
 #if 1 // major tick marks
-  for (int xValue = minXValue, i = 0; xValue <= maxXValue; xValue += 10, i++)
+  for (int xValue = minXValue + 5, i = 0; xValue <= maxXValue; xValue += 10, i++)
   {
 
     lv_point_precise_t *needle_points = needle_points_arr[i];
@@ -303,27 +303,34 @@ void brookes_meter(void)
 #if 1 // lower arch
 
   lv_obj_t *circle = lv_obj_create(root);
-  lv_obj_set_size(circle, 400, 400);
+  lv_obj_set_size(circle, 500, 500);
   lv_obj_set_style_radius(circle, LV_RADIUS_CIRCLE, 0);
   lv_obj_set_style_bg_color(circle, lv_color_hex(0xd8d3bb), 0);
   lv_obj_set_style_border_width(circle, 2, 0);
   lv_obj_set_style_border_color(circle, lv_color_hex(0xd8d3bb), 0);
   lv_obj_set_style_border_opa(circle, LV_OPA_COVER, 0);
-  lv_obj_align(circle, LV_ALIGN_CENTER, 0, 100 + needleLength + 35);
+  lv_obj_align(circle, LV_ALIGN_CENTER, 0, needleOriginY + 100);
 
   lv_obj_t *rect = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_set_style_border_width(rect, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
   lv_obj_set_size(rect, 15, 135);                                  // Set width and height of the rectangle
+
   lv_obj_set_style_radius(rect, 0, 0);                             // Set radius to 0 for sharp corners (rectangle)
   lv_obj_set_style_bg_color(rect, lv_color_hex(WEB_LIGHT_TAN), 0); // Set background color (red here)
   lv_obj_align(rect, LV_ALIGN_BOTTOM_RIGHT, 0, 0);
 
   lv_obj_t *rect2 = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_set_style_border_width(rect2, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
   lv_obj_set_size(rect2, 15, 135);                                  // Set width and height of the rectangle
   lv_obj_set_style_radius(rect2, 0, 0);                             // Set radius to 0 for sharp corners (rectangle)
   lv_obj_set_style_bg_color(rect2, lv_color_hex(WEB_LIGHT_TAN), 0); // Set background color (red here)
   lv_obj_align(rect2, LV_ALIGN_BOTTOM_LEFT, 0, 0);
 
   lv_obj_t *rect3 = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_set_style_border_width(rect3, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
   lv_obj_set_size(rect3, 240, 15);                                  // Set width and height of the rectangle
   lv_obj_set_style_radius(rect3, 0, 0);                             // Set radius to 0 for sharp corners (rectangle)
   lv_obj_set_style_bg_color(rect3, lv_color_hex(WEB_LIGHT_TAN), 0); // Set background color (red here)
@@ -620,13 +627,13 @@ int main(void)
     myThermocouples.stateMachine();
     // myTouch.stateMachine();
 
-    if (measureFlag && uart_ready)
-    {
-      uart_ready = 0;
-      measureFlag = 0;
-      snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
-      HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
-    }
+   // if (measureFlag && uart_ready)
+   // {
+   //   uart_ready = 0;
+   //   measureFlag = 0;
+   //   snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+   //   HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
+   // }
 
     // should run at 20ms / 50fps
     if (run_lv_timer_handler)

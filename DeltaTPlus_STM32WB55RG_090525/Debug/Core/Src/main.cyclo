@@ -8,19 +8,19 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 ../Core/Src/main.cpp:185:13:void updateBatteryLabel(lv_timer_t*)	1
 ../Core/Src/main.cpp:198:13:void updateNeedle(lv_timer_t*)	4
 ../Core/Src/main.cpp:238:6:void brookes_meter()	2
-../Core/Src/main.cpp:404:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	9
-../Core/Src/main.cpp:460:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
-../Core/Src/main.cpp:470:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	1
-../Core/Src/main.cpp:478:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	2
-../Core/Src/main.cpp:488:6:void HAL_GPIO_EXTI_Callback(uint16_t)	1
-../Core/Src/main.cpp:495:6:void my_flush_cb(lv_display_t*, const lv_area_t*, uint8_t*)	1
-../Core/Src/main.cpp:518:5:int main()	5
-../Core/Src/main.cpp:645:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:706:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:735:6:void Error_Handler()	1
+../Core/Src/main.cpp:411:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	9
+../Core/Src/main.cpp:467:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
+../Core/Src/main.cpp:477:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	1
+../Core/Src/main.cpp:485:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	2
+../Core/Src/main.cpp:495:6:void HAL_GPIO_EXTI_Callback(uint16_t)	1
+../Core/Src/main.cpp:502:6:void my_flush_cb(lv_display_t*, const lv_area_t*, uint8_t*)	1
+../Core/Src/main.cpp:525:5:int main()	2
+../Core/Src/main.cpp:652:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:713:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:742:6:void Error_Handler()	1
 C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344\tools\bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1/cmath:450:5:constexpr typename __gnu_cxx::__enable_if<std::__is_integer<_Tp>::__value, double>::__type std::sqrt(_Tp) [with _Tp = int]	1
-../Core/Src/main.cpp:744:1:void __static_initialization_and_destruction_0()	1
+../Core/Src/main.cpp:751:1:void __static_initialization_and_destruction_0()	1
 ../Core/Inc/Thermocouples.hpp:12:7:Thermocouples::~Thermocouples()	1
-../Core/Src/main.cpp:744:1:void __static_initialization_and_destruction_1()	1
-../Core/Src/main.cpp:744:1:cpp)	1
-../Core/Src/main.cpp:744:1:cpp)	1
+../Core/Src/main.cpp:751:1:void __static_initialization_and_destruction_1()	1
+../Core/Src/main.cpp:751:1:cpp)	1
+../Core/Src/main.cpp:751:1:cpp)	1

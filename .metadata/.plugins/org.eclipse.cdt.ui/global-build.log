@@ -1,0 +1,432 @@
+18:34:51 **** Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void updateSettingLabel(lv_timer_t*)':
+../Core/Src/main.cpp:168:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  168 |     switchState = "HIGH";
+      |                   ^~~~~~
+../Core/Src/main.cpp:173:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  173 |     switchState = "LOW";
+      |                   ^~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529460	   3169	 123475	 656104	  a02e8	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+18:37:30 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void updateSettingLabel(lv_timer_t*)':
+../Core/Src/main.cpp:168:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  168 |     switchState = "HIGH";
+      |                   ^~~~~~
+../Core/Src/main.cpp:173:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  173 |     switchState = "LOW";
+      |                   ^~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529460	   3169	 123475	 656104	  a02e8	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+18:45:15 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void updateSettingLabel(lv_timer_t*)':
+../Core/Src/main.cpp:168:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  168 |     switchState = "HIGH";
+      |                   ^~~~~~
+../Core/Src/main.cpp:173:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  173 |     switchState = "LOW";
+      |                   ^~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529604	   3169	 123483	 656256	  a0380	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+18:47:49 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void updateSettingLabel(lv_timer_t*)':
+../Core/Src/main.cpp:168:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  168 |     switchState = "HIGH";
+      |                   ^~~~~~
+../Core/Src/main.cpp:173:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  173 |     switchState = "LOW";
+      |                   ^~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529604	   3169	 123483	 656256	  a0380	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+18:48:52 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void updateSettingLabel(lv_timer_t*)':
+../Core/Src/main.cpp:168:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  168 |     switchState = "HIGH";
+      |                   ^~~~~~
+../Core/Src/main.cpp:173:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  173 |     switchState = "LOW";
+      |                   ^~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529604	   3169	 123483	 656256	  a0380	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+19:11:28 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In function 'void updateSettingLabel(lv_timer_t*)':
+../Core/Src/main.cpp:168:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  168 |     switchState = "HIGH";
+      |                   ^~~~~~
+../Core/Src/main.cpp:173:19: warning: ISO C++ forbids converting a string constant to 'char*' [-Wwrite-strings]
+  173 |     switchState = "LOW";
+      |                   ^~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529580	   3169	 123483	 656232	  a0368	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+19:24:19 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529580	   3169	 123483	 656232	  a0368	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+19:25:39 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529580	   3169	 123483	 656232	  a0368	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+19:52:31 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:55:53: error: cannot convert 'Ad7124::PostFilterType' to 'Ad7124::FilterType'
+   55 |     thermocoupleADC.setConfigFilter(setup0, Ad7124::NoPostFilter, filterWord);
+      |                                             ~~~~~~~~^~~~~~~~~~~~
+      |                                                     |
+      |                                                     Ad7124::PostFilterType
+In file included from ../Core/Inc/Thermocouples.hpp:9,
+                 from ../Core/Src/Thermocouples.cpp:1:
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124.h:309:55: note:   initializing argument 2 of 'int Ad7124Chip::setConfigFilter(uint8_t, Ad7124::FilterType, uint16_t, Ad7124::PostFilterType, bool, bool)'
+  309 |   int setConfigFilter(uint8_t cfg, Ad7124::FilterType filter, uint16_t fs,
+      |                                    ~~~~~~~~~~~~~~~~~~~^~~~~~
+../Core/Src/Thermocouples.cpp:58:53: error: cannot convert 'Ad7124::PostFilterType' to 'Ad7124::FilterType'
+   58 |     thermocoupleADC.setConfigFilter(setup1, Ad7124::NoPostFilter, filterWord);
+      |                                             ~~~~~~~~^~~~~~~~~~~~
+      |                                                     |
+      |                                                     Ad7124::PostFilterType
+C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library/ad7124.h:309:55: note:   initializing argument 2 of 'int Ad7124Chip::setConfigFilter(uint8_t, Ad7124::FilterType, uint16_t, Ad7124::PostFilterType, bool, bool)'
+  309 |   int setConfigFilter(uint8_t cfg, Ad7124::FilterType filter, uint16_t fs,
+      |                                    ~~~~~~~~~~~~~~~~~~~^~~~~~
+make: *** [Core/Src/subdir.mk:103: Core/Src/Thermocouples.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+19:53:49 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529580	   3169	 123483	 656232	  a0368	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:03:15 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529580	   3169	 123483	 656232	  a0368	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:15:41 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529580	   3169	 123483	 656232	  a0368	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:21:44 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 529580	   3169	 123483	 656232	  a0368	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:33:14 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528732	   3169	 123483	 655384	  a0018	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:36:39 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528732	   3169	 123483	 655384	  a0018	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:38:18 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528732	   3169	 123483	 655384	  a0018	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:53:09 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528716	   3169	 123483	 655368	  a0008	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:54:48 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528716	   3169	 123483	 655368	  a0008	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+20:56:57 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528716	   3169	 123483	 655368	  a0008	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+21:15:38 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:41:9: warning: unused variable 'setup1' [-Wunused-variable]
+   41 |     int setup1 = 1;
+      |         ^~~~~~
+../Core/Src/Thermocouples.cpp:45:9: warning: unused variable 'channel2' [-Wunused-variable]
+   45 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528564	   3169	 123483	 655216	  9ff70	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+21:16:48 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+../Core/Src/Thermocouples.cpp: In member function 'void Thermocouples::setup()':
+../Core/Src/Thermocouples.cpp:41:9: warning: unused variable 'setup1' [-Wunused-variable]
+   41 |     int setup1 = 1;
+      |         ^~~~~~
+../Core/Src/Thermocouples.cpp:45:9: warning: unused variable 'channel2' [-Wunused-variable]
+   45 |     int channel2 = 2;
+      |         ^~~~~~~~
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528564	   3169	 123483	 655216	  9ff70	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+21:20:50 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528756	   3169	 123483	 655408	  a0030	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+21:22:53 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528748	   3169	 123483	 655400	  a0028	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+21:24:10 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528788	   3169	 123483	 655440	  a0050	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+21:25:38 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528788	   3169	 123483	 655440	  a0050	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 
+21:27:13 **** Incremental Build of configuration Debug for project DeltaTPlus_STM32WB55RG_090525 ****
+make -j12 all 
+arm-none-eabi-g++ "../Core/Src/Thermocouples.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WB55xx -c -I../Core/Inc -I../STM32_WPAN/App -I../USB_Device/App -I../USB_Device/Target -I../Drivers/STM32WBxx_HAL_Driver/Inc -I../Drivers/STM32WBxx_HAL_Driver/Inc/Legacy -I../Utilities/lpm/tiny_lpm -I../Middlewares/ST/STM32_WPAN -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl -I../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci -I../Middlewares/ST/STM32_WPAN/utilities -I../Middlewares/ST/STM32_WPAN/ble/core -I../Middlewares/ST/STM32_WPAN/ble/core/auto -I../Middlewares/ST/STM32_WPAN/ble/core/template -I../Middlewares/ST/STM32_WPAN/ble/svc/Inc -I../Middlewares/ST/STM32_WPAN/ble/svc/Src -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Drivers/CMSIS/Device/ST/STM32WBxx/Include -I../Utilities/sequencer -I../Middlewares/ST/STM32_WPAN/ble -I../Drivers/CMSIS/Include -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl" -I../Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Inc -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/AD7124_Library" -I"C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/FT5436" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -pedantic -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Thermocouples.d" -MT"Core/Src/Thermocouples.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Thermocouples.o"
+arm-none-eabi-g++ -o "DeltaTPlus_STM32WB55RG_090525.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32WB55RGVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DeltaTPlus_STM32WB55RG_090525.map" -Wl,--cref -Wl,--gc-sections -static -u _printf_float -Wl,--no-warn-execstack --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: DeltaTPlus_STM32WB55RG_090525.elf
+ 
+arm-none-eabi-size  DeltaTPlus_STM32WB55RG_090525.elf 
+arm-none-eabi-objdump -h -S DeltaTPlus_STM32WB55RG_090525.elf  > "DeltaTPlus_STM32WB55RG_090525.list"
+   text	   data	    bss	    dec	    hex	filename
+ 528788	   3169	 123483	 655440	  a0050	DeltaTPlus_STM32WB55RG_090525.elf
+Finished building: default.size.stdout
+ 
+Finished building: DeltaTPlus_STM32WB55RG_090525.list
+ 

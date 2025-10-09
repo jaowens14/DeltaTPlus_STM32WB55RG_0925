@@ -26,12 +26,12 @@ public:
     static float deltaTempOffset;
     long rawData;
     int channel;
-    int filterWord0; // length of filter?
-    int filterWord1; // length of filter?
+    int filterWord; // length of filter?
     int ch2_delay;
     long raw[3];
     double voltage[3];
     float temperature[3];
+    float temp_temp;
 
     // Calculate cold junction temperature from thermistor
     float R_thermistor;
