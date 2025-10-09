@@ -188,7 +188,6 @@ lvgl/src/lv_init.o: ../lvgl/src/lv_init.c \
  ../lvgl/src/display/../misc/lv_types.h \
  ../lvgl/src/display/../core/lv_obj.h \
  ../lvgl/src/display/../draw/lv_draw.h ../lvgl/src/display/lv_display.h \
- ../lvgl/src/display/../others/sysmon/lv_sysmon_private.h \
  ../lvgl/src/indev/lv_indev_private.h ../lvgl/src/indev/lv_indev.h \
  ../lvgl/src/indev/../misc/lv_anim.h ../lvgl/src/indev/lv_indev_scroll.h \
  ../lvgl/src/indev/../core/lv_obj.h ../lvgl/src/indev/lv_indev_gesture.h \
@@ -456,7 +455,6 @@ lvgl/src/lv_init.o: ../lvgl/src/lv_init.c \
 ../lvgl/src/display/../core/lv_obj.h:
 ../lvgl/src/display/../draw/lv_draw.h:
 ../lvgl/src/display/lv_display.h:
-../lvgl/src/display/../others/sysmon/lv_sysmon_private.h:
 ../lvgl/src/indev/lv_indev_private.h:
 ../lvgl/src/indev/lv_indev.h:
 ../lvgl/src/indev/../misc/lv_anim.h:

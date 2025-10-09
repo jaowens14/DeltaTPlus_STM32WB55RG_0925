@@ -30,6 +30,7 @@ public:
     int ch2_delay;
     long raw[3];
     double voltage[3];
+    double temp_voltage;
     float temperature[3];
     float temp_temp;
 

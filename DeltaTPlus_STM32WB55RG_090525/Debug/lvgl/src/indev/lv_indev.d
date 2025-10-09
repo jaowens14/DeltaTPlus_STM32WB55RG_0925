@@ -123,11 +123,6 @@ lvgl/src/indev/lv_indev.o: ../lvgl/src/indev/lv_indev.c \
  ../lvgl/src/indev/../display/../core/lv_obj.h \
  ../lvgl/src/indev/../display/../draw/lv_draw.h \
  ../lvgl/src/indev/../display/lv_display.h \
- ../lvgl/src/indev/../display/../others/sysmon/lv_sysmon_private.h \
- ../lvgl/src/indev/../display/../others/sysmon/lv_sysmon.h \
- ../lvgl/src/indev/../display/../others/sysmon/../../misc/lv_timer.h \
- ../lvgl/src/indev/../display/../others/sysmon/../../others/observer/lv_observer.h \
- ../lvgl/src/indev/../display/../others/sysmon/../../others/observer/../../core/lv_obj.h \
  ../lvgl/src/indev/../core/lv_global.h \
  ../lvgl/src/indev/../core/../draw/lv_draw.h \
  ../lvgl/src/indev/../core/../draw/sw/lv_draw_sw.h \
@@ -164,6 +159,9 @@ lvgl/src/indev/lv_indev.o: ../lvgl/src/indev/lv_indev.c \
  ../lvgl/src/indev/../core/../osal/../misc/lv_types.h \
  ../lvgl/src/indev/../core/../osal/lv_os_none.h \
  ../lvgl/src/indev/../core/../others/sysmon/lv_sysmon.h \
+ ../lvgl/src/indev/../core/../others/sysmon/../../misc/lv_timer.h \
+ ../lvgl/src/indev/../core/../others/sysmon/../../others/observer/lv_observer.h \
+ ../lvgl/src/indev/../core/../others/sysmon/../../others/observer/../../core/lv_obj.h \
  ../lvgl/src/indev/../core/../stdlib/builtin/lv_tlsf.h \
  ../lvgl/src/indev/../core/../stdlib/builtin/../../lv_conf_internal.h \
  ../lvgl/src/indev/../core/../stdlib/builtin/../../misc/lv_ll.h \
@@ -201,6 +199,7 @@ lvgl/src/indev/lv_indev.o: ../lvgl/src/indev/lv_indev.c \
  ../lvgl/src/indev/../core/../stdlib/builtin/lv_tlsf.h \
  ../lvgl/src/indev/../core/../stdlib/builtin/../../osal/lv_os_private.h \
  ../lvgl/src/indev/../core/../others/sysmon/lv_sysmon_private.h \
+ ../lvgl/src/indev/../core/../others/sysmon/lv_sysmon.h \
  ../lvgl/src/indev/../core/../others/test/lv_test_private.h \
  ../lvgl/src/indev/../core/../others/test/../../lv_conf_internal.h \
  ../lvgl/src/indev/../core/../layouts/lv_layout_private.h \
@@ -341,11 +340,6 @@ lvgl/src/indev/lv_indev.o: ../lvgl/src/indev/lv_indev.c \
 ../lvgl/src/indev/../display/../core/lv_obj.h:
 ../lvgl/src/indev/../display/../draw/lv_draw.h:
 ../lvgl/src/indev/../display/lv_display.h:
-../lvgl/src/indev/../display/../others/sysmon/lv_sysmon_private.h:
-../lvgl/src/indev/../display/../others/sysmon/lv_sysmon.h:
-../lvgl/src/indev/../display/../others/sysmon/../../misc/lv_timer.h:
-../lvgl/src/indev/../display/../others/sysmon/../../others/observer/lv_observer.h:
-../lvgl/src/indev/../display/../others/sysmon/../../others/observer/../../core/lv_obj.h:
 ../lvgl/src/indev/../core/lv_global.h:
 ../lvgl/src/indev/../core/../draw/lv_draw.h:
 ../lvgl/src/indev/../core/../draw/sw/lv_draw_sw.h:
@@ -382,6 +376,9 @@ lvgl/src/indev/lv_indev.o: ../lvgl/src/indev/lv_indev.c \
 ../lvgl/src/indev/../core/../osal/../misc/lv_types.h:
 ../lvgl/src/indev/../core/../osal/lv_os_none.h:
 ../lvgl/src/indev/../core/../others/sysmon/lv_sysmon.h:
+../lvgl/src/indev/../core/../others/sysmon/../../misc/lv_timer.h:
+../lvgl/src/indev/../core/../others/sysmon/../../others/observer/lv_observer.h:
+../lvgl/src/indev/../core/../others/sysmon/../../others/observer/../../core/lv_obj.h:
 ../lvgl/src/indev/../core/../stdlib/builtin/lv_tlsf.h:
 ../lvgl/src/indev/../core/../stdlib/builtin/../../lv_conf_internal.h:
 ../lvgl/src/indev/../core/../stdlib/builtin/../../misc/lv_ll.h:
@@ -419,6 +416,7 @@ lvgl/src/indev/lv_indev.o: ../lvgl/src/indev/lv_indev.c \
 ../lvgl/src/indev/../core/../stdlib/builtin/lv_tlsf.h:
 ../lvgl/src/indev/../core/../stdlib/builtin/../../osal/lv_os_private.h:
 ../lvgl/src/indev/../core/../others/sysmon/lv_sysmon_private.h:
+../lvgl/src/indev/../core/../others/sysmon/lv_sysmon.h:
 ../lvgl/src/indev/../core/../others/test/lv_test_private.h:
 ../lvgl/src/indev/../core/../others/test/../../lv_conf_internal.h:
 ../lvgl/src/indev/../core/../layouts/lv_layout_private.h:

@@ -113,11 +113,6 @@ lvgl/src/core/lv_obj_class.o: ../lvgl/src/core/lv_obj_class.c \
  ../lvgl/src/core/../display/../core/lv_obj.h \
  ../lvgl/src/core/../display/../draw/lv_draw.h \
  ../lvgl/src/core/../display/lv_display.h \
- ../lvgl/src/core/../display/../others/sysmon/lv_sysmon_private.h \
- ../lvgl/src/core/../display/../others/sysmon/lv_sysmon.h \
- ../lvgl/src/core/../display/../others/sysmon/../../misc/lv_timer.h \
- ../lvgl/src/core/../display/../others/sysmon/../../others/observer/lv_observer.h \
- ../lvgl/src/core/../display/../others/sysmon/../../others/observer/../../core/lv_obj.h \
  ../lvgl/src/core/../stdlib/lv_string.h
 ../lvgl/src/core/lv_obj_class_private.h:
 ../lvgl/src/core/lv_obj_class.h:
@@ -248,9 +243,4 @@ lvgl/src/core/lv_obj_class.o: ../lvgl/src/core/lv_obj_class.c \
 ../lvgl/src/core/../display/../core/lv_obj.h:
 ../lvgl/src/core/../display/../draw/lv_draw.h:
 ../lvgl/src/core/../display/lv_display.h:
-../lvgl/src/core/../display/../others/sysmon/lv_sysmon_private.h:
-../lvgl/src/core/../display/../others/sysmon/lv_sysmon.h:
-../lvgl/src/core/../display/../others/sysmon/../../misc/lv_timer.h:
-../lvgl/src/core/../display/../others/sysmon/../../others/observer/lv_observer.h:
-../lvgl/src/core/../display/../others/sysmon/../../others/observer/../../core/lv_obj.h:
 ../lvgl/src/core/../stdlib/lv_string.h:

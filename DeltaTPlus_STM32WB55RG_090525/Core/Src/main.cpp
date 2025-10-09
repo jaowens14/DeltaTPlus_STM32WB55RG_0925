@@ -202,10 +202,10 @@ static void updateNeedle(lv_timer_t *timer)
 
   if (xValue != lastXValue)
   {
-    if (xValue < minXValue)
-      xValue = minXValue;
-    if (xValue > maxXValue)
-      xValue = maxXValue;
+    if (xValue < minXValue + 20)
+      xValue = minXValue + 20;
+    if (xValue > maxXValue - 20)
+      xValue = maxXValue - 20;
 
     lastXValue = xValue;
 
@@ -311,16 +311,16 @@ void brookes_meter(void)
   lv_obj_set_style_border_opa(circle, LV_OPA_COVER, 0);
   lv_obj_align(circle, LV_ALIGN_CENTER, 0, needleOriginY + 100);
 
-  lv_obj_t *rect = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_t *rect = lv_obj_create(lv_scr_act()); // Create a base object on the active screen
   lv_obj_set_style_border_width(rect, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-  lv_obj_set_size(rect, 15, 135);                                  // Set width and height of the rectangle
+  lv_obj_set_size(rect, 15, 135); // Set width and height of the rectangle
 
   lv_obj_set_style_radius(rect, 0, 0);                             // Set radius to 0 for sharp corners (rectangle)
   lv_obj_set_style_bg_color(rect, lv_color_hex(WEB_LIGHT_TAN), 0); // Set background color (red here)
   lv_obj_align(rect, LV_ALIGN_BOTTOM_RIGHT, 0, 0);
 
-  lv_obj_t *rect2 = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_t *rect2 = lv_obj_create(lv_scr_act()); // Create a base object on the active screen
   lv_obj_set_style_border_width(rect2, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
   lv_obj_set_size(rect2, 15, 135);                                  // Set width and height of the rectangle
@@ -328,7 +328,7 @@ void brookes_meter(void)
   lv_obj_set_style_bg_color(rect2, lv_color_hex(WEB_LIGHT_TAN), 0); // Set background color (red here)
   lv_obj_align(rect2, LV_ALIGN_BOTTOM_LEFT, 0, 0);
 
-  lv_obj_t *rect3 = lv_obj_create(lv_scr_act());                    // Create a base object on the active screen
+  lv_obj_t *rect3 = lv_obj_create(lv_scr_act()); // Create a base object on the active screen
   lv_obj_set_style_border_width(rect3, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
 
   lv_obj_set_size(rect3, 240, 15);                                  // Set width and height of the rectangle
@@ -355,12 +355,12 @@ void brookes_meter(void)
   productLabel2 = lv_label_create(root);
   lv_obj_clear_flag(productLabel2, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(productLabel2, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_set_size(productLabel2, 240, 32);
-  lv_label_set_text(productLabel2, "The Instrument Company\n Fort Collins, CO");
+  lv_obj_set_size(productLabel2, 240, 46);
+  lv_label_set_text(productLabel2, "The Instrument Company\n Fort Collins, CO\ntheinstrumentcompany.com\n");
   lv_obj_set_style_text_align(productLabel2, LV_TEXT_ALIGN_CENTER, 0); // center text in box
   lv_obj_set_style_border_width(productLabel2, 0, 0);
   lv_obj_set_style_text_color(productLabel2, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_text_font(productLabel2, &lv_font_montserrat_10, 0);
+  lv_obj_set_style_text_font(productLabel2, &lv_font_montserrat_12, 0);
   lv_obj_align(productLabel2, LV_ALIGN_BOTTOM_MID, 0, -40);
 #endif
 
@@ -592,6 +592,7 @@ int main(void)
   lv_init();
   // 2. Initialize TFT Driver
   ST7789_Init();
+  ST7789_FillScreen(0x0000); // Fill black, or use your background color
   ST7789V_SetRotation(2);
   // ST7789_FillScreen(0xf400);
   //  3. Connect tick interface
@@ -604,8 +605,10 @@ int main(void)
   // 4.c flush callback
   lv_display_set_flush_cb(display1, my_flush_cb);
 
+
   brookes_meter();
 
+  //HAL_Delay(1000);
   myBacklight.setup();
 
   snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
@@ -627,13 +630,13 @@ int main(void)
     myThermocouples.stateMachine();
     // myTouch.stateMachine();
 
-   // if (measureFlag && uart_ready)
-   // {
-   //   uart_ready = 0;
-   //   measureFlag = 0;
-   //   snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
-   //   HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
-   // }
+    // if (measureFlag && uart_ready)
+    // {
+    //   uart_ready = 0;
+    //   measureFlag = 0;
+    //   snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+    //   HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
+    // }
 
     // should run at 20ms / 50fps
     if (run_lv_timer_handler)
