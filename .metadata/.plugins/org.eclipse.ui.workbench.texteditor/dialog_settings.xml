@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item key="hasShownOverlayPopupBefore" value="true"/>
-	<item key="replaceBarOpen" value="false"/>
+	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
-		<item value="writeData"/>
-		<item value="writeCommand"/>
-		<item value="measureFlag"/>
-		<item value="int_port"/>
-		<item value="FT_I2C_ADDR"/>
+		<item value="productlabel2"/>
+		<item value="lv_color_hex"/>
+		<item value="WEB_LIGHT_TAN"/>
+		<item value="circl"/>
+		<item value="productl"/>
+		<item value="HAL_Delay"/>
+		<item value="setCurrentSource"/>
+		<item value="380"/>
+		<item value="circ"/>
+		<item value="cir"/>
+		<item value="circle"/>
+		<item value="WEB_"/>
+		<item value="needleLength"/>
+		<item value="coldJunctionTemp"/>
+		<item value="updatene"/>
 	</list>
 	<list key="replacehistory">
 		<item value="writeData16"/>
