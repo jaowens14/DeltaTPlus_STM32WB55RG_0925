@@ -29,7 +29,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "DeltaT.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -39,7 +39,7 @@ typedef struct
   uint8_t               Switch_c_Notification_Status;
   uint8_t               Delta_t_ch_Notification_Status;
   /* USER CODE BEGIN CUSTOM_APP_Context_t */
-
+  uint8_t TimerMeasurement_Id;
   /* USER CODE END CUSTOM_APP_Context_t */
 
   uint16_t              ConnectionHandle;
@@ -56,6 +56,7 @@ typedef struct
 
 /* Private macros -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
+#define CUSTOM_APP_MEASUREMENT_INTERVAL   (1000000/CFG_TS_TICK_VAL)  /**< 1s */
 
 /* USER CODE END PM */
 
@@ -85,6 +86,9 @@ static void Custom_Delta_t_ch_Update_Char(void);
 static void Custom_Delta_t_ch_Send_Notification(void);
 
 /* USER CODE BEGIN PFP */
+static uint32_t HRSAPP_Read_RTC_SSR_SS ( void );
+static void Schedule_DeltaT_Update( void );
+static void Custom_App_DeltaT_Measurement(void);
 
 /* USER CODE END PFP */
 
@@ -201,6 +205,9 @@ void Custom_APP_Notification(Custom_App_ConnHandle_Not_evt_t *pNotification)
 void Custom_APP_Init(void)
 {
   /* USER CODE BEGIN CUSTOM_APP_Init */
+	UTIL_SEQ_RegTask( 1<< CFG_TASK_UPDATE_DELTA_T_ID, UTIL_SEQ_RFU, Custom_App_DeltaT_Measurement);
+	HW_TS_Create(CFG_TIM_PROC_ID_ISR, &(Custom_App_Context.TimerMeasurement_Id), hw_ts_Repeated, Schedule_DeltaT_Update);
+    HW_TS_Start(Custom_App_Context.TimerMeasurement_Id, CUSTOM_APP_MEASUREMENT_INTERVAL);
 
   /* USER CODE END CUSTOM_APP_Init */
   return;
@@ -296,5 +303,45 @@ void Custom_Delta_t_ch_Send_Notification(void) /* Property Notification */
 }
 
 /* USER CODE BEGIN FD_LOCAL_FUNCTIONS*/
+static void Custom_App_DeltaT_Measurement(void)
+{
+/* USER CODE BEGIN HRSAPP_Measurement */
+  //uint32_t measurement;
 
+  //measurement = ((HRSAPP_Read_RTC_SSR_SS()) & 0x07) + 65;
+  //HRSAPP_Context.MeasurementvalueChar.MeasurementValue = measurement;
+  //UpdateCharData = measurement;
+#if (BLE_CFG_HRS_ENERGY_EXPENDED_INFO_FLAG != 0)
+  if((HRSAPP_Context.MeasurementvalueChar.Flags & HRS_HRM_ENERGY_EXPENDED_PRESENT) &&
+     (HRSAPP_Context.ResetEnergyExpended == 0))
+    HRSAPP_Context.MeasurementvalueChar.EnergyExpended += 5;
+  else if(HRSAPP_Context.ResetEnergyExpended == 1)
+    HRSAPP_Context.ResetEnergyExpended = 0;
+#endif
+
+  Custom_STM_App_Update_Char(CUSTOM_STM_DELTA_T_CH, (uint8_t *)&myDeltaTCharValue);
+
+/* USER CODE END HRSAPP_Measurement */
+  return;
+}
+
+static void Schedule_DeltaT_Update( void )
+{
+  /**
+   * The code shall be executed in the background as aci command may be sent
+   * The background is the only place where the application can make sure a new aci command
+   * is not sent if there is a pending one
+   */
+  UTIL_SEQ_SetTask( 1<<CFG_TASK_UPDATE_DELTA_T_ID, CFG_SCH_PRIO_0);
+/* USER CODE BEGIN HrMeas */
+
+/* USER CODE END HrMeas */
+
+  return;
+}
+
+static uint32_t HRSAPP_Read_RTC_SSR_SS ( void )
+{
+  return ((uint32_t)(READ_BIT(RTC->SSR, RTC_SSR_SS)));
+}
 /* USER CODE END FD_LOCAL_FUNCTIONS*/

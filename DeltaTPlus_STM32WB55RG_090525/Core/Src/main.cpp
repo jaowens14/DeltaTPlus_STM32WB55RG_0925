@@ -17,8 +17,8 @@
  */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <Accelerometer.hpp>
-#include <Backlight.hpp>
+#include <accel.h>
+#include <backlight.h>
 #include "main.h"
 #include "dma.h"
 #include "i2c.h"
@@ -26,17 +26,18 @@
 #include "memorymap.h"
 #include "rf.h"
 #include "rtc.h"
+#include "rng.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
 #include "usb_device.h"
 #include "gpio.h"
-
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 // #include "Adafruit_GFX.h"
 //  #include "usbd_cdc_if.h"
 #include "stm32_seq.h"
+#include <string.h>
 
 #include "Thermocouples.hpp"
 #include "ad7124-driver.h"
@@ -95,7 +96,12 @@ int lastAngle;
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-uint8_t UART_BUFFER[256] = {0};
+#define UART_RX_BUFFER_SIZE 256
+uint8_t UART_RX_BUFFER[UART_RX_BUFFER_SIZE] = {0};
+uint8_t UART_BUFFER[UART_RX_BUFFER_SIZE] = {0};
+
+uint8_t UART_RX_BYTE = 0;
+uint8_t UART_RX_READY = 0;
 int uart_ready = 0;
 #define BYTE_PER_PIXEL 2
 lv_display_t *display1 = NULL; // Global variable
@@ -137,25 +143,72 @@ volatile uint32_t loopCounter = 0;
 volatile uint32_t loopsPerSecond = 0;
 volatile uint8_t measureFlag = 0;
 
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1)
+  {
+    static uint16_t bufferIndex = 0;
+    static uint8_t parseActive = 0;
+
+    uint8_t temp = UART_RX_BYTE;
+
+    /* If new string starts, reset buffer */
+    if (temp == '$')
+    {
+      bufferIndex = 0;
+      parseActive = 1;
+      UART_RX_READY = 0;
+    }
+
+    if (parseActive)
+    {
+      /* Store byte in buffer */
+    	UART_RX_BUFFER[bufferIndex] = temp;
+
+      /* Check if string is complete (ends with \n) */
+      if (temp == 0x0A && UART_RX_BUFFER[0] == '$')
+      {
+        /* Null-terminate the string */
+    	  UART_RX_BUFFER[bufferIndex + 1] = 0;
+
+        /* Signal that data is ready for processing */
+    	 UART_RX_READY = 1;
+        parseActive = 0;
+      }
+      else
+      {
+        /* Continue filling buffer */
+        if (bufferIndex < UART_RX_BUFFER_SIZE - 2)
+          bufferIndex++;
+      }
+    }
+
+    /* Re-enable interrupt for next byte */
+    HAL_UART_Receive_IT(huart, &UART_RX_BYTE, 1);
+  }
+}
+
+
+void UART_RX_HANDLER(void) {
+
+	if (UART_RX_READY) {
+		UART_RX_READY = 0;
+
+
+	    if (strcmp((char *)UART_RX_BUFFER, "$accel") == 0)
+	    {
+
+
+	    }
+
+		//HAL_UART_Transmit_IT(&huart1, UART_RX_BUFFER, strlen((char *)UART_RX_BUFFER));
+	}
+}
+
 Thermocouples myThermocouples;
-Accelerometer myAccelerometer;
-Backlight myBacklight;
 Touch myTouch;
 
 ///////////////////////////////////////////////////
-
-// Add at top of file
-static inline void DWT_Init(void)
-{
-  CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
-  DWT->CYCCNT = 0;
-  DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
-}
-
-static inline uint32_t DWT_GetCycles(void)
-{
-  return DWT->CYCCNT;
-}
 
 /* Timer callback to update the text area with sensor data */
 static void updateSettingLabel(lv_timer_t *timer)
@@ -163,7 +216,7 @@ static void updateSettingLabel(lv_timer_t *timer)
 
   char *switchState;
 
-  if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_0))
+  if (accelSwitchState)
   {
     switchState = "HIGH";
     Thermocouples::userGain = 2.0;
@@ -372,8 +425,8 @@ void brookes_meter(void)
   lv_obj_set_size(batteryLabel, 64, 32);
   lv_obj_set_style_text_align(batteryLabel, LV_TEXT_ALIGN_RIGHT, 0);
   lv_obj_align(batteryLabel, LV_ALIGN_TOP_RIGHT, -10, 5);
-  lv_timer_t *batteryTimer = lv_timer_create(updateBatteryLabel, 5000, batteryLabel);
-  updateBatteryLabel(batteryTimer);
+  // lv_timer_t *batteryTimer = lv_timer_create(updateBatteryLabel, 5000, batteryLabel);
+  // updateBatteryLabel(batteryTimer);
 #endif
 
 #if 1 // left label for setting
@@ -401,7 +454,7 @@ void brookes_meter(void)
   lv_obj_set_style_line_width(needle, 2, 0);
   lv_obj_set_style_line_color(needle, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_line_rounded(needle, false, 0);
-  lv_timer_create(updateNeedle, 15, needle);
+  lv_timer_create(updateNeedle, 20, needle);
 #endif
 }
 
@@ -435,10 +488,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
         myTouch.delay--;
       }
 
-      if (myAccelerometer.readDelay)
-      {
-        myAccelerometer.readDelay--;
-      }
+      // if (accelDelay)
+      // {
+      //  myAccelerometer.readDelay--;
+      // }
     }
 
     // 100 ms timers //
@@ -455,9 +508,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       measureFlag = 1; // Signal to print result
 
       timerCounter = 0;
-      if (myAccelerometer.delay)
+      if (accelDelay)
       {
-        myAccelerometer.delay--;
+        accelDelay--;
       }
     }
     //}
@@ -467,7 +520,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
 {
 
-  if (hspi == &hspi2)
+  if (hspi == &hspi1)
   {
     ST7789_CS_HIGH();
     lv_display_flush_ready(display1);
@@ -491,29 +544,46 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
   }
 }
 
-// GPIO EXTI Callback - this is where you connect to the library
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 
-  // Call the library's interrupt handler
-  Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
+  if (GPIO_Pin == ACCEL_INT1_Pin)
+  {
+    int1_triggered = 1;
+  }
+
+  if (GPIO_Pin == ACCEL_INT2_Pin)
+  {
+    int2_triggered = 1;
+  }
+
+  if (GPIO_Pin == CTP_INT_Pin)
+  {
+    // touch_handler();
+    Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
+  }
+
+  // Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
 }
 
 void my_flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *px_map)
 {
 
+  int32_t width = area->x2 - area->x1 + 1;
+  int32_t height = area->y2 - area->y1 + 1;
+
   ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
 
   ST7789_CS_LOW_DC_HIGH();
 
-  int32_t width = area->x2 - area->x1 + 1;
-  int32_t height = area->y2 - area->y1 + 1;
+  // int32_t width = area->x2 - area->x1 + 1;
+  // int32_t height = area->y2 - area->y1 + 1;
 
   uint32_t size = width * height * 2; // 2 bytes per pixel for RGB565
 
   lv_draw_sw_rgb565_swap(px_map, (area->x2 - area->x1 + 1) * (area->y2 - area->y1 + 1));
 
-  HAL_SPI_Transmit_DMA(&hspi2, (uint8_t *)px_map, size);
+  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t *)px_map, size);
 }
 
 /* USER CODE END 0 */
@@ -565,6 +635,8 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM16_Init();
   MX_RF_Init();
+  MX_RNG_Init();
+
   /* USER CODE BEGIN 2 */
 
   // MX_APPE_Init();
@@ -581,7 +653,7 @@ int main(void)
   /* Init code for STM32_WPAN */
   MX_APPE_Init();
 
-  myAccelerometer.setup();
+  accelSetup();
   myThermocouples.setup();
 
   myTouch.setup();
@@ -605,14 +677,13 @@ int main(void)
   // 4.c flush callback
   lv_display_set_flush_cb(display1, my_flush_cb);
 
-
   brookes_meter();
 
-  //HAL_Delay(1000);
-  myBacklight.setup();
+  backlightSetup();
 
   snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
   HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
+  HAL_UART_Receive_IT(&huart1, &UART_RX_BYTE, 1);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -624,19 +695,20 @@ int main(void)
     MX_APPE_Process();
 
     /* USER CODE BEGIN 3 */
+    UART_RX_HANDLER();
 
-    myAccelerometer.stateMachine();
-    myBacklight.stateMachine();
-    myThermocouples.stateMachine();
-    // myTouch.stateMachine();
+    //accelMain();
+    //backlightMain();
+     //myThermocouples.stateMachine();
+   // myTouch.stateMachine();
 
-    // if (measureFlag && uart_ready)
-    // {
-    //   uart_ready = 0;
-    //   measureFlag = 0;
-    //   snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
-    //   HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
-    // }
+    if (measureFlag && uart_ready)
+    {
+      uart_ready = 0;
+      measureFlag = 0;
+      snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+      HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
+    }
 
     // should run at 20ms / 50fps
     if (run_lv_timer_handler)

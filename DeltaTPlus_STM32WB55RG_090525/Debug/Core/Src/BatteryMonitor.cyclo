@@ -1,5 +1,4 @@
-../Core/Src/BatteryMonitor.cpp:7:6:void setupBatteryMonitor()	2
+../Core/Src/BatteryMonitor.cpp:7:6:void setupBatteryMonitor()	3
 ../Core/Src/BatteryMonitor.cpp:19:10:uint16_t getChargeLevel()	2
 ../Core/Src/BatteryMonitor.cpp:36:6:bool getChargeStatus()	1
-../Core/Src/BatteryMonitor.cpp:39:1:void __static_initialization_and_destruction_0()	1
 ../Core/Src/BatteryMonitor.cpp:39:1:cpp)	1

@@ -254,6 +254,7 @@ static void Connection_Interval_Update_Req(void);
 /* USER CODE END PFP */
 
 /* External variables --------------------------------------------------------*/
+extern RNG_HandleTypeDef hrng;
 
 /* USER CODE BEGIN EV */
 

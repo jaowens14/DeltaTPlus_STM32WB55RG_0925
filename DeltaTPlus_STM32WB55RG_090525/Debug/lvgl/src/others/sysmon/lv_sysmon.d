@@ -122,7 +122,109 @@ lvgl/src/others/sysmon/lv_sysmon.o: ../lvgl/src/others/sysmon/lv_sysmon.c \
  ../lvgl/src/others/sysmon/../../others/observer/../../core/../indev/../misc/lv_event.h \
  ../lvgl/src/others/sysmon/../../others/observer/../../core/lv_group.h \
  ../lvgl/src/others/sysmon/../../misc/lv_timer_private.h \
- ../lvgl/src/others/sysmon/../../misc/lv_timer.h
+ ../lvgl/src/others/sysmon/../../misc/lv_timer.h \
+ ../lvgl/src/others/sysmon/../../core/lv_global.h \
+ ../lvgl/src/others/sysmon/../../core/../lv_conf_internal.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_types.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/lv_draw.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../../misc/lv_area.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../../misc/lv_color.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../../display/lv_display.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_vector.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../../misc/lv_array.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../../misc/lv_matrix.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_image.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_triangle.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_label.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_image.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_line.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_arc.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw_utils.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../../lv_conf_internal.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/lv_draw_sw_blend.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../lv_draw_sw_mask.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_area.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_color.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_math.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_types.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_color.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_area.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_style.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_anim.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_area.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_color_op.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_ll.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_log.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_style.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_timer.h \
+ ../lvgl/src/others/sysmon/../../core/../osal/lv_os_private.h \
+ ../lvgl/src/others/sysmon/../../core/../osal/../lv_conf_internal.h \
+ ../lvgl/src/others/sysmon/../../core/../osal/lv_os.h \
+ ../lvgl/src/others/sysmon/../../core/../osal/../misc/lv_types.h \
+ ../lvgl/src/others/sysmon/../../core/../osal/lv_os_none.h \
+ ../lvgl/src/others/sysmon/../../core/../others/sysmon/lv_sysmon.h \
+ ../lvgl/src/others/sysmon/../../core/../stdlib/builtin/lv_tlsf.h \
+ ../lvgl/src/others/sysmon/../../core/../stdlib/builtin/../../lv_conf_internal.h \
+ ../lvgl/src/others/sysmon/../../core/../stdlib/builtin/../../misc/lv_ll.h \
+ ../lvgl/src/others/sysmon/../../core/../stdlib/builtin/../../misc/lv_types.h \
+ ../lvgl/src/others/sysmon/../../core/../tick/lv_tick.h \
+ ../lvgl/src/others/sysmon/../../core/../layouts/lv_layout.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_timer_private.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_anim_private.h \
+ ../lvgl/src/others/sysmon/../../core/../misc/lv_anim.h \
+ ../lvgl/src/others/sysmon/../../core/../tick/lv_tick_private.h \
+ ../lvgl/src/others/sysmon/../../core/../tick/lv_tick.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/lv_draw_buf_private.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/lv_draw_buf.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/lv_draw_private.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/lv_draw.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../osal/lv_os_private.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/lv_cache.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/../lv_types.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/lv_cache_entry.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/lv_cache_class.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/lv_cache_lru_rb.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/../lv_cache_private.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/../../lv_types.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/../../../osal/lv_os_private.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/lv_cache_lru_ll.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/lv_cache_sc_da.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/instance/lv_cache_instance.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/instance/lv_image_header_cache.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/instance/../../lv_types.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/instance/lv_image_cache.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw_private.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_private.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw_mask_private.h \
+ ../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw_mask.h \
+ ../lvgl/src/others/sysmon/../../core/../stdlib/builtin/lv_tlsf_private.h \
+ ../lvgl/src/others/sysmon/../../core/../stdlib/builtin/lv_tlsf.h \
+ ../lvgl/src/others/sysmon/../../core/../stdlib/builtin/../../osal/lv_os_private.h \
+ ../lvgl/src/others/sysmon/../../core/../others/sysmon/lv_sysmon_private.h \
+ ../lvgl/src/others/sysmon/../../core/../others/test/lv_test_private.h \
+ ../lvgl/src/others/sysmon/../../core/../others/test/../../lv_conf_internal.h \
+ ../lvgl/src/others/sysmon/../../core/../layouts/lv_layout_private.h \
+ ../lvgl/src/others/sysmon/../../core/../layouts/lv_layout.h \
+ ../lvgl/src/others/sysmon/../../misc/lv_async.h \
+ ../lvgl/src/others/sysmon/../../stdlib/lv_string.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/lv_label.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/../../lv_conf_internal.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/../../misc/lv_types.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/../../core/lv_obj.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/../../font/lv_font.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/../../font/lv_symbol_def.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/../../misc/lv_text.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/../../draw/lv_draw.h \
+ ../lvgl/src/others/sysmon/../../widgets/label/../../others/observer/lv_observer.h \
+ ../lvgl/src/others/sysmon/../../display/lv_display_private.h \
+ ../lvgl/src/others/sysmon/../../display/../misc/lv_types.h \
+ ../lvgl/src/others/sysmon/../../display/../core/lv_obj.h \
+ ../lvgl/src/others/sysmon/../../display/../draw/lv_draw.h \
+ ../lvgl/src/others/sysmon/../../display/lv_display.h \
+ ../lvgl/src/others/sysmon/../../display/../others/sysmon/lv_sysmon_private.h
 ../lvgl/src/others/sysmon/lv_sysmon_private.h:
 ../lvgl/src/others/sysmon/lv_sysmon.h:
 ../lvgl/src/others/sysmon/../../misc/lv_timer.h:
@@ -247,3 +349,105 @@ lvgl/src/others/sysmon/lv_sysmon.o: ../lvgl/src/others/sysmon/lv_sysmon.c \
 ../lvgl/src/others/sysmon/../../others/observer/../../core/lv_group.h:
 ../lvgl/src/others/sysmon/../../misc/lv_timer_private.h:
 ../lvgl/src/others/sysmon/../../misc/lv_timer.h:
+../lvgl/src/others/sysmon/../../core/lv_global.h:
+../lvgl/src/others/sysmon/../../core/../lv_conf_internal.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_types.h:
+../lvgl/src/others/sysmon/../../core/../draw/lv_draw.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../../misc/lv_area.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../../misc/lv_color.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../../display/lv_display.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_vector.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../../misc/lv_array.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../../misc/lv_matrix.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_image.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_triangle.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_label.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_image.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_line.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_arc.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw_utils.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../../lv_conf_internal.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/lv_draw_sw_blend.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../lv_draw_sw_mask.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_area.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_color.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_math.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_types.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_color.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_area.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/blend/../../../misc/lv_style.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_anim.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_area.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_color_op.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_ll.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_log.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_style.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_timer.h:
+../lvgl/src/others/sysmon/../../core/../osal/lv_os_private.h:
+../lvgl/src/others/sysmon/../../core/../osal/../lv_conf_internal.h:
+../lvgl/src/others/sysmon/../../core/../osal/lv_os.h:
+../lvgl/src/others/sysmon/../../core/../osal/../misc/lv_types.h:
+../lvgl/src/others/sysmon/../../core/../osal/lv_os_none.h:
+../lvgl/src/others/sysmon/../../core/../others/sysmon/lv_sysmon.h:
+../lvgl/src/others/sysmon/../../core/../stdlib/builtin/lv_tlsf.h:
+../lvgl/src/others/sysmon/../../core/../stdlib/builtin/../../lv_conf_internal.h:
+../lvgl/src/others/sysmon/../../core/../stdlib/builtin/../../misc/lv_ll.h:
+../lvgl/src/others/sysmon/../../core/../stdlib/builtin/../../misc/lv_types.h:
+../lvgl/src/others/sysmon/../../core/../tick/lv_tick.h:
+../lvgl/src/others/sysmon/../../core/../layouts/lv_layout.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_timer_private.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_anim_private.h:
+../lvgl/src/others/sysmon/../../core/../misc/lv_anim.h:
+../lvgl/src/others/sysmon/../../core/../tick/lv_tick_private.h:
+../lvgl/src/others/sysmon/../../core/../tick/lv_tick.h:
+../lvgl/src/others/sysmon/../../core/../draw/lv_draw_buf_private.h:
+../lvgl/src/others/sysmon/../../core/../draw/lv_draw_buf.h:
+../lvgl/src/others/sysmon/../../core/../draw/lv_draw_private.h:
+../lvgl/src/others/sysmon/../../core/../draw/lv_draw.h:
+../lvgl/src/others/sysmon/../../core/../draw/../osal/lv_os_private.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/lv_cache.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/../lv_types.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/lv_cache_entry.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/lv_cache_class.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/lv_cache_lru_rb.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/../lv_cache_private.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/../../lv_types.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/../../../osal/lv_os_private.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/lv_cache_lru_ll.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/class/lv_cache_sc_da.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/instance/lv_cache_instance.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/instance/lv_image_header_cache.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/instance/../../lv_types.h:
+../lvgl/src/others/sysmon/../../core/../draw/../misc/cache/instance/lv_image_cache.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw_private.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/../lv_draw_private.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw_mask_private.h:
+../lvgl/src/others/sysmon/../../core/../draw/sw/lv_draw_sw_mask.h:
+../lvgl/src/others/sysmon/../../core/../stdlib/builtin/lv_tlsf_private.h:
+../lvgl/src/others/sysmon/../../core/../stdlib/builtin/lv_tlsf.h:
+../lvgl/src/others/sysmon/../../core/../stdlib/builtin/../../osal/lv_os_private.h:
+../lvgl/src/others/sysmon/../../core/../others/sysmon/lv_sysmon_private.h:
+../lvgl/src/others/sysmon/../../core/../others/test/lv_test_private.h:
+../lvgl/src/others/sysmon/../../core/../others/test/../../lv_conf_internal.h:
+../lvgl/src/others/sysmon/../../core/../layouts/lv_layout_private.h:
+../lvgl/src/others/sysmon/../../core/../layouts/lv_layout.h:
+../lvgl/src/others/sysmon/../../misc/lv_async.h:
+../lvgl/src/others/sysmon/../../stdlib/lv_string.h:
+../lvgl/src/others/sysmon/../../widgets/label/lv_label.h:
+../lvgl/src/others/sysmon/../../widgets/label/../../lv_conf_internal.h:
+../lvgl/src/others/sysmon/../../widgets/label/../../misc/lv_types.h:
+../lvgl/src/others/sysmon/../../widgets/label/../../core/lv_obj.h:
+../lvgl/src/others/sysmon/../../widgets/label/../../font/lv_font.h:
+../lvgl/src/others/sysmon/../../widgets/label/../../font/lv_symbol_def.h:
+../lvgl/src/others/sysmon/../../widgets/label/../../misc/lv_text.h:
+../lvgl/src/others/sysmon/../../widgets/label/../../draw/lv_draw.h:
+../lvgl/src/others/sysmon/../../widgets/label/../../others/observer/lv_observer.h:
+../lvgl/src/others/sysmon/../../display/lv_display_private.h:
+../lvgl/src/others/sysmon/../../display/../misc/lv_types.h:
+../lvgl/src/others/sysmon/../../display/../core/lv_obj.h:
+../lvgl/src/others/sysmon/../../display/../draw/lv_draw.h:
+../lvgl/src/others/sysmon/../../display/lv_display.h:
+../lvgl/src/others/sysmon/../../display/../others/sysmon/lv_sysmon_private.h:

@@ -1,4 +1,4 @@
-Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/Accelerometer.hpp \
+Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/accel.h \
  ../Core/Inc/i2c.h ../Core/Inc/main.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h \
  ../Core/Inc/stm32wbxx_hal_conf.h \
@@ -38,6 +38,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/Accelerometer.hpp \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rcc_ex.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_crs.h \
+ ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rng.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rtc.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rtc_ex.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_spi.h \
@@ -63,11 +64,11 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/Accelerometer.hpp \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_rtc.h \
  ../Middlewares/ST/STM32_WPAN/ble/core/ble_bufsize.h \
  ../Core/Inc/app_entry.h ../Core/Inc/app_common.h ../Core/Inc/usart.h \
- ../Core/Inc/Backlight.hpp ../Core/Inc/tim.h ../Core/Inc/main.h \
+ ../Core/Inc/backlight.h ../Core/Inc/tim.h ../Core/Inc/main.h \
  ../Core/Inc/dma.h ../Core/Inc/i2c.h ../Core/Inc/ipcc.h \
  ../Core/Inc/memorymap.h ../Core/Inc/rf.h ../Core/Inc/rtc.h \
- ../Core/Inc/spi.h ../Core/Inc/tim.h ../Core/Inc/usart.h \
- ../USB_Device/App/usb_device.h \
+ ../Core/Inc/rng.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
+ ../Core/Inc/usart.h ../USB_Device/App/usb_device.h \
  ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
  ../USB_Device/Target/usbd_conf.h ../Core/Inc/gpio.h \
  ../Utilities/sequencer/stm32_seq.h ../Core/Inc/Thermocouples.hpp \
@@ -518,7 +519,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/Accelerometer.hpp \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_2.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_3.h \
  ../Core/Inc/ST7789.h
-../Core/Inc/Accelerometer.hpp:
+../Core/Inc/accel.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:
@@ -559,6 +560,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/Accelerometer.hpp \
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rcc_ex.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_crs.h:
+../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rng.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rtc.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rtc_ex.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_spi.h:
@@ -587,7 +589,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/Accelerometer.hpp \
 ../Core/Inc/app_entry.h:
 ../Core/Inc/app_common.h:
 ../Core/Inc/usart.h:
-../Core/Inc/Backlight.hpp:
+../Core/Inc/backlight.h:
 ../Core/Inc/tim.h:
 ../Core/Inc/main.h:
 ../Core/Inc/dma.h:
@@ -596,6 +598,7 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/Accelerometer.hpp \
 ../Core/Inc/memorymap.h:
 ../Core/Inc/rf.h:
 ../Core/Inc/rtc.h:
+../Core/Inc/rng.h:
 ../Core/Inc/spi.h:
 ../Core/Inc/tim.h:
 ../Core/Inc/usart.h:

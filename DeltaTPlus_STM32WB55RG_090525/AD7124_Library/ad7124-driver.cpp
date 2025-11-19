@@ -12,7 +12,7 @@
  * #define ADC_CS_Pin GPIO_PIN_4
  */
 
-extern SPI_HandleTypeDef hspi1; // Adjust to your SPI handle name
+extern SPI_HandleTypeDef hspi2; // Adjust to your SPI handle name
 
 /* private functions ======================================================== */
 // -----------------------------------------------------------------------------
@@ -75,7 +75,7 @@ int Ad7124Driver::read(uint8_t *data, uint8_t len)
     dummy_tx[i] = data[i]; // Copy command bytes to send
   }
 
-  status = HAL_SPI_TransmitReceive(&hspi1, dummy_tx, data, len, HAL_MAX_DELAY);
+  status = HAL_SPI_TransmitReceive(&hspi2, dummy_tx, data, len, HAL_MAX_DELAY);
 
   clearSS(id);
 
@@ -89,7 +89,7 @@ int Ad7124Driver::write(const uint8_t *data, uint8_t len)
 
   setSS(id);
 
-  status = HAL_SPI_Transmit(&hspi1, (uint8_t *)data, len, HAL_MAX_DELAY);
+  status = HAL_SPI_Transmit(&hspi2, (uint8_t *)data, len, HAL_MAX_DELAY);
 
   clearSS(id);
 

@@ -32,7 +32,7 @@ void Thermocouples::setup()
 
     int channel0 = 0;
     int channel1 = 1;
-    int channel2 = 2;
+    // int channel2 = 2;
 
     // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
     // thermocoupleADC.reset();
@@ -95,7 +95,7 @@ void Thermocouples::setup()
     rf.measurement_variance = 5.0f; // 50
 
     lf.error = 0.0f;
-    lf.estimate = 0.0f;
+    lf.estimate = 10000.0f;
     lf.process_variance = 1.0f;
     lf.measurement_variance = 5.0f;
 
@@ -166,8 +166,8 @@ void Thermocouples::stateMachine(void)
         // rf.measurement = voltage[0] + coldJunctionVoltage; // voltage
         // lf.measurement = voltage[1] + coldJunctionVoltage; // voltage
 
-        rf.measurement = voltage[0]; // voltage
-        lf.measurement = voltage[1]; // voltage
+        lf.measurement = voltage[0]; // voltage
+        rf.measurement = voltage[1]; // voltage
 
         // the current voltage is estimated to be the last voltage + volt/second ratio (velocity) * time
         rf.error = rf.error + rf.process_variance;
@@ -194,7 +194,7 @@ void Thermocouples::stateMachine(void)
         // 32307692.31
         // deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], rf.estimate, lf.estimate, deltaTemp);
+         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
         HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
     }
 }

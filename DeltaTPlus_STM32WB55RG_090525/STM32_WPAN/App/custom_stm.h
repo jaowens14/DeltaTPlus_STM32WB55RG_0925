@@ -75,7 +75,17 @@ typedef struct
 } Custom_STM_App_Notification_evt_t;
 
 /* USER CODE BEGIN ET */
-
+typedef struct{
+  uint16_t    MeasurementValue;
+#if (BLE_CFG_HRS_ENERGY_EXPENDED_INFO_FLAG == 1)
+  uint16_t    EnergyExpended;
+#endif
+#if (BLE_CFG_HRS_ENERGY_RR_INTERVAL_FLAG != 0)
+  uint16_t    aRRIntervalValues[BLE_CFG_HRS_ENERGY_RR_INTERVAL_FLAG + BLE_CFG_HRS_ENERGY_EXPENDED_INFO_FLAG];
+  uint8_t     NbreOfValidRRIntervalValues;
+#endif
+  uint8_t     Flags;
+}HRS_MeasurementVal_t;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

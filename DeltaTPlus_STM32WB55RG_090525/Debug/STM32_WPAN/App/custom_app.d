@@ -37,6 +37,7 @@ STM32_WPAN/App/custom_app.o: ../STM32_WPAN/App/custom_app.c \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rcc_ex.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_crs.h \
+ ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rng.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rtc.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rtc_ex.h \
  ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_spi.h \
@@ -111,7 +112,7 @@ STM32_WPAN/App/custom_app.o: ../STM32_WPAN/App/custom_app.c \
  ../Middlewares/ST/STM32_WPAN/ble/svc/Inc/svc_ctl.h \
  ../Middlewares/ST/STM32_WPAN/ble/svc/Inc/uuid.h \
  ../STM32_WPAN/App/custom_app.h ../STM32_WPAN/App/custom_stm.h \
- ../Utilities/sequencer/stm32_seq.h
+ ../Utilities/sequencer/stm32_seq.h ../Core/Inc/DeltaT.h
 ../Core/Inc/main.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal.h:
 ../Core/Inc/stm32wbxx_hal_conf.h:
@@ -151,6 +152,7 @@ STM32_WPAN/App/custom_app.o: ../STM32_WPAN/App/custom_app.c \
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_bus.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rcc_ex.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_ll_crs.h:
+../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rng.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rtc.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_rtc_ex.h:
 ../Drivers/STM32WBxx_HAL_Driver/Inc/stm32wbxx_hal_spi.h:
@@ -231,3 +233,4 @@ STM32_WPAN/App/custom_app.o: ../STM32_WPAN/App/custom_app.c \
 ../STM32_WPAN/App/custom_app.h:
 ../STM32_WPAN/App/custom_stm.h:
 ../Utilities/sequencer/stm32_seq.h:
+../Core/Inc/DeltaT.h:

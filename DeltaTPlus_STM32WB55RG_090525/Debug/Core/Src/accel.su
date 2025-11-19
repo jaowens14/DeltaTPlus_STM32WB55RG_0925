@@ -1,0 +1,4 @@
+../Core/Src/accel.c:70:6:accelMain	40	static
+../Core/Src/accel.c:84:6:accelHandler	32	static
+../Core/Src/accel.c:117:6:diagnoseAccelerometer	264	static
+../Core/Src/accel.c:17:6:accelSetup	64	static

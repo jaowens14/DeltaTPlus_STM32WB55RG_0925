@@ -1,20 +1,20 @@
-../AD7124_Library/ad7124-private.cpp:73:5:int Ad7124Private::noCheckReadRegister(Ad7124Register*)	40	static
-../AD7124_Library/ad7124-private.cpp:141:5:int Ad7124Private::noCheckWriteRegister(Ad7124Register)	48	static
-../AD7124_Library/ad7124-private.cpp:189:5:int Ad7124Private::readRegister(Ad7124Register*)	24	static
+../AD7124_Library/ad7124-private.cpp:73:5:int Ad7124Private::noCheckReadRegister(Ad7124Register*)	32	static
+../AD7124_Library/ad7124-private.cpp:141:5:int Ad7124Private::noCheckWriteRegister(Ad7124Register)	40	static
+../AD7124_Library/ad7124-private.cpp:264:5:int Ad7124Private::waitForSpiReady(uint32_t)	24	static
+../AD7124_Library/ad7124-private.cpp:189:5:int Ad7124Private::readRegister(Ad7124Register*)	16	static
 ../AD7124_Library/ad7124-private.cpp:217:5:int Ad7124Private::writeRegister(Ad7124Register)	32	static
 ../AD7124_Library/ad7124-private.cpp:241:5:int Ad7124Private::reset()	32	static
-../AD7124_Library/ad7124-private.cpp:264:5:int Ad7124Private::waitForSpiReady(uint32_t)	24	static
 ../AD7124_Library/ad7124-private.cpp:306:5:int Ad7124Private::waitToPowerOn(uint32_t)	24	static
 ../AD7124_Library/ad7124-private.cpp:347:5:int Ad7124Private::waitForConvReady(uint32_t)	24	static
-../AD7124_Library/ad7124-private.cpp:381:5:int Ad7124Private::isConversionReady()	24	static
-../AD7124_Library/ad7124-private.cpp:408:5:int Ad7124Private::readData(int32_t*)	24	static
-../AD7124_Library/ad7124-private.cpp:424:6:void Ad7124Private::updateCRCSetting()	16	static
-../AD7124_Library/ad7124-private.cpp:443:6:void Ad7124Private::updateDevSpiSettings()	16	static
-../AD7124_Library/ad7124-private.cpp:467:5:int Ad7124Private::init(int, Ad7124Register*)	40	static
-../AD7124_Library/ad7124-private.cpp:518:1:Ad7124Private::Ad7124Private()	16	static
-../AD7124_Library/ad7124-private.cpp:523:1:Ad7124Private::~Ad7124Private()	16	static
-../AD7124_Library/ad7124-private.cpp:536:1:static uint8_t Ad7124Private::computeCRC8(uint8_t*, uint8_t)	24	static
-../AD7124_Library/ad7124-private.cpp:662:5:static int Ad7124Register::copyRegisterName(Ad7124::RegisterId, char*)	24	static
-../AD7124_Library/ad7124-private.cpp:699:6:static void Ad7124Register::fillAllRegsWithDefault(Ad7124Register*)	16	static
-../AD7124_Library/ad7124-private.cpp:706:6:bool Ad7124Register::isWritable() const	16	static
-../AD7124_Library/ad7124-private.cpp:714:1:uint8_t Ad7124Register::sizeOf() const	16	static
+../AD7124_Library/ad7124-private.cpp:381:5:int Ad7124Private::isConversionReady()	16	static
+../AD7124_Library/ad7124-private.cpp:408:5:int Ad7124Private::readData(int32_t*)	16	static
+../AD7124_Library/ad7124-private.cpp:424:6:void Ad7124Private::updateCRCSetting()	0	static
+../AD7124_Library/ad7124-private.cpp:443:6:void Ad7124Private::updateDevSpiSettings()	0	static
+../AD7124_Library/ad7124-private.cpp:467:5:int Ad7124Private::init(int, Ad7124Register*)	48	static
+../AD7124_Library/ad7124-private.cpp:518:1:Ad7124Private::Ad7124Private()	0	static
+../AD7124_Library/ad7124-private.cpp:523:1:Ad7124Private::~Ad7124Private()	0	static
+../AD7124_Library/ad7124-private.cpp:536:1:static uint8_t Ad7124Private::computeCRC8(uint8_t*, uint8_t)	4	static
+../AD7124_Library/ad7124-private.cpp:662:5:static int Ad7124Register::copyRegisterName(Ad7124::RegisterId, char*)	8	static
+../AD7124_Library/ad7124-private.cpp:699:6:static void Ad7124Register::fillAllRegsWithDefault(Ad7124Register*)	0	static
+../AD7124_Library/ad7124-private.cpp:706:6:bool Ad7124Register::isWritable() const	0	static
+../AD7124_Library/ad7124-private.cpp:714:1:uint8_t Ad7124Register::sizeOf() const	0	static

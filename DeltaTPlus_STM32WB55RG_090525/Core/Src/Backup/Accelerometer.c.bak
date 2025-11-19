@@ -1,64 +1,136 @@
-#include "Accelerometer.h"
+#include "Accelerometer.hpp"
+#include "Backlight.hpp"
+#include "main.h"
 
-const uint32_t activityThreshold = 75000; // find this
-const uint32_t idleTime = 15;             // seconds
-int32_t acceleration = 0;                 // return max from sensor
-uint8_t powerCtl = 0x08;
-const uint8_t accreg = 0x32; // Start from DATAX0
+Accelerometer::States Accelerometer::state;
 
-void accelerometerSetup(void)
+void Accelerometer::setup(void)
 {
-    // pinMode(0, OUTPUT);
-    ACCELEROMETER_STATE = _AWAKE;
-    accelerometer_delay = 30; // seconds?
-                              // Set MEASURE bit (Bit 3) to enable measurement mode
-    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, 0x2D, I2C_MEMADD_SIZE_8BIT, &powerCtl, 1, 1000);
+    state = AWAKE;
+    delay = 120;
+
+    // Set MEASURE bit (Bit 3) to enable measurement mode
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, 0x2D, I2C_MEMADD_SIZE_8BIT, &powerCtl, 1, 100);
+
+    // Configure tap detection parameters
+    uint8_t thresh_tap = 0x30; // ~3g threshold (62.5mg/LSB)
+    uint8_t dur = 0x10;        // 10ms duration (625μs/LSB)
+    uint8_t latent = 0x50;     // 100ms latent (1.25ms/LSB)
+    uint8_t window = 0xF0;     // 300ms window (1.25ms/LSB)
+    uint8_t tap_axes = 0x07;   // Enable X, Y, Z axes
+
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, thresh_tap_register, I2C_MEMADD_SIZE_8BIT, &thresh_tap, 1, 100);
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, dur_register, I2C_MEMADD_SIZE_8BIT, &dur, 1, 100);
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, latent_register, I2C_MEMADD_SIZE_8BIT, &latent, 1, 100);
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, window_register, I2C_MEMADD_SIZE_8BIT, &window, 1, 100);
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, tap_axes_register, I2C_MEMADD_SIZE_8BIT, &tap_axes, 1, 100);
+
+    // Enable double tap interrupt (bit D5 = 1)
+    uint8_t int_enable = 0x20; // 0010 0000 - enables DOUBLE_TAP
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, int_enable_register, I2C_MEMADD_SIZE_8BIT, &int_enable, 1, 100);
+
+    // Map double tap to INT2, everything else to INT1 (bit D5 = 1)
+    uint8_t int_map = 0x20; // 0010 0000 - sends DOUBLE_TAP to INT2
+    HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, int_map_register, I2C_MEMADD_SIZE_8BIT, &int_map, 1, 100);
 
     readAccelerometer();
 }
 
-void accelerometerProcessData(void)
+void Accelerometer::stateMachine(void)
 {
-
-    int16_t x = (int16_t)((accdata[1] << 8) | accdata[0]);
-    int16_t y = (int16_t)((accdata[3] << 8) | accdata[2]);
-    int16_t z = (int16_t)((accdata[5] << 8) | accdata[4]);
-
-    acceleration = (int32_t)x * x + (int32_t)y * y + (int32_t)z * z;
-}
-
-void accelerometerLoop(void)
-{
-    if (!accelerometer_read_delay)
+    if (!readDelay)
     {
-        HAL_StatusTypeDef status = HAL_I2C_Mem_Read_IT(&hi2c1, ADXL343_ADDR, accreg, I2C_MEMADD_SIZE_8BIT, accdata, 6);
-        accelerometer_read_delay = 10; // 10ms so 100ms
+        readAccelerometer();
+
+        readDelay = 10; // 10ms so 100ms
     }
 
-    switch (ACCELEROMETER_STATE)
+    switch (state)
     {
 
-    case _AWAKE:
+    case AWAKE:
 
-        if (acceleration < activityThreshold && !accelerometer_delay)
+        if (acceleration < activityThreshold && !delay)
         {
-            accelerometer_delay = 3; // seconds
-            ACCELEROMETER_STATE = _SLEEP;
-            BACKLIGHT_STATE = _OFF;
+            delay = 3; // seconds
+
+            state = SLEEP;
+            Backlight::state = Backlight::States::OFF;
         }
         break;
 
-    case _SLEEP:
+    case SLEEP:
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "SLEEP");
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
 
-        if (acceleration > activityThreshold && !accelerometer_delay)
+        if (acceleration > activityThreshold && !delay)
         {
-            accelerometer_delay = 30; // seconds
-            ACCELEROMETER_STATE = _AWAKE;
-            BACKLIGHT_STATE = _HIGH;
+            delay = 120; // seconds
+
+            state = AWAKE;
+            Backlight::state = Backlight::States::HIGH;
+
+            // snprintf(usbBuffer, sizeof(usbBuffer), "SLEEP -> AWAKE\r\n");
+            // CDC_Transmit_FS((uint8_t *)usbBuffer, strlen(usbBuffer));
         }
 
         break;
     default:
         break;
     }
+}
+
+void Accelerometer::readAccelerometer(void)
+{
+
+    // Read with error handling
+    HAL_StatusTypeDef status = HAL_I2C_Mem_Read(&hi2c1, ADXL343_ADDR, accreg, I2C_MEMADD_SIZE_8BIT, accdata, 6, 100);
+    // HAL_StatusTypeDef status = HAL_BUSY;
+    if (status == HAL_OK)
+    {
+
+        int16_t x = (int16_t)((accdata[1] << 8) | accdata[0]);
+        int16_t y = (int16_t)((accdata[3] << 8) | accdata[2]);
+        int16_t z = (int16_t)((accdata[5] << 8) | accdata[4]);
+
+        acceleration = (int32_t)x * x + (int32_t)y * y + (int32_t)z * z;
+
+        // int32_t threshold_sq = 262144;
+
+        // if (magnitude_sq > threshold_sq)
+        //{
+        //     // Acceleration magnitude exceeds threshold
+        //     HAL_UART_Transmit(&huart1, (uint8_t *)"Threshold exceeded\r\n", 21, 100);
+        // }
+
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Acceleration: %ld\r\n", acceleration);
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "X: %f, Y: %f, Z: %f\r\n", x_g, y_g, z_g);
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+
+        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "X: %.2d, Y: %.2d\r\n", x, y);
+        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+    }
+}
+
+void accelerometer_double_tap_handler(void) {
+
+	// Read INT_SOURCE to clear the interrupt
+	    uint8_t int_source = 0;
+	    HAL_I2C_Mem_Read(&hi2c1, ADXL343_ADDR, int_source_register, I2C_MEMADD_SIZE_8BIT, &int_source, 1, 100);
+
+	    // Check if it was a double tap (bit D5)
+	    if (int_source & 0x20)
+	    {
+	        // Double tap detected!
+	        // Wake up the device
+	        state = AWAKE;
+	        Backlight::state = Backlight::States::HIGH;
+	        delay = 120; // Reset the awake timer
+
+	        // Optional: Debug message
+	        // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Double Tap!\r\n");
+	        // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+	    }
 }

@@ -524,6 +524,7 @@ lvgl/src/drivers/nuttx/lv_nuttx_libuv.o: \
  ../lvgl/src/drivers/nuttx/../../../src/display/../core/lv_obj.h \
  ../lvgl/src/drivers/nuttx/../../../src/display/../draw/lv_draw.h \
  ../lvgl/src/drivers/nuttx/../../../src/display/lv_display.h \
+ ../lvgl/src/drivers/nuttx/../../../src/display/../others/sysmon/lv_sysmon_private.h \
  ../lvgl/src/drivers/nuttx/../../../src/indev/lv_indev_private.h \
  ../lvgl/src/drivers/nuttx/../../../src/indev/lv_indev.h \
  ../lvgl/src/drivers/nuttx/../../../src/indev/../misc/lv_anim.h \
@@ -1245,6 +1246,7 @@ lvgl/src/drivers/nuttx/lv_nuttx_libuv.o: \
 ../lvgl/src/drivers/nuttx/../../../src/display/../core/lv_obj.h:
 ../lvgl/src/drivers/nuttx/../../../src/display/../draw/lv_draw.h:
 ../lvgl/src/drivers/nuttx/../../../src/display/lv_display.h:
+../lvgl/src/drivers/nuttx/../../../src/display/../others/sysmon/lv_sysmon_private.h:
 ../lvgl/src/drivers/nuttx/../../../src/indev/lv_indev_private.h:
 ../lvgl/src/drivers/nuttx/../../../src/indev/lv_indev.h:
 ../lvgl/src/drivers/nuttx/../../../src/indev/../misc/lv_anim.h:

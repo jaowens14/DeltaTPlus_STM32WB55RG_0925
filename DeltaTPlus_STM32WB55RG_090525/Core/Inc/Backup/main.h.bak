@@ -67,14 +67,8 @@ void Error_Handler(void);
 #define TFT_RESET_GPIO_Port GPIOA
 #define TFT_RS_DC_Pin GPIO_PIN_2
 #define TFT_RS_DC_GPIO_Port GPIOA
-#define TFT_CS_Pin GPIO_PIN_3
+#define TFT_CS_Pin GPIO_PIN_4
 #define TFT_CS_GPIO_Port GPIOA
-#define TEMP1_DRDY_Pin GPIO_PIN_4
-#define TEMP1_DRDY_GPIO_Port GPIOA
-#define TEMP1_CS_Pin GPIO_PIN_8
-#define TEMP1_CS_GPIO_Port GPIOA
-#define TEMP2_CS_Pin GPIO_PIN_9
-#define TEMP2_CS_GPIO_Port GPIOA
 #define CTP_INT_Pin GPIO_PIN_4
 #define CTP_INT_GPIO_Port GPIOC
 #define CTP_INT_EXTI_IRQn EXTI4_IRQn
@@ -82,14 +76,23 @@ void Error_Handler(void);
 #define GPIO_CTP_RESET_GPIO_Port GPIOC
 #define ad7234_io_Pin GPIO_PIN_2
 #define ad7234_io_GPIO_Port GPIOB
-#define TEMP2_DRDY_Pin GPIO_PIN_10
-#define TEMP2_DRDY_GPIO_Port GPIOA
-#define ADC_CS_Pin GPIO_PIN_5
+#define ADC_CS_Pin GPIO_PIN_12
 #define ADC_CS_GPIO_Port GPIOB
+#define ACCEL_INT1_Pin GPIO_PIN_11
+#define ACCEL_INT1_GPIO_Port GPIOC
+#define ACCEL_INT1_EXTI_IRQn EXTI15_10_IRQn
+#define ACCEL_INT2_Pin GPIO_PIN_12
+#define ACCEL_INT2_GPIO_Port GPIOC
+#define ACCEL_INT2_EXTI_IRQn EXTI15_10_IRQn
+#define ADC_CSB5_Pin GPIO_PIN_5
+#define ADC_CSB5_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
   // void SPI_Set_Mode(uint8_t mode);
-  extern uint8_t UART_BUFFER[128];
+  extern uint8_t UART_BUFFER[256];
+
+  double RNG_GetRandomDouble(double min, double max);
+
 
   void SystemClock_Config(void);
 /* USER CODE END Private defines */

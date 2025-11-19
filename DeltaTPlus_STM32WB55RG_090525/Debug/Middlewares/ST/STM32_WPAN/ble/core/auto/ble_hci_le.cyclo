@@ -35,13 +35,13 @@
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:836:12:hci_le_encrypt	3
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:865:12:hci_le_rand	3
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:883:12:hci_le_enable_encryption	2
-../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:914:12:hci_le_long_term_key_request_reply	3
-../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:941:12:hci_le_long_term_key_request_negative_reply	3
+../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:914:12:hci_le_long_term_key_request_reply	2
+../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:941:12:hci_le_long_term_key_request_negative_reply	2
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:965:12:hci_le_read_supported_states	3
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:983:12:hci_le_receiver_test	2
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:1004:12:hci_le_transmitter_test	2
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:1031:12:hci_le_test_end	3
-../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:1049:12:hci_le_set_data_length	3
+../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:1049:12:hci_le_set_data_length	2
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:1079:12:hci_le_read_suggested_default_data_length	3
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:1099:12:hci_le_write_suggested_default_data_length	2
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.c:1123:12:hci_le_read_local_p256_public_key	2

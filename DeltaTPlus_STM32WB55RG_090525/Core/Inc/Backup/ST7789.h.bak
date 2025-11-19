@@ -6,7 +6,7 @@
 
 // Adjust these pins to match your hardware connections
 #define ST7789_CS_PORT GPIOA
-#define ST7789_CS_PIN GPIO_PIN_3
+#define ST7789_CS_PIN GPIO_PIN_4
 #define ST7789_DC_PORT GPIOA
 #define ST7789_DC_PIN GPIO_PIN_2
 #define ST7789_RST_PORT GPIOA
@@ -24,7 +24,7 @@
 #define ST7789_RST_LOW() HAL_GPIO_WritePin(ST7789_RST_PORT, ST7789_RST_PIN, GPIO_PIN_RESET)
 #define ST7789_RST_HIGH() HAL_GPIO_WritePin(ST7789_RST_PORT, ST7789_RST_PIN, GPIO_PIN_SET)
 
-#define ST7789_CS_PIN_NUM 3
+#define ST7789_CS_PIN_NUM 4
 #define ST7789_DC_PIN_NUM 2
 #define ST7789_RST_PIN_NUM 1
 // CS LOW + DC LOW (command mode start)

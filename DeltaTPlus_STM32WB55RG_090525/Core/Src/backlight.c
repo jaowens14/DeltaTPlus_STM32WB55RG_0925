@@ -1,8 +1,17 @@
-#include "Backlight.hpp"
+#include <backlight.h>
 
-Backlight::States Backlight::state;
+BacklightStates backlightState;
 
-void Backlight::setup(void)
+
+volatile int backlightDelay = 0;
+int current_brightness = 0;
+int desired_brightness = 0;
+int low_brightness = 50;
+int mid_brightness = 100;
+int hi_brightness = 200;
+int off = 0;
+
+void backlightSetup(void)
 
 {
 
@@ -10,39 +19,37 @@ void Backlight::setup(void)
 
     __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0); // turn off screen to start
 
-    state = HIGH;
-    // pinMode(0, OUTPUT);
-    // state = AWAKE;
-    delay = 0;
-    // readAccelerometer();
+    backlightState = HIGH;
+
+    backlightDelay = 0;
 }
 
-void Backlight::stateMachine(void)
+void backlightMain(void)
 {
 
-    switch (state)
+    switch (backlightState)
     {
 
     case LOW:
-        if (!delay)
+        if (!backlightDelay)
         {
             desired_brightness = low_brightness;
         }
         break;
     case MID:
-        if (!delay)
+        if (!backlightDelay)
         {
             desired_brightness = mid_brightness;
         }
         break;
     case HIGH:
-        if (!delay)
+        if (!backlightDelay)
         {
             desired_brightness = hi_brightness;
         }
         break;
     case OFF:
-        if (!delay)
+        if (!backlightDelay)
         {
             desired_brightness = off;
         }
@@ -51,10 +58,10 @@ void Backlight::stateMachine(void)
         break;
     }
 
-    fadeScreen(desired_brightness);
+    backlightFade(desired_brightness);
 }
 
-void Backlight::fadeScreen(int target_brightness)
+void backlightFade(int target_brightness)
 {
     // Only update if brightness needs to change
     if (current_brightness == target_brightness)

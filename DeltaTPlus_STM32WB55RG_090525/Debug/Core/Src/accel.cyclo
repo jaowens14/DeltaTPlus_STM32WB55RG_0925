@@ -1,0 +1,4 @@
+../Core/Src/accel.c:70:6:accelMain	6
+../Core/Src/accel.c:84:6:accelHandler	4
+../Core/Src/accel.c:117:6:diagnoseAccelerometer	1
+../Core/Src/accel.c:17:6:accelSetup	1

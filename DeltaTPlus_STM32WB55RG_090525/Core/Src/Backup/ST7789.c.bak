@@ -1,6 +1,6 @@
 #include "st7789.h"
 
-extern SPI_HandleTypeDef hspi2;
+extern SPI_HandleTypeDef hspi1;
 
 
 
@@ -184,8 +184,8 @@ void ST7789_WriteFillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t c
 
     for (uint32_t i = 0; i < pixels; i++)
     {
-        HAL_SPI_Transmit(&hspi2, &color_hi, 1, HAL_MAX_DELAY);
-        HAL_SPI_Transmit(&hspi2, &color_lo, 1, HAL_MAX_DELAY);
+        HAL_SPI_Transmit(&hspi1, &color_hi, 1, HAL_MAX_DELAY);
+        HAL_SPI_Transmit(&hspi1, &color_lo, 1, HAL_MAX_DELAY);
     }
 
     ST7789_CS_HIGH();
@@ -217,7 +217,7 @@ void ST7789_WriteCommand(uint8_t cmd)
 {
     ST7789_CS_LOW_DC_LOW(); // Command mode - single register write!
 
-    HAL_SPI_Transmit(&hspi2, &cmd, 1, HAL_MAX_DELAY);
+    HAL_SPI_Transmit(&hspi1, &cmd, 1, HAL_MAX_DELAY);
 
     ST7789_CS_HIGH();
 }
@@ -226,7 +226,7 @@ void ST7789_WriteData(uint8_t data)
 {
     ST7789_CS_LOW_DC_HIGH(); // Data mode - single register write!
 
-    HAL_SPI_Transmit(&hspi2, &data, 1, HAL_MAX_DELAY);
+    HAL_SPI_Transmit(&hspi1, &data, 1, HAL_MAX_DELAY);
 
     ST7789_CS_HIGH();
 }
