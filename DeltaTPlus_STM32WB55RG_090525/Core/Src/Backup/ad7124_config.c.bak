@@ -1,0 +1,283 @@
+/**
+ * @file    ad7124_config.c
+ * @author  Amirhossein Askari
+ * @version 1.0.0
+ * @date    2025-06-15
+ * @email   theamiraskarii@gmail.com
+ * @see     https://github.com/AmirhoseinAskari
+ * @brief   Predefined configurations and register settings for the AD7124-4 ADC.
+ *
+ * @details
+ * This file contains predefined configuration structures for the AD7124-4 24-bit Sigma-Delta ADC,
+ * including channel mappings, filter settings, gain, offset, and control registers.
+ *
+ * @note
+ * - SPI_CRC_ERR_EN (bit 2) in the error_enable register should be set to 1 to enable CRC error detection.
+ *
+ * @warning
+ * - Changing the configurations without understanding AD7124 register maps may cause unexpected ADC behavior.
+ * - Always verify compatibility of settings with your hardware setup and ADC datasheet.
+ *
+ * @section Supported_Platforms
+ * STM32 microcontrollers (HAL Drivers).
+ */
+
+/* ------------------------------------- Includes ------------------------------------- */
+
+#include "ad7124.h" /**< Header file declaring the AD7124 driver functions */
+
+/* -------------------------------------- Configs ------------------------------------- */
+
+/**********************************************************************************
+ * Config A:
+ * Continuous Conversion Mode with Internal Reference
+ * - IOUT0 on Ain6 (off)
+ * - IOUT1 on Ain7 (off)
+ * - VBIAS0 on Ain0
+ *
+ * Channel 0 with setup 0: AINM on Ain0, AINP on Ain1
+ * Channel 1 with setup 0: Internal Temperature Sensor
+ *
+ * PGA = 1, Reference Source = Internal
+ * All inputs are Buffered and Bipolar.
+ * Burnout current source = off
+ * Filter setting FS=240: 10 SPS on SYNC4
+ **********************************************************************************/
+// AD7124_RegisterTypeDef configA = {
+//     .adc_control = 0x0700U,
+//     .io_control_1 = 0x0000FEU,
+//     .io_control_2 = 0x0001U,
+//     .error_enable = 0x7FAFFU,
+//     .channels = {0x8020U, 0x8211U, 0x0000U, 0x0000U, 0x0000U, 0x0000U, 0x0000U, 0x0000U},
+//     .configs = {0x09F0U, 0x09F0U, 0x09F0U, 0x09F0U, 0x09F0U, 0x09F0U, 0x09F0U, 0x09F0U},
+//     .filters = {0x0600F0U, 0x0600F0U, 0x0600F0U, 0x0600F0U, 0x0600F0U, 0x0600F0U, 0x0600F0U, 0x0600F0U},
+//     .offsets = {0x800000U, 0x800000U, 0x800000U, 0x800000U, 0x800000U, 0x800000U, 0x800000U, 0x800000U},
+//     .gains = {0x5000U, 0x5000U, 0x5000U, 0x5000U, 0x5000U, 0x5000U, 0x5000U, 0x5000U}};
+
+/**
+ * @file    ad7124_config.c
+ * @brief   Configuration for AD7124-4 ADC with dual thermocouple setup
+ *
+ * @details
+ * Configuration based on your existing setup:
+ * - Setup 0: Thermocouples with PGA=128, Internal Reference (2.5V), Sinc4 filter
+ * - Setup 1: Thermistor with PGA=1, Internal Reference (2.5V), Sinc4 filter
+ * - Filter Word: 100 (corresponds to ~60 SPS)
+ *
+ * Channel 0: Thermocouple 1 (AIN0+/AIN1-) using Setup 0
+ * Channel 1: Thermocouple 2 (AIN2+/AIN3-) using Setup 0
+ * Channel 2: Thermistor (AIN5+/AIN6-) using Setup 1 - DISABLED
+ */
+
+/* ------------------------------------- Includes ------------------------------------- */
+// #include "ad7124.h"
+
+/* -------------------------------------- Configs ------------------------------------- */
+
+/**********************************************************************************
+ * Thermocouple Configuration:
+ * - Continuous Conversion Mode
+ * - Internal Reference (2.5V)
+ * - Full Power Mode
+ *
+ * Channel 0: Thermocouple 1 (AIN0+/AIN1-) with Setup 0, PGA=128
+ * Channel 1: Thermocouple 2 (AIN2+/AIN3-) with Setup 0, PGA=128
+ * Channel 2: Thermistor (AIN5+/AIN6-) with Setup 1, PGA=1 (DISABLED)
+ *
+ * Setup 0: PGA=128, Internal Ref, Bipolar, Buffered, Sinc4 Fast Filter
+ * Setup 1: PGA=1, Internal Ref, Bipolar, Buffered, Sinc4 Fast Filter
+ * Filter Word = 100 (~60 SPS)
+ **********************************************************************************/
+
+AD7124_RegisterTypeDef configA = {
+    // ADC_CONTROL Register (0x01) = 0x0780 = 0000 0111 1000 0000
+    // Bit 15-12: Reserved (0000)
+    // Bit 11: DOUT_RDY_DEL = 0 (DOUT/RDY not delayed)
+    // Bit 10: CONT_READ = 1 (continuous read mode ENABLED)
+    // Bit 9: DATA_STATUS = 1 (include status in data)
+    // Bit 8: CS_EN = 1 (checksum enabled)
+    // Bit 7: REF_EN = 1 (internal reference enabled)
+    // Bit 6-4: POWER_MODE = 000 (full power mode)
+    // Bit 3-2: MODE = 00 (continuous conversion mode)
+    // Bit 1: CLK_SEL = 0 (internal clock)
+    // Bit 0: Reserved (0)
+    .adc_control = 0x0780U, // Binary: 0000 0111 1000 0000
+
+    // IO_CONTROL_1 Register (0x02) = 0x000000 = 0000 0000 | 0000 0000 | 0000 0000
+    // Bit 23: Reserved (0)
+    // Bit 22: PDSW = 0 (power switch open/disabled)
+    // Bit 21-20: IOUT1 = 00 (IOUT1 disabled)
+    // Bit 19-16: IOUT1_CH = 0000 (no channel assigned)
+    // Bit 15-14: IOUT0 = 00 (IOUT0 disabled)
+    // Bit 13-10: IOUT0_CH = 0000 (no channel assigned)
+    // Bit 9: Reserved (0)
+    // Bit 8: IOUT_CH1_DIR = 0 (IOUT1 as source, not used)
+    // Bit 7-4: GPIO_DAT2/3 = 0000 (GPIO data bits 2,3)
+    // Bit 3-0: GPIO_DAT0/1 = 0000 (GPIO data bits 0,1)
+    .io_control_1 = 0x000000U, // Binary: 0000 0000 | 0000 0000 | 0000 0000
+
+    // IO_CONTROL_2 Register (0x03) = 0x0001 = 0000 0000 | 0000 0001
+    // Bit 15-13: Reserved (000)
+    // Bit 12: SYNC_EN = 0 (SYNC pin disabled)
+    // Bit 11-8: GPIO_VBIAS = 0000 (VBIAS on all GPIO pins disabled)
+    // Bit 7-4: GPIO_CTRL3/2 = 0000 (GPIO pins 3,2 as inputs)
+    // Bit 3-0: GPIO_CTRL1/0 = 0001 (minimal GPIO config)
+    .io_control_2 = 0x0001U, // Binary: 0000 0000 | 0000 0001
+
+    // ERROR_EN Register (0x07) = 0x7FEFF = 0111 1111 | 1110 1111 | 1111
+    // Bit 15: Reserved (0)
+    // Bit 14: ADC_CAL_ERR_EN = 1 (calibration error detection enabled)
+    // Bit 13: ADC_CONV_ERR_EN = 1 (conversion error detection enabled)
+    // Bit 12: ADC_SAT_ERR_EN = 1 (saturation error detection enabled)
+    // Bit 11: AINP_OV_ERR_EN = 1 (AINP overvoltage error detection enabled)
+    // Bit 10: AINP_UV_ERR_EN = 1 (AINP undervoltage error detection enabled)
+    // Bit 9: AINM_OV_ERR_EN = 1 (AINM overvoltage error detection enabled)
+    // Bit 8: AINM_UV_ERR_EN = 1 (AINM undervoltage error detection enabled)
+    // Bit 7: REF_DET_ERR_EN = 1 (reference detection error enabled)
+    // Bit 6: DLDO_PSM_ERR_EN = 1 (digital LDO error detection enabled)
+    // Bit 5: ALDO_PSM_ERR_EN = 1 (analog LDO error detection enabled)
+    // Bit 4: SPI_IGNORE_ERR = 0 (SPI errors NOT ignored)
+    // Bit 3: SPI_SCLK_CNT_ERR_EN = 1 (SPI clock count error detection enabled)
+    // Bit 2: SPI_CRC_ERR_EN = 1 (SPI CRC error detection enabled)
+    // Bit 1: SPI_WRITE_ERR_EN = 1 (SPI write error detection enabled)
+    // Bit 0: SPI_READ_ERR_EN = 1 (SPI read error detection enabled)
+    .error_enable = 0x7FEFFU, // Binary: 0111 1111 | 1110 1111 | 1111
+
+    // CHANNEL Registers (0x09-0x18) - 16 bits each
+    // Format: Bit 15=CH_EN | Bits 14-12=SETUP | Bits 9-5=AINP | Bits 4-0=AINM
+    //
+    // Channel 0 = 0x8001 = 1000 0000 | 0000 0001
+    // Bit 15: CH_EN = 1 (channel enabled)
+    // Bits 14-12: SETUP_SEL = 000 (use Setup 0)
+    // Bits 11-10: Reserved (00)
+    // Bits 9-5: AINP = 00000 (AIN0 positive input)
+    // Bits 4-0: AINM = 00001 (AIN1 negative input)
+    //
+    // Channel 1 = 0x8042 = 1000 0000 | 0100 0010
+    // Bit 15: CH_EN = 1 (channel enabled)
+    // Bits 14-12: SETUP_SEL = 000 (use Setup 0)
+    // Bits 11-10: Reserved (00)
+    // Bits 9-5: AINP = 00010 (AIN2 positive input)
+    // Bits 4-0: AINM = 00011 (AIN3 negative input)
+    //
+    // Channel 2 = 0x00A6 = 0000 0000 | 1010 0110
+    // Bit 15: CH_EN = 0 (channel DISABLED)
+    // Bits 14-12: SETUP_SEL = 000 (use Setup 1 - NOTE: should be 001!)
+    // Bits 11-10: Reserved (00)
+    // Bits 9-5: AINP = 00101 (AIN5 positive input)
+    // Bits 4-0: AINM = 00110 (AIN6 negative input)
+    .channels = {
+        0x8001U, // Ch0: ENABLED, Setup 0, AIN0(+)/AIN1(-) - Thermocouple 1
+        0x8042U, // Ch1: ENABLED, Setup 0, AIN2(+)/AIN3(-) - Thermocouple 2
+        0x00A6U, // Ch2: DISABLED, Setup 0, AIN5(+)/AIN6(-) - Thermistor (should be 0x10A6 for Setup 1)
+        0x0000U, // Ch3: Disabled
+        0x0000U, // Ch4: Disabled
+        0x0000U, // Ch5: Disabled
+        0x0000U, // Ch6: Disabled
+        0x0000U, // Ch7: Disabled
+        0x0000U, // Ch8: Disabled
+        0x0000U, // Ch9: Disabled
+        0x0000U, // Ch10: Disabled
+        0x0000U, // Ch11: Disabled
+        0x0000U, // Ch12: Disabled
+        0x0000U, // Ch13: Disabled
+        0x0000U, // Ch14: Disabled
+        0x0000U  // Ch15: Disabled
+    },
+
+    // CONFIG Registers (0x19-0x20) - 16 bits each
+    // Format for thermocouple measurements
+    //
+    // Setup 0 = 0x1F07 = 0001 1111 | 0000 0111
+    // Bit 15-13: Reserved (000)
+    // Bit 12: BIPOLAR = 1 (bipolar operation)
+    // Bit 11: BURNOUT = 1 (burnout current sources enabled, 0.5μA)
+    // Bit 10: REF_BUFP = 1 (positive reference buffer enabled)
+    // Bit 9: REF_BUFM = 1 (negative reference buffer enabled)
+    // Bit 8: AIN_BUFP = 1 (positive input buffer enabled)
+    // Bit 7: AIN_BUFM = 1 (negative input buffer enabled)
+    // Bits 6-4: REF_SEL = 000 (internal 2.5V reference)
+    // Bits 3-0: PGA = 0111 (gain = 128)
+    //
+    // Setup 1 = 0x1F00 = 0001 1111 | 0000 0000
+    // Same as Setup 0 but:
+    // Bits 3-0: PGA = 0000 (gain = 1)
+    .configs = {
+        0x1F07U, // Setup 0: Gain=128, Internal Ref, Bipolar, Burnout ON, All Buffers ON
+        0x1F00U, // Setup 1: Gain=1, Internal Ref, Bipolar, Burnout ON, All Buffers ON
+        0x1F00U, // Setup 2: Not used
+        0x1F00U, // Setup 3: Not used
+        0x1F00U, // Setup 4: Not used
+        0x1F00U, // Setup 5: Not used
+        0x1F00U, // Setup 6: Not used
+        0x1F00U  // Setup 7: Not used
+    },
+
+    // FILTER Registers (0x21-0x28) - 24 bits each
+    // Format: SINC_SEL | ENHFILT_EN | ENH_FILT | ORD | FS[10:0]
+    //
+    // 0x000064 = 0000 0000 | 0000 0000 | 0110 0100
+    // Bit 23: SINC_SEL = 0 (Sinc4 filter)
+    // Bit 22: ENHFILTEN = 0 (enhanced 50/60Hz rejection disabled)
+    // Bit 21: ENHFILT = 0 (reserved, must be 0)
+    // Bits 20-16: ORD = 00000 (Sinc4 filter order)
+    // Bit 15: Reserved (0)
+    // Bits 14-11: Reserved (0000)
+    // Bits 10-0: FS = 0x064 = 100 decimal (filter word, determines output data rate)
+    //            At 614.4 kHz with Sinc4, FS=100 gives ~60 SPS
+    .filters = {
+        0x000064U, // Setup 0: Sinc4, FS=100 (~60 SPS per channel)
+        0x000064U, // Setup 1: Sinc4, FS=100 (~60 SPS per channel)
+        0x000064U, // Setup 2: Not used
+        0x000064U, // Setup 3: Not used
+        0x000064U, // Setup 4: Not used
+        0x000064U, // Setup 5: Not used
+        0x000064U, // Setup 6: Not used
+        0x000064U  // Setup 7: Not used
+    },
+
+    // OFFSET Registers (0x29-0x30) - 24 bits each
+    // Default offset calibration value for bipolar mode
+    // 0x800000 = 1000 0000 | 0000 0000 | 0000 0000
+    // This represents zero offset in bipolar mode (midpoint of 24-bit range)
+    .offsets = {0x800000U, 0x800000U, 0x800000U, 0x800000U, 0x800000U, 0x800000U, 0x800000U, 0x800000U},
+
+    // GAIN Registers (0x31-0x38) - 24 bits each
+    // Default gain calibration value
+    // 0x500000 = 0101 0000 | 0000 0000 | 0000 0000
+    // This represents unity gain (1.0) calibration
+    .gains = {0x500000U, 0x500000U, 0x500000U, 0x500000U, 0x500000U, 0x500000U, 0x500000U, 0x500000U}};
+
+/* Configuration Notes:
+ *
+ * IMPORTANT FINDINGS:
+ * 1. Channel 2 setup bits are WRONG: 0x00A6 encodes Setup 0, but your code uses Setup 1
+ *    - Current: 0x00A6 = bits 14-12 = 000 (Setup 0)
+ *    - Should be: 0x10A6 = bits 14-12 = 001 (Setup 1)
+ *    - To enable with correct setup: 0x90A6
+ *
+ * 2. Burnout current is ENABLED in configs (bit 11 = 1)
+ *    - Your original code had: thermocoupleADC.setConfig(setup0, ..., true)
+ *    - The 'true' parameter likely enables burnout
+ *    - This provides 0.5μA current for open thermocouple detection
+ *
+ * 3. PGA encoding:
+ *    - 1   → 0x0
+ *    - 2   → 0x1
+ *    - 4   → 0x2
+ *    - 8   → 0x3
+ *    - 16  → 0x4
+ *    - 32  → 0x5
+ *    - 64  → 0x6
+ *    - 128 → 0x7
+ *
+ * 4. Filter Word FS=100 (0x64) yields approximately:
+ *    - ~60 SPS total across all enabled channels in continuous mode
+ *    - With 2 channels enabled: ~30 SPS per channel
+ *
+ * 5. Continuous Read Mode is ENABLED (CONT_READ=1)
+ *    - After first read, can continue reading without sending register address
+ *    - Important for your interrupt-driven stateMachine() implementation
+ */
+
+/* ad7124_config.c */

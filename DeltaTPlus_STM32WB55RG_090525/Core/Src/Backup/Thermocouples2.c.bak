@@ -1,0 +1,142 @@
+#include "Thermocouples2.h"
+
+#include "main.h"
+// Static member definitions
+// float Thermocouples::deltaTemp = 0.0;
+// float Thermocouples::userGain = 1.0;
+// float Thermocouples::deltaTempOffset = 0.0;
+
+// KALMAN_T rf;
+// KALMAN_T lf;
+//  Static member definitions for MAX31856 objects
+
+// volatile int thermocouple_data_ready = 0;
+
+#include "ad7124.h"
+
+// External driver structures and buffers
+extern AD7124_ConfigTypeDef AD7124_Handler;
+extern uint32_t AD7124_ChannelSamples[AD7124_ENABLED_CHANNELS];
+extern AD7124_RegisterTypeDef configA;
+
+// Status array for tracking return values from driver functions
+AD7124_StatusTypeDef status[3U];
+
+// Flag for DOUT/RDY interrupt
+volatile uint8_t ad7124_rdy_flag = 0U;
+
+// Variables for error status, voltage, and temperature calculation
+int32_t ad7124_error = 0U;
+double voltage;
+float temperature;
+
+void thermocouplesSetup()
+{
+
+    AD7124_Handler.SPIx = &hspi2;             // SPI peripheral used
+    AD7124_Handler.csPort = ADC_CS_GPIO_Port; // GPIO port for CS
+    AD7124_Handler.csPin = ADC_CS_Pin;        // GPIO pin for CS
+    AD7124_Handler.IRQn = ADC_DRDY_EXTI_IRQn; // External interrupt line connected to DOUT/RDY
+
+    HAL_NVIC_DisableIRQ(AD7124_Handler.IRQn);              // Disable IRQ during initial config
+    status[0U] = AD7124_Config(&AD7124_Handler, &configA); // Initialize and configure the AD7124
+    HAL_NVIC_EnableIRQ(AD7124_Handler.IRQn);               // Re-enable interrupt after initialization
+
+    // Allow settling time
+    HAL_Delay(200);
+
+    //   rf.error = 0.0f;
+    //   rf.estimate = 0.0f;
+    //   rf.process_variance = 1.0f;     // was 2 and
+    //   rf.measurement_variance = 5.0f; // 50
+    //
+    //   lf.error = 0.0f;
+    //   lf.estimate = 10000.0f;
+    //   lf.process_variance = 1.0f;
+    //   lf.measurement_variance = 5.0f;
+
+    // diameter = 0.000812f;                // 20 gauge wire diameter, meters
+    // length = 0.0254f;                    // 1 inch in meters
+    // area = 3.14159f * diameter * length; // surface area in m^2
+    // ambientTemp = 20.0f;
+    // h = 500;      // W/m^2 * K
+    // C = 0.000053; // J /K
+    // lastTime = HAL_GetTick();
+}
+
+void thermocouplesMain(void)
+{
+
+    /* Check if data is ready (set in external interrupt) */
+    if (ad7124_rdy_flag)
+    {
+        HAL_NVIC_DisableIRQ(AD7124_Handler.IRQn); // Temporarily disable interrupt
+
+        /* Optional: check for errors */
+        //status[1U] = AD7124_ErrorCheck(&AD7124_Handler, &ad7124_error);
+
+        /* Read conversion results from ADC */
+        status[2U] = AD7124_ReadSampleData(&AD7124_Handler);
+
+        /* Process raw ADC values if available */
+        if (AD7124_ChannelSamples[0] && AD7124_ChannelSamples[1])
+        {
+            // Convert raw ADC data from channel 0 to millivolts (example scaling)
+            voltage = (((double)(AD7124_ChannelSamples[0U] / 8388608.0) - 1.0) * 2.5) * 1000.0;
+
+            snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f\r\n", voltage);
+            HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+
+            // Convert raw ADC data from channel 1 to temperature in °C
+            temperature = ((AD7124_ChannelSamples[1U] - 8388608.0) / 13548.0) - 272.5;
+        }
+
+        ad7124_rdy_flag = 0U;                    // Clear ready flag
+        HAL_NVIC_EnableIRQ(AD7124_Handler.IRQn); // Re-enable interrupt
+    }
+
+    // lf.measurement = voltage[0]; // voltage
+    // rf.measurement = voltage[1]; // voltage
+    //
+    //// the current voltage is estimated to be the last voltage + volt/second ratio (velocity) * time
+    // rf.error = rf.error + rf.process_variance;
+    // rf.gain = rf.error / (rf.error + rf.measurement_variance);
+    // rf.estimate = rf.estimate + rf.gain * (rf.measurement - rf.estimate);
+    // rf.error = (1.0 - rf.gain) * rf.error;
+    ////
+    // lf.error = lf.error + lf.process_variance;
+    // lf.gain = lf.error / (lf.error + lf.measurement_variance);
+    // lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
+    // lf.error = (1.0 - lf.gain) * lf.error;
+    //
+    //// gain is estimated at 1789473 intercept at 120 pixels when deltat is zero
+    // deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 120.0; // SEEMS REALLLY FAST>>>>>>
+    //
+    //// 2615384.615
+    //// deltaTemp = ((rf.estimate - lf.estimate) * 2000000.0 * userGain) + 85.0; // SEEMS REALLLY FAST>>>>>>
+    //
+    //// deltaTemp = ((rf.estimate - lf.estimate) * 4500000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
+    //
+    //// deltaTemp = ((rf.estimate - lf.estimate) * 4615384.615 * userGain); // SEEMS REALLLY FAST>>>>>>
+    //// 4500000
+    //// deltaTemp = ((rf.estimate - lf.estimate) * 100.0 * 10000.0 * userGain); // NEW WITH LVGL
+    //// 32307692.31
+    //// deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
+    //
+    // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+}
+
+// float Thermocouples::thermocoupleVoltageToTemp(float voltage_V, float coldJunctionTemp_C)
+//{
+//     // K-type thermocouple: ~41µV/°C (average Seebeck coefficient)
+//     const float SEEBECK_COEFF = 0.000041f; // V/°C
+//
+//     // Convert voltage to temperature difference
+//     float tempDifference = voltage_V / SEEBECK_COEFF;
+//
+//     // Add cold junction temperature to get absolute temperature
+//     float absoluteTemp = tempDifference + coldJunctionTemp_C;
+//
+//     return absoluteTemp;
+// }

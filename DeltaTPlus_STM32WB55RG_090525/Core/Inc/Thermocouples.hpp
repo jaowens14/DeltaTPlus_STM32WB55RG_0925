@@ -1,3 +1,4 @@
+
 #ifndef THERMOCOUPLES_HPP
 #define THERMOCOUPLES_HPP
 
@@ -6,8 +7,11 @@
 #include "usart.h"
 #include <stdio.h>
 #include <string.h>
-#include <ad7124.h>
 #include <math.h>
+#include <ad7124.h>
+
+extern volatile int thermocouple_data_ready;
+extern volatile int ad7124_rdy_flag;
 
 class Thermocouples
 {
@@ -75,5 +79,11 @@ typedef struct
     float process_variance;
     float measurement_variance;
 } KALMAN_T;
+
+
+extern Thermocouples myThermocouples;
+extern KALMAN_T rf;
+extern KALMAN_T lf;
+
 
 #endif

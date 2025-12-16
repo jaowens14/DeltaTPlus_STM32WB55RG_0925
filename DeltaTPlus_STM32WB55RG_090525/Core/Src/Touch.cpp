@@ -1,67 +1,71 @@
-
 #include "Touch.hpp"
 #include "main.h"
+#include "lvgl.h"
+#include "FT5436_Touch.h"
+
 int Touch::x = 0;
 int Touch::y = 0;
+bool Touch::is_pressed = false;
 
 void Touch::setup(void)
 {
-
     // Initialize the touch controller structure
     Touch_FT5436_Init(&touch_controller, &hi2c1);
 
     // Begin with pin configuration
     // Parameters: interrupt port, interrupt pin, reset port, reset pin
-    // Use NULL for ports and 0 for pins if not used
     Touch_FT5436_Begin(&touch_controller,
                        CTP_INT_GPIO_Port, CTP_INT_Pin,                // Interrupt pin (PB1)
                        GPIO_CTP_RESET_GPIO_Port, GPIO_CTP_RESET_Pin); // Reset pin (PB0)
 
     // Optional: Configure jitter margin and max points
     Touch_FT5436_JitterMargin(&touch_controller, 5);  // 5 pixel jitter margin
-    Touch_FT5436_MaxPointCount(&touch_controller, 5); // Support up to 5 touch points
+    Touch_FT5436_MaxPointCount(&touch_controller, 1); // Only need 1 touch point for LVGL
 }
 
-void Touch::stateMachine(void)
+void Touch::update(void)
 {
-    // if (!delay)
-    //{
-
+    // Update touch state - called by LVGL input driver
     if (Touch_FT5436_PointDetected(&touch_controller))
     {
         uint8_t pointCount = Touch_FT5436_GetPointCount(&touch_controller);
 
         if (pointCount > 0)
         {
-            // Process touch points
-            for (uint8_t i = 1; i <= pointCount; i++)
-            {
-                x = 240 - Touch_FT5436_GetPointX(&touch_controller, i);
-                y = 320 - Touch_FT5436_GetPointY(&touch_controller, i);
-
-                if (x >= 0 && y >= 0)
-                {
-
-                    snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Touch point %d: X=%d, Y=%d\r\n", i, x, y);
-                    HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
-
-                    // Add your touch handling code here
-                    // For example:
-                    // - Update UI elements
-                    // - Trigger button actions
-                    // - Draw on screen
-                }
-            }
+            // Get the first touch point (LVGL uses single point)
+            x = 240 - Touch_FT5436_GetPointX(&touch_controller, 1);
+            y = 320 - Touch_FT5436_GetPointY(&touch_controller, 1);
+            is_pressed = true;
         }
-
-        // Check for released touch points
-        uint8_t released = Touch_FT5436_ReleaseCount(&touch_controller);
-        if (released > 0)
+        else
         {
-            printf("%d touch points released\n", released);
-            // Handle touch release events here
+            is_pressed = false;
         }
     }
-    // delay = 5;
-    //}
+    else
+    {
+        is_pressed = false;
+    }
 }
+
+// LVGL input device read callback
+void Touch::lvgl_read(lv_indev_t *indev, lv_indev_data_t *data)
+{
+    // Update touch state
+    myTouch.update();
+
+    // Fill in LVGL data structure
+    data->point.x = myTouch.x;
+    data->point.y = myTouch.y;
+    data->state = myTouch.is_pressed ? LV_INDEV_STATE_PRESSED : LV_INDEV_STATE_RELEASED;
+}
+
+// Setup LVGL input device
+void Touch::setup_lvgl_input(void)
+{
+    lv_indev_t *indev = lv_indev_create();
+    lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
+    lv_indev_set_read_cb(indev, Touch::lvgl_read);
+}
+
+Touch myTouch;

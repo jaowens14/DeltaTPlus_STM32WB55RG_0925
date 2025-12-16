@@ -518,7 +518,8 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/accel.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_1.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_2.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_3.h \
- ../Core/Inc/ST7789.h
+ ../Core/Inc/FT5436_Touch.h ../Core/Inc/widgets.h ../Core/Inc/ST7789.h \
+ ../Core/Inc/Thermocouples.hpp ../Core/Inc/ST7789.h
 ../Core/Inc/accel.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/main.h:
@@ -1057,4 +1058,8 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_1.h:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_2.h:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_3.h:
+../Core/Inc/FT5436_Touch.h:
+../Core/Inc/widgets.h:
+../Core/Inc/ST7789.h:
+../Core/Inc/Thermocouples.hpp:
 ../Core/Inc/ST7789.h:

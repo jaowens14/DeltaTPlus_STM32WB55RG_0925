@@ -1,3 +1,4 @@
+../lvgl/src/draw/../misc/../font/../draw/../misc/../stdlib/lv_string.h:73:20:lv_memzero	1
 ../lvgl/src/draw/lv_draw_rect.c:41:28:lv_draw_rect_dsc_init	1
 ../lvgl/src/draw/lv_draw_rect.c:60:6:lv_draw_fill_dsc_init	1
 ../lvgl/src/draw/lv_draw_rect.c:67:22:lv_draw_task_get_fill_dsc	2

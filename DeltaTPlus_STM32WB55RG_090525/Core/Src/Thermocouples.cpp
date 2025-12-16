@@ -1,16 +1,26 @@
+
 #include "Thermocouples.hpp"
 
 #include "main.h"
 // Static member definitions
+#include "widgets.h"
 float Thermocouples::deltaTemp = 0.0;
 float Thermocouples::userGain = 1.0;
 float Thermocouples::deltaTempOffset = 0.0;
+
 KALMAN_T rf;
 KALMAN_T lf;
 // Static member definitions for MAX31856 objects
 
+
+
+volatile int thermocouple_data_ready = 0;
+volatile int ad7124_rdy_flag = 0;
+int direction = 1;
 void Thermocouples::setup()
 {
+
+    //HAL_NVIC_DisableIRQ(ADC_DRDY_EXTI_IRQn); // Temporarily disable interrupt
 
     // Sample Speed Setting (Full Power Sinc3 Filter Mode)
     //  FW  |  SPS  |  SPS/Ch
@@ -32,6 +42,14 @@ void Thermocouples::setup()
 
     int channel0 = 0;
     int channel1 = 1;
+
+
+    thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN1Input |
+                                     Ad7124::AIN2Input | Ad7124::AIN3Input);
+
+
+
+
     // int channel2 = 2;
 
     // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
@@ -86,8 +104,10 @@ void Thermocouples::setup()
     thermocoupleADC.enableChannel(14, false); // Disabled
     thermocoupleADC.enableChannel(15, false); // Disabled
 
+
     // Allow settling time
     HAL_Delay(200);
+    //HAL_NVIC_EnableIRQ(ADC_DRDY_EXTI_IRQn); // Temporarily disable interrupt
 
     rf.error = 0.0f;
     rf.estimate = 0.0f;
@@ -111,11 +131,15 @@ void Thermocouples::setup()
 void Thermocouples::stateMachine(void)
 {
 
-    if (thermocoupleADC.isConversionReady())
-    {
+    //if (ad7124_rdy_flag)
+    //{
+      // HAL_NVIC_DisableIRQ(ADC_DRDY_EXTI_IRQn); // Temporarily disable interrupt
 
-        // thermocoupleADC.waitEndOfConversion(500);
-        rawData = thermocoupleADC.getData();
+       if (thermocoupleADC.isConversionReady())
+       {
+
+        //thermocoupleADC.waitEndOfConversion(10);
+       rawData = thermocoupleADC.getData();
         channel = thermocoupleADC.currentChannel();
 
         if (channel == 0)
@@ -145,6 +169,8 @@ void Thermocouples::stateMachine(void)
             //     temperature[channel] = temp_temp;
             // }
         }
+
+
 
         // if (channel == 2)
         //{
@@ -181,8 +207,17 @@ void Thermocouples::stateMachine(void)
         lf.error = (1.0 - lf.gain) * lf.error;
 
         // gain is estimated at 1789473 intercept at 120 pixels when deltat is zero
-        deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 120.0; // SEEMS REALLLY FAST>>>>>>
+        deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
 
+/*
+        if(deltaTemp == 240) {
+        	direction = -1;
+        } else if(deltaTemp == 0 && direction == -1) {
+        	direction = 1;
+        }
+
+        deltaTemp += direction;
+*/
         // 2615384.615
         // deltaTemp = ((rf.estimate - lf.estimate) * 2000000.0 * userGain) + 85.0; // SEEMS REALLLY FAST>>>>>>
 
@@ -194,10 +229,26 @@ void Thermocouples::stateMachine(void)
         // 32307692.31
         // deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
 
-         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+        //updateNeedle();
+
+        //updateLeftandRightTempLabels();
+
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+        //if(uart_ready){
+       HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);
+        //uart_ready = 0;
+        //}
+
+    	//ad7124_rdy_flag = 0;
+       //HAL_NVIC_EnableIRQ(ADC_DRDY_EXTI_IRQn); // Temporarily disable interrupt
+
     }
+
 }
+
+
+Thermocouples myThermocouples;
+
 
 // float Thermocouples::thermocoupleVoltageToTemp(float voltage_V, float coldJunctionTemp_C)
 //{

@@ -1,0 +1,202 @@
+#include "Thermocouples2.h"
+
+#include "main.h"
+// Static member definitions
+// float Thermocouples::deltaTemp = 0.0;
+// float Thermocouples::userGain = 1.0;
+// float Thermocouples::deltaTempOffset = 0.0;
+
+// KALMAN_T rf;
+// KALMAN_T lf;
+//  Static member definitions for MAX31856 objects
+
+// volatile int thermocouple_data_ready = 0;
+
+#include "ad7124.h"
+
+double voltage_ch0_mV;
+double voltage_ch1_mV;
+float temperature;
+// External driver structures and buffers
+extern AD7124_ConfigTypeDef AD7124_Handler;
+extern int32_t AD7124_ChannelSamples[AD7124_ENABLED_CHANNELS];
+extern AD7124_RegisterTypeDef configA;
+
+// ADC configuration constants
+#define ADC_RESOLUTION_24BIT 8388608.0 // 2^23 for bipolar mode
+#define ADC_VREF 2.5                   // Internal reference voltage
+#define ADC_PGA_CH0 128.0              // PGA gain for channels 0 and 1
+#define ADC_PGA_CH1 128.0
+
+// Status array for tracking return values from driver functions
+AD7124_StatusTypeDef status[3U];
+
+// Flag for DOUT/RDY interrupt
+volatile uint8_t ad7124_rdy_flag = 0U;
+
+// Variables for error status, voltage, and temperature calculation
+int32_t ad7124_error = 0U;
+double voltage;
+float temperature;
+
+void thermocouplesSetup()
+{
+
+    AD7124_Handler.SPIx = &hspi2;             // SPI peripheral used
+    AD7124_Handler.csPort = ADC_CS_GPIO_Port; // GPIO port for CS
+    AD7124_Handler.csPin = ADC_CS_Pin;        // GPIO pin for CS
+    AD7124_Handler.IRQn = ADC_DRDY_EXTI_IRQn; // External interrupt line connected to DOUT/RDY
+
+    HAL_NVIC_DisableIRQ(AD7124_Handler.IRQn); // Disable IRQ during initial config
+
+    // Reset the ADC first
+    status[0U] = AD7124_Reset(&AD7124_Handler, 1000);
+    if (status[0U] != AD7124_OK)
+    {
+        // Handle error - maybe retry or report via UART
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "ADC Reset Failed!\r\n");
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+    }
+
+    // Configure the AD7124
+    status[1U] = AD7124_Config(&AD7124_Handler, &configA);
+    if (status[1U] != AD7124_OK)
+    {
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "ADC Config Failed!\r\n");
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+    }
+
+    HAL_NVIC_EnableIRQ(AD7124_Handler.IRQn); // Re-enable interrupt after initialization
+
+    // Allow settling time
+    HAL_Delay(200);
+
+    snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "ADC Initialized Successfully\r\n");
+    HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+
+    //   rf.error = 0.0f;
+    //   rf.estimate = 0.0f;
+    //   rf.process_variance = 1.0f;     // was 2 and
+    //   rf.measurement_variance = 5.0f; // 50
+    //
+    //   lf.error = 0.0f;
+    //   lf.estimate = 10000.0f;
+    //   lf.process_variance = 1.0f;
+    //   lf.measurement_variance = 5.0f;
+
+    // diameter = 0.000812f;                // 20 gauge wire diameter, meters
+    // length = 0.0254f;                    // 1 inch in meters
+    // area = 3.14159f * diameter * length; // surface area in m^2
+    // ambientTemp = 20.0f;
+    // h = 500;      // W/m^2 * K
+    // C = 0.000053; // J /K
+    // lastTime = HAL_GetTick();
+}
+
+void thermocouplesMain(void)
+{
+    /* Check if data is ready (set in external interrupt) */
+    if (ad7124_rdy_flag)
+    {
+        HAL_NVIC_DisableIRQ(AD7124_Handler.IRQn); // Temporarily disable interrupt
+
+        /* Optional: check for errors */
+        status[1U] = AD7124_ErrorCheck(&AD7124_Handler, &ad7124_error);
+        if (status[1U] == AD7124_OK && ad7124_error != 0)
+        {
+            snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER),
+                     "ADC Error Register: 0x%08lX\r\n", (unsigned long)ad7124_error);
+            HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+        }
+
+        /* Read conversion results from ADC */
+        status[2U] = AD7124_ReadSampleData(&AD7124_Handler);
+
+        if (status[2U] == AD7124_OK)
+        {
+            // CORRECT voltage conversion for bipolar mode:
+            // Formula: V = (Code / 2^23) * (Vref / PGA)
+            // Where Code is a SIGNED 24-bit value from -8388608 to +8388607
+
+            // Convert to volts first
+            double voltage_ch0_V = ((double)AD7124_ChannelSamples[0] / ADC_RESOLUTION_24BIT) * (ADC_VREF / ADC_PGA_CH0);
+            double voltage_ch1_V = ((double)AD7124_ChannelSamples[1] / ADC_RESOLUTION_24BIT) * (ADC_VREF / ADC_PGA_CH1);
+
+            // Convert to millivolts for easier reading
+            voltage_ch0_mV = voltage_ch0_V * 1000.0;
+            voltage_ch1_mV = voltage_ch1_V * 1000.0;
+
+            // Debug output - show raw codes and voltages
+            snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER),
+                     "CH0: %+.4f , CH1: %+.4f\r\n",
+                     voltage_ch0_mV,
+                     voltage_ch1_mV);
+            HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+
+            // Check for saturation
+            if (AD7124_ChannelSamples[0] >= 8388607 || AD7124_ChannelSamples[0] <= -8388608)
+            {
+                snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "WARNING: CH0 SATURATED!\r\n");
+                HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+            }
+            if (AD7124_ChannelSamples[1] >= 8388607 || AD7124_ChannelSamples[1] <= -8388608)
+            {
+                snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "WARNING: CH1 SATURATED!\r\n");
+                HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+            }
+        }
+        else
+        {
+            snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Read Error: %d\r\n", status[2U]);
+            HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+        }
+
+        ad7124_rdy_flag = 0U;                    // Clear ready flag
+        HAL_NVIC_EnableIRQ(AD7124_Handler.IRQn); // Re-enable interrupt
+    }
+
+    // lf.measurement = voltage[0]; // voltage
+    // rf.measurement = voltage[1]; // voltage
+    //
+    //// the current voltage is estimated to be the last voltage + volt/second ratio (velocity) * time
+    // rf.error = rf.error + rf.process_variance;
+    // rf.gain = rf.error / (rf.error + rf.measurement_variance);
+    // rf.estimate = rf.estimate + rf.gain * (rf.measurement - rf.estimate);
+    // rf.error = (1.0 - rf.gain) * rf.error;
+    ////
+    // lf.error = lf.error + lf.process_variance;
+    // lf.gain = lf.error / (lf.error + lf.measurement_variance);
+    // lf.estimate = lf.estimate + lf.gain * (lf.measurement - lf.estimate);
+    // lf.error = (1.0 - lf.gain) * lf.error;
+    //
+    //// gain is estimated at 1789473 intercept at 120 pixels when deltat is zero
+    // deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 120.0; // SEEMS REALLLY FAST>>>>>>
+    //
+    //// 2615384.615
+    //// deltaTemp = ((rf.estimate - lf.estimate) * 2000000.0 * userGain) + 85.0; // SEEMS REALLLY FAST>>>>>>
+    //
+    //// deltaTemp = ((rf.estimate - lf.estimate) * 4500000.0 * userGain); // SEEMS REALLLY FAST>>>>>>
+    //
+    //// deltaTemp = ((rf.estimate - lf.estimate) * 4615384.615 * userGain); // SEEMS REALLLY FAST>>>>>>
+    //// 4500000
+    //// deltaTemp = ((rf.estimate - lf.estimate) * 100.0 * 10000.0 * userGain); // NEW WITH LVGL
+    //// 32307692.31
+    //// deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
+    //
+    // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+}
+
+// float Thermocouples::thermocoupleVoltageToTemp(float voltage_V, float coldJunctionTemp_C)
+//{
+//     // K-type thermocouple: ~41µV/°C (average Seebeck coefficient)
+//     const float SEEBECK_COEFF = 0.000041f; // V/°C
+//
+//     // Convert voltage to temperature difference
+//     float tempDifference = voltage_V / SEEBECK_COEFF;
+//
+//     // Add cold junction temperature to get absolute temperature
+//     float absoluteTemp = tempDifference + coldJunctionTemp_C;
+//
+//     return absoluteTemp;
+// }

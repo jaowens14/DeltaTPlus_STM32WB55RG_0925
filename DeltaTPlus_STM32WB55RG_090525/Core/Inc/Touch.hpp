@@ -1,21 +1,25 @@
 #ifndef TOUCH_HPP
 #define TOUCH_HPP
-#include <FT5436_Touch.h>
-#include "usart.h"
+
+#include "FT5436_Touch.h"
+#include "lvgl.h"
 
 class Touch
 {
-
 public:
-    volatile int delay;
-    Touch_FT5436_t touch_controller;
-
-    // TS_Point point;
     static int x;
     static int y;
+    static bool is_pressed;
 
     void setup(void);
-    void stateMachine(void);
+    void update(void);
+    static void lvgl_read(lv_indev_t *indev, lv_indev_data_t *data);
+    void setup_lvgl_input(void);
+
+
+    Touch_FT5436_t touch_controller;
 };
+
+extern Touch myTouch;
 
 #endif

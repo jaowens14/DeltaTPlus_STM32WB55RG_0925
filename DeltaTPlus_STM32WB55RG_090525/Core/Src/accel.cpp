@@ -1,6 +1,7 @@
 #include <backlight.h>
 #include "accel.h"
 #include "main.h"
+#include "widgets.h"
 
 AccelerometerStates accelState;
 
@@ -111,6 +112,8 @@ void accelHandler(void)
         accelSwitchState = !accelSwitchState;
 
     }
+
+    updateSettingLabel();
 }
 
 

@@ -19,7 +19,7 @@ void backlightSetup(void)
 
     __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0); // turn off screen to start
 
-    backlightState = HIGH;
+    backlightState = LOW;
 
     backlightDelay = 0;
 }

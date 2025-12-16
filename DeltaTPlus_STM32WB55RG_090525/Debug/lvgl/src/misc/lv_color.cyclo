@@ -1,15 +1,15 @@
-../lvgl/src/misc/lv_color.c:415:19:lv_color_filter_shade_cb	3
-../lvgl/src/misc/lv_color.c:43:9:lv_color_format_get_bpp	2
-../lvgl/src/misc/lv_color.c:91:6:lv_color_format_has_alpha	2
+../lvgl/src/misc/../stdlib/lv_string.h:73:20:lv_memzero	1
+../lvgl/src/misc/lv_color.c:43:9:lv_color_format_get_bpp	10
+../lvgl/src/misc/lv_color.c:91:6:lv_color_format_has_alpha	3
 ../lvgl/src/misc/lv_color.c:116:14:lv_color_to_32	1
 ../lvgl/src/misc/lv_color.c:126:10:lv_color_to_u16	1
 ../lvgl/src/misc/lv_color.c:131:10:lv_color_to_u32	1
 ../lvgl/src/misc/lv_color.c:136:12:lv_color_lighten	1
 ../lvgl/src/misc/lv_color.c:142:12:lv_color_darken	1
 ../lvgl/src/misc/lv_color.c:147:12:lv_color_hsv_to_rgb	7
-../lvgl/src/misc/lv_color.c:205:16:lv_color_rgb_to_hsv	8
-../lvgl/src/misc/lv_color.c:256:16:lv_color_to_hsv	8
-../lvgl/src/misc/lv_color.c:261:9:lv_color_format_get_size	2
+../lvgl/src/misc/lv_color.c:205:16:lv_color_rgb_to_hsv	10
+../lvgl/src/misc/lv_color.c:256:16:lv_color_to_hsv	1
+../lvgl/src/misc/lv_color.c:261:9:lv_color_format_get_size	1
 ../lvgl/src/misc/lv_color.c:266:10:lv_color_to_int	1
 ../lvgl/src/misc/lv_color.c:272:6:lv_color_eq	1
 ../lvgl/src/misc/lv_color.c:277:6:lv_color32_eq	1
@@ -26,3 +26,4 @@
 ../lvgl/src/misc/lv_color.c:383:9:lv_color16_luminance	1
 ../lvgl/src/misc/lv_color.c:388:9:lv_color24_luminance	1
 ../lvgl/src/misc/lv_color.c:393:9:lv_color32_luminance	1
+../lvgl/src/misc/lv_color.c:415:19:lv_color_filter_shade_cb	3

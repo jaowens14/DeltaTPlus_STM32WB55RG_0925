@@ -61,6 +61,11 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define CTP_INT_Pin GPIO_PIN_0
+#define CTP_INT_GPIO_Port GPIOC
+#define CTP_INT_EXTI_IRQn EXTI0_IRQn
+#define GPIO_CTP_RESET_Pin GPIO_PIN_1
+#define GPIO_CTP_RESET_GPIO_Port GPIOC
 #define TFT_BACKLIGHT_Pin GPIO_PIN_0
 #define TFT_BACKLIGHT_GPIO_Port GPIOA
 #define TFT_RESET_Pin GPIO_PIN_1
@@ -69,15 +74,13 @@ void Error_Handler(void);
 #define TFT_RS_DC_GPIO_Port GPIOA
 #define TFT_CS_Pin GPIO_PIN_4
 #define TFT_CS_GPIO_Port GPIOA
-#define CTP_INT_Pin GPIO_PIN_4
-#define CTP_INT_GPIO_Port GPIOC
-#define CTP_INT_EXTI_IRQn EXTI4_IRQn
-#define GPIO_CTP_RESET_Pin GPIO_PIN_5
-#define GPIO_CTP_RESET_GPIO_Port GPIOC
 #define ad7234_io_Pin GPIO_PIN_2
 #define ad7234_io_GPIO_Port GPIOB
 #define ADC_CS_Pin GPIO_PIN_12
 #define ADC_CS_GPIO_Port GPIOB
+#define ADC_DRDY_Pin GPIO_PIN_10
+#define ADC_DRDY_GPIO_Port GPIOA
+#define ADC_DRDY_EXTI_IRQn EXTI15_10_IRQn
 #define ACCEL_INT1_Pin GPIO_PIN_11
 #define ACCEL_INT1_GPIO_Port GPIOC
 #define ACCEL_INT1_EXTI_IRQn EXTI15_10_IRQn
@@ -90,6 +93,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
   // void SPI_Set_Mode(uint8_t mode);
   extern uint8_t UART_BUFFER[256];
+  extern volatile int uart_ready;
 
   double RNG_GetRandomDouble(double min, double max);
 

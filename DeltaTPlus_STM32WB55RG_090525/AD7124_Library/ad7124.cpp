@@ -298,6 +298,7 @@ long Ad7124Chip::getData()
   return (long)value;
 }
 
+
 // -----------------------------------------------------------------------------
 int Ad7124Chip::startSingleConversion(uint8_t ch)
 {

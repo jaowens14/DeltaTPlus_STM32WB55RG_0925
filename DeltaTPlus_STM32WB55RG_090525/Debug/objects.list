@@ -32,6 +32,7 @@
 "./Core/Src/system_stm32wbxx.o"
 "./Core/Src/tim.o"
 "./Core/Src/usart.o"
+"./Core/Src/widgets.o"
 "./Core/Startup/startup_stm32wb55rgvx.o"
 "./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal.o"
 "./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.o"

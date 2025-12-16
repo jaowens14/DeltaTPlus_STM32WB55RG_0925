@@ -16,11 +16,11 @@
 ../AD7124_Library/ad7124.cpp:276:5:int Ad7124Chip::waitEndOfConversion(uint32_t)	1
 ../AD7124_Library/ad7124.cpp:282:5:int Ad7124Chip::isConversionReady()	1
 ../AD7124_Library/ad7124.cpp:288:6:long int Ad7124Chip::getData()	2
-../AD7124_Library/ad7124.cpp:302:5:int Ad7124Chip::startSingleConversion(uint8_t)	4
-../AD7124_Library/ad7124.cpp:320:6:long int Ad7124Chip::read(uint8_t)	14
-../AD7124_Library/ad7124.cpp:353:5:int Ad7124Chip::internalCalibration(uint8_t)	11
-../AD7124_Library/ad7124.cpp:408:6:long int Ad7124Chip::getRegister(Ad7124::RegisterId)	3
-../AD7124_Library/ad7124.cpp:427:5:int Ad7124Chip::setRegister(Ad7124::RegisterId, long int)	2
-../AD7124_Library/ad7124.cpp:441:1:static double Ad7124Chip::toVoltage(long int, int, double, bool)	2
-../AD7124_Library/ad7124.cpp:465:5:int Ad7124Chip::readRegister(Ad7124::RegisterId)	1
-../AD7124_Library/ad7124.cpp:472:5:int Ad7124Chip::writeRegister(Ad7124::RegisterId)	1
+../AD7124_Library/ad7124.cpp:303:5:int Ad7124Chip::startSingleConversion(uint8_t)	4
+../AD7124_Library/ad7124.cpp:321:6:long int Ad7124Chip::read(uint8_t)	14
+../AD7124_Library/ad7124.cpp:354:5:int Ad7124Chip::internalCalibration(uint8_t)	11
+../AD7124_Library/ad7124.cpp:409:6:long int Ad7124Chip::getRegister(Ad7124::RegisterId)	3
+../AD7124_Library/ad7124.cpp:428:5:int Ad7124Chip::setRegister(Ad7124::RegisterId, long int)	2
+../AD7124_Library/ad7124.cpp:442:1:static double Ad7124Chip::toVoltage(long int, int, double, bool)	2
+../AD7124_Library/ad7124.cpp:466:5:int Ad7124Chip::readRegister(Ad7124::RegisterId)	1
+../AD7124_Library/ad7124.cpp:473:5:int Ad7124Chip::writeRegister(Ad7124::RegisterId)	1

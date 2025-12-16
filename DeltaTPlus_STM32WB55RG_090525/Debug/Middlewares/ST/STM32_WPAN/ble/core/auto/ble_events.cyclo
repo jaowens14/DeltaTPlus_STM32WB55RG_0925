@@ -13,7 +13,7 @@
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c:282:13:hci_le_connection_complete_event	1
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c:295:13:hci_le_connection_complete_event_process	1
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c:310:13:hci_le_advertising_report_event	1
-../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c:316:13:hci_le_advertising_report_event_process	3
+../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c:316:13:hci_le_advertising_report_event_process	2
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c:333:13:hci_le_connection_update_complete_event	1
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c:342:13:hci_le_connection_update_complete_event_process	1
 ../Middlewares/ST/STM32_WPAN/ble/core/auto/ble_events.c:353:13:hci_le_read_remote_features_complete_event	1
