@@ -1,3 +1,0 @@
-../Core/Src/Accelerometer.cpp:7:6:void Accelerometer::setup()	1
-../Core/Src/Accelerometer.cpp:18:6:void Accelerometer::stateMachine()	10
-../Core/Src/Accelerometer.cpp:62:6:void Accelerometer::readAccelerometer()	2

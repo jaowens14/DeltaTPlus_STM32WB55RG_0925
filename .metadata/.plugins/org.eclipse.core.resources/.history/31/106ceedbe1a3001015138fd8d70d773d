@@ -1,6 +1,0 @@
-../lvgl/examples/widgets/arc/lv_example_arc_3.c:103:13:create_slice	40	static
-../lvgl/examples/widgets/arc/lv_example_arc_3.c:42:13:arc_click_cb	136	static
-../lvgl/examples/widgets/arc/lv_example_arc_3.c:37:13:anim_cleanup_cb	0	static
-../lvgl/examples/widgets/arc/lv_example_arc_3.c:28:13:anim_move_cb	12	static
-../lvgl/examples/widgets/arc/../../../src/core/lv_obj_style.h:264:20:lv_obj_set_style_pad_all.constprop	8	static
-../lvgl/examples/widgets/arc/lv_example_arc_3.c:148:6:lv_example_arc_3	40	static

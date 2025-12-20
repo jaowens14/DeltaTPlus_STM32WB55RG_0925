@@ -1,0 +1,13 @@
+../Core/Src/FT5436_Touch.c:7:6:Touch_FT5436_Init	2
+../Core/Src/FT5436_Touch.c:32:6:Touch_FT5436_Begin	2
+../Core/Src/FT5436_Touch.c:59:8:Touch_FT5436_JitterMargin	2
+../Core/Src/FT5436_Touch.c:70:9:Touch_FT5436_MaxPointCount	3
+../Core/Src/FT5436_Touch.c:81:6:Touch_FT5436_PointDetected	9
+../Core/Src/FT5436_Touch.c:134:9:Touch_FT5436_ReleaseCount	2
+../Core/Src/FT5436_Touch.c:149:9:Touch_FT5436_GetPointCount	1
+../Core/Src/FT5436_Touch.c:158:9:Touch_FT5436_GetPointX	3
+../Core/Src/FT5436_Touch.c:169:9:Touch_FT5436_GetPointY	3
+../Core/Src/FT5436_Touch.c:180:9:Touch_FT5436_GetGesture	1
+../Core/Src/FT5436_Touch.c:190:6:Touch_FT5436_ReadPoints	6
+../Core/Src/FT5436_Touch.c:226:6:Touch_FT5436_WriteReg	1
+../Core/Src/FT5436_Touch.c:236:6:Touch_FT5436_IRQHandler	2

@@ -1,14 +1,16 @@
-../Core/Src/main.cpp:329:6:void my_flush_cb(lv_display_t*, const lv_area_t*, uint8_t*)	1
-../Core/Src/main.cpp:118:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	7
-../Core/Src/main.cpp:163:6:void UART_RX_HANDLER()	2
-../Core/Src/main.cpp:181:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	7
-../Core/Src/main.cpp:235:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
-../Core/Src/main.cpp:245:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	1
-../Core/Src/main.cpp:253:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	2
-../Core/Src/main.cpp:262:6:void HAL_GPIO_EXTI_Callback(uint16_t)	5
-../Core/Src/main.cpp:292:6:void st7789_send_cmd(lv_display_t*, const uint8_t*, size_t, const uint8_t*, size_t)	2
-../Core/Src/main.cpp:309:6:void st7789_send_color(lv_display_t*, const uint8_t*, size_t, const uint8_t*, size_t)	1
-../Core/Src/main.cpp:529:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:590:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:357:5:int main()	5
-../Core/Src/main.cpp:619:6:void Error_Handler()	1
+../Core/Src/main.cpp:199:6:void lcd_send_cmd(lv_display_t*, const uint8_t*, size_t, const uint8_t*, size_t)	3
+../Core/Src/main.cpp:227:6:void lcd_send_color(lv_display_t*, const uint8_t*, size_t, uint8_t*, size_t)	3
+../Core/Src/main.cpp:148:6:void lv_port_disp_init()	1
+../Core/Src/main.cpp:170:6:void lcd_color_transfer_ready_cb(SPI_HandleTypeDef*)	1
+../Core/Src/main.cpp:179:9:int32_t lcd_io_init()	1
+../Core/Src/main.cpp:282:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	7
+../Core/Src/main.cpp:327:6:void UART_RX_HANDLER()	2
+../Core/Src/main.cpp:343:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	7
+../Core/Src/main.cpp:395:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
+../Core/Src/main.cpp:405:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	1
+../Core/Src/main.cpp:413:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	2
+../Core/Src/main.cpp:422:6:void HAL_GPIO_EXTI_Callback(uint16_t)	5
+../Core/Src/main.cpp:623:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:684:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:478:5:int main()	7
+../Core/Src/main.cpp:713:6:void Error_Handler()	1

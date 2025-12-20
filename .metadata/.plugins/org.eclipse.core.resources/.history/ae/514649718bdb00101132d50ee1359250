@@ -1,0 +1,4 @@
+../Core/Src/Touch.cpp:52:6:static void Touch::lvgl_read(lv_indev_t*, lv_indev_data_t*)	3
+../Core/Src/Touch.cpp:10:6:void Touch::setup()	1
+../Core/Src/Touch.cpp:26:6:void Touch::update()	3
+../Core/Src/Touch.cpp:64:6:void Touch::setup_lvgl_input()	1

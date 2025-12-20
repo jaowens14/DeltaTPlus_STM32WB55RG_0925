@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;DeltaTPlus_STM32WB55RG_090525/Core/Src/widgets.c&apos; to &apos;widgets.cpp&apos;" description="Rename resource &apos;widgets.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/widgets.c" name="widgets.cpp" stamp="1764952780304" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;DeltaTPlus_STM32WB55RG_090525/Core/Src/accel.c&apos; to &apos;accel.cpp&apos;" description="Rename resource &apos;accel.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/accel.c" name="accel.cpp" stamp="1764959607264" updateReferences="true"/>
+</session>

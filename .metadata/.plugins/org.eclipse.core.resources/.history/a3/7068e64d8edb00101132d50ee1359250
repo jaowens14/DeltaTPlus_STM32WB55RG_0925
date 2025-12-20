@@ -1,0 +1,7 @@
+../lvgl/src/misc/lv_grad.c:34:6:lv_grad_init_stops	32	static
+../lvgl/src/misc/lv_grad.c:50:6:lv_grad_horizontal_init	16	static
+../lvgl/src/misc/lv_grad.c:57:6:lv_grad_vertical_init	16	static
+../lvgl/src/misc/lv_grad.c:64:6:lv_grad_linear_init	24	static
+../lvgl/src/misc/lv_grad.c:76:6:lv_grad_radial_init	24	static
+../lvgl/src/misc/lv_grad.c:92:6:lv_grad_conical_init	24	static
+../lvgl/src/misc/lv_grad.c:104:6:lv_grad_radial_set_focal	24	static

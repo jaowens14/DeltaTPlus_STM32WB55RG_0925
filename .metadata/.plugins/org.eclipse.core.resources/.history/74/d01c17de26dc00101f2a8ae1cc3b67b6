@@ -1,0 +1,737 @@
+/* USER CODE BEGIN Header */
+/**
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2025 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
+/* USER CODE END Header */
+/* Includes ------------------------------------------------------------------*/
+#include <accel.h>
+#include <backlight.h>
+#include "main.h"
+#include "dma.h"
+#include "i2c.h"
+#include "ipcc.h"
+#include "memorymap.h"
+#include "rf.h"
+#include "rtc.h"
+#include "rng.h"
+#include "spi.h"
+#include "tim.h"
+#include "usart.h"
+#include "usb_device.h"
+#include "gpio.h"
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+// #include "Adafruit_GFX.h"
+//  #include "usbd_cdc_if.h"
+#include "stm32_seq.h"
+#include <string.h>
+
+#include "Thermocouples.hpp"
+// #include "Thermocouples2.h"
+#include "ad7124-driver.h"
+#include "DeltaT.h"
+#include "BatteryMonitor.h"
+#include "Touch.hpp"
+#include "FT5436_Touch.h"
+
+#include "widgets.h"
+
+#define LV_LVGL_H_INCLUDE_SIMPLE
+
+#include <math.h>
+
+#include "lvgl.h"
+#include "lv_port_disp.h"
+
+// #include "ST7789.h"
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+#define UART_RX_BUFFER_SIZE 256
+uint8_t UART_RX_BUFFER[UART_RX_BUFFER_SIZE] = {0};
+uint8_t UART_BUFFER[UART_RX_BUFFER_SIZE] = {0};
+
+uint8_t UART_RX_BYTE = 0;
+uint8_t UART_RX_READY = 0;
+volatile int uart_ready = 0;
+
+// static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 32 * BYTE_PER_PIXEL];
+
+/* USER CODE END PTD */
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+// static struct ad7124_dev *pAd7124_dev = NULL;
+
+/* USER CODE BEGIN PV */
+/*Copy this file as "lv_port_disp.c" and set this value to "1" to enable content*/
+#if 1
+
+/*********************
+ *      INCLUDES
+ *********************/
+/* Include STM32Cube files here, e.g.:
+#include "stm32f7xx_hal.h"
+*/
+#include "lv_port_disp.h"
+#include "./src/drivers/display/st7789/lv_st7789.h"
+
+/*********************
+ *      DEFINES
+ *********************/
+#define MY_DISP_HOR_RES 320
+
+#ifndef MY_DISP_HOR_RES
+#warning Please define or replace the macro MY_DISP_HOR_RES with the actual screen width, default value 320 is used for now.
+#define MY_DISP_HOR_RES 320
+#endif
+
+#define MY_DISP_VER_RES 240
+
+#ifndef MY_DISP_VER_RES
+#warning Please define or replace the macro MY_DISP_VER_RES with the actual screen height, default value 240 is used for now.
+#define MY_DISP_VER_RES 240
+#endif
+
+#define BUS_SPI1_POLL_TIMEOUT 0x1000U
+
+/**********************
+ *      TYPEDEFS
+ **********************/
+
+/**********************
+ *  STATIC PROTOTYPES
+ **********************/
+void lcd_color_transfer_ready_cb(SPI_HandleTypeDef *hspi);
+int32_t lcd_io_init(void);
+void lcd_send_cmd(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, const uint8_t *param,
+                         size_t param_size);
+void lcd_send_color(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, uint8_t *param,
+                           size_t param_size);
+
+/**********************
+ *  STATIC VARIABLES
+ **********************/
+lv_display_t *lcd_disp;
+volatile int lcd_bus_busy = 0;
+
+/**********************
+ *      MACROS
+ **********************/
+
+/**********************
+ *   GLOBAL FUNCTIONS
+ **********************/
+
+void lv_port_disp_init(void)
+{
+  /* Initialize LCD I/O */
+  if (lcd_io_init() != 0)
+    return;
+
+
+  /* Create the LVGL display object and the ST7789 LCD display driver */
+  lcd_disp = lv_st7789_create(MY_DISP_HOR_RES, MY_DISP_VER_RES, LV_LCD_FLAG_BGR, lcd_send_cmd, lcd_send_color);
+  lv_display_set_rotation(lcd_disp, LV_DISPLAY_ROTATION_180); /* set landscape orientation */
+
+
+
+  lv_display_set_buffers(lcd_disp, buffer1, buffer2, ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL, LV_DISPLAY_RENDER_MODE_PARTIAL);
+}
+
+/**********************
+ *   STATIC FUNCTIONS
+ **********************/
+
+/* Callback is called when background transfer finished */
+void lcd_color_transfer_ready_cb(SPI_HandleTypeDef *hspi)
+{
+  /* CS high */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+  lcd_bus_busy = 0;
+  lv_display_flush_ready(lcd_disp);
+}
+
+/* Initialize LCD I/O bus, reset LCD */
+int32_t lcd_io_init(void)
+{
+  /* Register SPI Tx Complete Callback */
+  //HAL_SPI_RegisterCallback(&hspi1, HAL_SPI_TX_COMPLETE_CB_ID, lcd_color_transfer_ready_cb);
+
+  /* reset LCD */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
+  HAL_Delay(100);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
+  HAL_Delay(100);
+
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+
+  return HAL_OK;
+}
+
+/* Platform-specific implementation of the LCD send command function. In general this should use polling transfer. */
+void lcd_send_cmd(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, const uint8_t *param,
+                         size_t param_size)
+{
+  LV_UNUSED(disp);
+  while (lcd_bus_busy)
+    ; /* wait until previous transfer is finished */
+  /* Set the SPI in 8-bit mode */
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  HAL_SPI_Init(&hspi1);
+  /* DCX low (command) */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+  /* CS low */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+  /* send command */
+  if (HAL_SPI_Transmit(&hspi1, cmd, cmd_size, BUS_SPI1_POLL_TIMEOUT) == HAL_OK)
+  {
+    /* DCX high (data) */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+    /* for short data blocks we use polling transfer */
+    HAL_SPI_Transmit(&hspi1, (uint8_t *)param, (uint16_t)param_size, BUS_SPI1_POLL_TIMEOUT);
+    /* CS high */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET);
+  }
+}
+
+/* Platform-specific implementation of the LCD send color function. For better performance this should use DMA transfer.
+ * In case of a DMA transfer a callback must be installed to notify LVGL about the end of the transfer.
+ */
+void lcd_send_color(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, uint8_t *param,
+                           size_t param_size)
+{
+
+	  //snprintf((char *)UART_BUFFER, 64, "lcd_send_color\r\n");
+	 // HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
+
+  LV_UNUSED(disp);
+  while (lcd_bus_busy)
+    ; /* wait until previous transfer is finished */
+  /* Set the SPI in 8-bit mode */
+  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
+  HAL_SPI_Init(&hspi1);
+  /* DCX low (command) */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+  /* CS low */
+  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+  /* send command */
+  if (HAL_SPI_Transmit(&hspi1, cmd, cmd_size, BUS_SPI1_POLL_TIMEOUT) == HAL_OK)
+  {
+    /* DCX high (data) */
+    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
+    /* for color data use DMA transfer */
+    /* Set the SPI in 16-bit mode to match endianness */
+    hspi1.Init.DataSize = SPI_DATASIZE_16BIT;
+    HAL_SPI_Init(&hspi1);
+    lcd_bus_busy = 1;
+    HAL_SPI_Transmit_DMA(&hspi1, param, (uint16_t)param_size / 2);
+    /* NOTE: CS will be reset in the transfer ready callback */
+  }
+}
+
+#else /*Enable this file at the top*/
+
+/*This dummy typedef exists purely to silence -Wpedantic.*/
+typedef int keep_pedantic_happy;
+#endif
+
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+void PeriphCommonClock_Config(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+volatile int timerCounter = 0;
+volatile int run_lv_timer_handler = 0;
+volatile uint32_t loopCounter = 0;
+volatile uint32_t loopsPerSecond = 0;
+volatile uint8_t measureFlag = 0;
+
+void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1)
+  {
+    static uint16_t bufferIndex = 0;
+    static uint8_t parseActive = 0;
+
+    uint8_t temp = UART_RX_BYTE;
+
+    /* If new string starts, reset buffer */
+    if (temp == '$')
+    {
+      bufferIndex = 0;
+      parseActive = 1;
+      UART_RX_READY = 0;
+    }
+
+    if (parseActive)
+    {
+      /* Store byte in buffer */
+      UART_RX_BUFFER[bufferIndex] = temp;
+
+      /* Check if string is complete (ends with \n) */
+      if (temp == 0x0A && UART_RX_BUFFER[0] == '$')
+      {
+        /* Null-terminate the string */
+        UART_RX_BUFFER[bufferIndex + 1] = 0;
+
+        /* Signal that data is ready for processing */
+        UART_RX_READY = 1;
+        parseActive = 0;
+      }
+      else
+      {
+        /* Continue filling buffer */
+        if (bufferIndex < UART_RX_BUFFER_SIZE - 2)
+          bufferIndex++;
+      }
+    }
+
+    /* Re-enable interrupt for next byte */
+    HAL_UART_Receive_IT(huart, &UART_RX_BYTE, 1);
+  }
+}
+
+void UART_RX_HANDLER(void)
+{
+
+  if (UART_RX_READY)
+  {
+    UART_RX_READY = 0;
+
+    if (strcmp((char *)UART_RX_BUFFER, "$accel") == 0)
+    {
+    }
+
+    // HAL_UART_Transmit_IT(&huart1, UART_RX_BUFFER, strlen((char *)UART_RX_BUFFER));
+  }
+}
+
+// main timer implementation
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  if (htim == &htim16)
+  {
+    // 0.1ms timers
+    timerCounter++;
+
+    // 1ms
+    if ((timerCounter % 10) == 0)
+    {
+      lv_tick_inc(1);
+
+      if ((timerCounter % 200) == 0)
+      {
+        run_lv_timer_handler = 1;
+      }
+    }
+
+    if (myThermocouples.delay)
+    {
+      myThermocouples.delay--;
+    }
+
+    // if (accelDelay)
+    // {
+    //  myAccelerometer.readDelay--;
+    // }
+
+    // 100 ms timers //
+    if ((timerCounter % 1000) == 0)
+    {
+    }
+
+    // 1000 ms timers //
+    if ((timerCounter % 10000) == 0)
+    {
+
+      loopsPerSecond = loopCounter;
+      loopCounter = 0;
+      measureFlag = 1; // Signal to print result
+
+      timerCounter = 0;
+      if (accelDelay)
+      {
+        accelDelay--;
+      }
+    }
+    //}
+  }
+}
+
+
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+
+  if (hspi == &hspi1)
+  {
+    lcd_color_transfer_ready_cb(hspi);
+  }
+}
+
+
+void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c)
+{
+  if (hi2c->Instance == hi2c1.Instance)
+  {
+    // accelerometerProcessData();
+  }
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
+{
+  if (huart->Instance == USART1)
+  {
+    // Transmission done
+    uart_ready = 1;
+  }
+}
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+
+  if (GPIO_Pin == ACCEL_INT1_Pin)
+  {
+    int1_triggered = 1;
+  }
+
+  if (GPIO_Pin == ACCEL_INT2_Pin)
+  {
+    int2_triggered = 1;
+  }
+
+  if (GPIO_Pin == CTP_INT_Pin)
+  {
+    // touch_handler();
+    Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
+  }
+
+  if (GPIO_Pin == ADC_DRDY_Pin)
+  {
+    ad7124_rdy_flag = 1;
+  }
+
+  // Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
+}
+
+/*
+void my_flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *px_map)
+{
+
+  int32_t width = area->x2 - area->x1 + 1;
+  int32_t height = area->y2 - area->y1 + 1;
+
+  ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
+
+  ST7789_CS_LOW_DC_HIGH();
+
+  // int32_t width = area->x2 - area->x1 + 1;
+  // int32_t height = area->y2 - area->y1 + 1;
+
+  uint32_t size = width * height * 2; // 2 bytes per pixel for RGB565
+  // snprintf((char *)UART_BUFFER, 64, "size: %d\r\n", size);
+  // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 1);
+  // lv_draw_sw_rgb565_swap(px_map, (area->x2 - area->x1 + 1) * (area->y2 - area->y1 + 1));
+
+  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t *)px_map, size);
+}
+*/
+
+/* USER CODE END 0 */
+
+/**
+ * @brief  The application entry point.
+ * @retval int
+ */
+int main(void)
+{
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
+  SystemClock_Config();
+
+  /* Configure the peripherals common clocks */
+  PeriphCommonClock_Config();
+
+  /* Config code for STM32_WPAN (HSE Tuning must be done before system clock configuration) */
+  MX_APPE_Config();
+
+  /* IPCC initialisation */
+  MX_IPCC_Init();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
+  MX_GPIO_Init();
+  MX_DMA_Init();
+  MX_RTC_Init();
+  MX_I2C1_Init();
+  MX_SPI1_Init();
+  MX_SPI2_Init();
+  MX_TIM2_Init();
+  MX_USART1_UART_Init();
+  MX_TIM16_Init();
+  MX_RF_Init();
+  MX_RNG_Init();
+
+  /* USER CODE BEGIN 2 */
+
+  // MX_APPE_Init();
+
+  HAL_Delay(100);
+  MX_USB_Device_Init();
+  HAL_Delay(100);
+
+  HAL_TIM_Base_Start_IT(&htim16);
+  HAL_NVIC_SetPriority(TIM1_UP_TIM16_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(TIM1_UP_TIM16_IRQn);
+  /* USER CODE END 2 */
+
+  /* Init code for STM32_WPAN */
+  MX_APPE_Init();
+
+  accelSetup();
+  myThermocouples.setup();
+  // thermocouplesSetup();
+
+  myTouch.setup();
+
+  setupBatteryMonitor();
+  // ST7789_Init();
+
+  // ST7789_FillScreen(0x1234);
+
+  //HAL_Delay(2000);
+
+  lv_init();
+
+  //lv_tick_set_cb(HAL_GetTick);
+
+
+  lv_port_disp_init();
+
+  //lv_tick_set_cb(HAL_GetTick);
+
+  myTouch.setup_lvgl_input();
+
+
+  lv_obj_t *label = lv_label_create(lv_screen_active());
+  lv_label_set_text(label, "Hello world");
+  lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff), LV_PART_MAIN);
+  lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
+
+
+  // load_meter();
+
+  backlightSetup();
+
+  snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
+  HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
+  HAL_UART_Receive_IT(&huart1, &UART_RX_BYTE, 1);
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+    loopCounter++; // Increment at start of each iteration
+    if(lcd_bus_busy) {
+        snprintf((char *)UART_BUFFER, 32, "BUS BUSY %lu\r\n", HAL_GetTick());
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 10);
+    }
+    /* USER CODE END WHILE */
+    MX_APPE_Process();
+
+    /* USER CODE BEGIN 3 */
+    UART_RX_HANDLER();
+
+    accelMain();
+    backlightMain();
+    // if(!myThermocouples.delay) {
+    myThermocouples.stateMachine();
+    //    myThermocouples.delay = 1;
+    //}
+    // thermocouplesMain();
+    // myTouch.stateMachine();
+
+    if (measureFlag)
+    {
+      // uart_ready = 0;
+      measureFlag = 0;
+      snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+      HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 30);
+    }
+
+    // should run at 20ms / 50fps
+    if (run_lv_timer_handler)
+    {
+      run_lv_timer_handler = 0;
+      lv_timer_handler(); // Run safely from main context
+    }
+  }
+  /* USER CODE END 3 */
+}
+
+/**
+ * @brief System Clock Configuration
+ * @retval None
+ */
+void SystemClock_Config(void)
+{
+  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+  /** Configure LSE Drive Capability
+   */
+  HAL_PWR_EnableBkUpAccess();
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_MEDIUMHIGH);
+
+  /** Configure the main internal regulator output voltage
+   */
+  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+  /** Initializes the RCC Oscillators according to the specified parameters
+   * in the RCC_OscInitTypeDef structure.
+   */
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_LSE | RCC_OSCILLATORTYPE_MSI;
+  RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSEState = RCC_LSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
+  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV1;
+  RCC_OscInitStruct.PLL.PLLN = 32;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure the SYSCLKSource, HCLK, PCLK1 and PCLK2 clocks dividers
+   */
+  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK4 | RCC_CLOCKTYPE_HCLK2 | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.AHBCLK2Divider = RCC_SYSCLK_DIV2;
+  RCC_ClkInitStruct.AHBCLK4Divider = RCC_SYSCLK_DIV1;
+
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Enable MSI Auto calibration
+   */
+  HAL_RCCEx_EnableMSIPLLMode();
+}
+
+/**
+ * @brief Peripherals Common Clock Configuration
+ * @retval None
+ */
+void PeriphCommonClock_Config(void)
+{
+  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
+
+  /** Initializes the peripherals clock
+   */
+  PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_SMPS | RCC_PERIPHCLK_RFWAKEUP;
+  PeriphClkInitStruct.RFWakeUpClockSelection = RCC_RFWKPCLKSOURCE_LSE;
+  PeriphClkInitStruct.SmpsClockSelection = RCC_SMPSCLKSOURCE_HSE;
+  PeriphClkInitStruct.SmpsDivSelection = RCC_SMPSCLKDIV_RANGE1;
+
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN Smps */
+  LL_HSEM_1StepLock(HSEM, 5);
+
+  /* USER CODE END Smps */
+}
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
+
+/**
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void Error_Handler(void)
+{
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+
+#ifdef USE_FULL_ASSERT
+/**
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

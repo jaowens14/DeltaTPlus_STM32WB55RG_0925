@@ -1,5 +1,6 @@
 consoleOnTop=false
 eclipse.preferences.version=1
+markOccurrences=false
 scalability.detect=false
 spelling_locale_initialized=true
 useAnnotationsPrefPage=true

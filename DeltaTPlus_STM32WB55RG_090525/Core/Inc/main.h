@@ -50,6 +50,7 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
+#define LV_LVGL_H_INCLUDE_SIMPLE
 
 /* USER CODE END EM */
 

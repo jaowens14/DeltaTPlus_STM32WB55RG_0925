@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;DeltaTPlus_STM32WB55RG_090525/Core/Inc/ad7124&apos;" deleteContents="false" description="Delete resource &apos;DeltaTPlus_STM32WB55RG_090525/Core/Inc/ad7124&apos;" element1="/DeltaTPlus_STM32WB55RG_090525/Core/Inc/ad7124" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1763604206181"/>
+</session>

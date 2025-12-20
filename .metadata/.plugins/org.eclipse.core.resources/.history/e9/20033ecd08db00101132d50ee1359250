@@ -1,0 +1,1 @@
+Core/Src/lvgl_port_disp.o: ../Core/Src/lvgl_port_disp.c

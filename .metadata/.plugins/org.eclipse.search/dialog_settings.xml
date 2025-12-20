@@ -20,79 +20,164 @@
 	<section name="DialogBounds_SearchDialog">
 		<item key="DIALOG_X_ORIGIN" value="1084"/>
 		<item key="DIALOG_Y_ORIGIN" value="239"/>
-		<item key="DIALOG_WIDTH" value="669"/>
-		<item key="DIALOG_HEIGHT" value="578"/>
-		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		<item key="DIALOG_WIDTH" value="513"/>
+		<item key="DIALOG_HEIGHT" value="483"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
 		<item key="showEnclosingDefinitions" value="true"/>
 	</section>
 	<section name="TextSearchPage">
-		<item key="CASE_SENSITIVE" value="false"/>
+		<item key="CASE_SENSITIVE" value="true"/>
 		<item key="REG_EX_SEARCH" value="false"/>
 		<item key="WHOLE_WORD" value="false"/>
 		<item key="SEARCH_DERIVED" value="false"/>
 		<item key="SEARCH_IN_BINARIES" value="false"/>
-		<item key="HISTORY_SIZE" value="5"/>
+		<item key="HISTORY_SIZE" value="12"/>
 		<section name="HISTORY0">
-			<item key="ignoreCase" value="true"/>
+			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="ST7789_WIDTH"/>
+			<item key="textPattern" value="hdmatx"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.cpp"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="EXTENSIONS">
-			<item key="0" value="*.cpp"/>
+			<item key="0" value="*"/>
+			<item key="1" value="*.cpp"/>
 		</section>
 		<section name="HISTORY1">
-			<item key="ignoreCase" value="true"/>
+			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="LV_USE_METER"/>
+			<item key="textPattern" value="HAL_DMA_XFER_CPLT_CB_ID"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.cpp"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY2">
-			<item key="ignoreCase" value="true"/>
+			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="lv_meter"/>
+			<item key="textPattern" value="init_cmd_list"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.cpp"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY3">
-			<item key="ignoreCase" value="true"/>
+			<item key="ignoreCase" value="false"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="lv_meter_create"/>
+			<item key="textPattern" value="lv_port_disp_init"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.cpp"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
 		</section>
 		<section name="HISTORY4">
+			<item key="ignoreCase" value="false"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="Touch_FT5436_Begin"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY5">
+			<item key="ignoreCase" value="false"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="touch_controller"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY6">
+			<item key="ignoreCase" value="false"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="needleOriginY"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY7">
+			<item key="ignoreCase" value="false"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="updateNeedle"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY8">
+			<item key="ignoreCase" value="false"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="Thermocouples.hpp"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY9">
+			<item key="ignoreCase" value="false"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="Thermocouples"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY10">
+			<item key="ignoreCase" value="false"/>
+			<item key="isRegExSearch" value="false"/>
+			<item key="isWholeWord" value="false"/>
+			<item key="textPattern" value="LOW"/>
+			<item key="scope" value="0"/>
+			<list key="fileNamePatterns">
+				<item value="*"/>
+			</list>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY11">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="../examples"/>
+			<item key="textPattern" value="HAL_UART_Transmit_IT"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
-				<item value="*.cpp"/>
+				<item value="*"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -102,6 +187,9 @@
 		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
 	</section>
 	<section name="org.eclipse.search.text.FileSearchResultPage">
+		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
+	</section>
+	<section name="">
 		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
 	</section>
 </section>

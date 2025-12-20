@@ -88,10 +88,10 @@ int lastAngle;
 const float startAngle = 256.0f; // Left (x=20)
 const float endAngle = 284.0f;   // Right (x=220)
 
-lv_display_t *display1 = NULL; // Global variable
+//lv_display_t *display1 = NULL; // Global variable
 
-uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
-uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
+uint8_t draw_buffer1[DRAW_BUFFER_SIZE];
+uint8_t draw_buffer2[DRAW_BUFFER_SIZE];
 
 ///////////////////////////////////////////////////
 
@@ -399,103 +399,6 @@ void gauge(void)
 
 
 
-void gauge_with_scale(void)
-{
-  // Gauge container
-  gaugeContainer = lv_obj_create(meter_screen);
-  lv_obj_clear_flag(gaugeContainer, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(gaugeContainer, LV_OBJ_FLAG_SCROLLABLE);
-
-  lv_obj_set_width(gaugeContainer, lv_obj_get_width(meter_screen) - 4);
-  lv_obj_set_height(gaugeContainer, 110);
-  lv_obj_set_style_border_width(gaugeContainer, 2, 0);
-  lv_obj_set_style_border_color(gaugeContainer, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_radius(gaugeContainer, 5, 0);
-  lv_obj_set_style_pad_all(gaugeContainer, 0, 0);
-  lv_obj_set_style_bg_color(gaugeContainer, lv_color_hex(WEB_LIGHT_TAN), 0);
-
-  lv_obj_align(gaugeContainer, LV_ALIGN_TOP_MID, 0, 2);
-  lv_obj_align_to(gaugeContainer, headerContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
-
-  // Force layout update
-  lv_obj_update_layout(gaugeContainer);
-
-  // Get container position
-  lv_coord_t container_x = lv_obj_get_x(gaugeContainer);
-  lv_coord_t container_y = lv_obj_get_y(gaugeContainer);
-
-  // Create scale widget
-  lv_obj_t *scale = lv_scale_create(gaugeContainer);
-
-  // Set scale mode to round with arc
-  lv_scale_set_mode(scale, LV_SCALE_MODE_ROUND_OUTER);
-
-  // Position the scale at the needle origin point (relative to container)
-  lv_obj_set_pos(scale, needleOriginX - container_x, needleOriginY - container_y);
-
-  // Set the diameter to match your outer radius (diameter = 2 * radius)
-  lv_obj_set_size(scale, majorOuterRadius * 2, majorOuterRadius * 2);
-
-  // Configure the scale range (-25 to +25)
-  lv_scale_set_range(scale, -25, 25);
-
-  // Set total ticks (41 ticks like your original)
-  lv_scale_set_total_tick_count(scale, 41);
-  lv_scale_set_major_tick_every(scale, 5);  // Major tick every 5th position
-
-  // Style the scale
-  lv_obj_set_style_bg_opa(scale, LV_OPA_TRANSP, 0);  // Transparent background
-  lv_obj_set_style_border_width(scale, 0, 0);  // No border
-
-  // Configure angle range (startAngle to endAngle)
-  lv_scale_set_rotation(scale, 270 - startAngle);  // Adjust rotation to match startAngle
-  lv_scale_set_angle_range(scale, endAngle - startAngle);
-
-  // Style major ticks
-  lv_obj_set_style_length(scale, majorOuterRadius - innerRadius, LV_PART_INDICATOR);
-  lv_obj_set_style_line_width(scale, 2, LV_PART_INDICATOR);
-  lv_obj_set_style_line_color(scale, lv_color_hex(Charcoal), LV_PART_INDICATOR);
-
-  // Style minor ticks
-  lv_obj_set_style_length(scale, minorOuterRadius - innerRadius, LV_PART_ITEMS);
-  lv_obj_set_style_line_width(scale, 2, LV_PART_ITEMS);
-  lv_obj_set_style_line_color(scale, lv_color_hex(Charcoal), LV_PART_ITEMS);
-
-  // Optional: Add labels at major ticks
-  lv_obj_set_style_text_color(scale, lv_color_hex(Charcoal), LV_PART_ITEMS);
-  lv_scale_set_label_show(scale, true);
-
-  // Optional: Customize label format (show every other major tick)
-  // If you want to hide labels, use:
-  // lv_scale_set_label_show(scale, false);
-
-  // Add manual labels if you want custom positioning (like your 0, 25, -25)
-  zero = lv_label_create(gaugeContainer);
-  lv_obj_clear_flag(zero, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(zero, LV_OBJ_FLAG_SCROLLABLE);
-  lv_label_set_text(zero, "0");
-  lv_obj_set_style_text_align(zero, LV_TEXT_ALIGN_CENTER, 0);
-  lv_obj_set_size(zero, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_obj_align(zero, LV_ALIGN_TOP_MID, 0, 5);
-
-  right_25 = lv_label_create(gaugeContainer);
-  lv_obj_clear_flag(right_25, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(right_25, LV_OBJ_FLAG_SCROLLABLE);
-  lv_label_set_text(right_25, "25");
-  lv_obj_set_style_text_align(right_25, LV_TEXT_ALIGN_CENTER, 0);
-  lv_obj_set_size(right_25, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_obj_align(right_25, LV_ALIGN_TOP_MID, 100, 10);
-
-  left_25 = lv_label_create(gaugeContainer);
-  lv_obj_clear_flag(left_25, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(left_25, LV_OBJ_FLAG_SCROLLABLE);
-  lv_label_set_text(left_25, "25");
-  lv_obj_set_style_text_align(left_25, LV_TEXT_ALIGN_CENTER, 0);
-  lv_obj_set_size(left_25, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_obj_align(left_25, LV_ALIGN_TOP_MID, -100, 10);
-}
-
-
 
 void monitor(void)
 {
@@ -636,7 +539,8 @@ void create_meter_screen(void)
   lv_obj_set_style_bg_color(meter_screen, lv_color_hex(WEB_LIGHT_TAN), 0);
 
   header();
-  gauge_with_scale();
+  gauge();
+  //gauge_with_scale(); trash
   monitor();
   labels();
   buttons();

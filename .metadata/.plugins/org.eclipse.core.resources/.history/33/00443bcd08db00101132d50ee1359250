@@ -1,0 +1,4 @@
+../Core/Src/Thermocouples.cpp:20:6:void Thermocouples::setup()	3
+../Core/Src/Thermocouples.cpp:131:6:void Thermocouples::stateMachine()	4
+../Core/Src/Thermocouples.cpp:250:30:cpp)	1
+../Core/Src/Thermocouples.cpp:250:30:cpp)	1

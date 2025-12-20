@@ -1,4 +1,0 @@
-../lvgl/src/others/sysmon/../../others/observer/../../core/lv_obj_style.h:264:20:lv_obj_set_style_pad_all	1
-../lvgl/src/others/sysmon/lv_sysmon.c:65:6:lv_sysmon_builtin_init	1
-../lvgl/src/others/sysmon/lv_sysmon.c:75:6:lv_sysmon_builtin_deinit	1
-../lvgl/src/others/sysmon/lv_sysmon.c:82:12:lv_sysmon_create	3

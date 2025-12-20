@@ -1,5 +1,110 @@
-2025-11-04 05:34:19,241 [INFO] Activator:176 - 
+2025-12-17 05:45:26,722 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,737 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,737 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,738 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,738 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,751 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,752 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,753 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,753 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,754 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,755 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,755 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,756 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,757 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,757 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,758 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,759 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,759 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,760 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,760 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,762 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,762 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,763 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,763 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,764 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,765 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,765 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,766 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,766 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,767 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,927 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,927 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,928 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,929 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:26,929 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2025-12-17 05:45:27,134 [INFO] UtilMem:75 - After build in PCC Used Memory: 972975184 Bytes (1073741824)
+2025-12-17 05:45:27,247 [INFO] ApiDbMcu:508 - Load IP Config File for STM32_WPAN
+2025-12-17 05:45:27,258 [INFO] ApiDbMcu:508 - Load IP Config File for USB_DEVICE
+2025-12-17 05:45:27,284 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,284 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,284 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,284 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,284 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,285 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,285 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,285 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,286 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,286 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,286 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,286 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,286 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,286 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,286 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,287 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,287 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,287 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,287 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,287 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,288 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,288 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,288 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,288 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,289 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,289 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,289 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,289 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,290 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,290 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,290 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,290 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,290 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,291 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,291 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,291 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,292 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,292 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,292 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,293 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,293 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,294 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,306 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,306 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,308 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2025-12-17 05:45:27,364 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2025-12-17 05:45:27,367 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2025-12-17 05:45:27,370 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2025-12-17 05:45:27,373 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2025-12-17 05:45:27,612 [INFO] CADModel:165 - CPN selected for project levelSTM32WB55RGV6
+2025-12-17 05:45:27,612 [INFO] CADModel:114 - Register for checkConnection events
+2025-12-17 05:45:27,664 [INFO] OpenFileManager:385 - Restore cursor
+2025-12-17 05:45:27,859 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2025-12-17 05:45:27,862 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2025-12-17 05:45:27,865 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2025-12-17 05:45:27,867 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2025-12-17 05:45:27,944 [WARN] IpParametersView:155 - Warning: This peripheral hasn't parameters
+2025-12-17 15:24:17,102 [INFO] WebApp:194 - Connection lost
+2025-12-17 15:24:17,289 [INFO] WebApp:191 - Connection restablished
+2025-12-17 15:24:22,195 [INFO] WebApp:194 - Connection lost
+2025-12-17 15:24:22,315 [INFO] WebApp:191 - Connection restablished
+2025-12-17 15:24:25,678 [INFO] WebApp:194 - Connection lost
+2025-12-17 15:24:25,809 [INFO] WebApp:191 - Connection restablished
+2025-12-17 15:24:35,353 [ERROR] LogOutputStream:75 - [STDERR_REDIRECT] 
+2025-12-17 21:12:46,829 [INFO] Activator:176 - 
 
 
-2025-11-04 05:34:19,245 [INFO] Activator:177 - !SESSION log4j initialized
-2025-11-04 05:34:24,698 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2025-12-17 21:12:46,831 [INFO] Activator:177 - !SESSION log4j initialized
+2025-12-17 21:12:53,717 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] 
+2025-12-17 21:12:53,945 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2025-12-17 21:12:53,946 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com
+2025-12-17 21:12:53,946 [ERROR] ConfigurationRetriever:142 - IOException on connection: sw-center.st.com

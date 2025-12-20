@@ -18,6 +18,7 @@
 "./Core/Src/hw_timerserver.o"
 "./Core/Src/i2c.o"
 "./Core/Src/ipcc.o"
+"./Core/Src/lv_port_disp.o"
 "./Core/Src/main.o"
 "./Core/Src/memorymap.o"
 "./Core/Src/rf.o"

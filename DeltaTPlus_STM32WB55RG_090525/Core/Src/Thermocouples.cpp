@@ -229,9 +229,9 @@ void Thermocouples::stateMachine(void)
         // 32307692.31
         // deltaTemp = (((rf.estimate - lf.estimate) * 75.0 * 10000.0 * userGain) - deltaTemp) * 0.5; // - deltaTempOffset;
 
-        //updateNeedle();
+        updateNeedle();
 
-        //updateLeftandRightTempLabels();
+        updateLeftandRightTempLabels();
 
         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
         //if(uart_ready){

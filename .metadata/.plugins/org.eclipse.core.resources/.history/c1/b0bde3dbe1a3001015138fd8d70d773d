@@ -1,3 +1,0 @@
-../lvgl/examples/scroll/lv_example_scroll_8.c:29:13:cont_row_scroll_event_cb	56	static
-../lvgl/examples/scroll/lv_example_scroll_8.c:73:13:cont_col_scroll_event_cb	56	static
-../lvgl/examples/scroll/lv_example_scroll_8.c:101:6:lv_example_scroll_8	40	static

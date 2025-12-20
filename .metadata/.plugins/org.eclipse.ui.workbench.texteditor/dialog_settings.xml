@@ -3,24 +3,51 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
-		<item value="productlabel2"/>
-		<item value="lv_color_hex"/>
-		<item value="WEB_LIGHT_TAN"/>
-		<item value="circl"/>
-		<item value="productl"/>
-		<item value="HAL_Delay"/>
-		<item value="setCurrentSource"/>
-		<item value="380"/>
-		<item value="circ"/>
-		<item value="cir"/>
-		<item value="circle"/>
-		<item value="WEB_"/>
-		<item value="needleLength"/>
-		<item value="coldJunctionTemp"/>
-		<item value="updatene"/>
+		<item value="lcd_color_transfer_ready_cb"/>
+		<item value="lcd_bus_busy"/>
+		<item value="send_color"/>
+		<item value="HAL_SPI_TX_COMPLETE_CB_ID"/>
+		<item value="buffer2"/>
+		<item value="gauge"/>
+		<item value="gauge_with_scale"/>
+		<item value="tan"/>
+		<item value="st7789_send_color"/>
+		<item value="st7789_send_cmd"/>
+		<item value="lcd_send_color"/>
+		<item value="size"/>
+		<item value="monitor"/>
+		<item value="create_men"/>
+		<item value="menu_screen"/>
 	</list>
 	<list key="replacehistory">
+		<item value="meter_screen"/>
+		<item value="lv_font_montserrat_12"/>
+		<item value="about_btn_cb"/>
+		<item value="calibration_btn_cb"/>
+		<item value="settings_btn_cb"/>
+		<item value="tickMarks"/>
+		<item value="hspi1"/>
 		<item value="writeData16"/>
 		<item value="writeCommand16"/>
 	</list>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="_montserrat"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="_montserrat"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="807"/>
+		<item key="DIALOG_Y_ORIGIN" value="268"/>
+		<item key="DIALOG_WIDTH" value="322"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
 </section>
