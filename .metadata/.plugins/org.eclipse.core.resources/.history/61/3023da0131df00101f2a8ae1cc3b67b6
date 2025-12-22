@@ -1,0 +1,129 @@
+/*
+ * about.cpp
+ *
+ *  Created on: Dec 20, 2025
+ *      Author: jaowe
+ */
+
+#include "lvgl.h"
+
+#include "widgets.h"
+#include "menu.h"
+
+lv_obj_t *about_screen = NULL;
+
+#define DEVICE_SERIAL_NUMBER "DT-2025-001234"
+#define MANUFACTURE_DATE "December 2025"
+#define FIRMWARE_VERSION "v1.0.0"
+#define COMPANY_URL "https://www.theinstrumentcompany.com/"
+
+
+lv_obj_t * create_about_screen(void)
+{
+  // Create about screen
+  about_screen = lv_obj_create(NULL);
+  lv_obj_set_style_bg_color(about_screen, lv_color_hex(WEB_LIGHT_TAN), 0);
+
+  // Create container for about content
+  lv_obj_t *about_container = lv_obj_create(about_screen);
+  lv_obj_set_size(about_container, ST7789_WIDTH - 20, ST7789_HEIGHT - 20);
+  lv_obj_center(about_container);
+  lv_obj_set_style_bg_color(about_container, lv_color_hex(WEB_LIGHT_TAN), 0);
+  lv_obj_set_style_border_color(about_container, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_border_width(about_container, 2, 0);
+  lv_obj_set_style_radius(about_container, 5, 0);
+  lv_obj_set_style_pad_all(about_container, 5, 0);
+  lv_obj_clear_flag(about_container, LV_OBJ_FLAG_SCROLLABLE);
+
+
+  // Company title
+  lv_obj_t *company_label = lv_label_create(about_container);
+  lv_label_set_text(company_label, "The Instrument Company\nFort Collins, CO");
+  lv_obj_set_style_text_align(company_label, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_set_style_text_color(company_label, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(company_label, &lv_font_montserrat_14, 0);
+  lv_obj_align(company_label, LV_ALIGN_TOP_MID, 0, -35);
+
+  // Product title
+  lv_obj_t *title = lv_label_create(about_container);
+  lv_label_set_text(title, "Delta-T Plus");
+  lv_obj_set_style_text_font(title, &lv_font_montserrat_14, 0);
+  lv_obj_set_style_text_color(title, lv_color_hex(Charcoal), 0);
+  lv_obj_align(title, LV_ALIGN_TOP_MID, 0, 5);
+
+  // Serial Number
+  lv_obj_t *serial_label = lv_label_create(about_container);
+  lv_label_set_text(serial_label, "Serial Number: ");
+  lv_obj_set_style_text_color(serial_label, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(serial_label, &lv_font_montserrat_12, 0);
+  lv_obj_align(serial_label, LV_ALIGN_TOP_LEFT, 0, 25);
+
+  lv_obj_t *date_label = lv_label_create(about_container);
+  lv_label_set_text(date_label, "Manufactured: ");
+  lv_obj_set_style_text_color(date_label, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(date_label, &lv_font_montserrat_12, 0);
+  lv_obj_align_to(date_label, serial_label, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 8);
+
+  lv_obj_t *version_label = lv_label_create(about_container);
+  lv_label_set_text(version_label, "Firmware Version: ");
+  lv_obj_set_style_text_color(version_label, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(version_label, &lv_font_montserrat_12, 0);
+  lv_obj_align_to(version_label, date_label, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 8);
+
+  lv_obj_t *serial_value = lv_label_create(about_container);
+  lv_label_set_text(serial_value, DEVICE_SERIAL_NUMBER);
+  lv_obj_set_style_text_color(serial_value, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(serial_value, &lv_font_montserrat_12, 0);
+  lv_obj_align_to(serial_value, serial_label, LV_ALIGN_OUT_RIGHT_MID, 0, 0);
+
+  lv_obj_t *date_value = lv_label_create(about_container);
+  lv_label_set_text(date_value, MANUFACTURE_DATE);
+  lv_obj_set_style_text_color(date_value, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(date_value, &lv_font_montserrat_12, 0);
+  lv_obj_align_to(date_value, date_label, LV_ALIGN_OUT_RIGHT_MID, 0, 0);
+
+  lv_obj_t *version_value = lv_label_create(about_container);
+  lv_label_set_text(version_value, FIRMWARE_VERSION);
+  lv_obj_set_style_text_color(version_value, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(version_value, &lv_font_montserrat_12, 0);
+  lv_obj_align_to(version_value, version_label, LV_ALIGN_OUT_RIGHT_MID, 0, 0);
+
+
+
+  // QR Code
+  lv_obj_t *qr = lv_qrcode_create(about_container);
+  lv_qrcode_set_size(qr, 100);
+  lv_qrcode_set_dark_color(qr, lv_color_hex(Charcoal));
+  lv_qrcode_set_light_color(qr, lv_color_hex(WEB_LIGHT_TAN));
+
+  // Update QR code with URL
+  lv_qrcode_update(qr, COMPANY_URL, strlen(COMPANY_URL));
+  lv_obj_align(qr, LV_ALIGN_CENTER, 0, 35);
+
+  // URL label under QR code
+  lv_obj_t *url_label = lv_label_create(about_container);
+  lv_label_set_text(url_label, COMPANY_URL);
+  lv_obj_set_style_text_color(url_label, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(url_label, &lv_font_montserrat_12, 0);
+  lv_obj_align_to(url_label, qr, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
+
+  // Back button
+  lv_obj_t *back_btn = lv_btn_create(about_container);
+  lv_obj_set_size(back_btn, 100, 40);
+  lv_obj_set_style_bg_color(back_btn, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_radius(back_btn, 5, 0);
+  lv_obj_align(back_btn, LV_ALIGN_BOTTOM_MID, 0, -5);
+
+  lv_obj_t *back_label = lv_label_create(back_btn);
+  lv_label_set_text(back_label, "Back");
+  lv_obj_center(back_label);
+  lv_obj_set_style_text_color(back_label, lv_color_hex(0xFFFFFF), 0);
+
+  lv_obj_add_event_cb(back_btn, load_menu_cb, LV_EVENT_CLICKED,NULL);
+
+
+  lv_obj_null_on_delete(&about_screen);
+
+
+  return about_screen;
+}

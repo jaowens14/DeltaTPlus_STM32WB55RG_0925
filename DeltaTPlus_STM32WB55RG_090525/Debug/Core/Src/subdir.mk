@@ -7,9 +7,13 @@
 CPP_SRCS += \
 ../Core/Src/BatteryMonitor.cpp \
 ../Core/Src/Thermocouples.cpp \
-../Core/Src/Touch.cpp \
+../Core/Src/about.cpp \
 ../Core/Src/accel.cpp \
+../Core/Src/buttons.cpp \
 ../Core/Src/main.cpp \
+../Core/Src/menu.cpp \
+../Core/Src/meter.cpp \
+../Core/Src/settings.cpp \
 ../Core/Src/widgets.cpp 
 
 C_SRCS += \
@@ -74,11 +78,12 @@ OBJS += \
 ./Core/Src/FT5436_Touch.o \
 ./Core/Src/ST7789.o \
 ./Core/Src/Thermocouples.o \
-./Core/Src/Touch.o \
+./Core/Src/about.o \
 ./Core/Src/accel.o \
 ./Core/Src/app_debug.o \
 ./Core/Src/app_entry.o \
 ./Core/Src/backlight.o \
+./Core/Src/buttons.o \
 ./Core/Src/dma.o \
 ./Core/Src/gpio.o \
 ./Core/Src/hw_timerserver.o \
@@ -87,9 +92,12 @@ OBJS += \
 ./Core/Src/lv_port_disp.o \
 ./Core/Src/main.o \
 ./Core/Src/memorymap.o \
+./Core/Src/menu.o \
+./Core/Src/meter.o \
 ./Core/Src/rf.o \
 ./Core/Src/rng.o \
 ./Core/Src/rtc.o \
+./Core/Src/settings.o \
 ./Core/Src/spi.o \
 ./Core/Src/stm32_lpm_if.o \
 ./Core/Src/stm32wbxx_hal_msp.o \
@@ -104,9 +112,13 @@ OBJS += \
 CPP_DEPS += \
 ./Core/Src/BatteryMonitor.d \
 ./Core/Src/Thermocouples.d \
-./Core/Src/Touch.d \
+./Core/Src/about.d \
 ./Core/Src/accel.d \
+./Core/Src/buttons.d \
 ./Core/Src/main.d \
+./Core/Src/menu.d \
+./Core/Src/meter.d \
+./Core/Src/settings.d \
 ./Core/Src/widgets.d 
 
 
@@ -119,7 +131,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/BatteryMonitor.cyclo ./Core/Src/BatteryMonitor.d ./Core/Src/BatteryMonitor.o ./Core/Src/BatteryMonitor.su ./Core/Src/DeltaT.cyclo ./Core/Src/DeltaT.d ./Core/Src/DeltaT.o ./Core/Src/DeltaT.su ./Core/Src/FT5436_Touch.cyclo ./Core/Src/FT5436_Touch.d ./Core/Src/FT5436_Touch.o ./Core/Src/FT5436_Touch.su ./Core/Src/ST7789.cyclo ./Core/Src/ST7789.d ./Core/Src/ST7789.o ./Core/Src/ST7789.su ./Core/Src/Thermocouples.cyclo ./Core/Src/Thermocouples.d ./Core/Src/Thermocouples.o ./Core/Src/Thermocouples.su ./Core/Src/Touch.cyclo ./Core/Src/Touch.d ./Core/Src/Touch.o ./Core/Src/Touch.su ./Core/Src/accel.cyclo ./Core/Src/accel.d ./Core/Src/accel.o ./Core/Src/accel.su ./Core/Src/app_debug.cyclo ./Core/Src/app_debug.d ./Core/Src/app_debug.o ./Core/Src/app_debug.su ./Core/Src/app_entry.cyclo ./Core/Src/app_entry.d ./Core/Src/app_entry.o ./Core/Src/app_entry.su ./Core/Src/backlight.cyclo ./Core/Src/backlight.d ./Core/Src/backlight.o ./Core/Src/backlight.su ./Core/Src/dma.cyclo ./Core/Src/dma.d ./Core/Src/dma.o ./Core/Src/dma.su ./Core/Src/gpio.cyclo ./Core/Src/gpio.d ./Core/Src/gpio.o ./Core/Src/gpio.su ./Core/Src/hw_timerserver.cyclo ./Core/Src/hw_timerserver.d ./Core/Src/hw_timerserver.o ./Core/Src/hw_timerserver.su ./Core/Src/i2c.cyclo ./Core/Src/i2c.d ./Core/Src/i2c.o ./Core/Src/i2c.su ./Core/Src/ipcc.cyclo ./Core/Src/ipcc.d ./Core/Src/ipcc.o ./Core/Src/ipcc.su ./Core/Src/lv_port_disp.cyclo ./Core/Src/lv_port_disp.d ./Core/Src/lv_port_disp.o ./Core/Src/lv_port_disp.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/memorymap.cyclo ./Core/Src/memorymap.d ./Core/Src/memorymap.o ./Core/Src/memorymap.su ./Core/Src/rf.cyclo ./Core/Src/rf.d ./Core/Src/rf.o ./Core/Src/rf.su ./Core/Src/rng.cyclo ./Core/Src/rng.d ./Core/Src/rng.o ./Core/Src/rng.su ./Core/Src/rtc.cyclo ./Core/Src/rtc.d ./Core/Src/rtc.o ./Core/Src/rtc.su ./Core/Src/spi.cyclo ./Core/Src/spi.d ./Core/Src/spi.o ./Core/Src/spi.su ./Core/Src/stm32_lpm_if.cyclo ./Core/Src/stm32_lpm_if.d ./Core/Src/stm32_lpm_if.o ./Core/Src/stm32_lpm_if.su ./Core/Src/stm32wbxx_hal_msp.cyclo ./Core/Src/stm32wbxx_hal_msp.d ./Core/Src/stm32wbxx_hal_msp.o ./Core/Src/stm32wbxx_hal_msp.su ./Core/Src/stm32wbxx_it.cyclo ./Core/Src/stm32wbxx_it.d ./Core/Src/stm32wbxx_it.o ./Core/Src/stm32wbxx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32wbxx.cyclo ./Core/Src/system_stm32wbxx.d ./Core/Src/system_stm32wbxx.o ./Core/Src/system_stm32wbxx.su ./Core/Src/tim.cyclo ./Core/Src/tim.d ./Core/Src/tim.o ./Core/Src/tim.su ./Core/Src/usart.cyclo ./Core/Src/usart.d ./Core/Src/usart.o ./Core/Src/usart.su ./Core/Src/widgets.cyclo ./Core/Src/widgets.d ./Core/Src/widgets.o ./Core/Src/widgets.su
+	-$(RM) ./Core/Src/BatteryMonitor.cyclo ./Core/Src/BatteryMonitor.d ./Core/Src/BatteryMonitor.o ./Core/Src/BatteryMonitor.su ./Core/Src/DeltaT.cyclo ./Core/Src/DeltaT.d ./Core/Src/DeltaT.o ./Core/Src/DeltaT.su ./Core/Src/FT5436_Touch.cyclo ./Core/Src/FT5436_Touch.d ./Core/Src/FT5436_Touch.o ./Core/Src/FT5436_Touch.su ./Core/Src/ST7789.cyclo ./Core/Src/ST7789.d ./Core/Src/ST7789.o ./Core/Src/ST7789.su ./Core/Src/Thermocouples.cyclo ./Core/Src/Thermocouples.d ./Core/Src/Thermocouples.o ./Core/Src/Thermocouples.su ./Core/Src/about.cyclo ./Core/Src/about.d ./Core/Src/about.o ./Core/Src/about.su ./Core/Src/accel.cyclo ./Core/Src/accel.d ./Core/Src/accel.o ./Core/Src/accel.su ./Core/Src/app_debug.cyclo ./Core/Src/app_debug.d ./Core/Src/app_debug.o ./Core/Src/app_debug.su ./Core/Src/app_entry.cyclo ./Core/Src/app_entry.d ./Core/Src/app_entry.o ./Core/Src/app_entry.su ./Core/Src/backlight.cyclo ./Core/Src/backlight.d ./Core/Src/backlight.o ./Core/Src/backlight.su ./Core/Src/buttons.cyclo ./Core/Src/buttons.d ./Core/Src/buttons.o ./Core/Src/buttons.su ./Core/Src/dma.cyclo ./Core/Src/dma.d ./Core/Src/dma.o ./Core/Src/dma.su ./Core/Src/gpio.cyclo ./Core/Src/gpio.d ./Core/Src/gpio.o ./Core/Src/gpio.su ./Core/Src/hw_timerserver.cyclo ./Core/Src/hw_timerserver.d ./Core/Src/hw_timerserver.o ./Core/Src/hw_timerserver.su ./Core/Src/i2c.cyclo ./Core/Src/i2c.d ./Core/Src/i2c.o ./Core/Src/i2c.su ./Core/Src/ipcc.cyclo ./Core/Src/ipcc.d ./Core/Src/ipcc.o ./Core/Src/ipcc.su ./Core/Src/lv_port_disp.cyclo ./Core/Src/lv_port_disp.d ./Core/Src/lv_port_disp.o ./Core/Src/lv_port_disp.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/memorymap.cyclo ./Core/Src/memorymap.d ./Core/Src/memorymap.o ./Core/Src/memorymap.su ./Core/Src/menu.cyclo ./Core/Src/menu.d ./Core/Src/menu.o ./Core/Src/menu.su ./Core/Src/meter.cyclo ./Core/Src/meter.d ./Core/Src/meter.o ./Core/Src/meter.su ./Core/Src/rf.cyclo ./Core/Src/rf.d ./Core/Src/rf.o ./Core/Src/rf.su ./Core/Src/rng.cyclo ./Core/Src/rng.d ./Core/Src/rng.o ./Core/Src/rng.su ./Core/Src/rtc.cyclo ./Core/Src/rtc.d ./Core/Src/rtc.o ./Core/Src/rtc.su ./Core/Src/settings.cyclo ./Core/Src/settings.d ./Core/Src/settings.o ./Core/Src/settings.su ./Core/Src/spi.cyclo ./Core/Src/spi.d ./Core/Src/spi.o ./Core/Src/spi.su ./Core/Src/stm32_lpm_if.cyclo ./Core/Src/stm32_lpm_if.d ./Core/Src/stm32_lpm_if.o ./Core/Src/stm32_lpm_if.su ./Core/Src/stm32wbxx_hal_msp.cyclo ./Core/Src/stm32wbxx_hal_msp.d ./Core/Src/stm32wbxx_hal_msp.o ./Core/Src/stm32wbxx_hal_msp.su ./Core/Src/stm32wbxx_it.cyclo ./Core/Src/stm32wbxx_it.d ./Core/Src/stm32wbxx_it.o ./Core/Src/stm32wbxx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32wbxx.cyclo ./Core/Src/system_stm32wbxx.d ./Core/Src/system_stm32wbxx.o ./Core/Src/system_stm32wbxx.su ./Core/Src/tim.cyclo ./Core/Src/tim.d ./Core/Src/tim.o ./Core/Src/tim.su ./Core/Src/usart.cyclo ./Core/Src/usart.d ./Core/Src/usart.o ./Core/Src/usart.su ./Core/Src/widgets.cyclo ./Core/Src/widgets.d ./Core/Src/widgets.o ./Core/Src/widgets.su
 
 .PHONY: clean-Core-2f-Src
 

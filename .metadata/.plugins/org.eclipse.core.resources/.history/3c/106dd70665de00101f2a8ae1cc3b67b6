@@ -1,0 +1,39 @@
+/*
+ * widgets.h
+ *
+ *  Created on: Dec 5, 2025
+ *      Author: jaowe
+ */
+
+#ifndef INC_WIDGETS_H_
+#define INC_WIDGETS_H_
+#include "lvgl.h"
+#include <math.h>
+#include "ST7789.h"
+#include <accel.h>
+#include "Thermocouples.hpp"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define BYTE_PER_PIXEL 2
+
+#define WEB_LIGHT_TAN 0xF0EAD0
+#define WEB_DARK_TAN 0xBEB89E
+#define WEB_BLACK 0x382922
+#define WEB_ORANGE 0xdf571d
+#define Charcoal 0x36454F
+
+#define DRAW_BUFFER_SIZE ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL
+extern uint8_t draw_buffer1[DRAW_BUFFER_SIZE];
+extern uint8_t draw_buffer2[DRAW_BUFFER_SIZE];
+
+
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* INC_WIDGETS_H_ */

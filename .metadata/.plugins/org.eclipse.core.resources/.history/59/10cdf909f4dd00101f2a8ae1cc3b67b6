@@ -1,0 +1,31 @@
+/*
+ * menu.cpp
+ *
+ *  Created on: Dec 20, 2025
+ *      Author: jaowe
+ */
+
+
+#include "lvgl.h"
+#include "widgets.h"
+
+lv_obj_t *menu_screen = NULL;
+
+
+void create_menu_screen(void)
+{
+  // Create menu screen
+  menu_screen = lv_obj_create(NULL);
+  //lv_obj_remove_style_all(menu_screen);
+
+  // Remove the screen's padding
+//  lv_obj_set_style_pad_all(menu_screen, 0, 0);
+
+  lv_obj_t *btn = lv_btn_create(menu_screen);
+  //lv_obj_remove_style_all(btn);
+  lv_obj_set_pos(btn, 10, 10);
+  lv_obj_set_size(btn, 120, 50);
+
+
+  lv_obj_set_style_bg_opa(btn, LV_OPA_COVER, 0);
+}

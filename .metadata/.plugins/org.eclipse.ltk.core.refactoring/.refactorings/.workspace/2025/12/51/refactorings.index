@@ -10,3 +10,6 @@
 1766027593598	Delete resource 'DeltaTPlus_STM32WB55RG_090525/DeltaTPlus_STM32WB55RG_090525 Debug.launch'
 1766027601329	Delete resource 'DeltaTPlus_STM32WB55RG_090525/Debug'
 1766058680834	Delete resource 'DeltaTPlus_STM32WB55RG_090525/Debug'
+1766263548271	Delete resource 'DeltaTPlus_STM32WB55RG_090525/Core/Inc/Touch.hpp'
+1766263556386	Delete resource 'DeltaTPlus_STM32WB55RG_090525/Core/Src/Touch.cpp'
+1766269234401	Delete resource 'DeltaTPlus_STM32WB55RG_090525/Core/Inc/meter.cpp'

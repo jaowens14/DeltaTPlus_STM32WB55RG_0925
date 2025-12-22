@@ -44,7 +44,6 @@
 #include "ad7124-driver.h"
 #include "DeltaT.h"
 #include "BatteryMonitor.h"
-#include "Touch.hpp"
 #include "FT5436_Touch.h"
 
 #include "widgets.h"
@@ -71,7 +70,6 @@ uint8_t UART_RX_READY = 0;
 volatile int uart_ready = 0;
 
 // static uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 32 * BYTE_PER_PIXEL];
-
 /* USER CODE END PTD */
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
@@ -127,13 +125,15 @@ volatile int uart_ready = 0;
 void lcd_color_transfer_ready_cb(SPI_HandleTypeDef *hspi);
 int32_t lcd_io_init(void);
 void lcd_send_cmd(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, const uint8_t *param,
-                         size_t param_size);
+                  size_t param_size);
 void lcd_send_color(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, uint8_t *param,
-                           size_t param_size);
+                    size_t param_size);
 
 /**********************
  *  STATIC VARIABLES
  **********************/
+lv_indev_t *indev;
+
 lv_display_t *lcd_disp;
 volatile int lcd_bus_busy = 0;
 
@@ -151,13 +151,11 @@ void lv_port_disp_init(void)
   if (lcd_io_init() != 0)
     return;
 
-
   /* Create the LVGL display object and the ST7789 LCD display driver */
   lcd_disp = lv_st7789_create(MY_DISP_HOR_RES, MY_DISP_VER_RES, LV_LCD_FLAG_NONE, lcd_send_cmd, lcd_send_color);
   lv_display_set_rotation(lcd_disp, LV_DISPLAY_ROTATION_180); /* set landscape orientation */
 
   lv_display_set_color_format(lcd_disp, LV_COLOR_FORMAT_RGB565_SWAPPED);
-
 
   lv_display_set_buffers(lcd_disp, draw_buffer1, draw_buffer2, DRAW_BUFFER_SIZE, LV_DISPLAY_RENDER_MODE_PARTIAL);
 }
@@ -179,7 +177,7 @@ void lcd_color_transfer_ready_cb(SPI_HandleTypeDef *hspi)
 int32_t lcd_io_init(void)
 {
   /* Register SPI Tx Complete Callback */
-  //HAL_SPI_RegisterCallback(&hspi1, HAL_SPI_TX_COMPLETE_CB_ID, lcd_color_transfer_ready_cb);
+  // HAL_SPI_RegisterCallback(&hspi1, HAL_SPI_TX_COMPLETE_CB_ID, lcd_color_transfer_ready_cb);
 
   /* reset LCD */
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
@@ -197,7 +195,7 @@ int32_t lcd_io_init(void)
 
 /* Platform-specific implementation of the LCD send command function. In general this should use polling transfer. */
 void lcd_send_cmd(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, const uint8_t *param,
-                         size_t param_size)
+                  size_t param_size)
 {
   LV_UNUSED(disp);
   while (lcd_bus_busy)
@@ -225,11 +223,11 @@ void lcd_send_cmd(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, const
  * In case of a DMA transfer a callback must be installed to notify LVGL about the end of the transfer.
  */
 void lcd_send_color(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, uint8_t *param,
-                           size_t param_size)
+                    size_t param_size)
 {
 
-	  //snprintf((char *)UART_BUFFER, 64, "lcd_send_color\r\n");
-	 // HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
+  // snprintf((char *)UART_BUFFER, 64, "lcd_send_color\r\n");
+  // HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
 
   LV_UNUSED(disp);
   while (lcd_bus_busy)
@@ -248,8 +246,8 @@ void lcd_send_color(lv_display_t *disp, const uint8_t *cmd, size_t cmd_size, uin
     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_SET);
     /* for color data use DMA transfer */
     /* Set the SPI in 16-bit mode to match endianness */
-    //hspi1.Init.DataSize = SPI_DATASIZE_16BIT;
-    //HAL_SPI_Init(&hspi1);
+    // hspi1.Init.DataSize = SPI_DATASIZE_16BIT;
+    // HAL_SPI_Init(&hspi1);
     lcd_bus_busy = 1;
     HAL_SPI_Transmit_DMA(&hspi1, param, (uint16_t)param_size);
     /* NOTE: CS will be reset in the transfer ready callback */
@@ -391,7 +389,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   }
 }
 
-
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
 {
 
@@ -400,7 +397,6 @@ void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
     lcd_color_transfer_ready_cb(hspi);
   }
 }
-
 
 void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c)
 {
@@ -435,39 +431,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if (GPIO_Pin == CTP_INT_Pin)
   {
     // touch_handler();
-    Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
+    Touch_FT5436_IRQHandler(&touch_controller, CTP_INT_Pin);
   }
 
   if (GPIO_Pin == ADC_DRDY_Pin)
   {
     ad7124_rdy_flag = 1;
   }
-
-  // Touch_FT5436_IRQHandler(&myTouch.touch_controller, CTP_INT_Pin);
 }
 
 /*
-void my_flush_cb(lv_display_t *display, const lv_area_t *area, uint8_t *px_map)
-{
 
-  int32_t width = area->x2 - area->x1 + 1;
-  int32_t height = area->y2 - area->y1 + 1;
-
-  ST7789_SetWindow(area->x1, area->y1, area->x2, area->y2);
-
-  ST7789_CS_LOW_DC_HIGH();
-
-  // int32_t width = area->x2 - area->x1 + 1;
-  // int32_t height = area->y2 - area->y1 + 1;
-
-  uint32_t size = width * height * 2; // 2 bytes per pixel for RGB565
-  // snprintf((char *)UART_BUFFER, 64, "size: %d\r\n", size);
-  // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 1);
-  // lv_draw_sw_rgb565_swap(px_map, (area->x2 - area->x1 + 1) * (area->y2 - area->y1 + 1));
-
-  HAL_SPI_Transmit_DMA(&hspi1, (uint8_t *)px_map, size);
-}
-*/
 
 /* USER CODE END 0 */
 
@@ -540,15 +514,15 @@ int main(void)
   myThermocouples.setup();
   // thermocouplesSetup();
 
-  myTouch.setup();
+  ft5436_setup();
 
   setupBatteryMonitor();
   // ST7789_Init();
 
   // ST7789_FillScreen(0x1234);
 
-  //HAL_Delay(2000);
-  // step 1. lv init
+  // HAL_Delay(2000);
+  //  step 1. lv init
   lv_init();
 
   // step 2. driver init
@@ -557,16 +531,14 @@ int main(void)
   // step 3. connect the tick interface
   lv_tick_set_cb(HAL_GetTick);
 
-  myTouch.setup_lvgl_input();
+  indev = lv_indev_create();
+  lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
+  lv_indev_set_read_cb(indev, ft5436_read_touch_points);
 
- /*
-  lv_obj_t *label = lv_label_create(lv_screen_active());
-  lv_label_set_text(label, "Hello world");
-  lv_obj_set_style_text_color(lv_screen_active(), lv_color_hex(0xffffff), LV_PART_MAIN);
-  lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
-*/
 
-  load_meter();
+
+
+  load_screen(METER);
 
   backlightSetup();
 
@@ -579,9 +551,10 @@ int main(void)
   while (1)
   {
     loopCounter++; // Increment at start of each iteration
-    if(lcd_bus_busy) {
-        snprintf((char *)UART_BUFFER, 32, "BUS BUSY %lu\r\n", HAL_GetTick());
-        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 10);
+    if (lcd_bus_busy)
+    {
+      snprintf((char *)UART_BUFFER, 32, "BUS BUSY %lu\r\n", HAL_GetTick());
+      HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 10);
     }
     /* USER CODE END WHILE */
     MX_APPE_Process();
@@ -595,8 +568,6 @@ int main(void)
     myThermocouples.stateMachine();
     //    myThermocouples.delay = 1;
     //}
-    // thermocouplesMain();
-    // myTouch.stateMachine();
 
     if (measureFlag)
     {

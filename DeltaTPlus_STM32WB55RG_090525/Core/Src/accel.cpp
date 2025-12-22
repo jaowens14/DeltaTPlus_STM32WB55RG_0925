@@ -113,7 +113,7 @@ void accelHandler(void)
 
     }
 
-    updateSettingLabel();
+    //updateSettingLabel();
 }
 
 

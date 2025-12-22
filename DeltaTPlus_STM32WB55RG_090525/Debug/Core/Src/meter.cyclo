@@ -1,0 +1,10 @@
+../Core/Src/meter.cpp:106:6:void updateBatteryLabel(lv_timer_t*)	2
+../Core/Src/meter.cpp:67:6:void updateSettingLabel()	2
+../Core/Src/meter.cpp:94:6:void updateLeftandRightTempLabels()	2
+../Core/Src/meter.cpp:121:6:void updateNeedle()	5
+../Core/Src/meter.cpp:185:6:void header()	3
+../Core/Src/meter.cpp:234:6:void gauge()	4
+../Core/Src/meter.cpp:367:6:void monitor()	1
+../Core/Src/meter.cpp:405:6:void labels()	1
+../Core/Src/meter.cpp:456:6:void buttons()	1
+../Core/Src/meter.cpp:499:11:lv_obj_t* create_meter_screen()	1

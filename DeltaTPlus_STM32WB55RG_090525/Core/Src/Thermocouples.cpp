@@ -4,6 +4,7 @@
 #include "main.h"
 // Static member definitions
 #include "widgets.h"
+#include "meter.h"
 float Thermocouples::deltaTemp = 0.0;
 float Thermocouples::userGain = 1.0;
 float Thermocouples::deltaTempOffset = 0.0;
@@ -44,8 +45,7 @@ void Thermocouples::setup()
     int channel1 = 1;
 
 
-    thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN1Input |
-                                     Ad7124::AIN2Input | Ad7124::AIN3Input);
+    //thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN1Input | Ad7124::AIN2Input | Ad7124::AIN3Input);
 
 
 
@@ -115,7 +115,7 @@ void Thermocouples::setup()
     rf.measurement_variance = 5.0f; // 50
 
     lf.error = 0.0f;
-    lf.estimate = 10000.0f;
+    lf.estimate = 0.0f;
     lf.process_variance = 1.0f;
     lf.measurement_variance = 5.0f;
 

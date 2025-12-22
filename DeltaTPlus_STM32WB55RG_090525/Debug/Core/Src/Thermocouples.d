@@ -508,7 +508,7 @@ Core/Src/Thermocouples.o: ../Core/Src/Thermocouples.cpp \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_2.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_api_map_v9_3.h \
  ../Core/Inc/ST7789.h ../Core/Inc/accel.h ../Core/Inc/i2c.h \
- ../Core/Inc/Thermocouples.hpp
+ ../Core/Inc/Thermocouples.hpp ../Core/Inc/meter.h
 ../Core/Inc/Thermocouples.hpp:
 ../Core/Inc/spi.h:
 ../Core/Inc/main.h:
@@ -1027,3 +1027,4 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 ../Core/Inc/accel.h:
 ../Core/Inc/i2c.h:
 ../Core/Inc/Thermocouples.hpp:
+../Core/Inc/meter.h:

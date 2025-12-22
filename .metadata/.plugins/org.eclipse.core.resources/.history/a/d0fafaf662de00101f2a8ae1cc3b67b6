@@ -1,0 +1,42 @@
+/*
+ * widgets.c
+ *
+ *  Created on: Dec 5, 2025
+ *      Author: jaowe
+ */
+
+#include "widgets.h"
+
+#include "lvgl.h"
+#include <math.h>
+#include "ST7789.h"
+#include <accel.h>
+#include "Thermocouples.hpp"
+#include "BatteryMonitor.h"
+#include "menu.h"
+typedef enum
+{
+
+  SCREEN_METER,
+  SCREEN_MENU,
+  SCREEN_ABOUT,
+  SCREEN_SETTINGS,
+
+} SCREEN_ID_T;
+// Global pointer to update the meter value
+
+
+
+
+
+
+
+
+//lv_display_t *display1 = NULL; // Global variable
+
+uint8_t draw_buffer1[DRAW_BUFFER_SIZE];
+uint8_t draw_buffer2[DRAW_BUFFER_SIZE];
+
+///////////////////////////////////////////////////
+
+/* Timer callback to update the text area with sensor data */

@@ -1,5 +1,6 @@
 #include <FT5436_Touch.h>
-
+#include "lvgl.h"
+#include "i2c.h"
 /***************************************************************************************
 ** Function name:           Touch_FT5436_Init
 ** Description:             Initialize the touch controller structure
@@ -240,3 +241,59 @@ void Touch_FT5436_IRQHandler(Touch_FT5436_t *touch, uint16_t GPIO_Pin)
         touch->detected = true;
     }
 }
+
+
+
+void ft5436_setup(void)
+{
+    // Initialize the touch controller structure
+    Touch_FT5436_Init(&touch_controller, &hi2c1);
+
+    // Begin with pin configuration
+    // Parameters: interrupt port, interrupt pin, reset port, reset pin
+    Touch_FT5436_Begin(&touch_controller,
+                       CTP_INT_GPIO_Port, CTP_INT_Pin,                // Interrupt pin (PB1)
+                       GPIO_CTP_RESET_GPIO_Port, GPIO_CTP_RESET_Pin); // Reset pin (PB0)
+
+    // Optional: Configure jitter margin and max points
+    Touch_FT5436_JitterMargin(&touch_controller, 5);  // 5 pixel jitter margin
+    Touch_FT5436_MaxPointCount(&touch_controller, 1); // Only need 1 touch point for LVGL
+}
+
+
+void ft5436_read_touch_points(lv_indev_t *indev, lv_indev_data_t *data)
+{
+	if (Touch_FT5436_PointDetected(&touch_controller))
+	    {
+	        uint8_t pointCount = Touch_FT5436_GetPointCount(&touch_controller);
+
+	        if (pointCount > 0)
+	        {
+	            // Get the first touch point (LVGL uses single point)
+	        	touch_controller.x = Touch_FT5436_GetPointX(&touch_controller, 1);
+	        	touch_controller.y = Touch_FT5436_GetPointY(&touch_controller, 1);
+	        	touch_controller.is_pressed = true;
+	        }
+	        else
+	        {
+	        	touch_controller.is_pressed = false;
+	        }
+	    }
+	    else
+	    {
+	    	touch_controller.is_pressed = false;
+	    }
+
+    // Fill in LVGL data structure
+    data->point.x = touch_controller.x;
+    data->point.y = touch_controller.y;
+    data->state = touch_controller.is_pressed ? LV_INDEV_STATE_PRESSED : LV_INDEV_STATE_RELEASED;
+}
+
+
+Touch_FT5436_t touch_controller;
+
+
+
+
+

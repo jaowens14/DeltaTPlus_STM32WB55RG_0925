@@ -7679,3 +7679,15 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.widgets.Shell.set
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-20 06:16:00.181
 !MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-21 06:29:44.452
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 107 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-21 06:29:44.452
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-21 06:29:44.454
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 107 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-21 06:29:44.454
+!MESSAGE Existing sessions are:

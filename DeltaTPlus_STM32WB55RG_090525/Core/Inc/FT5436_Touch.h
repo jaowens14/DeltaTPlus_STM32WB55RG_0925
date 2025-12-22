@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <gpio.h>
 #include <i2c.h>
-
+#include "lvgl.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -103,6 +103,9 @@ typedef struct
     uint8_t released;
     bool readToggle;
     bool detected;
+    bool is_pressed;
+    int16_t x;
+    int16_t y;
 
     // Copy of register values
     uint8_t reg[POINT_READ_BUF];
@@ -130,6 +133,11 @@ void Touch_FT5436_ReadPoints(Touch_FT5436_t *touch);
 
 // Interrupt callback function - to be called from HAL_GPIO_EXTI_Callback
 void Touch_FT5436_IRQHandler(Touch_FT5436_t *touch, uint16_t GPIO_Pin);
+
+void ft5436_read_touch_points(lv_indev_t *indev, lv_indev_data_t *data);
+void ft5436_setup(void);
+
+extern Touch_FT5436_t touch_controller;
 
 #ifdef __cplusplus
 }
