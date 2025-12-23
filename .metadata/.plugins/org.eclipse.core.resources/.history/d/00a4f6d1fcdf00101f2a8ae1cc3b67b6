@@ -47,7 +47,7 @@ void Thermocouples::setup()
 
     //thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN1Input | Ad7124::AIN2Input | Ad7124::AIN3Input);
 
-#if 0 // init seq 1
+#if 1 // init seq 1
 
      // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
     // thermocoupleADC.reset();
@@ -108,7 +108,7 @@ void Thermocouples::setup()
 #endif
 
 
-#if 1 // OG INIT SEQ
+#if 0 // OG INIT SEQ
     // int channel2 = 2;
 
     // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);

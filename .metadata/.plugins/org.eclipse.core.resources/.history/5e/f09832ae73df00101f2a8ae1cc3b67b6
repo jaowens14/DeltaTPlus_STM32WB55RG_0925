@@ -41,6 +41,15 @@ lv_obj_t *create_menu_screen(void)
     lv_obj_set_style_bg_opa(menu_screen, LV_OPA_COVER, 0);
     lv_obj_set_style_bg_color(menu_screen, lv_color_hex(WEB_LIGHT_TAN), 0);
 
+    // Create header label
+//    headerLabel = lv_label_create(menu_screen);
+//    lv_obj_clear_flag(headerLabel, LV_OBJ_FLAG_CLICKABLE);
+//    lv_obj_clear_flag(headerLabel, LV_OBJ_FLAG_SCROLLABLE);
+//    lv_label_set_text(headerLabel, " ");
+//    lv_obj_set_style_text_font(headerLabel, &lv_font_montserrat_14, 0);
+//    lv_obj_set_style_text_color(headerLabel, lv_color_hex(Charcoal), 0);
+//    lv_obj_align(headerLabel, LV_ALIGN_TOP_MID, 0, 10);
+
     // Create container for buttons
     menuContainer = lv_obj_create(menu_screen);
     lv_obj_clear_flag(menuContainer, LV_OBJ_FLAG_CLICKABLE);

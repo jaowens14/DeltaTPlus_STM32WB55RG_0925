@@ -48,7 +48,7 @@ lv_obj_t * create_about_screen(void)
   // Product title
   lv_obj_t *title = lv_label_create(about_container);
   lv_label_set_text(title, "Delta-T Plus");
-  lv_obj_set_style_text_font(title, &lv_font_montserrat_14, 0);
+  lv_obj_set_style_text_font(title, &lv_font_montserrat_14_bold, 0);
   lv_obj_set_style_text_color(title, lv_color_hex(Charcoal), 0);
   lv_obj_align_to(title, company_label, LV_ALIGN_OUT_BOTTOM_MID, 0, 5);
 

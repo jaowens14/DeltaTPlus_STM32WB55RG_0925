@@ -86,7 +86,7 @@ lv_obj_t * create_settings_screen(void)
   char sens_buf[16];
   snprintf(sens_buf, sizeof(sens_buf), "%.2fx", thermocouple_sensitivity);
   lv_label_set_text(sensitivity_value, sens_buf);
-  lv_obj_set_style_text_color(sensitivity_value, lv_color_hex(WEB_ORANGE), 0);
+  lv_obj_set_style_text_color(sensitivity_value, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_text_font(sensitivity_value, &lv_font_montserrat_12, 0);
   lv_obj_align(sensitivity_value, LV_ALIGN_TOP_RIGHT, -5, 20);
 
@@ -128,7 +128,7 @@ lv_obj_t * create_settings_screen(void)
   char bright_buf[16];
   snprintf(bright_buf, sizeof(bright_buf), "%d%%", screen_brightness);
   lv_label_set_text(brightness_value, bright_buf);
-  lv_obj_set_style_text_color(brightness_value, lv_color_hex(WEB_ORANGE), 0);
+  lv_obj_set_style_text_color(brightness_value, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_text_font(brightness_value, &lv_font_montserrat_12, 0);
   lv_obj_align_to(brightness_value, brightness_title, LV_ALIGN_OUT_RIGHT_MID, 40, 0);
 

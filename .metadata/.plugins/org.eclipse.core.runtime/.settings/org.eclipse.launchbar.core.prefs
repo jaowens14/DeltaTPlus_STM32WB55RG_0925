@@ -9,7 +9,7 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DeltaTPlus_STM32WB55RG_090525\ 
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DeltaTPlus_STM32WB55RG_090525\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:DeltaTPlus_STM32WB55RG_090525\ Debug/activeLaunchTarget=null\:---
 org.eclipse.launchbar.core.descriptorType.default\:DeltaTPlus_STM32WB55RG_090525\ Debug\ (1)/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
-org.eclipse.launchbar.core.descriptorType.default\:DeltaTPlus_STM32WB55RG_090525\ Debug/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:DeltaTPlus_STM32WB55RG_090525\ Debug/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:DeltaTPlus_STM32WB55RG_090525\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:New_configuration/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:New_configuration/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

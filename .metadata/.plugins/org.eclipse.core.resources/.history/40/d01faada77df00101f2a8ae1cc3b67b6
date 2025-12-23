@@ -75,10 +75,10 @@ lv_obj_t * create_settings_screen(void)
 
   // Sensitivity Section
   lv_obj_t *sensitivity_title = lv_label_create(settings_container);
-  lv_label_set_text(sensitivity_title, "Temperature Sensitivity");
+  lv_label_set_text(sensitivity_title, "Thermocouple Sensitivity");
 
   lv_obj_set_style_text_color(sensitivity_title, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_text_font(sensitivity_title, &lv_font_montserrat_12, 0);
+  lv_obj_set_style_text_font(sensitivity_title, &lv_font_montserrat_14, 0);
   lv_obj_align(sensitivity_title, LV_ALIGN_TOP_LEFT, 5, 20);
 
   // Sensitivity value label
@@ -86,16 +86,16 @@ lv_obj_t * create_settings_screen(void)
   char sens_buf[16];
   snprintf(sens_buf, sizeof(sens_buf), "%.2fx", thermocouple_sensitivity);
   lv_label_set_text(sensitivity_value, sens_buf);
-  lv_obj_set_style_text_color(sensitivity_value, lv_color_hex(WEB_ORANGE), 0);
-  lv_obj_set_style_text_font(sensitivity_value, &lv_font_montserrat_12, 0);
-  lv_obj_align(sensitivity_value, LV_ALIGN_TOP_RIGHT, -5, 20);
+  lv_obj_set_style_text_color(sensitivity_value, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(sensitivity_value, &lv_font_montserrat_14, 0);
+  lv_obj_align(sensitivity_value, LV_ALIGN_TOP_RIGHT, -5, 35);
 
   // Sensitivity slider
   lv_obj_t *sensitivity_slider = lv_slider_create(settings_container);
-  lv_obj_set_size(sensitivity_slider, 180, 10);
+  lv_obj_set_size(sensitivity_slider, 200, 10);
   lv_slider_set_range(sensitivity_slider, 50, 200); // 0.5x to 2.0x
   lv_slider_set_value(sensitivity_slider, (int32_t)(thermocouple_sensitivity * 100), LV_ANIM_OFF);
-  lv_obj_set_style_bg_color(sensitivity_slider, lv_color_hex(0xCCCCCC), LV_PART_MAIN);
+  lv_obj_set_style_bg_opa(sensitivity_slider, LV_OPA_TRANSP, LV_PART_MAIN);
 
   lv_obj_set_style_bg_color(sensitivity_slider, lv_color_hex(0xCCCCCC), LV_PART_MAIN);
   lv_obj_set_style_bg_color(sensitivity_slider, lv_color_hex(Charcoal), LV_PART_INDICATOR);
@@ -120,7 +120,7 @@ lv_obj_t * create_settings_screen(void)
   lv_obj_t *brightness_title = lv_label_create(settings_container);
   lv_label_set_text(brightness_title, "Screen Brightness");
   lv_obj_set_style_text_color(brightness_title, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_text_font(brightness_title, &lv_font_montserrat_12, 0);
+  lv_obj_set_style_text_font(brightness_title, &lv_font_montserrat_14, 0);
   lv_obj_align_to(brightness_title, sens_min, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 25);
 
   // Brightness value label
@@ -128,13 +128,13 @@ lv_obj_t * create_settings_screen(void)
   char bright_buf[16];
   snprintf(bright_buf, sizeof(bright_buf), "%d%%", screen_brightness);
   lv_label_set_text(brightness_value, bright_buf);
-  lv_obj_set_style_text_color(brightness_value, lv_color_hex(WEB_ORANGE), 0);
-  lv_obj_set_style_text_font(brightness_value, &lv_font_montserrat_12, 0);
-  lv_obj_align_to(brightness_value, brightness_title, LV_ALIGN_OUT_RIGHT_MID, 40, 0);
+  lv_obj_set_style_text_color(brightness_value, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(brightness_value, &lv_font_montserrat_14, 0);
+  lv_obj_align_to(brightness_value, brightness_title, LV_ALIGN_OUT_RIGHT_MID, 50, 0);
 
   // Brightness slider
   lv_obj_t *brightness_slider = lv_slider_create(settings_container);
-  lv_obj_set_size(brightness_slider, 180, 10);
+  lv_obj_set_size(brightness_slider, 200, 10);
   lv_slider_set_range(brightness_slider, 10, 100); // 10% to 100%
   lv_slider_set_value(brightness_slider, screen_brightness, LV_ANIM_OFF);
   lv_obj_set_style_bg_color(brightness_slider, lv_color_hex(0xCCCCCC), LV_PART_MAIN);
