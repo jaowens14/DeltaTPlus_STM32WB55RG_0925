@@ -1,24 +1,23 @@
-// This reads the thermocouples using an AD7124 ADC chip and processes the data with Kalman filtering
 
-//include pertinent header files
 #include "Thermocouples.hpp"
+
 #include "main.h"
+// Static member definitions
 #include "widgets.h"
 #include "meter.h"
+float Thermocouples::deltaTemp = 0.0;
+float Thermocouples::userGain = 1.0;
+float Thermocouples::deltaTempOffset = 0.0;
 
-// Define static member variables
-float Thermocouples::deltaTemp = 0.0; //deltaTemp stores temperature difference
-float Thermocouples::userGain = 1.0; //userGain stores the adjustment value for calibration
-float Thermocouples::deltaTempOffset = 0.0; //deltaTempOffset stores zero offset correction value
-KALMAN_T rf; //right front (rf) thermocouple measurements
-KALMAN_T lf; //left front (lf) thermocouple measurements
+KALMAN_T rf;
+KALMAN_T lf;
+// Static member definitions for MAX31856 objects
 
-//Set up flags
+
+
 volatile int thermocouple_data_ready = 0;
 volatile int ad7124_rdy_flag = 0;
 int direction = 1;
-
-//Set up Function
 void Thermocouples::setup()
 {
 
@@ -48,23 +47,39 @@ void Thermocouples::setup()
 
     //thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN1Input | Ad7124::AIN2Input | Ad7124::AIN3Input);
 
-#if 1 // init seq 1
+#if 0 // init seq 1
+
+     // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
+    // thermocoupleADC.reset();
+     HAL_Delay(200);
+
+     //thermocoupleADC.begin(0);
+     HAL_Delay(200);
+
+
+
+
+     // Configure Setup 0 for Thermocouples
+     // High gain (128) with internal reference for maximum sensitivity to µV signals
+     thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, true);
+     thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc4FastFilter, filterWord);
+     HAL_Delay(200);
+
+     thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
+     thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4FastFilter, filterWord);
+     HAL_Delay(200);
+
+     // Configure Channel 0: Thermocouple 1 (AIN0+/AIN1-) using Setup 0
+     thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN0Input, Ad7124::AIN1Input, true);
+     thermocoupleADC.setBiasPins(Ad7124::AIN0Input);
+     HAL_Delay(200);
+
+     // Configure Channel 1: Thermocouple 2 (AIN2+/AIN3-) using Setup 0
+     thermocoupleADC.setChannel(channel1, setup0, Ad7124::AIN2Input, Ad7124::AIN3Input, true);
+     thermocoupleADC.setBiasPins(Ad7124::AIN2Input);
+     HAL_Delay(200);
 
      thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
-
-     thermocoupleADC.setMode(Ad7124::ContinuousMode);
-
-     thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, true);
-
-     thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc4FastFilter, filterWord);
-
-     thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN0Input, Ad7124::AIN1Input, true);
-     thermocoupleADC.setChannel(channel1, setup0, Ad7124::AIN2Input, Ad7124::AIN3Input, true);
-
-     thermocoupleADC.setBiasPins(Ad7124::AIN0Input);
-
-     thermocoupleADC.setBiasPins(Ad7124::AIN2Input);
-
      HAL_Delay(200);
 
 
@@ -93,14 +108,8 @@ void Thermocouples::setup()
 #endif
 
 
-#if 0 // OG INIT SEQ
+#if 1 // OG INIT SEQ
     // int channel2 = 2;
-
-     //BROOKE ADDED
-     //thermocoupleADC.setBiasPins(Ad7124::AIN1Input | Ad7124::AIN3Input);
-     HAL_Delay(200);
-    // int ch_0_cal = thermocoupleADC.internalCalibration(0);
-   //  int ch_1_cal = thermocoupleADC.internalCalibration(1);
 
     // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
     // thermocoupleADC.reset();
@@ -114,16 +123,15 @@ void Thermocouples::setup()
     thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4FastFilter, filterWord);
 
     // Configure Channel 0: Thermocouple 1 (AIN0+/AIN1-) using Setup 0
-    thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN1Input, Ad7124::AIN0Input, true);
+    thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN0Input, Ad7124::AIN1Input, true);
 
     // Configure Channel 1: Thermocouple 2 (AIN2+/AIN3-) using Setup 0
-    thermocoupleADC.setChannel(channel1, setup0, Ad7124::AIN3Input, Ad7124::AIN2Input, true);
+    thermocoupleADC.setChannel(channel1, setup0, Ad7124::AIN2Input, Ad7124::AIN3Input, true);
 
     // Configure Channel 2: Thermistor (AIN5+/AIN6-) using Setup 1
     // thermocoupleADC.setChannel(channel2, setup1, Ad7124::AIN5Input, Ad7124::AIN6Input, true);
     // HAL_Delay(200);
-    thermocoupleADC.setBiasPins(Ad7124::AIN1Input | Ad7124::AIN3Input);
-
+    //
     // thermocoupleADC.setCurrentSource(0, Ad7124::IoutCh4, Ad7124::Current500uA);
     // HAL_Delay(200);
 

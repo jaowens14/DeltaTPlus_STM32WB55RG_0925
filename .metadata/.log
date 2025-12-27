@@ -7715,3 +7715,39 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.widgets.Shell.set
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-22 14:53:03.640
 !MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 14:10:13.894
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 153 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 14:10:13.895
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 14:10:13.896
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 153 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 14:10:13.897
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 19:42:22.907
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 157 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 19:42:22.908
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 19:42:22.909
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 157 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 19:42:22.909
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 19:52:27.738
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 160 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 19:52:27.738
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 19:52:27.739
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 160 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2025-12-23 19:52:27.739
+!MESSAGE Existing sessions are:

@@ -48,7 +48,7 @@ void Thermocouples::setup()
 
     //thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN1Input | Ad7124::AIN2Input | Ad7124::AIN3Input);
 
-#if 1 // init seq 1
+#if 0 // init seq 1
 
      thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
 
@@ -65,6 +65,7 @@ void Thermocouples::setup()
 
      thermocoupleADC.setBiasPins(Ad7124::AIN2Input);
 
+     thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
      HAL_Delay(200);
 
 
@@ -93,7 +94,7 @@ void Thermocouples::setup()
 #endif
 
 
-#if 0 // OG INIT SEQ
+#if 1 // OG INIT SEQ
     // int channel2 = 2;
 
      //BROOKE ADDED

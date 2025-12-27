@@ -65,6 +65,7 @@ void Thermocouples::setup()
 
      thermocoupleADC.setBiasPins(Ad7124::AIN2Input);
 
+     thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
      HAL_Delay(200);
 
 
