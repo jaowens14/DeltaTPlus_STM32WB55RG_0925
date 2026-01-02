@@ -5,7 +5,16 @@
 #include "main.h"
 #include "widgets.h"
 #include "meter.h"
+
+#ifdef USE_SERVER
+
 #include "p2p_server_app.h"
+
+#else // CLIENT
+
+#include "p2p_client_app.h"
+
+#endif
 
 // Define static member variables
 float Thermocouples::deltaTemp = 0.0; //deltaTemp stores temperature difference
@@ -184,7 +193,7 @@ void Thermocouples::setup()
 
 void Thermocouples::stateMachine(void)
 {
-
+#ifdef USE_SERVER
     //if (ad7124_rdy_flag)
     //{
       // HAL_NVIC_DisableIRQ(ADC_DRDY_EXTI_IRQn); // Temporarily disable interrupt
@@ -261,8 +270,14 @@ void Thermocouples::stateMachine(void)
         lf.error = (1.0 - lf.gain) * lf.error;
 
         // gain is estimated at 1789473 intercept at 120 pixels when deltat is zero
-        deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
 
+
+        deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+#else // CLIENT
+        { // horrible hack
+        deltaTemp = GetDeltaTData();
+
+#endif
 /*
         if(deltaTemp == 240) {
         	direction = -1;
@@ -285,9 +300,14 @@ void Thermocouples::stateMachine(void)
 
         updateNeedle();
 
+#ifdef USE_SERVER
+
+
         updateLeftandRightTempLabels();
 
         LoadDeltaData(deltaTemp);
+#endif
+
 
 
         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);

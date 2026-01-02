@@ -91,6 +91,7 @@
 "./Middlewares/ST/STM32_WPAN/utilities/stm_list.o"
 "./Middlewares/ST/STM32_WPAN/utilities/stm_queue.o"
 "./STM32_WPAN/App/app_ble.o"
+"./STM32_WPAN/App/p2p_client_app.o"
 "./STM32_WPAN/App/p2p_server_app.o"
 "./STM32_WPAN/Target/hw_ipcc.o"
 "./USB_Device/App/usb_device.o"

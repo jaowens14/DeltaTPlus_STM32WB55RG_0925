@@ -6,14 +6,17 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../STM32_WPAN/App/app_ble.c \
+../STM32_WPAN/App/p2p_client_app.c \
 ../STM32_WPAN/App/p2p_server_app.c 
 
 C_DEPS += \
 ./STM32_WPAN/App/app_ble.d \
+./STM32_WPAN/App/p2p_client_app.d \
 ./STM32_WPAN/App/p2p_server_app.d 
 
 OBJS += \
 ./STM32_WPAN/App/app_ble.o \
+./STM32_WPAN/App/p2p_client_app.o \
 ./STM32_WPAN/App/p2p_server_app.o 
 
 
@@ -24,7 +27,7 @@ STM32_WPAN/App/%.o STM32_WPAN/App/%.su STM32_WPAN/App/%.cyclo: ../STM32_WPAN/App
 clean: clean-STM32_WPAN-2f-App
 
 clean-STM32_WPAN-2f-App:
-	-$(RM) ./STM32_WPAN/App/app_ble.cyclo ./STM32_WPAN/App/app_ble.d ./STM32_WPAN/App/app_ble.o ./STM32_WPAN/App/app_ble.su ./STM32_WPAN/App/p2p_server_app.cyclo ./STM32_WPAN/App/p2p_server_app.d ./STM32_WPAN/App/p2p_server_app.o ./STM32_WPAN/App/p2p_server_app.su
+	-$(RM) ./STM32_WPAN/App/app_ble.cyclo ./STM32_WPAN/App/app_ble.d ./STM32_WPAN/App/app_ble.o ./STM32_WPAN/App/app_ble.su ./STM32_WPAN/App/p2p_client_app.cyclo ./STM32_WPAN/App/p2p_client_app.d ./STM32_WPAN/App/p2p_client_app.o ./STM32_WPAN/App/p2p_client_app.su ./STM32_WPAN/App/p2p_server_app.cyclo ./STM32_WPAN/App/p2p_server_app.d ./STM32_WPAN/App/p2p_server_app.o ./STM32_WPAN/App/p2p_server_app.su
 
 .PHONY: clean-STM32_WPAN-2f-App
 

@@ -11,6 +11,8 @@
 #include "Thermocouples.hpp"
 #include "BatteryMonitor.h"
 
+#include "app_ble.h"
+
 #include "menu.h"
 static lv_obj_t *settingLabel = NULL;
 static lv_obj_t *batteryLabel = NULL;
@@ -494,6 +496,40 @@ void buttons()
 
   // Add event callback
   lv_obj_add_event_cb(left_btn, load_menu_cb, LV_EVENT_CLICKED, NULL);
+
+
+
+  // scan button /////////////////////////////////////
+
+  // Create the button
+  lv_obj_t *right_btn = lv_btn_create(buttonContainer);
+  lv_obj_set_size(right_btn, 40, 40);
+  lv_obj_align(right_btn, LV_ALIGN_RIGHT_MID, 0, 0);
+
+  // Style the button
+  lv_obj_set_style_radius(right_btn, 8, 0);
+  lv_obj_set_style_bg_color(right_btn, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_shadow_width(right_btn, 10, 0);
+  lv_obj_set_style_shadow_color(right_btn, lv_color_hex(0x000000), 0);
+  lv_obj_set_style_shadow_opa(right_btn, LV_OPA_30, 0);
+
+  // Add hover effect
+  lv_obj_set_style_bg_color(right_btn, lv_color_hex(0x1976D2), LV_STATE_PRESSED);
+
+  // Create a label with hamburger menu icon (using text symbol)
+  lv_obj_t *label2 = lv_label_create(right_btn);
+  lv_label_set_text(label2, LV_SYMBOL_REFRESH); // Hamburger menu icon
+  lv_obj_center(label2);
+
+  // Set font size for the icon
+  lv_obj_set_style_text_font(label2, &lv_font_montserrat_14, 0);
+
+  // Add event callback
+  lv_obj_add_event_cb(right_btn, start_scan_cb, LV_EVENT_CLICKED, NULL);
+}
+
+void start_scan_cb(lv_event_t *e){
+	APP_BLE_Key_Button1_Action();
 }
 
 lv_obj_t *create_meter_screen(void)

@@ -46,7 +46,11 @@
 #include "BatteryMonitor.h"
 #include "FT5436_Touch.h"
 
+#ifdef USE_SERVER
 #include "p2p_server_app.h"
+#else
+#include "p2p_client_app.h"
+#endif
 
 #include "widgets.h"
 
@@ -575,7 +579,10 @@ int main(void)
     accelMain();
     backlightMain();
     // if(!myThermocouples.delay) {
+
+//#ifdef USE_SERVER
     myThermocouples.stateMachine();
+//#endif
     //    myThermocouples.delay = 1;
     //}
 
@@ -590,7 +597,14 @@ int main(void)
 
     if (!ble_delay){
     	ble_delay = 20; //20ms??
+
+#ifdef USE_SERVER
+
         P2PS_APP_DeltaT_Action();
+
+#endif
+
+
     }
 
     // should run at 20ms / 50fps

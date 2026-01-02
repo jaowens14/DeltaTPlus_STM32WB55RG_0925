@@ -46,7 +46,7 @@
 
  typedef struct{
     //uint8_t             Device_Button_Selection;
-    uint32_t             DeltaTValue;
+	 float             DeltaTValue;
  }P2P_DeltaTCharValue_t;
 
 typedef struct

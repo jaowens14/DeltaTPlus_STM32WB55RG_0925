@@ -510,7 +510,12 @@ Core/Src/meter.o: ../Core/Src/meter.cpp \
  ../Core/Inc/ST7789.h ../Core/Inc/Thermocouples.hpp \
  ../Core/Inc/BatteryMonitor.h \
  C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library/Adafruit_MAX1704X.h \
- ../Core/Inc/gpio.h ../Core/Inc/i2c.h ../Core/Inc/menu.h
+ ../Core/Inc/gpio.h ../Core/Inc/i2c.h ../STM32_WPAN/App/app_ble.h \
+ ../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl.h \
+ ../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h \
+ ../Drivers/CMSIS/Include/cmsis_compiler.h \
+ ../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h \
+ ../Core/Inc/menu.h
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/lvgl.h:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/lv_version.h:
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/lvgl/src/lv_init.h:
@@ -1033,4 +1038,9 @@ C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_ST
 C:/Users/jaowe/Documents/Projects/DeltaTPlus_STM32WB55RG_Workspace/DeltaTPlus_STM32WB55RG_090525/Adafruit_1704X_Library/Adafruit_MAX1704X.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/i2c.h:
+../STM32_WPAN/App/app_ble.h:
+../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl.h:
+../Middlewares/ST/STM32_WPAN/stm32_wpan_common.h:
+../Drivers/CMSIS/Include/cmsis_compiler.h:
+../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl.h:
 ../Core/Inc/menu.h:
