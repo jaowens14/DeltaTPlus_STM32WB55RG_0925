@@ -496,9 +496,9 @@ void buttons()
 
   // Add event callback
   lv_obj_add_event_cb(left_btn, load_menu_cb, LV_EVENT_CLICKED, NULL);
+}
 
-
-
+  /*
   // scan button /////////////////////////////////////
 
   // Create the button
@@ -526,11 +526,13 @@ void buttons()
 
   // Add event callback
   lv_obj_add_event_cb(right_btn, start_scan_cb, LV_EVENT_CLICKED, NULL);
+
 }
 
 void start_scan_cb(lv_event_t *e){
 	APP_BLE_Key_Button1_Action();
 }
+*/
 
 lv_obj_t *create_meter_screen(void)
 {

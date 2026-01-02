@@ -28,7 +28,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "hci_tl.h"
-
+#include <stdbool.h>
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -83,6 +83,12 @@ void APP_BLE_Key_Button1_Action(void);
 void APP_BLE_Key_Button2_Action(void);
 void APP_BLE_Key_Button3_Action(void);
 void APP_BLE_DeltaT_Action(void);
+void getClientStatus(char * newstatus, size_t size);
+
+uint16_t getServerSerialNumber(void);
+void setTargetSerialNumber(uint16_t serial);
+bool validateSerialNumber(uint16_t entered_serial);
+
 /* USER CODE END EF */
 
 #ifdef __cplusplus

@@ -63,6 +63,7 @@ typedef struct
 /* Exported macros ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 
+
 /* USER CODE END EM */
 
 /* Exported functions ---------------------------------------------*/
@@ -72,6 +73,8 @@ uint8_t P2P_Client_APP_Get_State( void );
 /* USER CODE BEGIN EFP */
 void P2PC_APP_SW1_Button_Action(void);
 float GetDeltaTData(void);
+
+//void getClientStatus(char * newstatus);
 
 /* USER CODE END EFP */
 

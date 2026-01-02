@@ -17,7 +17,7 @@
   ******************************************************************************
   */
 /* USER CODE END Header */
-
+#include <stdbool.h>
 #ifdef USE_SERVER
 
 
@@ -1688,6 +1688,8 @@ typedef struct
   APP_BLE_ConnStatus_t Device_Connection_Status;
   uint8_t SwitchOffGPIO_timer_Id;
   uint8_t DeviceServerFound;
+  uint16_t ServerSerialNumber;
+  uint16_t TargetSerialNumber;
 } BleApplicationContext_t;
 
 #if OOB_DEMO != 0
@@ -1872,6 +1874,9 @@ void APP_BLE_Init(void)
    * Initialization of the BLE App Context
    */
   BleApplicationContext.Device_Connection_Status = APP_BLE_IDLE;
+  BleApplicationContext.ServerSerialNumber = 0;  // ADD THIS
+  BleApplicationContext.TargetSerialNumber = 0;  // ADD THIS
+
 
   /*Radio mask Activity*/
 #if (OOB_DEMO != 0)
@@ -1910,6 +1915,9 @@ void APP_BLE_Init(void)
   /* USER CODE END APP_BLE_Init_2 */
   return;
 }
+
+
+
 
 SVCCTL_UserEvtFlowStatus_t SVCCTL_App_Notification(void *pckt)
 {
@@ -1959,6 +1967,7 @@ SVCCTL_UserEvtFlowStatus_t SVCCTL_App_Notification(void *pckt)
                 /* USER CODE BEGIN GAP_GENERAL_DISCOVERY_PROC */
                 //BSP_LED_Off(LED_BLUE);
                 APP_DBG_MSG("LED BLUE OFF\n");
+                BleApplicationContext.Device_Connection_Status = APP_BLE_IDLE;
                 /* USER CODE END GAP_GENERAL_DISCOVERY_PROC */
                 APP_DBG_MSG("-- GAP GENERAL DISCOVERY PROCEDURE_COMPLETED\n\r");
                 /*if a device found, connect to it, device 1 being chosen first if both found*/
@@ -1966,6 +1975,17 @@ SVCCTL_UserEvtFlowStatus_t SVCCTL_App_Notification(void *pckt)
                 {
                   UTIL_SEQ_SetTask(1 << CFG_TASK_CONN_DEV_1_ID, CFG_SCH_PRIO_0);
                 }
+                else
+                        {
+                            // Device not found
+                            if (BleApplicationContext.TargetSerialNumber > 0) {
+                                APP_DBG_MSG("-- TARGET DEVICE SN:%d NOT FOUND --\n\r",
+                                           BleApplicationContext.TargetSerialNumber);
+                            }
+                            BleApplicationContext.Device_Connection_Status = APP_BLE_IDLE;
+                        }
+
+
               }
             }
             break;
@@ -2160,18 +2180,42 @@ SVCCTL_UserEvtFlowStatus_t SVCCTL_App_Notification(void *pckt)
                       if (adlength >= 7 && adv_report_data[k + 2] == 0x01)
                       { /* ST VERSION ID 01 */
                         APP_DBG_MSG("--- ST MANUFACTURER ID --- \n\r");
+
                         switch (adv_report_data[k + 3])
                         {   /* Demo ID */
                            case CFG_DEV_ID_P2P_SERVER1: /* End Device 1 */
-                           APP_DBG_MSG("-- SERVER DETECTED -- VIA MAN ID\n\r");
-                           BleApplicationContext.DeviceServerFound = 0x01;
-                           SERVER_REMOTE_ADDR_TYPE = le_advertising_event->Advertising_Report[0].Address_Type;
-                           SERVER_REMOTE_BDADDR[0] = le_advertising_event->Advertising_Report[0].Address[0];
-                           SERVER_REMOTE_BDADDR[1] = le_advertising_event->Advertising_Report[0].Address[1];
-                           SERVER_REMOTE_BDADDR[2] = le_advertising_event->Advertising_Report[0].Address[2];
-                           SERVER_REMOTE_BDADDR[3] = le_advertising_event->Advertising_Report[0].Address[3];
-                           SERVER_REMOTE_BDADDR[4] = le_advertising_event->Advertising_Report[0].Address[4];
-                           SERVER_REMOTE_BDADDR[5] = le_advertising_event->Advertising_Report[0].Address[5];
+                           {
+                             // Extract serial number from advertising data
+                             uint8_t serial_msb = adv_report_data[k + 4];
+                             uint8_t serial_lsb = adv_report_data[k + 5];
+                             uint16_t found_serial = (serial_msb << 8) | serial_lsb;
+
+                             APP_DBG_MSG("-- SERVER DETECTED WITH SN: %d (0x%04X) --\n\r",
+                                         found_serial, found_serial);
+
+                             // Only mark as found if serial number matches target (or no target set)
+                             if (BleApplicationContext.TargetSerialNumber == 0 ||
+                                 BleApplicationContext.TargetSerialNumber == found_serial)
+                             {
+                               APP_DBG_MSG("-- SERIAL NUMBER MATCHES! Device accepted --\n\r");
+                               BleApplicationContext.DeviceServerFound = 0x01;
+                               BleApplicationContext.ServerSerialNumber = found_serial;
+
+                               SERVER_REMOTE_ADDR_TYPE = le_advertising_event->Advertising_Report[0].Address_Type;
+                               SERVER_REMOTE_BDADDR[0] = le_advertising_event->Advertising_Report[0].Address[0];
+                               SERVER_REMOTE_BDADDR[1] = le_advertising_event->Advertising_Report[0].Address[1];
+                               SERVER_REMOTE_BDADDR[2] = le_advertising_event->Advertising_Report[0].Address[2];
+                               SERVER_REMOTE_BDADDR[3] = le_advertising_event->Advertising_Report[0].Address[3];
+                               SERVER_REMOTE_BDADDR[4] = le_advertising_event->Advertising_Report[0].Address[4];
+                               SERVER_REMOTE_BDADDR[5] = le_advertising_event->Advertising_Report[0].Address[5];
+                             }
+                             else
+                             {
+                               APP_DBG_MSG("-- SERIAL NUMBER MISMATCH! Want %d, found %d. Device rejected --\n\r",
+                                          BleApplicationContext.TargetSerialNumber, found_serial);
+                               // Don't set DeviceServerFound or store the address
+                             }
+                           }
                            break;
 
                           default:
@@ -2227,6 +2271,26 @@ SVCCTL_UserEvtFlowStatus_t SVCCTL_App_Notification(void *pckt)
   }
 
   return (SVCCTL_UserEvtFlowEnable);
+}
+
+uint16_t getServerSerialNumber(void) {
+    return BleApplicationContext.ServerSerialNumber;
+}
+
+void setTargetSerialNumber(uint16_t serial) {
+    BleApplicationContext.TargetSerialNumber = serial;
+    BleApplicationContext.DeviceServerFound = 0x00;  // Reset device found flag
+    BleApplicationContext.ServerSerialNumber = 0;     // Reset found serial
+    APP_DBG_MSG("-- TARGET SERIAL NUMBER SET TO: %d --\n\r", serial);
+}
+
+bool validateSerialNumber(uint16_t entered_serial) {
+    // Only validate if a server was found and has a serial number
+    if (BleApplicationContext.DeviceServerFound == 0x01 &&
+        BleApplicationContext.ServerSerialNumber != 0) {
+        return (entered_serial == BleApplicationContext.ServerSerialNumber);
+    }
+    return false;
 }
 
 APP_BLE_ConnStatus_t APP_BLE_Get_Client_Connection_Status(uint16_t Connection_Handle)
@@ -2500,6 +2564,9 @@ static void Scan_Request(void)
   tBleStatus result;
   if (BleApplicationContext.Device_Connection_Status != APP_BLE_CONNECTED_CLIENT)
   {
+
+	  BleApplicationContext.Device_Connection_Status = APP_BLE_SCAN;  // ADD THIS
+
     /* USER CODE BEGIN APP_BLE_CONNECTED_CLIENT */
     //BSP_LED_On(LED_BLUE);
     APP_DBG_MSG("LED BLUE ON\n");
@@ -2518,6 +2585,8 @@ static void Scan_Request(void)
      // BSP_LED_On(LED_RED);
     /* USER CODE END BLE_SCAN_FAILED */
       APP_DBG_MSG("-- BLE_App_Start_Limited_Disc_Req, Failed \r\n\r");
+      BleApplicationContext.Device_Connection_Status = APP_BLE_IDLE;  // Reset on failure
+
     }
   }
   /* USER CODE BEGIN Scan_Request_2 */
@@ -2525,6 +2594,9 @@ static void Scan_Request(void)
   /* USER CODE END Scan_Request_2 */
   return;
 }
+
+
+
 
 static void Connect_Request(void)
 {
@@ -2627,7 +2699,43 @@ const uint8_t* BleGetBdAddress(void)
 }
 
 /* USER CODE BEGIN FD_LOCAL_FUNCTIONS */
+void getClientStatus(char * newstatus, size_t size) {
 
+    if (BleApplicationContext.Device_Connection_Status == APP_BLE_IDLE) {
+        if (BleApplicationContext.TargetSerialNumber > 0) {
+            snprintf(newstatus, size, "Ready to search for SN: %d",
+                    BleApplicationContext.TargetSerialNumber);
+        } else {
+            snprintf(newstatus, size, "Status: Not connected");
+        }
+        return;
+    }
+
+    if (BleApplicationContext.Device_Connection_Status == APP_BLE_SCAN) {
+        if (BleApplicationContext.TargetSerialNumber > 0) {
+            snprintf(newstatus, size, "Scanning for SN: %d...",
+                    BleApplicationContext.TargetSerialNumber);
+        } else {
+            snprintf(newstatus, size, "Status: Scanning...");
+        }
+        return;
+    }
+
+    if (BleApplicationContext.Device_Connection_Status == APP_BLE_LP_CONNECTING) {
+        snprintf(newstatus, size, "Connecting to SN: %d...",
+                BleApplicationContext.ServerSerialNumber);
+        return;
+    }
+
+    if (BleApplicationContext.Device_Connection_Status == APP_BLE_CONNECTED_CLIENT) {
+        snprintf(newstatus, size, "Connected to SN: %d",
+                BleApplicationContext.ServerSerialNumber);
+        return;
+    }
+
+    // Default/unknown state
+    snprintf(newstatus, size, "Status: Unknown");
+}
 /* USER CODE END FD_LOCAL_FUNCTIONS */
 
 /*************************************************************

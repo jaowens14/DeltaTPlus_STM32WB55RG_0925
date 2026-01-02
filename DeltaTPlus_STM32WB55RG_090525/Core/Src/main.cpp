@@ -16,6 +16,9 @@
  ******************************************************************************
  */
 /* USER CODE END Header */
+
+//#define USE_SERVER
+
 /* Includes ------------------------------------------------------------------*/
 #include <accel.h>
 #include <backlight.h>
@@ -595,17 +598,17 @@ int main(void)
 
     }
 
+#ifdef USE_SERVER
+
     if (!ble_delay){
     	ble_delay = 20; //20ms??
 
-#ifdef USE_SERVER
-
         P2PS_APP_DeltaT_Action();
+
+    }
 
 #endif
 
-
-    }
 
     // should run at 20ms / 50fps
     if (run_lv_timer_handler)
