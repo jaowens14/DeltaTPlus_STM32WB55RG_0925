@@ -46,6 +46,8 @@
 #include "BatteryMonitor.h"
 #include "FT5436_Touch.h"
 
+#include "p2p_server_app.h"
+
 #include "widgets.h"
 
 #define LV_LVGL_H_INCLUDE_SIMPLE
@@ -58,6 +60,9 @@
 // #include "ST7789.h"
 
 /* USER CODE END Includes */
+
+int ble_delay = 0;
+int send_ble = 0;
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
@@ -361,6 +366,11 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       myThermocouples.delay--;
     }
 
+    if (ble_delay)
+    {
+    	ble_delay--;
+    }
+
     // if (accelDelay)
     // {
     //  myAccelerometer.readDelay--;
@@ -575,6 +585,12 @@ int main(void)
       measureFlag = 0;
       snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
       HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 30);
+
+    }
+
+    if (!ble_delay){
+    	ble_delay = 20; //20ms??
+        P2PS_APP_DeltaT_Action();
     }
 
     // should run at 20ms / 50fps

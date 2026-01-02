@@ -44,7 +44,7 @@ void ST7789_Init(void)
 
     // Pixel format - 16-bit color
     ST7789_WriteCommand(ST7789_COLMOD);
-    ST7789_WriteData(0x05);
+    ST7789_WriteData(0x55);
 
     // Memory access control - default orientation
     ST7789_WriteCommand(ST7789_MADCTL);

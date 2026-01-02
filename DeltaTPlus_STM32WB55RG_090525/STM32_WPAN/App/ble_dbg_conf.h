@@ -1,13 +1,13 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    App/ble_dbg_conf.h
+  * @file    ble_dbg_conf.h
   * @author  MCD Application Team
   * @brief   Debug configuration file for BLE Middleware.
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2020-2021 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -32,7 +32,7 @@
 #define BLE_DBG_SVCCTL_EN          0
 #define BLE_DBG_BLS_EN             0
 #define BLE_DBG_HTS_EN             0
-#define BLE_DBG_P2P_STM_EN         0
+#define BLE_DBG_P2P_STM_EN         1
 
 /**
  * Macro definition

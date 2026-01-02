@@ -13,448 +13,62 @@
 #include <accel.h>
 #include "Thermocouples.hpp"
 #include "BatteryMonitor.h"
+#include "menu.h"
+#include "meter.h"
+#include "about.h"
+#include "settings.h"
 
-#define WEB_LIGHT_TAN 0xf0ead0
-#define WEB_DARK_TAN 0xBEB89E
-#define WEB_BLACK 0x382922
-#define WEB_ORANGE 0xdf571d
-#define Charcoal 0x36454F
 
-// Global pointer to update the meter value
+uint8_t draw_buffer1[DRAW_BUFFER_SIZE];
+uint8_t draw_buffer2[DRAW_BUFFER_SIZE];
 
-static lv_obj_t *settingLabel = NULL;
-static lv_obj_t *batteryLabel = NULL;
-static lv_obj_t *productLabel1 = NULL;
-static lv_obj_t *productLabel2 = NULL;
-static lv_obj_t *headerContainer = NULL;
-static lv_obj_t *labelContainer = NULL;
-static lv_obj_t *needle = NULL;
-static lv_obj_t *gaugeContainer = NULL;
-static lv_obj_t *zero = NULL;
-static lv_obj_t *right_25 = NULL;
-static lv_obj_t *left_25 = NULL;
-
-static lv_obj_t *root = NULL;
-
-static lv_obj_t *tickMarks[100];
-
-static lv_point_precise_t tickPoints[100][2];
-
-int needleLength = 70;
-
-// const int needleOriginX = ST7789_WIDTH / 2;
-// const int needleOriginY = 154;
-const int needleCutoffY = 123;
-const float innerRadius = 400.0;                   // inner radius for both marks
-const float minorOuterRadius = innerRadius + 3.0;  // outer radius for minor marks
-const float majorOuterRadius = innerRadius + 10.0; // outer radius for major marks
-const float neeldeOuterRadius = 493.0;             // outer radius for needle
-const float circleXOffset = 120.0;
-const float circleYOffset = 460.0;
-
-const float needleOriginX = 120.0;
-const float needleOriginY = 160.0;
-
-int meter_angle;
-int meter_angle_width;
-int angle;
-int xValue;
-int temperatureAngle;
-int lastTemperatureAngle;
-int lastXValue;
-int minXValue = 20; // zero is vertical i think
-int maxXValue = 220;
-int lastAngle;
-
-const float startAngle = 256.0f; // Left (x=20)
-const float endAngle = 284.0f;   // Right (x=220)
-
-lv_display_t *display1 = NULL; // Global variable
-
-uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
-uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
-
-///////////////////////////////////////////////////
-
-/* Timer callback to update the text area with sensor data */
-void updateSettingLabel(void)
+void load_screen(SCREEN_ID_T screen)
 {
 
-  const char *switchState;
-
-  if (accelSwitchState)
+  switch (screen)
   {
-    switchState = "HIGH";
-    // Thermocouples::userGain = 2.0;
-  }
-  else
-  {
-    switchState = "LOW";
-    // Thermocouples::userGain = 1.0;
-  }
 
-  // lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
+  case METER:
 
-  char buf[32];
-  snprintf(buf, sizeof(buf), "%s", switchState);
-
-  lv_label_set_text(settingLabel, buf);
-}
-
-void updateBatteryLabel(lv_timer_t *timer)
-{
-
-  int batteryLevel = getChargeLevel();
-
-  lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
-
-  char buf[32];
-  snprintf(buf, sizeof(buf), "%d%%", batteryLevel);
-
-  lv_label_set_text(ta, buf);
-}
-
-void updateNeedle(void)
-{
-  temperatureAngle = int(myThermocouples.deltaTemp);
-  // temperatureAngle = 270;
-  if (temperatureAngle != lastTemperatureAngle)
-  {
-    if (temperatureAngle < startAngle)
-      temperatureAngle = startAngle;
-
-    if (temperatureAngle > endAngle)
-      temperatureAngle = endAngle;
-
-    lastTemperatureAngle = temperatureAngle;
-
-    float temperatureRadians = temperatureAngle * M_PI / 180.0f;
-
-    // Calculate outer point (on the outer radius)
-    float abs_x0 = roundf(circleXOffset + majorOuterRadius * cosf(temperatureRadians));
-    float abs_y0 = roundf(circleYOffset + majorOuterRadius * sinf(temperatureRadians));
-
-    // Calculate inner point (on the inner radius)
-    float abs_x1; //= roundf(circleXOffset + (innerRadius-50) * cosf(temperatureRadians));
-    float abs_y1; // = roundf(circleYOffset + (innerRadius-50) * sinf(temperatureRadians));
-
-    point_at_distance(abs_x0, abs_y0, needleOriginX, needleOriginY, 100, &abs_x1, &abs_y1);
-
-    abs_y1 = 140;
-
-    // Find bounding box
-    float min_x = (abs_x0 < abs_x1) ? abs_x0 : abs_x1;
-    float min_y = (abs_y0 < abs_y1) ? abs_y0 : abs_y1;
-    float max_x = (abs_x0 > abs_x1) ? abs_x0 : abs_x1;
-    float max_y = (abs_y0 > abs_y1) ? abs_y0 : abs_y1;
-
-    // Ensure minimum size for bounding box
-    if (max_x == min_x)
-      max_x = min_x + 1;
-    if (max_y == min_y)
-      max_y = min_y + 1;
-
-    static lv_point_precise_t needle_points[2];
-
-    // Convert to relative coordinates from the min point
-    needle_points[0].x = abs_x0 - min_x;
-    needle_points[0].y = abs_y0 - min_y;
-    needle_points[1].x = abs_x1 - min_x;
-    needle_points[1].y = abs_y1 - min_y;
-
-    lv_line_set_points(needle, needle_points, 2);
-
-    // Get parent container position and subtract it
-    lv_obj_t *parent = lv_obj_get_parent(needle);
-    lv_coord_t parent_x = lv_obj_get_x(parent);
-    lv_coord_t parent_y = lv_obj_get_y(parent);
-
-    // Position relative to container
-    lv_obj_set_pos(needle, min_x - parent_x, min_y - parent_y);
-  }
-}
-
-// Callback function for button click
-void menu_button_event_cb(lv_event_t *e)
-{
-  lv_event_code_t code = lv_event_get_code(e);
-  if (code == LV_EVENT_CLICKED)
-  {
-    LV_LOG_USER("Menu button clicked");
-    // Add your menu action here
-  }
-}
-
-void create_menu_icon_button(lv_obj_t *parent)
-{
-  // Create the button
-  lv_obj_t *btn = lv_btn_create(parent);
-  lv_obj_set_size(btn, 60, 20);
-  lv_obj_align(btn, LV_ALIGN_BOTTOM_MID, 10, -30);
-
-  // Style the button
-  lv_obj_set_style_radius(btn, 8, 0);
-  lv_obj_set_style_bg_color(btn, lv_color_hex(0x2196F3), 0);
-  lv_obj_set_style_shadow_width(btn, 10, 0);
-  lv_obj_set_style_shadow_color(btn, lv_color_hex(0x000000), 0);
-  lv_obj_set_style_shadow_opa(btn, LV_OPA_30, 0);
-
-  // Add hover effect
-  lv_obj_set_style_bg_color(btn, lv_color_hex(0x1976D2), LV_STATE_PRESSED);
-
-  // Create a label with hamburger menu icon (using text symbol)
-  lv_obj_t *label = lv_label_create(btn);
-  lv_label_set_text(label, LV_SYMBOL_LIST); // Hamburger menu icon
-  lv_obj_center(label);
-
-  // Set font size for the icon
-  lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
-
-  // Add event callback
-  lv_obj_add_event_cb(btn, menu_button_event_cb, LV_EVENT_CLICKED, NULL);
-}
-
-//////////////////////////////////////////////////
-
-void header(void)
-{
-#if 1 // header container
-  headerContainer = lv_obj_create(root);
-  lv_obj_clear_flag(headerContainer, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(headerContainer, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_set_width(headerContainer, lv_obj_get_width(root) - 4);
-  lv_obj_set_height(headerContainer, LV_SIZE_CONTENT);
-  lv_obj_set_style_border_width(headerContainer, 2, 0);
-  lv_obj_set_style_border_color(headerContainer, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_radius(headerContainer, 5, 0);  // Rounded corners
-  lv_obj_set_style_pad_all(headerContainer, 3, 0); // Padding inside
-  lv_obj_align(headerContainer, LV_ALIGN_TOP_MID, 0, 2);
-#endif
-
-#if 1 // Right label for battery
-  batteryLabel = lv_label_create(headerContainer);
-  lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_SCROLLABLE);
-  lv_label_set_text(batteryLabel, "100%");
-  lv_obj_set_size(batteryLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_obj_set_style_text_align(batteryLabel, LV_TEXT_ALIGN_RIGHT, 0);
-  lv_obj_align(batteryLabel, LV_ALIGN_RIGHT_MID, 0, 0);
-  lv_timer_t *batteryTimer = lv_timer_create(updateBatteryLabel, 5000, batteryLabel);
-  updateBatteryLabel(batteryTimer);
-#endif
-
-#if 1 // left label for setting
-  settingLabel = lv_label_create(headerContainer);
-  lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_SCROLLABLE);
-  lv_label_set_text(settingLabel, "LOW");
-  lv_obj_set_size(settingLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_obj_align(settingLabel, LV_ALIGN_LEFT_MID, 0, 0);
-#endif
-}
-
-void gauge(void)
-{
-
-#if 1 // Gauge container
-  gaugeContainer = lv_obj_create(root);
-  lv_obj_clear_flag(gaugeContainer, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(gaugeContainer, LV_OBJ_FLAG_SCROLLABLE);
-
-  lv_obj_set_width(gaugeContainer, lv_obj_get_width(root) - 4);
-  lv_obj_set_height(gaugeContainer, 110);
-  lv_obj_set_style_border_width(gaugeContainer, 2, 0);
-  lv_obj_set_style_border_color(gaugeContainer, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_radius(gaugeContainer, 5, 0);
-  lv_obj_set_style_pad_all(gaugeContainer, 0, 0); // Set to 0 for precise positioning
-  lv_obj_align(gaugeContainer, LV_ALIGN_TOP_MID, 0, 2);
-  lv_obj_align_to(gaugeContainer, headerContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
-
-  // Force layout update to ensure positions are calculated
-  lv_obj_update_layout(gaugeContainer);
-#endif
-
-  // Get the container's absolute position AFTER layout is updated
-  lv_coord_t container_x = lv_obj_get_x(gaugeContainer);
-  lv_coord_t container_y = lv_obj_get_y(gaugeContainer);
-
-  // 0 label inside gauge container
-  zero = lv_label_create(gaugeContainer);
-  lv_obj_clear_flag(zero, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(zero, LV_OBJ_FLAG_SCROLLABLE);
-  lv_label_set_text(zero, "0");
-  lv_obj_set_style_text_align(zero, LV_TEXT_ALIGN_CENTER, 0);
-  lv_obj_set_size(zero, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_obj_align(zero, LV_ALIGN_TOP_MID, 0, 5);
-
-  // 25 label right inside gauge container
-  right_25 = lv_label_create(gaugeContainer);
-  lv_obj_clear_flag(right_25, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(right_25, LV_OBJ_FLAG_SCROLLABLE);
-  lv_label_set_text(right_25, "25");
-  lv_obj_set_style_text_align(right_25, LV_TEXT_ALIGN_CENTER, 0);
-  lv_obj_set_size(right_25, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_obj_align(right_25, LV_ALIGN_TOP_MID, 100, 10);
-
-  // 25 label left inside gauge container
-  left_25 = lv_label_create(gaugeContainer);
-  lv_obj_clear_flag(left_25, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(left_25, LV_OBJ_FLAG_SCROLLABLE);
-  lv_label_set_text(left_25, "25");
-  lv_obj_set_style_text_align(left_25, LV_TEXT_ALIGN_CENTER, 0);
-  lv_obj_set_size(left_25, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_obj_align(left_25, LV_ALIGN_TOP_MID, -100, 10);
-
-#if 1 // major tick marks - ANGULAR SPACING
-
-  const float totalAngle = endAngle - startAngle;
-  const int numTicks = 41;
-  const float angleStep = totalAngle / (numTicks - 1);
-
-  for (int i = 0; i < numTicks; i++)
-  {
-    float angle = startAngle + (i * angleStep);
-    float angleRad = angle * M_PI / 180.0f;
-
-    float temp_radius = minorOuterRadius;
-
-    if (i % 5 == 0)
+    if (meter_screen == NULL)
     {
-      temp_radius = majorOuterRadius;
+      meter_screen = create_meter_screen();
+      lv_screen_load_anim(meter_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 1000, 3, true);
     }
 
-    // Calculate outer point (on the outer radius)
-    float abs_x0 = roundf(circleXOffset + temp_radius * cosf(angleRad));
-    float abs_y0 = roundf(circleYOffset + temp_radius * sinf(angleRad));
+    break;
 
-    // Calculate inner point (on the inner radius)
-    // float abs_x1 = roundf(circleXOffset + innerRadius * cosf(angleRad));
-    // float abs_y1 = roundf(circleYOffset + innerRadius * sinf(angleRad));
+  case MENU:
 
-    float abs_x1;
-    float abs_y1;
+	  if (menu_screen == NULL) {
+		  menu_screen = create_menu_screen();
+		  lv_screen_load_anim(menu_screen, LV_SCREEN_LOAD_ANIM_OVER_RIGHT, 1000, 3, true);
+	  }
 
-    point_at_distance(abs_x0, abs_y0, needleOriginX, needleOriginY, (temp_radius - innerRadius), &abs_x1, &abs_y1);
-    // point_at_distance(abs_x0, abs_y0, abs_x1_target, abs_y1_target, tick_length, &new_x, &new_y);
+    break;
 
-    // Find bounding box
-    float min_x = (abs_x0 < abs_x1) ? abs_x0 : abs_x1;
-    float min_y = (abs_y0 < abs_y1) ? abs_y0 : abs_y1;
-    float max_x = (abs_x0 > abs_x1) ? abs_x0 : abs_x1;
-    float max_y = (abs_y0 > abs_y1) ? abs_y0 : abs_y1;
+  case ABOUT:
 
-    // Ensure minimum size for bounding box
-    if (max_x == min_x)
-      max_x = min_x + 1;
-    if (max_y == min_y)
-      max_y = min_y + 1;
+	    if (about_screen == NULL)
+	    {
+	    	about_screen = create_about_screen();
+	      lv_screen_load_anim(about_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 1000, 3, true);
+	    }
+    break;
 
-    // Convert to relative coordinates
-    lv_point_precise_t *tickMark = tickPoints[i];
-    tickMark[0].x = abs_x0 - min_x;
-    tickMark[0].y = abs_y0 - min_y;
-    tickMark[1].x = abs_x1 - min_x;
-    tickMark[1].y = abs_y1 - min_y;
+  case SETTINGS:
 
-    tickMarks[i] = lv_line_create(gaugeContainer);
-    lv_line_set_points(tickMarks[i], tickMark, 2);
-    lv_obj_set_style_line_width(tickMarks[i], 2, 0);
-    lv_obj_set_style_line_color(tickMarks[i], lv_color_hex(Charcoal), 0);
-    lv_obj_set_style_line_rounded(tickMarks[i], true, 0);
-
-    // Subtract container position to get relative coordinates within container
-    lv_obj_set_pos(tickMarks[i], (int)(min_x - container_x), (int)(min_y - container_y));
-    lv_obj_set_size(tickMarks[i], (int)(max_x - min_x), (int)(max_y - min_y));
+	    if (settings_screen == NULL)
+	    {
+	    	settings_screen = create_settings_screen();
+	      lv_screen_load_anim(settings_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 1000, 3, true);
+	    }
+    break;
   }
-#endif
-
-#if 1 // needle
-  needle = lv_line_create(gaugeContainer);
-
-  lv_obj_clear_flag(needle, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(needle, LV_OBJ_FLAG_SCROLLABLE);
-
-  lv_obj_set_style_line_width(needle, 3, 0);
-  lv_obj_set_style_line_color(needle, lv_color_hex(WEB_ORANGE), 0);
-  lv_obj_set_style_line_rounded(needle, false, 0);
-
-  // Initialize needle at start angle
-  lastTemperatureAngle = 270; // Force first update
-  updateNeedle();
-#endif
 }
 
-void labels(void)
-{
 
 
-#if 1 // header container
-  labelContainer = lv_obj_create(root);
-  lv_obj_clear_flag(labelContainer, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(labelContainer, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_set_width(labelContainer, lv_obj_get_width(root) - 4);
-  lv_obj_set_height(labelContainer, LV_SIZE_CONTENT);
-  lv_obj_set_style_border_width(labelContainer, 2, 0);
-  lv_obj_set_style_border_color(labelContainer, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_radius(labelContainer, 5, 0);  // Rounded corners
-  lv_obj_set_style_pad_all(labelContainer, 3, 0); // Padding inside
-  lv_obj_align_to(labelContainer, gaugeContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
-#endif
-
-
-
-
-#if 1 // main product label
-  productLabel1 = lv_label_create(labelContainer);
-  lv_obj_clear_flag(productLabel1, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(productLabel1, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_set_size(productLabel1, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_label_set_text(productLabel1, "Delta-T Plus");
-  lv_obj_set_style_text_align(productLabel1, LV_TEXT_ALIGN_CENTER, 0); // center text in box
-  lv_obj_set_style_border_width(productLabel1, 0, 0);
-  lv_obj_set_style_text_color(productLabel1, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_text_font(productLabel1, &lv_font_montserrat_14, 0);
-  lv_obj_align(productLabel1, LV_ALIGN_TOP_MID, 0, 0);
-#endif
-
-#if 1 // main product label
-  productLabel2 = lv_label_create(labelContainer);
-  lv_obj_clear_flag(productLabel2, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(productLabel2, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_set_size(productLabel2, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-  lv_label_set_text(productLabel2, "The Instrument Company\n Fort Collins, CO\ntheinstrumentcompany.com");
-  lv_obj_set_style_text_align(productLabel2, LV_TEXT_ALIGN_CENTER, 0); // center text in box
-  lv_obj_set_style_border_width(productLabel2, 0, 0);
-  lv_obj_set_style_text_color(productLabel2, lv_color_hex(Charcoal), 0);
-  lv_obj_set_style_text_font(productLabel2, &lv_font_montserrat_12, 0);
-  lv_obj_align_to(productLabel2, productLabel1, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
-
-  //lv_obj_align(productLabel2, LV_ALIGN_CENTER, 0, 0);
-#endif
-}
-
-void buttons(void)
-{
-#if 0 // menu button
-  create_menu_icon_button(root);
-
-#endif //
-}
-
-void brookes_meter(void)
-{
-
-  root = lv_screen_active();
-  lv_obj_clear_flag(root, LV_OBJ_FLAG_CLICKABLE);
-  lv_obj_clear_flag(root, LV_OBJ_FLAG_SCROLLABLE);
-  lv_obj_set_style_bg_opa(root, LV_OPA_COVER, 0);
-  lv_obj_set_style_bg_color(root, lv_color_hex(WEB_LIGHT_TAN), 0);
-
-  header();
-  gauge();
-  labels();
-  // buttons();
-}
 
 void point_at_distance(float x0, float y0, float x1, float y1, float distance, float *out_x, float *out_y)
 {
@@ -472,46 +86,4 @@ void point_at_distance(float x0, float y0, float x1, float y1, float distance, f
   // Calculate the new point at the given distance
   *out_x = x0 + nx * distance;
   *out_y = y0 + ny * distance;
-}
-
-// Function to find two points on a line defined by 4 points, at specified distances
-void points_on_line(float x0, float y0, float x1, float y1,
-                    float x2, float y2, float x3, float y3,
-                    float dist_from_start, float dist_from_end,
-                    float *p1_x, float *p1_y, float *p2_x, float *p2_y)
-{
-  // Calculate total line length (sum of both segments)
-  float dx1 = x1 - x0;
-  float dy1 = y1 - y0;
-  float len1 = sqrtf(dx1 * dx1 + dy1 * dy1);
-
-  float dx2 = x3 - x2;
-  float dy2 = y3 - y2;
-  float len2 = sqrtf(dx2 * dx2 + dy2 * dy2);
-
-  float total_length = len1 + len2;
-
-  // Point 1: distance from start (x0, y0)
-  if (dist_from_start <= len1)
-  {
-    // Point is on first segment
-    point_at_distance(x0, y0, x1, y1, dist_from_start, p1_x, p1_y);
-  }
-  else
-  {
-    // Point is on second segment
-    point_at_distance(x2, y2, x3, y3, dist_from_start - len1, p1_x, p1_y);
-  }
-
-  // Point 2: distance from end (x3, y3) going backwards
-  if (dist_from_end <= len2)
-  {
-    // Point is on second segment (going backwards from x3,y3)
-    point_at_distance(x3, y3, x2, y2, dist_from_end, p2_x, p2_y);
-  }
-  else
-  {
-    // Point is on first segment (going backwards)
-    point_at_distance(x1, y1, x0, y0, dist_from_end - len2, p2_x, p2_y);
-  }
 }

@@ -5,6 +5,7 @@
 #include "main.h"
 #include "widgets.h"
 #include "meter.h"
+#include "p2p_server_app.h"
 
 // Define static member variables
 float Thermocouples::deltaTemp = 0.0; //deltaTemp stores temperature difference
@@ -179,6 +180,8 @@ void Thermocouples::setup()
     lastTime = HAL_GetTick();
 }
 
+
+
 void Thermocouples::stateMachine(void)
 {
 
@@ -283,6 +286,9 @@ void Thermocouples::stateMachine(void)
         updateNeedle();
 
         updateLeftandRightTempLabels();
+
+        LoadDeltaData(deltaTemp);
+
 
         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
         //if(uart_ready){

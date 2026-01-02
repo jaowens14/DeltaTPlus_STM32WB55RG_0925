@@ -35,7 +35,7 @@
 /**
  * Define Tx Power
  */
-#define CFG_TX_POWER                      (0x18) /* -0.15dBm */
+#define CFG_TX_POWER                      (0x19) /* 0dBm */
 
 /**
  * Define Advertising parameters
@@ -59,17 +59,14 @@
  */
 #define CFG_BLE_ADDRESS_TYPE              GAP_PUBLIC_ADDR
 
-#define CFG_FAST_CONN_ADV_INTERVAL_MIN    (0x0080)      /**< 80ms */
-#define CFG_FAST_CONN_ADV_INTERVAL_MAX    (0x00A0)      /**< 100ms */
+#define CFG_FAST_CONN_ADV_INTERVAL_MIN    (0x80)      /**< 80ms */
+#define CFG_FAST_CONN_ADV_INTERVAL_MAX    (0xA0)      /**< 100ms */
 #define CFG_LP_CONN_ADV_INTERVAL_MIN      (0x640)     /**< 1s */
 #define CFG_LP_CONN_ADV_INTERVAL_MAX      (0xFA0)     /**< 2.5s */
-#define ADV_TYPE                          ADV_IND
-#define BLE_ADDR_TYPE                     GAP_PUBLIC_ADDR
-#define ADV_FILTER                        NO_WHITE_LIST_USE
 /**
  * Define IO Authentication
  */
-#define CFG_BONDING_MODE                 (0)
+#define CFG_BONDING_MODE                 (1)
 #define CFG_FIXED_PIN                    (111111)
 #define CFG_USED_FIXED_PIN               (0)
 #define CFG_ENCRYPTION_KEY_SIZE_MAX      (16)
@@ -158,6 +155,21 @@
 /**< specific parameters */
 /*****************************************************/
 
+#define P2P_SERVER1    1    /*1 = Device is Peripherique*/
+#define P2P_SERVER2    0
+#define P2P_SERVER3    0
+#define P2P_SERVER4    0
+#define P2P_SERVER5    0
+#define P2P_SERVER6    0
+
+#define CFG_DEV_ID_P2P_SERVER1                  (0x83)
+#define CFG_DEV_ID_P2P_SERVER2                  (0x84)
+#define CFG_DEV_ID_P2P_SERVER3                  (0x87)
+#define CFG_DEV_ID_P2P_SERVER4                  (0x88)
+#define CFG_DEV_ID_P2P_SERVER5                  (0x89)
+#define CFG_DEV_ID_P2P_SERVER6                  (0x8A)
+#define CFG_DEV_ID_P2P_ROUTER                   (0x85)
+
 #define  RADIO_ACTIVITY_EVENT   1          /* 1 for OOB Demo */
 
 /**
@@ -191,7 +203,7 @@
  * Maximum number of simultaneous connections that the device will support.
  * Valid values are from 1 to 8
  */
-#define CFG_BLE_NUM_LINK            2
+#define CFG_BLE_NUM_LINK            8
 
 /**
  * Maximum number of Services that can be stored in the GATT database.
@@ -668,7 +680,9 @@ typedef enum
   CFG_TASK_HCI_ASYNCH_EVT_ID,
   /* USER CODE BEGIN CFG_Task_Id_With_HCI_Cmd_t */
   CFG_TASK_UPDATE_DELTA_T_ID,
+  CFG_TASK_SW1_BUTTON_PUSHED_ID,
   /* USER CODE END CFG_Task_Id_With_HCI_Cmd_t */
+  CFG_TASK_STREAM_DATA_ID,
   CFG_LAST_TASK_ID_WITH_HCICMD,                                               /**< Shall be LAST in the list */
 } CFG_Task_Id_With_HCI_Cmd_t;
 

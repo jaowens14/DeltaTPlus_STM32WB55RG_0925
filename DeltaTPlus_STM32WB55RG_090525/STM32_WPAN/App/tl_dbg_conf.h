@@ -1,13 +1,13 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    App/tl_dbg_conf.h
+  * @file    tl_dbg_conf.h
   * @author  MCD Application Team
   * @brief   Debug configuration file for stm32wpan transport layer interface.
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2020-2021 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file

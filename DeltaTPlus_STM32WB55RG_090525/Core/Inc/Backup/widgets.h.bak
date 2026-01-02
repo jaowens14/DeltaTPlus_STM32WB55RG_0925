@@ -19,23 +19,30 @@ extern "C" {
 
 #define BYTE_PER_PIXEL 2
 
+#define WEB_LIGHT_TAN 0xF0EAD0
+#define WEB_DARK_TAN 0xBEB89E
+#define WEB_BLACK 0x382922
+#define WEB_ORANGE 0xdf571d
+#define Charcoal 0x36454F
 
-extern lv_display_t *display1;
-//int xValue;
+#define DRAW_BUFFER_SIZE ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL
+extern uint8_t draw_buffer1[DRAW_BUFFER_SIZE];
+extern uint8_t draw_buffer2[DRAW_BUFFER_SIZE];
 
-extern uint8_t buffer1[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
-extern uint8_t buffer2[ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL];
-void brookes_meter(void);
-float getBottomOfCircleYValue(float x_value, float x_offset, float y_offset, float radius);
-float getTopOfCircleYValue(float x_value, float x_offset, float y_offset, float radius);
-void updateSettingLabel(void);
-void updateBatteryLabel(lv_timer_t *timer);
-void updateNeedle(void);
-void menu_button_event_cb(lv_event_t * e);
-void gauge(void);
-void header(void);
-void create_menu_icon_button(lv_obj_t * parent);
+
+typedef enum
+{
+
+  METER,
+  MENU,
+  ABOUT,
+  SETTINGS,
+
+} SCREEN_ID_T;
+
+void load_screen(SCREEN_ID_T screen);
 void point_at_distance(float x0, float y0, float x1, float y1, float distance, float *out_x, float *out_y);
+
 #ifdef __cplusplus
 }
 #endif

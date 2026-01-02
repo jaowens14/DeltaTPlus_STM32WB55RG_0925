@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
+  * Copyright (c) 2020-2021 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -50,7 +50,7 @@
  * This shall take into account all registered handlers
  * (from either the provided services or the custom services)
  */
-#define BLE_CFG_SVC_MAX_NBR_CB                                                 7
+#define BLE_CFG_SVC_MAX_NBR_CB                                                 1
 
 #define BLE_CFG_CLT_MAX_NBR_CB                                                 0
 
@@ -61,5 +61,10 @@
 #define BLE_CFG_UNKNOWN_APPEARANCE                  (0)
 #define BLE_CFG_HR_SENSOR_APPEARANCE                (832)
 #define BLE_CFG_GAP_APPEARANCE                      (BLE_CFG_UNKNOWN_APPEARANCE)
+
+/******************************************************************************
+ * Over The Air Feature (OTA) - STM Proprietary
+ ******************************************************************************/
+#define BLE_CFG_OTA_REBOOT_CHAR         0/**< REBOOT OTA MODE CHARACTERISTIC */
 
 #endif /*BLE_CONF_H */
