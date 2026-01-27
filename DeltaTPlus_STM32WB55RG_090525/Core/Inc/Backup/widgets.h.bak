@@ -24,6 +24,7 @@ extern "C" {
 #define WEB_BLACK 0x382922
 #define WEB_ORANGE 0xdf571d
 #define Charcoal 0x36454F
+#define PressedColor WEB_ORANGE
 
 #define DRAW_BUFFER_SIZE ST7789_WIDTH * ST7789_HEIGHT / 4 * BYTE_PER_PIXEL
 extern uint8_t draw_buffer1[DRAW_BUFFER_SIZE];

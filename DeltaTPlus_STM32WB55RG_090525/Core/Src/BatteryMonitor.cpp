@@ -1,8 +1,12 @@
 
 
 #include "BatteryMonitor.h"
-
+#include "meter.h"
 Adafruit_MAX17048_STM32 max17048;
+
+volatile uint8_t chargeChanged = 0;
+
+
 
 void setupBatteryMonitor(void)
 {
@@ -15,6 +19,7 @@ void setupBatteryMonitor(void)
     }
     max17048.quickStart();
 }
+
 
 uint16_t getChargeLevel(void)
 {

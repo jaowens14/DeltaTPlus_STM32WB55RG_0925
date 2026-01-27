@@ -1,1 +1,1 @@
-../lvgl/src/draw/convert/lv_draw_buf_convert.c:55:13:lv_draw_buf_convert_premultiply	128	static
+../lvgl/src/draw/convert/lv_draw_buf_convert.c:55:13:lv_draw_buf_convert_premultiply	48	static

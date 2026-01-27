@@ -35,18 +35,14 @@
  * This setting shall be set to '1' if the device needs to support the Peripheral Role
  * In the MS configuration, both BLE_CFG_PERIPHERAL and BLE_CFG_CENTRAL shall be set to '1'
  */
-#ifdef USE_SERVER
 #define BLE_CFG_PERIPHERAL                                                     1
-#define BLE_CFG_CENTRAL                                                        0
 
-#else // CLIENT
 /**
  * This setting shall be set to '1' if the device needs to support the Central Role
  * In the MS configuration, both BLE_CFG_PERIPHERAL and BLE_CFG_CENTRAL shall be set to '1'
  */
-#define BLE_CFG_PERIPHERAL                                                     0
-#define BLE_CFG_CENTRAL                                                        1
-#endif
+#define BLE_CFG_CENTRAL                                                        0
+
 /**
  * There is one handler per service enabled
  * Note: There is no handler for the Device Information Service
@@ -54,17 +50,10 @@
  * This shall take into account all registered handlers
  * (from either the provided services or the custom services)
  */
-#ifdef USE_SERVER
-#define BLE_CFG_SVC_MAX_NBR_CB                                                 1
-
-#define BLE_CFG_CLT_MAX_NBR_CB                                                 0
-#else // CLIENT
-
 #define BLE_CFG_SVC_MAX_NBR_CB                                                 7
 
-#define BLE_CFG_CLT_MAX_NBR_CB                                                 1
+#define BLE_CFG_CLT_MAX_NBR_CB                                                 0
 
-#endif
 /******************************************************************************
  * GAP Service - Appearance
  ******************************************************************************/

@@ -1,4 +1,4 @@
 ../Core/Src/Thermocouples.cpp:32:6:void Thermocouples::setup()	40	static
-../Core/Src/Thermocouples.cpp:194:6:void Thermocouples::stateMachine()	56	static
+../Core/Src/Thermocouples.cpp:194:6:void Thermocouples::stateMachine()	88	static
 ../Core/Src/Thermocouples.cpp:327:30:cpp)	16	static
 ../Core/Src/Thermocouples.cpp:327:30:cpp)	0	static

@@ -7,14 +7,18 @@
 
 #ifndef INC_METER_H_
 #define INC_METER_H_
+#include "lvgl.h"
+
 extern lv_obj_t *meter_screen;
 
 void brookes_meter(void);
 float getBottomOfCircleYValue(float x_value, float x_offset, float y_offset, float radius);
 float getTopOfCircleYValue(float x_value, float x_offset, float y_offset, float radius);
 void updateSettingLabel(void);
-void updateBatteryLabel(lv_timer_t *timer);
+void updateBatteryLabel(void);
 void updateNeedle(void);
+void updateChargingLabel(void);
+void chargeHandler(void);
 void gauge(void);
 void header(void);
 void updateLeftandRightTempLabels(void);

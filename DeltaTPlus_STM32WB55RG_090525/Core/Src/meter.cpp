@@ -15,9 +15,11 @@
 
 #include "menu.h"
 static lv_obj_t *settingLabel = NULL;
+static lv_obj_t *chargingLabel = NULL;
 static lv_obj_t *batteryLabel = NULL;
 static lv_obj_t *leftTempLabel = NULL;
 static lv_obj_t *rightTempLabel = NULL;
+static lv_obj_t *serialNumberLabel = NULL;
 static lv_obj_t *productLabel1 = NULL;
 static lv_obj_t *productLabel2 = NULL;
 static lv_obj_t *headerContainer = NULL;
@@ -31,7 +33,9 @@ static lv_obj_t *right_25 = NULL;
 static lv_obj_t *left_25 = NULL;
 lv_obj_t *meter_screen = NULL;
 static lv_obj_t *root = NULL;
+
 static lv_timer_t *batteryTimer = NULL;
+static lv_timer_t *chargeTimer = NULL;
 
 static lv_obj_t *tickMarks[100];
 
@@ -93,6 +97,22 @@ void updateSettingLabel(void)
   }
 }
 
+void updateChargingLabel(void)
+{
+  if (meter_screen != NULL)
+  {
+
+    if (HAL_GPIO_ReadPin (GPIOB, CHARGE_INT_Pin))
+    {
+    	 lv_label_set_text(chargingLabel, "");
+    }
+    else
+    {
+    	lv_label_set_text(chargingLabel, LV_SYMBOL_CHARGE);
+    }
+  }
+}
+
 void updateLeftandRightTempLabels(void)
 {
   if (meter_screen != NULL)
@@ -118,7 +138,10 @@ void updateBatteryLabel(lv_timer_t *timer)
 
     lv_label_set_text(ta, buf);
   }
+
+  updateChargingLabel();
 }
+
 
 void updateNeedle(void)
 {
@@ -219,7 +242,19 @@ void header(void)
     // Update user data if timer already exists
     lv_timer_set_user_data(batteryTimer, batteryLabel);
   }
+
+#endif
+
+#if 1 // right / mid label for charging
+  chargingLabel = lv_label_create(headerContainer);
+  lv_obj_clear_flag(chargingLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(chargingLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(chargingLabel, LV_SYMBOL_CHARGE);
+  lv_obj_set_size(chargingLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_align(chargingLabel, LV_ALIGN_CENTER, 70, 0);
+
   updateBatteryLabel(batteryTimer);
+
 
 #endif
 
@@ -383,7 +418,7 @@ void monitor(void)
   lv_obj_align_to(monitorContainer, gaugeContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
 #endif
 
-#if 1 // Right label for battery
+#if 1 // Right temp mon
   rightTempLabel = lv_label_create(monitorContainer);
   lv_obj_clear_flag(rightTempLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(rightTempLabel, LV_OBJ_FLAG_SCROLLABLE);
@@ -394,7 +429,21 @@ void monitor(void)
 
 #endif
 
-#if 1 // left label for setting
+#if 1 // serial number
+  serialNumberLabel = lv_label_create(monitorContainer);
+  lv_obj_clear_flag(serialNumberLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(serialNumberLabel, LV_OBJ_FLAG_SCROLLABLE);
+
+  char sn[32];
+  snprintf(sn, sizeof(sn), "S/N: %d", SERIAL_NUMBER);
+  lv_label_set_text(serialNumberLabel, sn);
+
+  lv_obj_set_size(serialNumberLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  // lv_obj_set_style_text_align(rightTempLabel, LV_TEXT_ALIGN_RIGHT, 0);
+  lv_obj_align(serialNumberLabel, LV_ALIGN_CENTER, 0, 0);
+#endif
+
+#if 1 // left temp mon
   leftTempLabel = lv_label_create(monitorContainer);
   lv_obj_clear_flag(leftTempLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(leftTempLabel, LV_OBJ_FLAG_SCROLLABLE);

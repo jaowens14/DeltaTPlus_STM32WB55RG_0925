@@ -17,7 +17,6 @@
  */
 /* USER CODE END Header */
 
-//#define USE_SERVER
 
 /* Includes ------------------------------------------------------------------*/
 #include <accel.h>
@@ -68,7 +67,7 @@
 
 /* USER CODE END Includes */
 
-int ble_delay = 0;
+int ble_delay = 50;
 int send_ble = 0;
 
 /* Private typedef -----------------------------------------------------------*/
@@ -349,6 +348,8 @@ void UART_RX_HANDLER(void)
   }
 }
 
+
+
 // main timer implementation
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
@@ -454,6 +455,10 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   if (GPIO_Pin == ADC_DRDY_Pin)
   {
     ad7124_rdy_flag = 1;
+  }
+
+  if (GPIO_Pin == CHARGE_INT_Pin){
+	  chargeChanged = 1;
   }
 }
 
@@ -581,13 +586,7 @@ int main(void)
 
     accelMain();
     backlightMain();
-    // if(!myThermocouples.delay) {
-
-//#ifdef USE_SERVER
     myThermocouples.stateMachine();
-//#endif
-    //    myThermocouples.delay = 1;
-    //}
 
     if (measureFlag)
     {

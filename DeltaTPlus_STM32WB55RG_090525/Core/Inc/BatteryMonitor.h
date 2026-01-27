@@ -13,6 +13,9 @@ extern "C" {
 void setupBatteryMonitor(void);
 uint16_t getChargeLevel(void);
 bool getChargeStatus(void);
+extern volatile uint8_t chargeChanged;
+void batteryMonitorMain(void);
+
 
 #ifdef __cplusplus
 }

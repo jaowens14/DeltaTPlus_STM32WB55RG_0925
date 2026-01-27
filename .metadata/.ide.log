@@ -1,0 +1,377 @@
+2026-01-27 04:20:39,604 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,610 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,611 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,612 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,612 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,632 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,632 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,633 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,634 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,634 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,636 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,637 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,637 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,638 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,638 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,639 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,640 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,640 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,641 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,641 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,642 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,643 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,643 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,643 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,644 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,645 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,646 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,646 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,648 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,648 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,742 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,742 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,743 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,743 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,743 [INFO] LogOutputStream:77 - [STDOUT_REDIRECT] Sleepy End Device Min <200 3.3
+2026-01-27 04:20:39,800 [INFO] UtilMem:75 - After build in PCC Used Memory: 1013087544 Bytes (1073741824)
+2026-01-27 04:20:39,827 [INFO] ApiDbMcu:508 - Load IP Config File for STM32_WPAN
+2026-01-27 04:20:39,833 [INFO] ApiDbMcu:508 - Load IP Config File for USB_DEVICE
+2026-01-27 04:20:39,855 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,856 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,857 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,858 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,859 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,860 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,860 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,860 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,860 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,860 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,861 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,861 [INFO] IPUIPlugin:80 - create IPUIPlugin
+2026-01-27 04:20:39,889 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:39,891 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:39,893 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:39,895 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:39,898 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:40,009 [INFO] CADModel:165 - CPN selected for project levelSTM32WB55RGV6
+2026-01-27 04:20:40,010 [INFO] CADModel:114 - Register for checkConnection events
+2026-01-27 04:20:40,080 [INFO] OpenFileManager:385 - Restore cursor
+2026-01-27 04:20:40,375 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:40,377 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:40,379 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:40,382 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:40,385 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:20:40,429 [WARN] IpParametersView:155 - Warning: This peripheral hasn't parameters
+2026-01-27 04:21:04,131 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,138 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,144 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,152 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,159 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,356 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,363 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,370 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,376 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,383 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,557 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,565 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,567 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,570 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,573 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,709 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,713 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,717 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,720 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:04,723 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,633 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,635 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,638 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,640 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,642 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,717 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,721 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,726 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,730 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,735 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,915 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,919 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,924 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,928 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:42,933 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:43,103 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:43,105 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:43,108 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:43,111 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:21:43,114 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:22:01,219 [INFO] Gpio:277 - dependency for GPIO [I2C1, RCC, RF, SPI1, SPI2, SYS, TIM2, USART1, USB]
+2026-01-27 04:23:22,803 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 830626416 Bytes (1073741824)
+2026-01-27 04:23:24,823 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 860002128 Bytes (1073741824)
+2026-01-27 04:23:28,714 [INFO] UtilMem:75 - End SaveConfig() Used Memory: 830901976 Bytes (1073741824)
+2026-01-27 04:23:29,002 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RTC
+2026-01-27 04:23:29,002 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2026-01-27 04:23:29,002 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SPI
+2026-01-27 04:23:29,002 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: NVIC
+2026-01-27 04:23:29,002 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SEQUENCER
+2026-01-27 04:23:29,002 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: STM32_WPAN
+2026-01-27 04:23:29,002 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RNG
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USART
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: HSEM
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: DMA
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: MEMORYMAP
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TIM1_8WB5
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB_Device
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: IPCC
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: USB
+2026-01-27 04:23:29,003 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: SYS
+2026-01-27 04:23:29,004 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: GPIO
+2026-01-27 04:23:29,004 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RCC
+2026-01-27 04:23:29,004 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: RF
+2026-01-27 04:23:29,004 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: I2C
+2026-01-27 04:23:29,004 [INFO] BlockDiagram:2775 - set Specific Code input for plugin: TINY_LPM
+2026-01-27 04:23:29,005 [INFO] CodeGenerator:882 - code generatio: config db path: C:\ST\STM32CubeIDE_1.18.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_6.14.0.202502271554\\db\
+2026-01-27 04:23:29,032 [INFO] Argument:325 - Argument : hdmavalue: null
+2026-01-27 04:23:29,032 [INFO] Argument:327 - 	 sub Args: 
+2026-01-27 04:23:29,032 [INFO] Argument:325 - Argument : Instancevalue: DMA1_Channel1
+2026-01-27 04:23:29,032 [INFO] Argument:335 - Argument : Instancevalue: DMA1_Channel1
+2026-01-27 04:23:29,032 [INFO] Argument:325 - Argument : Initvalue: null
+2026-01-27 04:23:29,032 [INFO] Argument:327 - 	 sub Args: 
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : Requestvalue: DMA_REQUEST_SPI1_TX
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : Requestvalue: DMA_REQUEST_SPI1_TX
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : Modevalue: DMA_NORMAL
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : Modevalue: DMA_NORMAL
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : Priorityvalue: DMA_PRIORITY_HIGH
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : Lockvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : Lockvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : Statevalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : Statevalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : Parentvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : Parentvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : XferCpltCallbackvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : XferCpltCallbackvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : XferHalfCpltCallbackvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:325 - Argument : XferErrorCallbackvalue: null
+2026-01-27 04:23:29,033 [INFO] Argument:335 - Argument : XferErrorCallbackvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : XferAbortCallbackvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : XferAbortCallbackvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : ErrorCodevalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : ErrorCodevalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : DmaBaseAddressvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : DmaBaseAddressvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : ChannelIndexvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : ChannelIndexvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : DMAmuxChannelvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : DMAmuxChannelvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : DMAmuxChannelStatusvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : DMAmuxChannelStatusvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : DMAmuxChannelStatusMaskvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : DMAmuxChannelStatusMaskvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : DMAmuxRequestGenvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : DMAmuxRequestGenvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:325 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2026-01-27 04:23:29,034 [INFO] Argument:335 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2026-01-27 04:23:29,083 [WARN] IP:2250 - SERVICE1_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:23:29,088 [WARN] IP:2250 - SERVICE2_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:23:29,092 [WARN] IP:2250 - SERVICE3_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:23:29,097 [WARN] IP:2250 - SERVICE4_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:23:29,102 [WARN] IP:2250 - SERVICE5_UUID not found: check if there is a RefParameter without a condition.
+2026-01-27 04:23:29,310 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp_save
+2026-01-27 04:23:29,543 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\license.tmp
+2026-01-27 04:23:29,630 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c_save
+2026-01-27 04:23:29,733 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\gpio.c
+2026-01-27 04:23:29,738 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h_save
+2026-01-27 04:23:29,814 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\gpio.h
+2026-01-27 04:23:29,948 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp_save
+2026-01-27 04:23:30,027 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_vars.tmp
+2026-01-27 04:23:30,030 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp_save
+2026-01-27 04:23:30,086 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_inc.tmp
+2026-01-27 04:23:30,091 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp_save
+2026-01-27 04:23:30,173 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_HalInit.tmp
+2026-01-27 04:23:30,177 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp_save
+2026-01-27 04:23:30,262 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\usb_Msp.tmp
+2026-01-27 04:23:30,466 [WARN] IPConfigManager:103 - WARNING: Missing Config File for MEMORYMAP ip!!
+2026-01-27 04:23:30,466 [WARN] IP:2250 - DefaultDataRegion not found: check if there is a RefParameter without a condition.
+2026-01-27 04:23:30,510 [WARN] IPConfigManager:103 - WARNING: Missing Config File for RF ip!!
+2026-01-27 04:23:31,493 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-01-27 04:23:31,510 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-01-27 04:23:31,538 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c_save
+2026-01-27 04:23:31,590 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\dma.c
+2026-01-27 04:23:31,595 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h_save
+2026-01-27 04:23:31,643 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\dma.h
+2026-01-27 04:23:31,652 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c_save
+2026-01-27 04:23:31,718 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\i2c.c
+2026-01-27 04:23:31,722 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h_save
+2026-01-27 04:23:31,772 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\i2c.h
+2026-01-27 04:23:31,782 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c_save
+2026-01-27 04:23:31,852 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\ipcc.c
+2026-01-27 04:23:31,856 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h_save
+2026-01-27 04:23:31,902 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\ipcc.h
+2026-01-27 04:23:31,909 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c_save
+2026-01-27 04:23:31,964 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\memorymap.c
+2026-01-27 04:23:31,968 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h_save
+2026-01-27 04:23:32,012 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\memorymap.h
+2026-01-27 04:23:32,018 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c_save
+2026-01-27 04:23:32,076 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rf.c
+2026-01-27 04:23:32,079 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h_save
+2026-01-27 04:23:32,122 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rf.h
+2026-01-27 04:23:32,129 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rng.c_save
+2026-01-27 04:23:32,188 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rng.c
+2026-01-27 04:23:32,191 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rng.h_save
+2026-01-27 04:23:32,247 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rng.h
+2026-01-27 04:23:32,255 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c_save
+2026-01-27 04:23:32,338 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\rtc.c
+2026-01-27 04:23:32,344 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h_save
+2026-01-27 04:23:32,403 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\rtc.h
+2026-01-27 04:23:32,414 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c_save
+2026-01-27 04:23:32,522 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\spi.c
+2026-01-27 04:23:32,528 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h_save
+2026-01-27 04:23:32,602 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\spi.h
+2026-01-27 04:23:32,644 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-01-27 04:23:32,663 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h_save
+2026-01-27 04:23:32,725 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_common.h
+2026-01-27 04:23:32,730 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h_save
+2026-01-27 04:23:32,783 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_debug.h
+2026-01-27 04:23:32,788 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h_save
+2026-01-27 04:23:32,880 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_conf.h
+2026-01-27 04:23:32,886 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h_save
+2026-01-27 04:23:32,931 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\app_entry.h
+2026-01-27 04:23:32,935 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h_save
+2026-01-27 04:23:32,992 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_conf.h
+2026-01-27 04:23:32,997 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h_save
+2026-01-27 04:23:33,049 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\hw_if.h
+2026-01-27 04:23:33,054 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h_save
+2026-01-27 04:23:33,098 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\utilities_conf.h
+2026-01-27 04:23:33,102 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h_save
+2026-01-27 04:23:33,149 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32_lpm_if.h
+2026-01-27 04:23:33,154 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c_save
+2026-01-27 04:23:33,216 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_entry.c
+2026-01-27 04:23:33,221 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c_save
+2026-01-27 04:23:33,282 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\app_debug.c
+2026-01-27 04:23:33,287 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c_save
+2026-01-27 04:23:33,340 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\hw_timerserver.c
+2026-01-27 04:23:33,346 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c_save
+2026-01-27 04:23:33,393 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32_lpm_if.c
+2026-01-27 04:23:33,398 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c_save
+2026-01-27 04:23:33,563 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.c
+2026-01-27 04:23:33,567 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h_save
+2026-01-27 04:23:33,616 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\app_ble.h
+2026-01-27 04:23:33,621 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h_save
+2026-01-27 04:23:33,671 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_conf.h
+2026-01-27 04:23:33,676 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h_save
+2026-01-27 04:23:33,727 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\ble_dbg_conf.h
+2026-01-27 04:23:33,732 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h_save
+2026-01-27 04:23:33,780 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\tl_dbg_conf.h
+2026-01-27 04:23:33,784 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\p2p_server_app.c_save
+2026-01-27 04:23:33,840 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\p2p_server_app.c
+2026-01-27 04:23:33,845 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\p2p_server_app.h_save
+2026-01-27 04:23:33,890 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\App\p2p_server_app.h
+2026-01-27 04:23:33,893 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c_save
+2026-01-27 04:23:33,944 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\STM32_WPAN\Target\hw_ipcc.c
+2026-01-27 04:23:33,952 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c_save
+2026-01-27 04:23:34,017 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\tim.c
+2026-01-27 04:23:34,020 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h_save
+2026-01-27 04:23:34,062 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\tim.h
+2026-01-27 04:23:34,068 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c_save
+2026-01-27 04:23:34,128 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\usart.c
+2026-01-27 04:23:34,131 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h_save
+2026-01-27 04:23:34,177 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\usart.h
+2026-01-27 04:23:34,189 [INFO] Middleware:1452 - No code input for Bsp Dependency
+2026-01-27 04:23:34,207 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c_save
+2026-01-27 04:23:34,304 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.c
+2026-01-27 04:23:34,310 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h_save
+2026-01-27 04:23:34,386 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usb_device.h
+2026-01-27 04:23:34,392 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h_save
+2026-01-27 04:23:34,458 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.h
+2026-01-27 04:23:34,464 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c_save
+2026-01-27 04:23:34,586 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\Target\usbd_conf.c
+2026-01-27 04:23:34,595 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h_save
+2026-01-27 04:23:34,669 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.h
+2026-01-27 04:23:34,674 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c_save
+2026-01-27 04:23:34,730 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_desc.c
+2026-01-27 04:23:34,734 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h_save
+2026-01-27 04:23:34,782 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.h
+2026-01-27 04:23:34,787 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c_save
+2026-01-27 04:23:34,831 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\USB_Device\App\usbd_dfu_flash.c
+2026-01-27 04:23:34,845 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c_save
+2026-01-27 04:23:34,999 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_it.c
+2026-01-27 04:23:35,004 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h_save
+2026-01-27 04:23:35,050 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_it.h
+2026-01-27 04:23:35,067 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c_save
+2026-01-27 04:23:35,133 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\stm32wbxx_hal_msp.c
+2026-01-27 04:23:35,137 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp_save
+2026-01-27 04:23:35,179 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\MXTmpFiles\system.tmp
+2026-01-27 04:23:35,186 [INFO] CodeEngine:319 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h_save
+2026-01-27 04:23:35,235 [INFO] CodeEngine:343 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\stm32wbxx_hal_conf.h
+2026-01-27 04:23:35,247 [WARN] IPConfigManager:3174 - Warning: the RefConfig RCC_PClockConfig is not available in your config.xml file
+2026-01-27 04:23:35,257 [INFO] ApiDbMcu:508 - Load IP Config File for I2C1
+2026-01-27 04:23:35,258 [INFO] ApiDbMcu:508 - Load IP Config File for IPCC
+2026-01-27 04:23:35,259 [ERROR] ApiDbMcu:464 - Can't load MEMORYMAP-STM32xx root dir null
+2026-01-27 04:23:35,259 [ERROR] ApiDbMcu:536 - Cannot parse MEMORYMAP_Config file : file do not exist
+2026-01-27 04:23:35,259 [ERROR] ApiDbMcu:536 - Cannot parse RF_Config file : file do not exist
+2026-01-27 04:23:35,259 [INFO] ApiDbMcu:508 - Load IP Config File for RNG
+2026-01-27 04:23:35,262 [INFO] ApiDbMcu:508 - Load IP Config File for RTC
+2026-01-27 04:23:35,264 [INFO] ApiDbMcu:508 - Load IP Config File for SPI1
+2026-01-27 04:23:35,266 [INFO] ApiDbMcu:508 - Load IP Config File for SPI2
+2026-01-27 04:23:35,276 [INFO] ApiDbMcu:508 - Load IP Config File for TIM2
+2026-01-27 04:23:35,285 [INFO] ApiDbMcu:508 - Load IP Config File for TIM16
+2026-01-27 04:23:35,294 [INFO] ApiDbMcu:508 - Load IP Config File for USART1
+2026-01-27 04:23:35,297 [INFO] ApiDbMcu:508 - Load IP Config File for RCC
+2026-01-27 04:23:35,306 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h_save
+2026-01-27 04:23:35,357 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Inc\main.h
+2026-01-27 04:23:35,361 [INFO] CodeEngine:263 - oldGeneratedFile, C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c_save
+2026-01-27 04:23:35,433 [INFO] CodeEngine:287 - Generated code: C:\Users\jaowe\Documents\Projects\DeltaTPlus_STM32WB55RG_Workspace\DeltaTPlus_STM32WB55RG_090525\Core\Src\main.c
+2026-01-27 04:23:36,179 [INFO] ProjectBuilder:3324 - Time for Copy HAL[1] : 565mS.
+2026-01-27 04:23:36,188 [INFO] ProjectBuilder:4912 - Project Generator version: 4.6.0-B36
+2026-01-27 04:23:36,246 [INFO] ConfigFileManager:1590 - The Die is : DIE495
+2026-01-27 04:23:36,250 [INFO] ApiDbMcu:508 - Load IP Config File for FATFS
+2026-01-27 04:23:36,253 [INFO] ApiDbMcu:508 - Load IP Config File for FREERTOS
+2026-01-27 04:23:36,263 [INFO] ApiDbMcu:508 - Load IP Config File for TOUCHSENSING
+2026-01-27 04:23:39,926 [INFO] ProjectBuilder:5191 - Time for Generating toolchain IDE Files: 3738mS.
+2026-01-27 04:23:39,927 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.
+2026-01-27 04:23:39,943 [INFO] ProjectBuilder:3181 - Time for Copy CMSIS : 0mS.

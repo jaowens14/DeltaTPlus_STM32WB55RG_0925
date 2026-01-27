@@ -1,16 +1,16 @@
-../Core/Src/main.cpp:206:6:void lcd_send_cmd(lv_display_t*, const uint8_t*, size_t, const uint8_t*, size_t)	3
-../Core/Src/main.cpp:234:6:void lcd_send_color(lv_display_t*, const uint8_t*, size_t, uint8_t*, size_t)	3
-../Core/Src/main.cpp:157:6:void lv_port_disp_init()	1
-../Core/Src/main.cpp:177:6:void lcd_color_transfer_ready_cb(SPI_HandleTypeDef*)	1
-../Core/Src/main.cpp:186:9:int32_t lcd_io_init()	1
-../Core/Src/main.cpp:289:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	7
-../Core/Src/main.cpp:334:6:void UART_RX_HANDLER()	2
-../Core/Src/main.cpp:350:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	8
-../Core/Src/main.cpp:406:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
-../Core/Src/main.cpp:415:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	1
-../Core/Src/main.cpp:423:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	2
-../Core/Src/main.cpp:432:6:void HAL_GPIO_EXTI_Callback(uint16_t)	5
-../Core/Src/main.cpp:624:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:685:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:466:5:int main()	8
-../Core/Src/main.cpp:714:6:void Error_Handler()	1
+../Core/Src/main.cpp:208:6:void lcd_send_cmd(lv_display_t*, const uint8_t*, size_t, const uint8_t*, size_t)	3
+../Core/Src/main.cpp:236:6:void lcd_send_color(lv_display_t*, const uint8_t*, size_t, uint8_t*, size_t)	3
+../Core/Src/main.cpp:159:6:void lv_port_disp_init()	1
+../Core/Src/main.cpp:179:6:void lcd_color_transfer_ready_cb(SPI_HandleTypeDef*)	1
+../Core/Src/main.cpp:188:9:int32_t lcd_io_init()	1
+../Core/Src/main.cpp:291:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	7
+../Core/Src/main.cpp:336:6:void UART_RX_HANDLER()	2
+../Core/Src/main.cpp:354:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	8
+../Core/Src/main.cpp:410:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	2
+../Core/Src/main.cpp:419:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	1
+../Core/Src/main.cpp:427:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	2
+../Core/Src/main.cpp:436:6:void HAL_GPIO_EXTI_Callback(uint16_t)	6
+../Core/Src/main.cpp:626:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:687:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:474:5:int main()	8
+../Core/Src/main.cpp:716:6:void Error_Handler()	1

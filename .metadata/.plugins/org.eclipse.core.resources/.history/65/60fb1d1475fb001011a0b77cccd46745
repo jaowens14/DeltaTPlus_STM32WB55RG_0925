@@ -1,0 +1,608 @@
+/*
+ * meter.c
+ *
+ *  Created on: Dec 20, 2025
+ *      Author: jaowe
+ */
+#include "lvgl.h"
+#include "widgets.h"
+#include "ST7789.h"
+#include <accel.h>
+#include "Thermocouples.hpp"
+#include "BatteryMonitor.h"
+
+#include "app_ble.h"
+
+#include "menu.h"
+static lv_obj_t *settingLabel = NULL;
+static lv_obj_t *chargingLabel = NULL;
+static lv_obj_t *batteryLabel = NULL;
+static lv_obj_t *leftTempLabel = NULL;
+static lv_obj_t *rightTempLabel = NULL;
+static lv_obj_t *serialNumberLabel = NULL;
+static lv_obj_t *productLabel1 = NULL;
+static lv_obj_t *productLabel2 = NULL;
+static lv_obj_t *headerContainer = NULL;
+static lv_obj_t *monitorContainer = NULL;
+static lv_obj_t *labelContainer = NULL;
+static lv_obj_t *buttonContainer = NULL;
+static lv_obj_t *needle = NULL;
+static lv_obj_t *gaugeContainer = NULL;
+static lv_obj_t *zero = NULL;
+static lv_obj_t *right_25 = NULL;
+static lv_obj_t *left_25 = NULL;
+lv_obj_t *meter_screen = NULL;
+static lv_obj_t *root = NULL;
+
+static lv_timer_t *batteryTimer = NULL;
+static lv_timer_t *chargeTimer = NULL;
+
+static lv_obj_t *tickMarks[100];
+
+static lv_point_precise_t tickPoints[100][2];
+
+int needleLength = 70;
+
+// const int needleOriginX = ST7789_WIDTH / 2;
+// const int needleOriginY = 154;
+const int needleCutoffY = 123;
+const float innerRadius = 400.0;                   // inner radius for both marks
+const float minorOuterRadius = innerRadius + 2.0;  // outer radius for minor marks
+const float majorOuterRadius = innerRadius + 10.0; // outer radius for major marks
+const float neeldeOuterRadius = 493.0;             // outer radius for needle
+const float circleXOffset = 120.0;
+const float circleYOffset = 460.0;
+
+const float needleOriginX = 120.0;
+const float needleOriginY = 160.0 + 40.0; // 20 comes from shifting it down a bit
+
+int meter_angle;
+int meter_angle_width;
+int angle;
+int xValue;
+int temperatureAngle;
+int lastTemperatureAngle;
+int lastXValue;
+int minXValue = 20; // zero is vertical i think
+int maxXValue = 220;
+int lastAngle;
+
+const float startAngle = 256.0f; // Left (x=20)
+const float endAngle = 284.0f;   // Right (x=220)
+
+void updateSettingLabel(void)
+{
+  if (meter_screen != NULL)
+  {
+
+    const char *switchState;
+
+    if (accelSwitchState)
+    {
+      switchState = "HIGH";
+      // Thermocouples::userGain = 2.0;
+    }
+    else
+    {
+      switchState = "LOW";
+      // Thermocouples::userGain = 1.0;
+    }
+
+    // lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
+
+    char buf[32];
+    snprintf(buf, sizeof(buf), "%s", switchState);
+
+    lv_label_set_text(settingLabel, buf);
+  }
+}
+
+void updateChargingLabel(void)
+{
+  if (meter_screen != NULL)
+  {
+
+    if (HAL_GPIO_ReadPin (GPIOB, CHARGE_INT_Pin))
+    {
+    	 lv_label_set_text(chargingLabel, LV_SYMBOL_CHARGE);
+    }
+    else
+    {
+    	lv_label_set_text(chargingLabel, "");
+    }
+  }
+}
+
+void updateLeftandRightTempLabels(void)
+{
+  if (meter_screen != NULL)
+  {
+    char buf[32];
+    snprintf(buf, sizeof(buf), "%f", lf.estimate);
+    lv_label_set_text(leftTempLabel, buf);
+    snprintf(buf, sizeof(buf), "%f", rf.estimate);
+    lv_label_set_text(rightTempLabel, buf);
+  }
+}
+
+void updateBatteryLabel(lv_timer_t *timer)
+{
+  if (meter_screen != NULL)
+  {
+    int batteryLevel = getChargeLevel();
+
+    lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
+
+    char buf[32];
+    snprintf(buf, sizeof(buf), "%d%%", batteryLevel);
+
+    lv_label_set_text(ta, buf);
+  }
+
+  updateChargingLabel();
+}
+
+
+void updateNeedle(void)
+{
+
+  if (meter_screen != NULL)
+  {
+    temperatureAngle = int(myThermocouples.deltaTemp);
+    // temperatureAngle = 270;
+    if (temperatureAngle != lastTemperatureAngle)
+    {
+      if (temperatureAngle < startAngle)
+        temperatureAngle = startAngle;
+
+      if (temperatureAngle > endAngle)
+        temperatureAngle = endAngle;
+
+      lastTemperatureAngle = temperatureAngle;
+
+      float temperatureRadians = temperatureAngle * M_PI / 180.0f;
+
+      // Calculate outer point (on the outer radius)
+      float abs_x0 = roundf(circleXOffset + majorOuterRadius * cosf(temperatureRadians));
+      float abs_y0 = roundf(circleYOffset + majorOuterRadius * sinf(temperatureRadians));
+
+      // Calculate inner point (on the inner radius)
+      float abs_x1; //= roundf(circleXOffset + (innerRadius-50) * cosf(temperatureRadians));
+      float abs_y1; // = roundf(circleYOffset + (innerRadius-50) * sinf(temperatureRadians));
+
+      point_at_distance(abs_x0, abs_y0, needleOriginX, needleOriginY, 100, &abs_x1, &abs_y1);
+
+      abs_y1 = 160; //needleOriginY
+
+      // Find bounding box
+      float min_x = (abs_x0 < abs_x1) ? abs_x0 : abs_x1;
+      float min_y = (abs_y0 < abs_y1) ? abs_y0 : abs_y1;
+      float max_x = (abs_x0 > abs_x1) ? abs_x0 : abs_x1;
+      float max_y = (abs_y0 > abs_y1) ? abs_y0 : abs_y1;
+
+      // Ensure minimum size for bounding box
+      if (max_x == min_x)
+        max_x = min_x + 1;
+      if (max_y == min_y)
+        max_y = min_y + 1;
+
+      static lv_point_precise_t needle_points[2];
+
+      // Convert to relative coordinates from the min point
+      needle_points[0].x = abs_x0 - min_x;
+      needle_points[0].y = abs_y0 - min_y;
+      needle_points[1].x = abs_x1 - min_x;
+      needle_points[1].y = abs_y1 - min_y;
+
+      lv_line_set_points(needle, needle_points, 2);
+
+      // Get parent container position and subtract it
+      lv_obj_t *parent = lv_obj_get_parent(needle);
+      lv_coord_t parent_x = lv_obj_get_x(parent);
+      lv_coord_t parent_y = lv_obj_get_y(parent);
+
+      // Position relative to container
+      lv_obj_set_pos(needle, min_x - parent_x, min_y - parent_y);
+    }
+  }
+}
+
+void header(void)
+{
+#if 1 // header container
+  headerContainer = lv_obj_create(meter_screen);
+  lv_obj_clear_flag(headerContainer, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(headerContainer, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_width(headerContainer, lv_obj_get_width(meter_screen) - 4);
+  lv_obj_set_height(headerContainer, LV_SIZE_CONTENT);
+  lv_obj_set_style_border_width(headerContainer, 2, 0);
+  lv_obj_set_style_border_color(headerContainer, lv_color_hex(WEB_LIGHT_TAN), 0);
+  lv_obj_set_style_radius(headerContainer, 5, 0);  // Rounded corners
+  lv_obj_set_style_pad_all(headerContainer, 3, 0); // Padding inside
+  lv_obj_set_style_bg_color(headerContainer, lv_color_hex(WEB_LIGHT_TAN), 0);
+
+  lv_obj_align(headerContainer, LV_ALIGN_TOP_MID, 0, 2);
+#endif
+
+#if 1 // Right label for battery
+  batteryLabel = lv_label_create(headerContainer);
+  lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(batteryLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(batteryLabel, "100%");
+  lv_obj_set_size(batteryLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_set_style_text_align(batteryLabel, LV_TEXT_ALIGN_RIGHT, 0);
+  lv_obj_align(batteryLabel, LV_ALIGN_RIGHT_MID, 0, 0);
+
+  if (batteryTimer == NULL)
+  {
+    batteryTimer = lv_timer_create(updateBatteryLabel, 5000, batteryLabel);
+  }
+  else
+  {
+    // Update user data if timer already exists
+    lv_timer_set_user_data(batteryTimer, batteryLabel);
+  }
+
+#endif
+
+#if 1 // right / mid label for charging
+  chargingLabel = lv_label_create(headerContainer);
+  lv_obj_clear_flag(chargingLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(chargingLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(chargingLabel, LV_SYMBOL_CHARGE);
+  lv_obj_set_size(chargingLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_align(chargingLabel, LV_ALIGN_CENTER, 70, 0);
+
+  updateBatteryLabel(batteryTimer);
+
+
+#endif
+
+#if 1 // left label for setting
+  settingLabel = lv_label_create(headerContainer);
+  lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(settingLabel, "LOW");
+  lv_obj_set_size(settingLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_align(settingLabel, LV_ALIGN_LEFT_MID, 0, 0);
+#endif
+}
+
+void gauge(void)
+{
+
+#if 1 // Gauge container
+  gaugeContainer = lv_obj_create(meter_screen);
+  lv_obj_clear_flag(gaugeContainer, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(gaugeContainer, LV_OBJ_FLAG_SCROLLABLE);
+
+  lv_obj_set_width(gaugeContainer, lv_obj_get_width(meter_screen) - 4);
+  lv_obj_set_height(gaugeContainer, 130);
+  lv_obj_set_style_border_width(gaugeContainer, 2, 0);
+  lv_obj_set_style_border_color(gaugeContainer, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_radius(gaugeContainer, 5, 0);
+  lv_obj_set_style_pad_all(gaugeContainer, 0, 0); // Set to 0 for precise positioning
+  lv_obj_set_style_bg_color(gaugeContainer, lv_color_hex(WEB_LIGHT_TAN), 0);
+
+  lv_obj_align(gaugeContainer, LV_ALIGN_TOP_MID, 0, 2);
+  lv_obj_align_to(gaugeContainer, headerContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
+
+  // Force layout update to ensure positions are calculated
+  lv_obj_update_layout(gaugeContainer);
+#endif
+
+  // Get the container's absolute position AFTER layout is updated
+  lv_coord_t container_x = lv_obj_get_x(gaugeContainer);
+  lv_coord_t container_y = lv_obj_get_y(gaugeContainer);
+
+  // 0 label inside gauge container
+  zero = lv_label_create(gaugeContainer);
+  lv_obj_clear_flag(zero, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(zero, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(zero, "0");
+  lv_obj_set_style_text_align(zero, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_set_size(zero, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_align(zero, LV_ALIGN_TOP_MID, 0, 5);
+
+  // 25 label right inside gauge container
+  right_25 = lv_label_create(gaugeContainer);
+  lv_obj_clear_flag(right_25, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(right_25, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(right_25, "25");
+  lv_obj_set_style_text_align(right_25, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_set_size(right_25, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_align(right_25, LV_ALIGN_TOP_MID, 100, 10);
+
+  // 25 label left inside gauge container
+  left_25 = lv_label_create(gaugeContainer);
+  lv_obj_clear_flag(left_25, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(left_25, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(left_25, "25");
+  lv_obj_set_style_text_align(left_25, LV_TEXT_ALIGN_CENTER, 0);
+  lv_obj_set_size(left_25, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_align(left_25, LV_ALIGN_TOP_MID, -100, 10);
+
+#if 1 // major tick marks - ANGULAR SPACING
+
+  const float totalAngle = endAngle - startAngle;
+  const int numTicks = 41;
+  const float angleStep = totalAngle / (numTicks - 1);
+
+  for (int i = 0; i < numTicks; i++)
+  {
+    float angle = startAngle + (i * angleStep);
+    float angleRad = angle * M_PI / 180.0f;
+
+    float temp_radius = minorOuterRadius;
+
+    if (i % 5 == 0)
+    {
+      temp_radius = majorOuterRadius;
+    }
+
+    // Calculate outer point (on the outer radius)
+    float abs_x0 = roundf(circleXOffset + temp_radius * cosf(angleRad));
+    float abs_y0 = roundf(circleYOffset + temp_radius * sinf(angleRad));
+
+    // Calculate inner point (on the inner radius)
+    // float abs_x1 = roundf(circleXOffset + innerRadius * cosf(angleRad));
+    // float abs_y1 = roundf(circleYOffset + innerRadius * sinf(angleRad));
+
+    float abs_x1;
+    float abs_y1;
+
+    point_at_distance(abs_x0, abs_y0, needleOriginX, needleOriginY, (temp_radius - innerRadius), &abs_x1, &abs_y1);
+    // point_at_distance(abs_x0, abs_y0, abs_x1_target, abs_y1_target, tick_length, &new_x, &new_y);
+
+    // Find bounding box
+    float min_x = (abs_x0 < abs_x1) ? abs_x0 : abs_x1;
+    float min_y = (abs_y0 < abs_y1) ? abs_y0 : abs_y1;
+    float max_x = (abs_x0 > abs_x1) ? abs_x0 : abs_x1;
+    float max_y = (abs_y0 > abs_y1) ? abs_y0 : abs_y1;
+
+    // Ensure minimum size for bounding box
+    if (max_x == min_x)
+      max_x = min_x + 1;
+    if (max_y == min_y)
+      max_y = min_y + 1;
+
+    // Convert to relative coordinates
+    lv_point_precise_t *tickMark = tickPoints[i];
+    tickMark[0].x = abs_x0 - min_x;
+    tickMark[0].y = abs_y0 - min_y;
+    tickMark[1].x = abs_x1 - min_x;
+    tickMark[1].y = abs_y1 - min_y;
+
+    tickMarks[i] = lv_line_create(gaugeContainer);
+    lv_line_set_points(tickMarks[i], tickMark, 2);
+    lv_obj_set_style_line_width(tickMarks[i], 2, 0);
+    lv_obj_set_style_line_color(tickMarks[i], lv_color_hex(Charcoal), 0);
+    lv_obj_set_style_line_rounded(tickMarks[i], true, 0);
+
+    // Subtract container position to get relative coordinates within container
+    lv_obj_set_pos(tickMarks[i], (int)(min_x - container_x), (int)(min_y - container_y));
+    lv_obj_set_size(tickMarks[i], (int)(max_x - min_x), (int)(max_y - min_y));
+  }
+#endif
+
+#if 1 // needle
+  needle = lv_line_create(gaugeContainer);
+
+  lv_obj_clear_flag(needle, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(needle, LV_OBJ_FLAG_SCROLLABLE);
+
+  lv_obj_set_style_line_width(needle, 3, 0);
+  lv_obj_set_style_line_color(needle, lv_color_hex(WEB_ORANGE), 0);
+  lv_obj_set_style_line_rounded(needle, false, 0);
+
+  // Initialize needle at start angle
+  lastTemperatureAngle = 270; // Force first update
+  updateNeedle();
+#endif
+}
+
+void monitor(void)
+{
+#if 1 // header container
+  monitorContainer = lv_obj_create(meter_screen);
+  lv_obj_clear_flag(monitorContainer, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(monitorContainer, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_width(monitorContainer, lv_obj_get_width(meter_screen) - 4);
+  lv_obj_set_height(monitorContainer, LV_SIZE_CONTENT);
+  lv_obj_set_style_border_width(monitorContainer, 2, 0);
+  lv_obj_set_style_border_color(monitorContainer, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_bg_color(monitorContainer, lv_color_hex(WEB_LIGHT_TAN), 0);
+
+  lv_obj_set_style_radius(monitorContainer, 5, 0);  // Rounded corners
+  lv_obj_set_style_pad_all(monitorContainer, 3, 0); // Padding inside
+  lv_obj_align_to(monitorContainer, gaugeContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
+#endif
+
+#if 1 // Right temp mon
+  rightTempLabel = lv_label_create(monitorContainer);
+  lv_obj_clear_flag(rightTempLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(rightTempLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(rightTempLabel, "00.00");
+  lv_obj_set_size(rightTempLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  // lv_obj_set_style_text_align(rightTempLabel, LV_TEXT_ALIGN_RIGHT, 0);
+  lv_obj_align(rightTempLabel, LV_ALIGN_RIGHT_MID, 0, 0);
+
+#endif
+
+#if 1 // serial number
+  serialNumberLabel = lv_label_create(monitorContainer);
+  lv_obj_clear_flag(serialNumberLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(serialNumberLabel, LV_OBJ_FLAG_SCROLLABLE);
+
+  char sn[32];
+  snprintf(sn, sizeof(sn), "S/N: %d", SERIAL_NUMBER);
+  lv_label_set_text(serialNumberLabel, sn);
+
+  lv_obj_set_size(serialNumberLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  // lv_obj_set_style_text_align(rightTempLabel, LV_TEXT_ALIGN_RIGHT, 0);
+  lv_obj_align(serialNumberLabel, LV_ALIGN_CENTER, 0, 0);
+#endif
+
+#if 1 // left temp mon
+  leftTempLabel = lv_label_create(monitorContainer);
+  lv_obj_clear_flag(leftTempLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(leftTempLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(leftTempLabel, "00.00");
+  lv_obj_set_size(leftTempLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_align(leftTempLabel, LV_ALIGN_LEFT_MID, 0, 0);
+#endif
+}
+
+void labels(void)
+{
+
+#if 1 // header container
+  labelContainer = lv_obj_create(meter_screen);
+  lv_obj_clear_flag(labelContainer, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(labelContainer, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_width(labelContainer, lv_obj_get_width(meter_screen) - 4);
+  lv_obj_set_height(labelContainer, LV_SIZE_CONTENT);
+  lv_obj_set_style_border_width(labelContainer, 2, 0);
+  lv_obj_set_style_border_color(labelContainer, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_bg_color(labelContainer, lv_color_hex(WEB_LIGHT_TAN), 0);
+
+  lv_obj_set_style_radius(labelContainer, 5, 0);  // Rounded corners
+  lv_obj_set_style_pad_all(labelContainer, 3, 0); // Padding inside
+  lv_obj_align_to(labelContainer, monitorContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
+#endif
+
+#if 1 // main product label
+  productLabel1 = lv_label_create(labelContainer);
+  lv_obj_clear_flag(productLabel1, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(productLabel1, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_size(productLabel1, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_label_set_text(productLabel1, "Delta-T Plus");
+  lv_obj_set_style_text_align(productLabel1, LV_TEXT_ALIGN_CENTER, 0); // center text in box
+  lv_obj_set_style_border_width(productLabel1, 0, 0);
+  lv_obj_set_style_text_color(productLabel1, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(productLabel1, &lv_font_montserrat_14, 0);
+  lv_obj_align(productLabel1, LV_ALIGN_TOP_MID, 0, 0);
+#endif
+
+#if 1 // main product label
+  productLabel2 = lv_label_create(labelContainer);
+  lv_obj_clear_flag(productLabel2, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(productLabel2, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_size(productLabel2, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_label_set_text(productLabel2, "The Instrument Company\n Fort Collins, CO\ntheinstrumentcompany.com");
+  lv_obj_set_style_text_align(productLabel2, LV_TEXT_ALIGN_CENTER, 0); // center text in box
+  lv_obj_set_style_border_width(productLabel2, 0, 0);
+  lv_obj_set_style_text_color(productLabel2, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_text_font(productLabel2, &lv_font_montserrat_12, 0);
+  lv_obj_align_to(productLabel2, productLabel1, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
+
+  // lv_obj_align(productLabel2, LV_ALIGN_CENTER, 0, 0);
+#endif
+}
+
+
+
+
+
+void buttons()
+{
+
+  buttonContainer = lv_obj_create(meter_screen);
+  lv_obj_clear_flag(buttonContainer, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(buttonContainer, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_width(buttonContainer, lv_obj_get_width(meter_screen) - 4);
+  lv_obj_set_height(buttonContainer, 72-20); // again 20 for shifting down
+  lv_obj_set_style_border_width(buttonContainer, 2, 0);
+  lv_obj_set_style_border_color(buttonContainer, lv_color_hex(WEB_LIGHT_TAN), 0);
+  lv_obj_set_style_bg_color(buttonContainer, lv_color_hex(WEB_LIGHT_TAN), 0);
+
+  lv_obj_set_style_radius(buttonContainer, 5, 0);  // Rounded corners
+  lv_obj_set_style_pad_all(buttonContainer, 3, 0); // Padding inside
+  lv_obj_align_to(buttonContainer, labelContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
+
+  // Create the button
+  lv_obj_t *left_btn = lv_btn_create(buttonContainer);
+  lv_obj_set_size(left_btn, 40, 40);
+  lv_obj_align(left_btn, LV_ALIGN_LEFT_MID, 0, 0);
+
+  // Style the button
+  lv_obj_set_style_radius(left_btn, 8, 0);
+  lv_obj_set_style_bg_color(left_btn, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_shadow_width(left_btn, 10, 0);
+  lv_obj_set_style_shadow_color(left_btn, lv_color_hex(0x000000), 0);
+  lv_obj_set_style_shadow_opa(left_btn, LV_OPA_30, 0);
+
+  // Add hover effect
+  lv_obj_set_style_bg_color(left_btn, lv_color_hex(0x1976D2), LV_STATE_PRESSED);
+
+  // Create a label with hamburger menu icon (using text symbol)
+  lv_obj_t *label = lv_label_create(left_btn);
+  lv_label_set_text(label, LV_SYMBOL_SETTINGS); // Hamburger menu icon
+  lv_obj_center(label);
+
+  // Set font size for the icon
+  lv_obj_set_style_text_font(label, &lv_font_montserrat_14, 0);
+
+  // Add event callback
+  lv_obj_add_event_cb(left_btn, load_menu_cb, LV_EVENT_CLICKED, NULL);
+}
+
+  /*
+  // scan button /////////////////////////////////////
+
+  // Create the button
+  lv_obj_t *right_btn = lv_btn_create(buttonContainer);
+  lv_obj_set_size(right_btn, 40, 40);
+  lv_obj_align(right_btn, LV_ALIGN_RIGHT_MID, 0, 0);
+
+  // Style the button
+  lv_obj_set_style_radius(right_btn, 8, 0);
+  lv_obj_set_style_bg_color(right_btn, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_shadow_width(right_btn, 10, 0);
+  lv_obj_set_style_shadow_color(right_btn, lv_color_hex(0x000000), 0);
+  lv_obj_set_style_shadow_opa(right_btn, LV_OPA_30, 0);
+
+  // Add hover effect
+  lv_obj_set_style_bg_color(right_btn, lv_color_hex(0x1976D2), LV_STATE_PRESSED);
+
+  // Create a label with hamburger menu icon (using text symbol)
+  lv_obj_t *label2 = lv_label_create(right_btn);
+  lv_label_set_text(label2, LV_SYMBOL_REFRESH); // Hamburger menu icon
+  lv_obj_center(label2);
+
+  // Set font size for the icon
+  lv_obj_set_style_text_font(label2, &lv_font_montserrat_14, 0);
+
+  // Add event callback
+  lv_obj_add_event_cb(right_btn, start_scan_cb, LV_EVENT_CLICKED, NULL);
+
+}
+
+void start_scan_cb(lv_event_t *e){
+	APP_BLE_Key_Button1_Action();
+}
+*/
+
+lv_obj_t *create_meter_screen(void)
+{
+
+  meter_screen = lv_obj_create(NULL);
+
+  lv_obj_clear_flag(meter_screen, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(meter_screen, LV_OBJ_FLAG_SCROLLABLE);
+  lv_obj_set_style_bg_opa(meter_screen, LV_OPA_COVER, 0);
+  lv_obj_set_style_bg_color(meter_screen, lv_color_hex(WEB_LIGHT_TAN), 0);
+
+  header();
+  gauge();
+  // gauge_with_scale(); trash
+  monitor();
+  labels();
+  buttons();
+
+  lv_obj_null_on_delete(&meter_screen);
+
+  return meter_screen;
+}
+
+

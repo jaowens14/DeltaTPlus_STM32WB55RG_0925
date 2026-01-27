@@ -149,6 +149,8 @@ lv_obj_t * create_settings_screen(void)
 
 #ifdef USE_SERVER
 
+#ifdef USE_OLD_SERVER_SETTINGS_UI
+
   // Title
   lv_obj_t *title = lv_label_create(settings_container);
   lv_label_set_text(title, "Settings");
@@ -247,6 +249,9 @@ lv_obj_t * create_settings_screen(void)
   lv_obj_set_style_text_font(info, &lv_font_montserrat_12, 0);
   lv_obj_align(info, LV_ALIGN_CENTER, 0, 65);
 
+	#endif
+
+
 #else // CLIENT SETTINGS
 
 
@@ -306,7 +311,7 @@ lv_obj_t * create_settings_screen(void)
   lv_obj_set_style_shadow_color(btnm, lv_color_hex(0x000000), 0);
 
 
-#endif
+//#endif
 
   // Back button
   lv_obj_t *back_btn = lv_btn_create(settings_container);
@@ -321,6 +326,7 @@ lv_obj_t * create_settings_screen(void)
   lv_obj_set_style_text_color(back_label, lv_color_hex(0xFFFFFF), 0);
 
   lv_obj_add_event_cb(back_btn, load_menu_cb, LV_EVENT_CLICKED, NULL);
+//#endif
 
 
   if (statusTimer == NULL)
@@ -334,6 +340,7 @@ lv_obj_t * create_settings_screen(void)
     lv_timer_set_user_data(statusTimer, statusLabel);
   }
 
+#endif
 
   lv_obj_null_on_delete(&settings_screen);
 

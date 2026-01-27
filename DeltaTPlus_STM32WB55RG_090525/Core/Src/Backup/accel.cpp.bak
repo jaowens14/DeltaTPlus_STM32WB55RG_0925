@@ -2,6 +2,7 @@
 #include "accel.h"
 #include "main.h"
 #include "widgets.h"
+#include "meter.h"
 
 AccelerometerStates accelState;
 
@@ -113,7 +114,7 @@ void accelHandler(void)
 
     }
 
-    //updateSettingLabel();
+    updateSettingLabel();
 }
 
 

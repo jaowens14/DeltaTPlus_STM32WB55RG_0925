@@ -1,0 +1,48 @@
+
+
+#include "BatteryMonitor.h"
+
+Adafruit_MAX17048_STM32 max17048;
+
+
+void chargeHandler(void)
+{
+	if (chargeChanged){
+		chargeChanged = 0;
+		updateChargingLabel();
+	}
+}
+
+void setupBatteryMonitor(void)
+{
+    while (!max17048.begin(&hi2c1, MAX17048_I2CADDR_DEFAULT))
+    {
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Couldnt find Adafruit MAX17048?\r\n");
+
+        HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+        HAL_Delay(1000);
+    }
+    max17048.quickStart();
+}
+
+uint16_t getChargeLevel(void)
+{
+
+    if (max17048.cellPercent() >= 100)
+    {
+        return 100;
+    }
+    else
+    {
+        return (uint16_t)max17048.cellPercent();
+    }
+
+    // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "Battery: %f\r\n", max17048.cellPercent());
+
+    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 300);
+}
+
+bool getChargeStatus(void)
+{
+    return (max17048.chargeRate() > 0.0);
+}

@@ -111,11 +111,11 @@ lv_obj_t *create_menu_screen(void)
 
     lv_obj_t *settings_label = lv_label_create(settings_btn);
 
-#ifdef USE_SERVER
-    lv_label_set_text(settings_label, "Settings");
-#else
+//#ifdef USE_SERVER
+//    lv_label_set_text(settings_label, "Settings");
+//#else
     lv_label_set_text(settings_label, "Connections");
-#endif
+//#endif
 
     lv_obj_set_style_text_font(settings_label, &lv_font_montserrat_14, 0);
     lv_obj_center(settings_label);

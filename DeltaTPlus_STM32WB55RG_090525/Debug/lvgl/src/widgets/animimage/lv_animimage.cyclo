@@ -1,6 +1,8 @@
+../lvgl/src/widgets/animimage/lv_animimage.c:225:13:lv_animimg_constructor	1
+../lvgl/src/widgets/animimage/lv_animimage.c:244:13:index_change	3
 ../lvgl/src/widgets/animimage/lv_animimage.c:103:12:lv_animimg_create	1
-../lvgl/src/widgets/animimage/lv_animimage.c:111:6:lv_animimg_set_src	1
-../lvgl/src/widgets/animimage/lv_animimage.c:116:6:lv_animimg_set_src_reverse	1
+../lvgl/src/widgets/animimage/lv_animimage.c:111:6:lv_animimg_set_src	2
+../lvgl/src/widgets/animimage/lv_animimage.c:116:6:lv_animimg_set_src_reverse	2
 ../lvgl/src/widgets/animimage/lv_animimage.c:121:6:lv_animimg_start	2
 ../lvgl/src/widgets/animimage/lv_animimage.c:128:6:lv_animimg_delete	2
 ../lvgl/src/widgets/animimage/lv_animimage.c:139:6:lv_animimg_set_duration	2
@@ -14,6 +16,3 @@
 ../lvgl/src/widgets/animimage/lv_animimage.c:200:10:lv_animimg_get_duration	2
 ../lvgl/src/widgets/animimage/lv_animimage.c:207:10:lv_animimg_get_repeat_count	2
 ../lvgl/src/widgets/animimage/lv_animimage.c:214:13:lv_animimg_get_anim	2
-../lvgl/src/widgets/animimage/lv_animimage.c:225:13:lv_animimg_constructor	1
-../lvgl/src/widgets/animimage/lv_animimage.c:244:13:index_change	3
-../lvgl/src/widgets/animimage/lv_animimage.c:258:13:lv_animimg_set_src_inner	3

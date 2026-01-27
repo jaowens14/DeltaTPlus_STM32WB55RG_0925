@@ -16,8 +16,8 @@
 ../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:124:13:MESH_Init	1
 ../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:128:13:BVOPUS_STM_Init	1
 ../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:132:13:SVCCTL_InitCustomSvc	1
-../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:139:6:SVCCTL_Init	1
 ../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:156:13:SVCCTL_SvcInit	1
+../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:139:6:SVCCTL_Init	1
 ../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:202:6:SVCCTL_RegisterSvcHandler	1
 ../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:219:6:SVCCTL_RegisterCltHandler	1
-../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:231:35:SVCCTL_UserEvtRx	11
+../Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.c:231:35:SVCCTL_UserEvtRx	6
