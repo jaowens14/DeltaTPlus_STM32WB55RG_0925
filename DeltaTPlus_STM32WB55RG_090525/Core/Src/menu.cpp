@@ -95,7 +95,8 @@ lv_obj_t *create_menu_screen(void)
 
 
 
-
+#ifdef USE_SERVER
+#else
 
     // Create "Settings" button
     lv_obj_t *settings_btn = lv_btn_create(menuContainer);
@@ -109,16 +110,16 @@ lv_obj_t *create_menu_screen(void)
     lv_obj_align_to(settings_btn, meter_btn, LV_ALIGN_OUT_BOTTOM_MID, 0, btn_spacing);
     lv_obj_add_event_cb(settings_btn, menu_settings_cb, LV_EVENT_CLICKED, NULL);
 
+
     lv_obj_t *settings_label = lv_label_create(settings_btn);
 
-//#ifdef USE_SERVER
-//    lv_label_set_text(settings_label, "Settings");
-//#else
     lv_label_set_text(settings_label, "Connections");
-//#endif
 
     lv_obj_set_style_text_font(settings_label, &lv_font_montserrat_14, 0);
+
     lv_obj_center(settings_label);
+
+#endif
 
     lv_obj_null_on_delete(&menu_screen);
 
