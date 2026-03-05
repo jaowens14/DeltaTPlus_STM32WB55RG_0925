@@ -1,16 +1,16 @@
-../Core/Src/main.cpp:206:6:void lcd_send_cmd(lv_display_t*, const uint8_t*, size_t, const uint8_t*, size_t)	32	static
-../Core/Src/main.cpp:234:6:void lcd_send_color(lv_display_t*, const uint8_t*, size_t, uint8_t*, size_t)	32	static
-../Core/Src/main.cpp:157:6:void lv_port_disp_init()	16	static
-../Core/Src/main.cpp:177:6:void lcd_color_transfer_ready_cb(SPI_HandleTypeDef*)	8	static
-../Core/Src/main.cpp:186:9:int32_t lcd_io_init()	8	static
-../Core/Src/main.cpp:289:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	8	static
-../Core/Src/main.cpp:334:6:void UART_RX_HANDLER()	0	static
-../Core/Src/main.cpp:350:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	8	static
-../Core/Src/main.cpp:406:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	8	static
-../Core/Src/main.cpp:415:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	0	static
-../Core/Src/main.cpp:423:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	0	static
-../Core/Src/main.cpp:432:6:void HAL_GPIO_EXTI_Callback(uint16_t)	0	static
-../Core/Src/main.cpp:624:6:void SystemClock_Config()	120	static,ignoring_inline_asm
-../Core/Src/main.cpp:685:6:void PeriphCommonClock_Config()	88	static,ignoring_inline_asm
-../Core/Src/main.cpp:466:5:int main()	24	static
-../Core/Src/main.cpp:714:6:void Error_Handler()	0	static,ignoring_inline_asm
+../Core/Src/main.cpp:208:6:void lcd_send_cmd(lv_display_t*, const uint8_t*, size_t, const uint8_t*, size_t)	32	static
+../Core/Src/main.cpp:236:6:void lcd_send_color(lv_display_t*, const uint8_t*, size_t, uint8_t*, size_t)	32	static
+../Core/Src/main.cpp:159:6:void lv_port_disp_init()	16	static
+../Core/Src/main.cpp:179:6:void lcd_color_transfer_ready_cb(SPI_HandleTypeDef*)	8	static
+../Core/Src/main.cpp:188:9:int32_t lcd_io_init()	8	static
+../Core/Src/main.cpp:291:6:void HAL_UART_RxCpltCallback(UART_HandleTypeDef*)	8	static
+../Core/Src/main.cpp:336:6:void UART_RX_HANDLER()	0	static
+../Core/Src/main.cpp:352:6:void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef*)	8	static
+../Core/Src/main.cpp:408:6:void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef*)	8	static
+../Core/Src/main.cpp:417:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	0	static
+../Core/Src/main.cpp:425:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	0	static
+../Core/Src/main.cpp:434:6:void HAL_GPIO_EXTI_Callback(uint16_t)	0	static
+../Core/Src/main.cpp:626:6:void SystemClock_Config()	120	static,ignoring_inline_asm
+../Core/Src/main.cpp:687:6:void PeriphCommonClock_Config()	88	static,ignoring_inline_asm
+../Core/Src/main.cpp:468:5:int main()	24	static
+../Core/Src/main.cpp:716:6:void Error_Handler()	0	static,ignoring_inline_asm

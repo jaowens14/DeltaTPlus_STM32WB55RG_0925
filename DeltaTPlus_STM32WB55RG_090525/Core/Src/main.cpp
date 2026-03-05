@@ -17,7 +17,6 @@
  */
 /* USER CODE END Header */
 
-//#define USE_SERVER
 
 /* Includes ------------------------------------------------------------------*/
 #include <accel.h>

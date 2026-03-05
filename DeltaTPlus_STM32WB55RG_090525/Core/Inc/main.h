@@ -35,6 +35,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+//#define USE_SERVER
+
 #define SERIAL_NUMBER        1234u
 
 #define SERIAL_NUMBER_LSB    ((uint8_t)(SERIAL_NUMBER & 0xFFu))

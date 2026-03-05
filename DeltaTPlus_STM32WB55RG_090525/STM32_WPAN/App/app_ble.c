@@ -18,6 +18,7 @@
   */
 /* USER CODE END Header */
 #include <stdbool.h>
+#include <main.h>
 #ifdef USE_SERVER
 
 
