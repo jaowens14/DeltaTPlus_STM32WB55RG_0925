@@ -1534,6 +1534,11 @@ void SVCCTL_ResumeUserEventFlow(void)
   return;
 }
 
+
+void Advert_Request(void){
+	Adv_Request(APP_BLE_FAST_ADV);
+}
+
 //============================================================================================================================
 #else
 /* USER CODE BEGIN Header */

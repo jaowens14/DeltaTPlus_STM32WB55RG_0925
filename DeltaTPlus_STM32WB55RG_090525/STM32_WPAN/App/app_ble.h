@@ -89,6 +89,8 @@ uint16_t getServerSerialNumber(void);
 void setTargetSerialNumber(uint16_t serial);
 bool validateSerialNumber(uint16_t entered_serial);
 
+void Advert_Request(void);
+
 /* USER CODE END EF */
 
 #ifdef __cplusplus

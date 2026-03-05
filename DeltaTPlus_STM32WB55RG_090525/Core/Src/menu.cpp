@@ -113,6 +113,9 @@ lv_obj_t *create_menu_screen(void)
 
 #ifdef USE_SERVER
     lv_label_set_text(settings_label, "Settings");
+
+    // something somethin calll this
+    Advert_Request();
 #else
     lv_label_set_text(settings_label, "Connections");
 #endif
