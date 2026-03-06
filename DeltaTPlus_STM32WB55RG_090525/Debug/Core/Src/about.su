@@ -1,1 +1,1 @@
-../Core/Src/about.cpp:20:12:lv_obj_t* create_about_screen()	304	static
+../Core/Src/about.cpp:20:12:lv_obj_t* create_about_screen()	200	static

@@ -62,10 +62,7 @@ lv_obj_t * create_about_screen(void)
 
   // Manufacture Date
   lv_obj_t *date_label = lv_label_create(about_container);
-  char manufacture_date[100];
-  sprintf(manufacture_date, "Manufactured: %d", MANUFACTURED_DATE);
-  lv_label_set_text(date_label, manufacture_date);
-
+  lv_label_set_text(date_label,  "Manufactured: " MANUFACTURED_DATE);
   lv_obj_set_style_text_color(date_label, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_text_font(date_label, &lv_font_montserrat_12, 0);
   lv_obj_align_to(date_label, serial_label, LV_ALIGN_OUT_BOTTOM_MID, 0, 5);

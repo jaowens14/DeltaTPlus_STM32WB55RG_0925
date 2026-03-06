@@ -1,5 +1,6 @@
+../Core/Src/settings.cpp:94:13:void disconnect_cb(lv_event_t*)	1
+../Core/Src/settings.cpp:72:14:void btnm_event_handler(lv_event_t*)	3
 ../Core/Src/settings.cpp:26:6:void updateClientStatus(lv_timer_t*)	2
+../Core/Src/settings.cpp:42:13:void textarea_event_handler(lv_event_t*)	2
 ../Core/Src/settings.cpp:85:7:void start_scan_cb(lv_event_t*)	1
-../Core/Src/settings.cpp:93:6:void sensitivity_slider_cb(lv_event_t*)	1
-../Core/Src/settings.cpp:108:6:void brightness_slider_cb(lv_event_t*)	1
-../Core/Src/settings.cpp:126:12:lv_obj_t* create_settings_screen()	1
+../Core/Src/settings.cpp:101:12:lv_obj_t* create_settings_screen()	2
