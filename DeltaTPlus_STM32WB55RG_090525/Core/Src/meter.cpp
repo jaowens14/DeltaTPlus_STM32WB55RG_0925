@@ -16,8 +16,10 @@
 #include "menu.h"
 static lv_obj_t *settingLabel = NULL;
 static lv_obj_t *batteryLabel = NULL;
+static lv_obj_t *bleLabel = NULL;
 static lv_obj_t *leftTempLabel = NULL;
 static lv_obj_t *rightTempLabel = NULL;
+static lv_obj_t *serialNumberLabel = NULL;
 static lv_obj_t *productLabel1 = NULL;
 static lv_obj_t *productLabel2 = NULL;
 static lv_obj_t *headerContainer = NULL;
@@ -32,6 +34,7 @@ static lv_obj_t *left_25 = NULL;
 lv_obj_t *meter_screen = NULL;
 static lv_obj_t *root = NULL;
 static lv_timer_t *batteryTimer = NULL;
+static lv_timer_t *bleTimer = NULL;
 
 static lv_obj_t *tickMarks[100];
 
@@ -110,13 +113,33 @@ void updateBatteryLabel(lv_timer_t *timer)
   if (meter_screen != NULL)
   {
     int batteryLevel = getChargeLevel();
+    bool batteryStatus = getChargeStatus();
 
     lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
 
     char buf[32];
-    snprintf(buf, sizeof(buf), "%d%%", batteryLevel);
+
+    if (batteryStatus) {
+        snprintf(buf, sizeof(buf), "%s %d%%", LV_SYMBOL_CHARGE, batteryLevel);
+    } else {
+        snprintf(buf, sizeof(buf), "%d%%", batteryLevel);
+    }
 
     lv_label_set_text(ta, buf);
+  }
+}
+
+void updateBleLabel(lv_timer_t *timer)
+{
+  if (meter_screen != NULL)
+  {
+	  char bleStatus[64];
+	  getBleStatus(bleStatus, sizeof(bleStatus));
+	  printf("BLE Status: %s\n", bleStatus);
+
+    lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
+
+    lv_label_set_text(ta, bleStatus);
   }
 }
 
@@ -212,7 +235,7 @@ void header(void)
 
   if (batteryTimer == NULL)
   {
-    batteryTimer = lv_timer_create(updateBatteryLabel, 5000, batteryLabel);
+    batteryTimer = lv_timer_create(updateBatteryLabel, 1000, batteryLabel);
   }
   else
   {
@@ -222,6 +245,29 @@ void header(void)
   updateBatteryLabel(batteryTimer);
 
 #endif
+
+#if 1 // center left for ble status...
+  bleLabel = lv_label_create(headerContainer);
+  lv_obj_clear_flag(bleLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(bleLabel, LV_OBJ_FLAG_SCROLLABLE);
+  lv_label_set_text(bleLabel, "-");
+  lv_obj_set_size(bleLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  lv_obj_set_style_text_align(bleLabel, LV_TEXT_ALIGN_RIGHT, 0);
+  lv_obj_align(bleLabel, LV_ALIGN_CENTER, 0, 0);
+
+  if (bleTimer == NULL)
+  {
+    bleTimer = lv_timer_create(updateBleLabel, 1000, bleLabel);
+  }
+  else
+  {
+    // Update user data if timer already exists
+    lv_timer_set_user_data(bleTimer, bleLabel);
+  }
+  updateBleLabel(bleTimer);
+
+#endif
+
 
 #if 1 // left label for setting
   settingLabel = lv_label_create(headerContainer);
@@ -383,7 +429,7 @@ void monitor(void)
   lv_obj_align_to(monitorContainer, gaugeContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
 #endif
 
-#if 1 // Right label for battery
+#if 1 // Right label for temp
   rightTempLabel = lv_label_create(monitorContainer);
   lv_obj_clear_flag(rightTempLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(rightTempLabel, LV_OBJ_FLAG_SCROLLABLE);
@@ -394,7 +440,21 @@ void monitor(void)
 
 #endif
 
-#if 1 // left label for setting
+#if 1 // serial number
+  serialNumberLabel = lv_label_create(monitorContainer);
+  lv_obj_clear_flag(serialNumberLabel, LV_OBJ_FLAG_CLICKABLE);
+  lv_obj_clear_flag(serialNumberLabel, LV_OBJ_FLAG_SCROLLABLE);
+
+  char sn[32];
+  snprintf(sn, sizeof(sn), "S/N: %d", SERIAL_NUMBER);
+  lv_label_set_text(serialNumberLabel, sn);
+
+  lv_obj_set_size(serialNumberLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
+  // lv_obj_set_style_text_align(rightTempLabel, LV_TEXT_ALIGN_RIGHT, 0);
+  lv_obj_align(serialNumberLabel, LV_ALIGN_CENTER, 0, 0);
+#endif
+
+#if 1 // left label for temp
   leftTempLabel = lv_label_create(monitorContainer);
   lv_obj_clear_flag(leftTempLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(leftTempLabel, LV_OBJ_FLAG_SCROLLABLE);

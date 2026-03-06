@@ -35,9 +35,19 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-//#define USE_SERVER
+#define USE_SERVER
 
-#define SERIAL_NUMBER        1234u
+#ifdef USE_SERVER
+#define SERVER_SN 1234u
+#define SERIAL_NUMBER SERVER_SN
+
+#else // CLIENT
+#define CLIENT_SN 4444u
+#define SERIAL_NUMBER CLIENT_SN
+#endif
+
+#define MANUFACTURED_DATE 032026
+#define FIRMWARE_VERSION "1.1"
 
 #define SERIAL_NUMBER_LSB    ((uint8_t)(SERIAL_NUMBER & 0xFFu))
 #define SERIAL_NUMBER_MSB    ((uint8_t)((SERIAL_NUMBER >> 8) & 0xFFu))

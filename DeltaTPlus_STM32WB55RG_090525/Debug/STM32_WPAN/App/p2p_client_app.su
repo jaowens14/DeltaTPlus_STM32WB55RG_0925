@@ -1,7 +1,7 @@
 ../STM32_WPAN/App/p2p_client_app.c:183:6:P2PC_APP_Init	16	static
 ../STM32_WPAN/App/p2p_client_app.c:221:6:P2PC_APP_Notification	24	static
 ../STM32_WPAN/App/p2p_client_app.c:269:6:P2PC_APP_SW1_Button_Action	8	static
-../STM32_WPAN/App/p2p_client_app.c:288:30:Event_Handler	88	static
+../STM32_WPAN/App/p2p_client_app.c:288:30:Event_Handler	80	static
 ../STM32_WPAN/App/p2p_client_app.c:575:6:Gatt_Notification	16	static
 ../STM32_WPAN/App/p2p_client_app.c:645:7:GetDeltaTData	4	static
 ../STM32_WPAN/App/p2p_client_app.c:651:9:P2P_Client_APP_Get_State	4	static

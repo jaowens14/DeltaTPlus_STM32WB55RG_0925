@@ -22,7 +22,6 @@
 #ifdef USE_SERVER
 
 
-
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
@@ -540,7 +539,7 @@ void APP_BLE_Init(void)
   /**
    * Start to Advertise to be connected by P2P Client
    */
-  Adv_Request(APP_BLE_FAST_ADV);
+  //Adv_Request(APP_BLE_FAST_ADV);
 
   /* USER CODE BEGIN APP_BLE_Init_2 */
 
@@ -874,6 +873,72 @@ APP_BLE_ConnStatus_t APP_BLE_Get_Server_Connection_Status(void)
   return BleApplicationContext.Device_Connection_Status;
 }
 
+
+void getBleStatus(char *statusStr, size_t maxLen)
+{
+    APP_BLE_ConnStatus_t status = APP_BLE_Get_Server_Connection_Status();
+
+    switch (status)
+    {
+        case APP_BLE_IDLE:
+            strncpy(statusStr, "  ", maxLen - 1);
+            break;
+
+        case APP_BLE_FAST_ADV:
+            strncpy(statusStr, "Pairing", maxLen - 1);
+            break;
+
+        case APP_BLE_LP_ADV:
+            strncpy(statusStr, "Pairing", maxLen - 1);
+            break;
+
+        case APP_BLE_SCAN:
+            strncpy(statusStr, "Scanning", maxLen - 1);
+            break;
+
+        case APP_BLE_LP_CONNECTING:
+            strncpy(statusStr, "Connecting", maxLen - 1);
+            break;
+
+        case APP_BLE_CONNECTED_SERVER:
+            strncpy(statusStr, "Connected", maxLen - 1);
+            break;
+
+        case APP_BLE_CONNECTED_CLIENT:
+            strncpy(statusStr, "Connected", maxLen - 1);
+            break;
+
+        case APP_BLE_DISCOVER_SERVICES:
+            strncpy(statusStr, "DISCOVER_SERVICES", maxLen - 1);
+            break;
+
+        case APP_BLE_DISCOVER_CHARACS:
+            strncpy(statusStr, "DISCOVER_CHARACS", maxLen - 1);
+            break;
+
+        case APP_BLE_DISCOVER_WRITE_DESC:
+            strncpy(statusStr, "DISCOVER_WRITE_DESC", maxLen - 1);
+            break;
+
+        case APP_BLE_DISCOVER_NOTIFICATION_CHAR_DESC:
+            strncpy(statusStr, "DISCOVER_NOTIFICATION_CHAR_DESC", maxLen - 1);
+            break;
+
+        case APP_BLE_ENABLE_NOTIFICATION_DESC:
+            strncpy(statusStr, "ENABLE_NOTIFICATION_DESC", maxLen - 1);
+            break;
+
+        case APP_BLE_DISABLE_NOTIFICATION_DESC:
+            strncpy(statusStr, "DISABLE_NOTIFICATION_DESC", maxLen - 1);
+            break;
+
+        default:
+            strncpy(statusStr, "UNKNOWN", maxLen - 1);
+            break;
+    }
+
+    statusStr[maxLen - 1] = '\0'; // Ensure null termination
+}
 /* USER CODE BEGIN FD*/
 void APP_BLE_Key_Button1_Action(void)
 {

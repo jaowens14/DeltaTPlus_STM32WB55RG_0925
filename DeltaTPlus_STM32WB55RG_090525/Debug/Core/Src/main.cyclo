@@ -12,5 +12,5 @@
 ../Core/Src/main.cpp:434:6:void HAL_GPIO_EXTI_Callback(uint16_t)	5
 ../Core/Src/main.cpp:626:6:void SystemClock_Config()	3
 ../Core/Src/main.cpp:687:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:468:5:int main()	7
+../Core/Src/main.cpp:468:5:int main()	8
 ../Core/Src/main.cpp:716:6:void Error_Handler()	1

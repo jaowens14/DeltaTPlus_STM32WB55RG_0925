@@ -8,10 +8,16 @@
 #include "lvgl.h"
 #include "widgets.h"
 #include "menu.h"
-
+#include "app_ble.h"
 lv_obj_t *menu_screen = NULL;
 static lv_obj_t *menuContainer = NULL;
 static lv_obj_t *headerLabel = NULL;
+
+void avert_cb(lv_event_t *e)
+{
+	Advert_Request();
+	load_screen(METER);
+}
 
 // Button event callbacks
 void menu_about_cb(lv_event_t *e)
@@ -107,17 +113,21 @@ lv_obj_t *create_menu_screen(void)
     lv_obj_set_style_shadow_opa(settings_btn, LV_OPA_30, 0);
     lv_obj_set_style_bg_color(settings_btn, lv_color_hex(0x1976D2), LV_STATE_PRESSED);
     lv_obj_align_to(settings_btn, meter_btn, LV_ALIGN_OUT_BOTTOM_MID, 0, btn_spacing);
+
+#ifdef USE_SERVER
+    lv_obj_add_event_cb(settings_btn, avert_cb, LV_EVENT_CLICKED, NULL);
+
+    lv_obj_t *settings_label = lv_label_create(settings_btn);
+
+    lv_label_set_text(settings_label, "Start Pairing");
+
+#else // USE_CLIENT
     lv_obj_add_event_cb(settings_btn, menu_settings_cb, LV_EVENT_CLICKED, NULL);
 
     lv_obj_t *settings_label = lv_label_create(settings_btn);
 
-#ifdef USE_SERVER
-    lv_label_set_text(settings_label, "Settings");
-
-    // something somethin calll this
-    Advert_Request();
-#else
     lv_label_set_text(settings_label, "Connections");
+
 #endif
 
     lv_obj_set_style_text_font(settings_label, &lv_font_montserrat_14, 0);

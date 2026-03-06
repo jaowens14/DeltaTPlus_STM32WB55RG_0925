@@ -170,7 +170,7 @@ float Adafruit_MAX17048_STM32::chargeRate(void)
 {
   if (!isDeviceReady())
   {
-    return NAN;
+    return -1.0;
   }
 
   int16_t rate = (int16_t)readRegister16(MAX1704X_CRATE_REG);

@@ -56,9 +56,69 @@ void Thermocouples::setup()
     int channel1 = 1;
 
 
+
+#if 1 // setup from 'putting screws in and sending it'
+    // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
+    // thermocoupleADC.reset();
+    // HAL_Delay(200);
+    // Configure Setup 0 for Thermocouples
+    // High gain (128) with internal reference for maximum sensitivity to µV signals
+    thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, true);
+    thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc4FastFilter, filterWord);
+
+    thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
+    thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4FastFilter, filterWord);
+
+    // Configure Channel 0: Thermocouple 1 (AIN0+/AIN1-) using Setup 0
+    thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN0Input, Ad7124::AIN1Input, true);
+
+    // Configure Channel 1: Thermocouple 2 (AIN2+/AIN3-) using Setup 0
+    thermocoupleADC.setChannel(channel1, setup0, Ad7124::AIN2Input, Ad7124::AIN3Input, true);
+
+    // Configure Channel 2: Thermistor (AIN5+/AIN6-) using Setup 1
+    // thermocoupleADC.setChannel(channel2, setup1, Ad7124::AIN5Input, Ad7124::AIN6Input, true);
+    // HAL_Delay(200);
+    //
+    // thermocoupleADC.setCurrentSource(0, Ad7124::IoutCh4, Ad7124::Current500uA);
+    // HAL_Delay(200);
+
+    thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
+    HAL_Delay(200);
+
+    // int ch_0_cal = thermocoupleADC.internalCalibration(0);
+    // int ch_1_cal = thermocoupleADC.internalCalibration(1);
+    // int ch_2_cal = thermocoupleADC.internalCalibration(2);
+    //
+    // snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "calibration res: %d, %d, %d\r\n", ch_0_cal, ch_1_cal, ch_2_cal);
+    // HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 100);
+
+    // Enable only the channels we're using
+    thermocoupleADC.enableChannel(0, true);   // Thermocouple 1
+    thermocoupleADC.enableChannel(1, true);   // Thermocouple 2
+    thermocoupleADC.enableChannel(2, false);  // Thermistor (cold junction)
+    thermocoupleADC.enableChannel(3, false);  // Disabled
+    thermocoupleADC.enableChannel(4, false);  // Disabled
+    thermocoupleADC.enableChannel(5, false);  // Disabled
+    thermocoupleADC.enableChannel(6, false);  // Disabled
+    thermocoupleADC.enableChannel(7, false);  // Disabled
+    thermocoupleADC.enableChannel(8, false);  // Disabled
+    thermocoupleADC.enableChannel(9, false);  // Disabled
+    thermocoupleADC.enableChannel(10, false); // Disabled
+    thermocoupleADC.enableChannel(11, false); // Disabled
+    thermocoupleADC.enableChannel(12, false); // Disabled
+    thermocoupleADC.enableChannel(13, false); // Disabled
+    thermocoupleADC.enableChannel(14, false); // Disabled
+    thermocoupleADC.enableChannel(15, false); // Disabled
+
+    // Allow settling time
+    HAL_Delay(200);
+
+#endif
+
+
     //thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN1Input | Ad7124::AIN2Input | Ad7124::AIN3Input);
 
-#if 1 // init seq 1
+#if 0 // init seq 1
 
      thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
 

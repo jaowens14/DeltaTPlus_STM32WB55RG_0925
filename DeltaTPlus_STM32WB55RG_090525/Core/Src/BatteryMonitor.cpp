@@ -35,5 +35,11 @@ uint16_t getChargeLevel(void)
 
 bool getChargeStatus(void)
 {
-    return (max17048.chargeRate() > 0.0);
+    float rate = max17048.chargeRate();
+
+    if (rate < 0.0) {
+        return false; // Device not ready or discharging
+    }
+
+    return (rate > 0.01); // Small epsilon to avoid floating point noise near zero
 }

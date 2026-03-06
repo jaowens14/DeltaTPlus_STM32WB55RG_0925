@@ -84,6 +84,7 @@ void APP_BLE_Key_Button2_Action(void);
 void APP_BLE_Key_Button3_Action(void);
 void APP_BLE_DeltaT_Action(void);
 void getClientStatus(char * newstatus, size_t size);
+void getBleStatus(char *statusStr, size_t maxLen);
 
 uint16_t getServerSerialNumber(void);
 void setTargetSerialNumber(uint16_t serial);
