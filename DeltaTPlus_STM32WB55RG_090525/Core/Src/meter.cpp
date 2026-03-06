@@ -429,7 +429,7 @@ void monitor(void)
   lv_obj_align_to(monitorContainer, gaugeContainer, LV_ALIGN_OUT_BOTTOM_MID, 0, 2);
 #endif
 
-#if 1 // Right label for temp
+#if 0 // Right label for temp
   rightTempLabel = lv_label_create(monitorContainer);
   lv_obj_clear_flag(rightTempLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(rightTempLabel, LV_OBJ_FLAG_SCROLLABLE);
@@ -446,15 +446,15 @@ void monitor(void)
   lv_obj_clear_flag(serialNumberLabel, LV_OBJ_FLAG_SCROLLABLE);
 
   char sn[32];
-  snprintf(sn, sizeof(sn), "S/N: %d", SERIAL_NUMBER);
+  snprintf(sn, sizeof(sn), "S/N: %04d", SERIAL_NUMBER);
   lv_label_set_text(serialNumberLabel, sn);
 
   lv_obj_set_size(serialNumberLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
   // lv_obj_set_style_text_align(rightTempLabel, LV_TEXT_ALIGN_RIGHT, 0);
-  lv_obj_align(serialNumberLabel, LV_ALIGN_CENTER, 0, 0);
+  lv_obj_align(serialNumberLabel, LV_ALIGN_LEFT_MID, 0, 0);
 #endif
 
-#if 1 // left label for temp
+#if 0 // left label for temp
   leftTempLabel = lv_label_create(monitorContainer);
   lv_obj_clear_flag(leftTempLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(leftTempLabel, LV_OBJ_FLAG_SCROLLABLE);

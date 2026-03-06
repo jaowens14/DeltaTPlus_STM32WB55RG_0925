@@ -1,5 +1,5 @@
-../lvgl/src/drivers/display/st7789/lv_st7789.c:110:16:lv_st7789_create	40	static
-../lvgl/src/drivers/display/st7789/lv_st7789.c:118:6:lv_st7789_set_gap	16	static
-../lvgl/src/drivers/display/st7789/lv_st7789.c:123:6:lv_st7789_set_invert	16	static
-../lvgl/src/drivers/display/st7789/lv_st7789.c:128:6:lv_st7789_set_gamma_curve	16	static
-../lvgl/src/drivers/display/st7789/lv_st7789.c:133:6:lv_st7789_send_cmd_list	16	static
+../lvgl/src/drivers/display/st7789/lv_st7789.c:110:16:lv_st7789_create	16	static
+../lvgl/src/drivers/display/st7789/lv_st7789.c:118:6:lv_st7789_set_gap	0	static
+../lvgl/src/drivers/display/st7789/lv_st7789.c:123:6:lv_st7789_set_invert	0	static
+../lvgl/src/drivers/display/st7789/lv_st7789.c:128:6:lv_st7789_set_gamma_curve	0	static
+../lvgl/src/drivers/display/st7789/lv_st7789.c:133:6:lv_st7789_send_cmd_list	0	static

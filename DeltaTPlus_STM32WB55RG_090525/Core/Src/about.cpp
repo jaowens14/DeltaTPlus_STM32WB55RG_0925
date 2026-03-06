@@ -53,7 +53,7 @@ lv_obj_t * create_about_screen(void)
   // Serial Number
   lv_obj_t *serial_label = lv_label_create(about_container);
   char serial_number[100];
-  sprintf(serial_number, "Serial Number: %d", SERIAL_NUMBER);
+  sprintf(serial_number, "Serial Number: %04d", SERIAL_NUMBER);
   lv_label_set_text(serial_label, serial_number);
 
   lv_obj_set_style_text_color(serial_label, lv_color_hex(Charcoal), 0);

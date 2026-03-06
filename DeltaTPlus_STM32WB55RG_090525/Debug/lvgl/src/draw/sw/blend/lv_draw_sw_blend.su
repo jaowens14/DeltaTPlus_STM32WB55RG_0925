@@ -1,3 +1,1 @@
-../lvgl/src/draw/sw/blend/lv_draw_sw_blend.c:70:6:lv_draw_sw_blend	128	static
-../lvgl/src/draw/sw/blend/lv_draw_sw_blend.c:174:42:lv_draw_sw_blend_color	16	static
-../lvgl/src/draw/sw/blend/lv_draw_sw_blend.c:228:42:lv_draw_sw_blend_image	16	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend.c:70:6:lv_draw_sw_blend	112	static

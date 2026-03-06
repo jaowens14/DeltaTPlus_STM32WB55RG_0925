@@ -33,7 +33,7 @@ void load_screen(SCREEN_ID_T screen)
     if (meter_screen == NULL)
     {
       meter_screen = create_meter_screen();
-      lv_screen_load_anim(meter_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 1000, 3, true);
+      lv_screen_load_anim(meter_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 100, 3, true);
     }
 
     break;
@@ -42,7 +42,7 @@ void load_screen(SCREEN_ID_T screen)
 
 	  if (menu_screen == NULL) {
 		  menu_screen = create_menu_screen();
-		  lv_screen_load_anim(menu_screen, LV_SCREEN_LOAD_ANIM_OVER_RIGHT, 1000, 3, true);
+		  lv_screen_load_anim(menu_screen, LV_SCREEN_LOAD_ANIM_OVER_RIGHT, 100, 3, true);
 	  }
 
     break;
@@ -52,7 +52,7 @@ void load_screen(SCREEN_ID_T screen)
 	    if (about_screen == NULL)
 	    {
 	    	about_screen = create_about_screen();
-	      lv_screen_load_anim(about_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 1000, 3, true);
+	      lv_screen_load_anim(about_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 100, 3, true);
 	    }
     break;
 
@@ -61,7 +61,7 @@ void load_screen(SCREEN_ID_T screen)
 	    if (settings_screen == NULL)
 	    {
 	    	settings_screen = create_settings_screen();
-	      lv_screen_load_anim(settings_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 1000, 3, true);
+	      lv_screen_load_anim(settings_screen, LV_SCREEN_LOAD_ANIM_OVER_LEFT, 100, 3, true);
 	    }
     break;
   }

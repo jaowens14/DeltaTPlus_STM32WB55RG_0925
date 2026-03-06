@@ -198,7 +198,7 @@ void Thermocouples::setup()
     // HAL_Delay(200);
 
     thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
-    HAL_Delay(200);
+    //HAL_Delay(200);
 
     // int ch_0_cal = thermocoupleADC.internalCalibration(0);
     // int ch_1_cal = thermocoupleADC.internalCalibration(1);
@@ -363,16 +363,16 @@ void Thermocouples::stateMachine(void)
 #ifdef USE_SERVER
 
 
-        updateLeftandRightTempLabels();
+        //updateLeftandRightTempLabels();
 
         LoadDeltaData(deltaTemp);
 #endif
 
 
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+        //snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
         //if(uart_ready){
-       HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);
+       //HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);
         //uart_ready = 0;
         //}
 

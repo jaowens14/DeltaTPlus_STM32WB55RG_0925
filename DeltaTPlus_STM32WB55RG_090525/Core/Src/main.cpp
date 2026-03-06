@@ -567,11 +567,11 @@ int main(void)
   while (1)
   {
     loopCounter++; // Increment at start of each iteration
-    if (lcd_bus_busy)
-    {
-      snprintf((char *)UART_BUFFER, 32, "BUS BUSY %lu\r\n", HAL_GetTick());
-      HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 10);
-    }
+    //if (lcd_bus_busy)
+    //{
+    //  snprintf((char *)UART_BUFFER, 32, "BUS BUSY %lu\r\n", HAL_GetTick());
+    //  HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 10);
+    //}
     /* USER CODE END WHILE */
     MX_APPE_Process();
 

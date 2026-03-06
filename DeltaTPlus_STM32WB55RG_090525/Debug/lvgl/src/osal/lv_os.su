@@ -1,5 +1,5 @@
-../lvgl/src/osal/lv_os.c:38:6:lv_os_init	4	static
-../lvgl/src/osal/lv_os.c:46:6:lv_lock	4	static
-../lvgl/src/osal/lv_os.c:53:13:lv_lock_isr	4	static
-../lvgl/src/osal/lv_os.c:62:6:lv_unlock	4	static
-../lvgl/src/osal/lv_os.c:70:6:lv_sleep_ms	16	static
+../lvgl/src/osal/lv_os.c:38:6:lv_os_init	0	static
+../lvgl/src/osal/lv_os.c:46:6:lv_lock	0	static
+../lvgl/src/osal/lv_os.c:53:13:lv_lock_isr	0	static
+../lvgl/src/osal/lv_os.c:62:6:lv_unlock	0	static
+../lvgl/src/osal/lv_os.c:70:6:lv_sleep_ms	0	static

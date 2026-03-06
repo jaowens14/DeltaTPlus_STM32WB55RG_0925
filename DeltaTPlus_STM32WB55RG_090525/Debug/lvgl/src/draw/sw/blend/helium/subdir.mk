@@ -16,7 +16,7 @@ S_UPPER_DEPS += \
 
 # Each subdirectory must supply rules for building sources it contributes
 lvgl/src/draw/sw/blend/helium/%.o: ../lvgl/src/draw/sw/blend/helium/%.S lvgl/src/draw/sw/blend/helium/subdir.mk
-	arm-none-eabi-gcc -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@" "$<"
 
 clean: clean-lvgl-2f-src-2f-draw-2f-sw-2f-blend-2f-helium
 

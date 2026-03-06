@@ -34,12 +34,7 @@ uint16_t getChargeLevel(void)
 }
 
 bool getChargeStatus(void)
+
 {
-    float rate = max17048.chargeRate();
-
-    if (rate < 0.0) {
-        return false; // Device not ready or discharging
-    }
-
-    return (rate > 0.01); // Small epsilon to avoid floating point noise near zero
+    return (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_4) == GPIO_PIN_RESET);
 }

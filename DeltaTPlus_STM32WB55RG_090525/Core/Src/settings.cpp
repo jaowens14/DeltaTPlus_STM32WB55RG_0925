@@ -100,6 +100,8 @@ static void disconnect_cb(lv_event_t *e)
 
 lv_obj_t * create_settings_screen(void)
 {
+
+#ifndef USE_SERVER
   // Create settings screen
   settings_screen = lv_obj_create(NULL);
   lv_obj_set_style_bg_color(settings_screen, lv_color_hex(WEB_LIGHT_TAN), 0);
@@ -222,7 +224,7 @@ lv_obj_t * create_settings_screen(void)
     lv_timer_set_user_data(statusTimer, statusLabel);
   }
 
-
+#endif
   lv_obj_null_on_delete(&settings_screen);
 
 

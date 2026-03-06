@@ -2829,6 +2829,13 @@ void SVCCTL_ResumeUserEventFlow(void)
 
 /* USER CODE BEGIN FD_WRAP_FUNCTIONS */
 
+
+
+/* USER CODE END FD_WRAP_FUNCTIONS */
+
+
+#endif
+
 void APP_BLE_Disconnect(void)
 {
     if (BleApplicationContext.Device_Connection_Status == APP_BLE_CONNECTED_CLIENT)
@@ -2852,13 +2859,6 @@ void APP_BLE_Disconnect(void)
         APP_DBG_MSG("-- NOT CONNECTED, NOTHING TO DISCONNECT --\n\r");
     }
 }
-
-/* USER CODE END FD_WRAP_FUNCTIONS */
-
-
-#endif
-
-
 /* USER CODE BEGIN FD_WRAP_FUNCTIONS */
 
 void getBleStatus(char *statusStr, size_t maxLen)

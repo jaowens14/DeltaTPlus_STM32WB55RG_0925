@@ -35,14 +35,14 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-//#define USE_SERVER
+#define USE_SERVER
 
 #ifdef USE_SERVER
-#define SERVER_SN 1234u
+#define SERVER_SN 0001u
 #define SERIAL_NUMBER SERVER_SN
 
 #else // CLIENT
-#define CLIENT_SN 4444u
+#define CLIENT_SN 0001u
 #define SERIAL_NUMBER CLIENT_SN
 #endif
 
