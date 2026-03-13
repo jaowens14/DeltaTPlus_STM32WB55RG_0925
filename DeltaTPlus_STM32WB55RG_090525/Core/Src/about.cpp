@@ -17,6 +17,13 @@ lv_obj_t *about_screen = NULL;
 #define COMPANY_URL_SHORT "theinstrumentcompany.com"
 
 
+void update_cb(lv_event_t *e)
+{
+    // Load about screen
+	EnterDFUMode();
+}
+
+
 lv_obj_t * create_about_screen(void)
 {
   // Create about screen
@@ -90,6 +97,27 @@ lv_obj_t * create_about_screen(void)
   lv_obj_set_style_text_color(url_label, lv_color_hex(Charcoal), 0);
   lv_obj_set_style_text_font(url_label, &lv_font_montserrat_12, 0);
   lv_obj_align_to(url_label, qr, LV_ALIGN_OUT_BOTTOM_MID, 0, 0);
+
+
+
+  // Update button
+  lv_obj_t *update_btn = lv_btn_create(about_container);
+  lv_obj_set_size(update_btn, 40, 40);
+  lv_obj_set_style_radius(update_btn, 5, 0);
+  lv_obj_set_style_bg_color(update_btn, lv_color_hex(Charcoal), 0);
+  lv_obj_set_style_shadow_width(update_btn, 10, 0);
+  lv_obj_set_style_shadow_color(update_btn, lv_color_hex(0x000000), 0);
+  lv_obj_set_style_shadow_opa(update_btn, LV_OPA_30, 0);
+  lv_obj_set_style_bg_color(update_btn, lv_color_hex(0x1976D2), LV_STATE_PRESSED);
+
+  lv_obj_align(update_btn, LV_ALIGN_BOTTOM_RIGHT, 0, 0);
+  lv_obj_add_event_cb(update_btn, update_cb, LV_EVENT_CLICKED, NULL);
+
+  lv_obj_t *update_label = lv_label_create(update_btn);
+  lv_label_set_text(update_label, "Start Update...");
+  lv_obj_set_style_text_font(update_label, &lv_font_montserrat_14, 0);
+  lv_obj_center(update_label);
+
 
   // Back button
   lv_obj_t *back_btn = lv_btn_create(about_container);

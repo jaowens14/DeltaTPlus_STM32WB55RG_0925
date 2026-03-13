@@ -1,0 +1,7 @@
+../Core/Src/ST7789.c:216:6:ST7789_WriteCommand	1
+../Core/Src/ST7789.c:225:6:ST7789_WriteData	1
+../Core/Src/ST7789.c:33:6:ST7789_Init	1
+../Core/Src/ST7789.c:199:6:ST7789_SetWindow	1
+../Core/Src/ST7789.c:153:6:ST7789_WriteFillRect	6
+../Core/Src/ST7789.c:194:6:ST7789_FillScreen	1
+../Core/Src/ST7789.c:234:6:ST7789V_SetRotation	2

@@ -101,8 +101,6 @@ lv_obj_t *create_menu_screen(void)
 
 
 
-
-
     // Create "Settings" button
     lv_obj_t *settings_btn = lv_btn_create(menuContainer);
     lv_obj_set_size(settings_btn, btn_width, btn_height);

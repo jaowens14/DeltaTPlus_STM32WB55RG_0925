@@ -461,28 +461,68 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 /* USER CODE END 0 */
 
-/**
- * @brief  The application entry point.
- * @retval int
- */
+void EnterDFUMode(void)
+{
+    HAL_PWR_EnableBkUpAccess();
+    WRITE_REG(RTC->BKP1R, 0xDEADBEEF);
+    HAL_Delay(50);
+    HAL_NVIC_SystemReset();
+}
 int main(void)
 {
+	HAL_Init();
+	HAL_PWR_EnableBkUpAccess();
 
-  /* USER CODE BEGIN 1 */
+	/* Check nSWBOOT0 - if 0, we are stuck, restore immediately */
+	FLASH_OBProgramInitTypeDef OBCheck = {0};
+	OBCheck.WRPArea = OB_WRPAREA_BANK1_AREAA;
+	HAL_FLASHEx_OBGetConfig(&OBCheck);
 
-  /* USER CODE END 1 */
+	if ((OBCheck.UserConfig & FLASH_OPTR_nSWBOOT0) == 0)
+	{
+	    /* Stuck in DFU loop - restore unconditionally */
+	    FLASH_OBProgramInitTypeDef OBInit = {0};
+	    HAL_FLASH_Unlock();
+	    HAL_FLASH_OB_Unlock();
+	    OBInit.OptionType = OPTIONBYTE_USER;
+	    OBInit.UserType   = OB_USER_nSWBOOT0;
+	    OBInit.UserConfig = OB_BOOT0_FROM_PIN;
+	    HAL_FLASHEx_OBProgram(&OBInit);
+	    WRITE_REG(RTC->BKP1R, 0x00);
+	    HAL_FLASH_OB_Launch();
+	    while(1);
+	}
 
-  /* MCU Configuration--------------------------------------------------------*/
+	if (READ_REG(RTC->BKP1R) == 0xDEADBEEF)
+	{
+	    FLASH_OBProgramInitTypeDef OBInit = {0};
+	    HAL_FLASH_Unlock();
+	    HAL_FLASH_OB_Unlock();
+	    OBInit.OptionType = OPTIONBYTE_USER;
+	    OBInit.UserType   = OB_USER_nSWBOOT0;
+	    OBInit.UserConfig = 0x00;
+	    HAL_FLASHEx_OBProgram(&OBInit);
+	    WRITE_REG(RTC->BKP1R, 0xCAFEBABE);
+	    HAL_FLASH_OB_Launch();
+	    while(1);
+	}
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	if (READ_REG(RTC->BKP1R) == 0xCAFEBABE)
+	{
+	    FLASH_OBProgramInitTypeDef OBInit = {0};
+	    HAL_FLASH_Unlock();
+	    HAL_FLASH_OB_Unlock();
+	    OBInit.OptionType = OPTIONBYTE_USER;
+	    OBInit.UserType   = OB_USER_nSWBOOT0;
+	    OBInit.UserConfig = OB_BOOT0_FROM_PIN;
+	    HAL_FLASHEx_OBProgram(&OBInit);
+	    WRITE_REG(RTC->BKP1R, 0x00);
+	    HAL_FLASH_OB_Launch();
+	    while(1);
+	}
 
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
-  /* Configure the system clock */
-  SystemClock_Config();
+	SystemClock_Config();
+	/* rest of init... */
 
   /* Configure the peripherals common clocks */
   PeriphCommonClock_Config();

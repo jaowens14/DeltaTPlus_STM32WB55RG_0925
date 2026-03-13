@@ -10,7 +10,8 @@
 ../Core/Src/main.cpp:417:6:void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef*)	1
 ../Core/Src/main.cpp:425:6:void HAL_UART_TxCpltCallback(UART_HandleTypeDef*)	2
 ../Core/Src/main.cpp:434:6:void HAL_GPIO_EXTI_Callback(uint16_t)	5
-../Core/Src/main.cpp:626:6:void SystemClock_Config()	3
-../Core/Src/main.cpp:687:6:void PeriphCommonClock_Config()	2
-../Core/Src/main.cpp:468:5:int main()	7
-../Core/Src/main.cpp:716:6:void Error_Handler()	1
+../Core/Src/main.cpp:464:6:void EnterDFUMode()	1
+../Core/Src/main.cpp:666:6:void SystemClock_Config()	3
+../Core/Src/main.cpp:727:6:void PeriphCommonClock_Config()	2
+../Core/Src/main.cpp:471:5:int main()	10
+../Core/Src/main.cpp:756:6:void Error_Handler()	1

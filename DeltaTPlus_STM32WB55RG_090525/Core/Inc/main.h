@@ -116,6 +116,8 @@ void Error_Handler(void);
 
   void SystemClock_Config(void);
 /* USER CODE END Private defines */
+  void EnterDFUMode(void);
+
 
 #ifdef __cplusplus
 }
