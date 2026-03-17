@@ -1,2 +1,2 @@
 ../Core/Src/about.cpp:20:6:void update_cb(lv_event_t*)	0	static
-../Core/Src/about.cpp:27:12:lv_obj_t* create_about_screen()	216	static
+../Core/Src/about.cpp:27:12:lv_obj_t* create_about_screen()	200	static

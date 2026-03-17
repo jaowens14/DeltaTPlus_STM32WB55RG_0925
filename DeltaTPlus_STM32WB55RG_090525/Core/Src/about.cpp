@@ -101,6 +101,7 @@ lv_obj_t * create_about_screen(void)
 
 
   // Update button
+  /*
   lv_obj_t *update_btn = lv_btn_create(about_container);
   lv_obj_set_size(update_btn, 40, 40);
   lv_obj_set_style_radius(update_btn, 5, 0);
@@ -117,7 +118,7 @@ lv_obj_t * create_about_screen(void)
   lv_label_set_text(update_label, "Start Update...");
   lv_obj_set_style_text_font(update_label, &lv_font_montserrat_14, 0);
   lv_obj_center(update_label);
-
+*/
 
   // Back button
   lv_obj_t *back_btn = lv_btn_create(about_container);

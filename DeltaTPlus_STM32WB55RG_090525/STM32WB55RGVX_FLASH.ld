@@ -44,7 +44,8 @@ _Min_Stack_Size = 0x1000; /* required amount of stack */
 /* Specify the memory areas */
 MEMORY
 {
-FLASH (rx)                 : ORIGIN = 0x08000000, LENGTH = 1024K
+FLASH (rx)                 : ORIGIN = 0x08000000, LENGTH = 786k
+NVM (r)                    : ORIGIN = 0x080BFE50, LENGTH = 4K
 RAM (xrw)                 : ORIGIN = 0x20000008, LENGTH = 0x2FFF8
 RAM_SHARED (xrw)           : ORIGIN = 0x20030000, LENGTH = 10K
 }
@@ -60,6 +61,10 @@ SECTIONS
     . = ALIGN(4);
   } >FLASH
 
+  .nvm_data :
+  {
+  KEEP(*(.nvm_data))
+  } > NVM
   /* The program code and other data goes into FLASH */
   .text :
   {

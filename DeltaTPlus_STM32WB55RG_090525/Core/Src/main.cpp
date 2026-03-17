@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 
 
+
 /* Includes ------------------------------------------------------------------*/
 #include <accel.h>
 #include <backlight.h>
@@ -37,7 +38,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 // #include "Adafruit_GFX.h"
-//  #include "usbd_cdc_if.h"
+#include "usbd_cdc_if.h"
 #include "stm32_seq.h"
 #include <string.h>
 
@@ -47,6 +48,7 @@
 #include "DeltaT.h"
 #include "BatteryMonitor.h"
 #include "FT5436_Touch.h"
+#include <stdarg.h>  //
 
 #ifdef USE_SERVER
 #include "p2p_server_app.h"
@@ -151,7 +153,19 @@ volatile int lcd_bus_busy = 0;
 /**********************
  *      MACROS
  **********************/
+void debug_printf(const char *format, ...)
+{
+    char buffer[128];
+    va_list args;
+    va_start(args, format);
+    int len = vsnprintf(buffer, sizeof(buffer), format, args);
+    va_end(args);
 
+    if (len > 0) {
+        //HAL_UART_Transmit(&huart1, (uint8_t*)buffer, len, 100);
+        CDC_Transmit_FS((uint8_t*)buffer, len);
+    }
+}
 /**********************
  *   GLOBAL FUNCTIONS
  **********************/
@@ -287,6 +301,7 @@ volatile int run_lv_timer_handler = 0;
 volatile uint32_t loopCounter = 0;
 volatile uint32_t loopsPerSecond = 0;
 volatile uint8_t measureFlag = 0;
+uint32_t SERIAL_NUMBER = 0;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -456,6 +471,34 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   }
 }
 
+
+#define SN_FLASH_ADDR   0x080BFE50
+
+uint32_t SerialNumber_Read(void) {
+    uint32_t value = *(uint32_t*)SN_FLASH_ADDR;
+
+    if (value == 0xFFFFFFFF) {
+    	return 0;
+    }
+    return value;
+}
+
+void SerialNumber_Save(uint32_t serial) {
+    HAL_FLASH_Unlock();
+
+    FLASH_EraseInitTypeDef erase = {
+        .TypeErase = FLASH_TYPEERASE_PAGES,
+        .Page      = (SN_FLASH_ADDR - FLASH_BASE) / FLASH_PAGE_SIZE,
+        .NbPages   = 1
+    };
+    uint32_t pageError;
+    HAL_FLASHEx_Erase(&erase, &pageError);
+
+    // Must write as 64-bit double-word
+    HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, SN_FLASH_ADDR, (uint64_t)serial);
+
+    HAL_FLASH_Lock();
+}
 /*
 
 
@@ -463,63 +506,27 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 void EnterDFUMode(void)
 {
-    HAL_PWR_EnableBkUpAccess();
-    WRITE_REG(RTC->BKP1R, 0xDEADBEEF);
-    HAL_Delay(50);
-    HAL_NVIC_SystemReset();
+	FLASH_OBProgramInitTypeDef OBInit = {0};
+	HAL_FLASH_Unlock();
+	HAL_FLASH_OB_Unlock();
+	OBInit.OptionType = OPTIONBYTE_USER;
+	OBInit.UserType   = OB_USER_nSWBOOT0;
+	OBInit.UserConfig = 0x00; // set to option bit to tell bootloader to use dfu
+	HAL_FLASHEx_OBProgram(&OBInit);
+	HAL_FLASH_OB_Launch();
+
 }
+
+
+
 int main(void)
 {
+
+
 	HAL_Init();
-	HAL_PWR_EnableBkUpAccess();
 
-	/* Check nSWBOOT0 - if 0, we are stuck, restore immediately */
-	FLASH_OBProgramInitTypeDef OBCheck = {0};
-	OBCheck.WRPArea = OB_WRPAREA_BANK1_AREAA;
-	HAL_FLASHEx_OBGetConfig(&OBCheck);
+	  SERIAL_NUMBER = SerialNumber_Read();
 
-	if ((OBCheck.UserConfig & FLASH_OPTR_nSWBOOT0) == 0)
-	{
-	    /* Stuck in DFU loop - restore unconditionally */
-	    FLASH_OBProgramInitTypeDef OBInit = {0};
-	    HAL_FLASH_Unlock();
-	    HAL_FLASH_OB_Unlock();
-	    OBInit.OptionType = OPTIONBYTE_USER;
-	    OBInit.UserType   = OB_USER_nSWBOOT0;
-	    OBInit.UserConfig = OB_BOOT0_FROM_PIN;
-	    HAL_FLASHEx_OBProgram(&OBInit);
-	    WRITE_REG(RTC->BKP1R, 0x00);
-	    HAL_FLASH_OB_Launch();
-	    while(1);
-	}
-
-	if (READ_REG(RTC->BKP1R) == 0xDEADBEEF)
-	{
-	    FLASH_OBProgramInitTypeDef OBInit = {0};
-	    HAL_FLASH_Unlock();
-	    HAL_FLASH_OB_Unlock();
-	    OBInit.OptionType = OPTIONBYTE_USER;
-	    OBInit.UserType   = OB_USER_nSWBOOT0;
-	    OBInit.UserConfig = 0x00;
-	    HAL_FLASHEx_OBProgram(&OBInit);
-	    WRITE_REG(RTC->BKP1R, 0xCAFEBABE);
-	    HAL_FLASH_OB_Launch();
-	    while(1);
-	}
-
-	if (READ_REG(RTC->BKP1R) == 0xCAFEBABE)
-	{
-	    FLASH_OBProgramInitTypeDef OBInit = {0};
-	    HAL_FLASH_Unlock();
-	    HAL_FLASH_OB_Unlock();
-	    OBInit.OptionType = OPTIONBYTE_USER;
-	    OBInit.UserType   = OB_USER_nSWBOOT0;
-	    OBInit.UserConfig = OB_BOOT0_FROM_PIN;
-	    HAL_FLASHEx_OBProgram(&OBInit);
-	    WRITE_REG(RTC->BKP1R, 0x00);
-	    HAL_FLASH_OB_Launch();
-	    while(1);
-	}
 
 	SystemClock_Config();
 	/* rest of init... */
@@ -563,10 +570,17 @@ int main(void)
   HAL_NVIC_EnableIRQ(TIM1_UP_TIM16_IRQn);
   /* USER CODE END 2 */
 
+
+
+
+
+
+
   /* Init code for STM32_WPAN */
   MX_APPE_Init();
 
   accelSetup();
+  //debug_printf("sensors setup...\r\n");
   myThermocouples.setup();
   // thermocouplesSetup();
 
@@ -591,16 +605,25 @@ int main(void)
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
   lv_indev_set_read_cb(indev, ft5436_read_touch_points);
 
-
-
+  //debug_printf("disp setup...\r\n");
 
   load_screen(METER);
 
   backlightSetup();
 
-  snprintf((char *)UART_BUFFER, 64, "Setup finished\r\n");
+#ifdef USE_SERVER
+  snprintf((char *)UART_BUFFER, 64, "Server Setup finished\r\n");
+#else
+  snprintf((char *)UART_BUFFER, 64, "Client Setup finished\r\n");
+#endif
+
   HAL_UART_Transmit_IT(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER));
   HAL_UART_Receive_IT(&huart1, &UART_RX_BYTE, 1);
+
+  CDC_Transmit_FS((uint8_t *)UART_BUFFER, strlen((char *)UART_BUFFER));
+
+
+
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */

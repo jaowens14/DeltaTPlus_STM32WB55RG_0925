@@ -35,22 +35,25 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define USE_SERVER
+
+//#define USE_SERVER
+
+extern uint32_t SERIAL_NUMBER;
+
 
 #ifdef USE_SERVER
-#define SERVER_SN 0001u
-#define SERIAL_NUMBER SERVER_SN
+//#define SERVER_SN 0001u
+//#define SERIAL_NUMBER SERVER_SN
 
 #else // CLIENT
-#define CLIENT_SN 0001u
-#define SERIAL_NUMBER CLIENT_SN
+//#define CLIENT_SN 0001u
+//#define SERIAL_NUMBER CLIENT_SN
 #endif
 
 #define MANUFACTURED_DATE "03 2026"
-#define FIRMWARE_VERSION "1.1"
+#define FIRMWARE_VERSION "1.1.0"
 
-#define SERIAL_NUMBER_LSB    ((uint8_t)(SERIAL_NUMBER & 0xFFu))
-#define SERIAL_NUMBER_MSB    ((uint8_t)((SERIAL_NUMBER >> 8) & 0xFFu))
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -117,6 +120,11 @@ void Error_Handler(void);
   void SystemClock_Config(void);
 /* USER CODE END Private defines */
   void EnterDFUMode(void);
+
+  //uint32_t SerialNumber_Read(void);
+  void SerialNumber_Save(uint32_t serial);
+
+  uint32_t SerialNumber_Read(void);
 
 
 #ifdef __cplusplus

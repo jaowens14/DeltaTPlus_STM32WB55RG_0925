@@ -24,9 +24,7 @@ C_UPPER_DEPS :=
 S_DEPS := 
 CXXM_DEPS := 
 C_DEPS := 
-OBJCOPY_BIN := 
 CC_DEPS := 
-OBJCOPY_HEX := 
 SIZE_OUTPUT := 
 C++_DEPS := 
 SU_FILES := 
@@ -45,7 +43,7 @@ AD7124_Library/examples/ad7124-cn0381 \
 Core/Src \
 Core/Startup \
 Drivers/STM32WBxx_HAL_Driver/Src \
-Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Src \
+Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src \
 Middlewares/ST/STM32_USB_Device_Library/Core/Src \
 Middlewares/ST/STM32_WPAN/ble/core/auto \
 Middlewares/ST/STM32_WPAN/ble/core/template \

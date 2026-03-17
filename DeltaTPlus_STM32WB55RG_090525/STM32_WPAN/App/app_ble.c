@@ -245,8 +245,8 @@ uint8_t a_ManufData[14] = {sizeof(a_ManufData)-1,
                            AD_TYPE_MANUFACTURER_SPECIFIC_DATA,
                            0x01,                               /*SKD version */
                            CFG_DEV_ID_P2P_SERVER1,             /* STM32WB - P2P Server 1*/
-						   SERIAL_NUMBER_MSB,                               /* GROUP A Feature */
-						   SERIAL_NUMBER_LSB,                               /* GROUP A Feature */
+						   0x00,                               /* GROUP A Feature */
+						   0x00,                               /* GROUP A Feature */
                            0x00,                               /* GROUP B Feature */
                            0x00,                               /* GROUP B Feature */
                            0x00,                               /* BLE MAC start -MSB */
@@ -394,6 +394,11 @@ void APP_BLE_Init(void)
   tBleStatus ret = BLE_STATUS_INVALID_PARAMS;
 #endif /* RADIO_ACTIVITY_EVENT != 0 */
   /* USER CODE BEGIN APP_BLE_Init_1 */
+
+
+  a_ManufData[4] = (SERIAL_NUMBER >> 8) & 0xFF;  // MSB
+  a_ManufData[5] = SERIAL_NUMBER & 0xFF;          // LSB
+
 
   /* USER CODE END APP_BLE_Init_1 */
   SHCI_C2_Ble_Init_Cmd_Packet_t ble_init_cmd_packet =

@@ -22,7 +22,7 @@ RM := rm -rf
 -include Middlewares/ST/STM32_WPAN/ble/core/template/subdir.mk
 -include Middlewares/ST/STM32_WPAN/ble/core/auto/subdir.mk
 -include Middlewares/ST/STM32_USB_Device_Library/Core/Src/subdir.mk
--include Middlewares/ST/STM32_USB_Device_Library/Class/DFU/Src/subdir.mk
+-include Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/subdir.mk
 -include Drivers/STM32WBxx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -92,12 +92,6 @@ default.size.stdout \
 OBJDUMP_LIST += \
 DeltaTPlus_STM32WB55RG_090525.list \
 
-OBJCOPY_HEX += \
-DeltaTPlus_STM32WB55RG_090525.hex \
-
-OBJCOPY_BIN += \
-DeltaTPlus_STM32WB55RG_090525.bin \
-
 
 # All Target
 all: main-build
@@ -121,22 +115,12 @@ DeltaTPlus_STM32WB55RG_090525.list: $(EXECUTABLES) makefile objects.list $(OPTIO
 	@echo 'Finished building: $@'
 	@echo ' '
 
-DeltaTPlus_STM32WB55RG_090525.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "DeltaTPlus_STM32WB55RG_090525.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
-DeltaTPlus_STM32WB55RG_090525.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "DeltaTPlus_STM32WB55RG_090525.bin"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 # Other Targets
 clean:
-	-$(RM) DeltaTPlus_STM32WB55RG_090525.bin DeltaTPlus_STM32WB55RG_090525.elf DeltaTPlus_STM32WB55RG_090525.hex DeltaTPlus_STM32WB55RG_090525.list DeltaTPlus_STM32WB55RG_090525.map default.size.stdout
+	-$(RM) DeltaTPlus_STM32WB55RG_090525.elf DeltaTPlus_STM32WB55RG_090525.list DeltaTPlus_STM32WB55RG_090525.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
