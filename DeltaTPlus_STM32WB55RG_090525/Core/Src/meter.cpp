@@ -116,7 +116,6 @@ void updateBatteryLabel(lv_timer_t *timer)
     bool batteryStatus = getChargeStatus();
 
     lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);
-
     char buf[32];
 
     if (batteryStatus) {
@@ -273,7 +272,11 @@ void header(void)
   settingLabel = lv_label_create(headerContainer);
   lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_CLICKABLE);
   lv_obj_clear_flag(settingLabel, LV_OBJ_FLAG_SCROLLABLE);
+#ifdef USE_SERVER
   lv_label_set_text(settingLabel, "LOW");
+#else
+  lv_label_set_text(settingLabel, "--");
+#endif
   lv_obj_set_size(settingLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
   lv_obj_align(settingLabel, LV_ALIGN_LEFT_MID, 0, 0);
 #endif

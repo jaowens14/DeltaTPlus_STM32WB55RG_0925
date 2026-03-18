@@ -510,7 +510,7 @@ void EnterDFUMode(void)
 	HAL_FLASH_Unlock();
 	HAL_FLASH_OB_Unlock();
 	OBInit.OptionType = OPTIONBYTE_USER;
-	OBInit.UserType   = OB_USER_nSWBOOT0;
+	OBInit.UserType   = OB_USER_nSWBOOT0 | OB_USER_nBOOT0;
 	OBInit.UserConfig = 0x00; // set to option bit to tell bootloader to use dfu
 	HAL_FLASHEx_OBProgram(&OBInit);
 	HAL_FLASH_OB_Launch();
@@ -663,7 +663,7 @@ int main(void)
 #ifdef USE_SERVER
 
     if (!ble_delay){
-    	ble_delay = 20; //20ms??
+    	ble_delay = 167; //20ms??
 
         P2PS_APP_DeltaT_Action();
 

@@ -5472,6 +5472,8 @@ Discarded input sections
  .text          0x00000000        0x0 ./Core/Src/meter.o
  .data          0x00000000        0x0 ./Core/Src/meter.o
  .bss           0x00000000        0x0 ./Core/Src/meter.o
+ .rodata._Z18updateSettingLabelv.str1.4
+                0x00000000        0xf ./Core/Src/meter.o
  .text._Z18updateSettingLabelv
                 0x00000000       0x4c ./Core/Src/meter.o
  .rodata._Z28updateLeftandRightTempLabelsv.str1.4
@@ -64990,7 +64992,7 @@ LOAD C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 .iplt           0x0806a574        0x0
  .iplt          0x0806a574        0x0 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.rodata         0x0806a578     0x8d60
+.rodata         0x0806a578     0x8d50
                 0x0806a578                        . = ALIGN (0x4)
  *(.rodata)
  .rodata        0x0806a578       0x1b ./Core/Src/app_debug.o
@@ -65004,595 +65006,592 @@ LOAD C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .rodata        0x0806a608        0xc ./lvgl/src/misc/cache/instance/lv_image_header_cache.o
  *(.rodata*)
  .rodata._ZN13Ad7124Private5resetEv.str1.4
-                0x0806a614      0xc87 ./AD7124_Library/ad7124-private.o
+                0x0806a614      0xc7b ./AD7124_Library/ad7124-private.o
                                   0x9 (size before relaxing)
- *fill*         0x0806b29b        0x1 
+ *fill*         0x0806b28f        0x1 
  .rodata._ZN14Ad7124Register11DefaultRegsE
-                0x0806b29c      0x2ac ./AD7124_Library/ad7124-private.o
-                0x0806b29c                Ad7124Register::DefaultRegs
+                0x0806b290      0x2ac ./AD7124_Library/ad7124-private.o
+                0x0806b290                Ad7124Register::DefaultRegs
  .rodata.setupBatteryMonitor.str1.4
-                0x0806b548       0x22 ./Core/Src/BatteryMonitor.o
+                0x0806b53c       0x22 ./Core/Src/BatteryMonitor.o
  .rodata._Z19create_about_screenv.str1.4
-                0x0806b548       0xc4 ./Core/Src/about.o
+                0x0806b53c       0xc4 ./Core/Src/about.o
  .rodata.diagnoseAccelerometer.str1.4
-                0x0806b548       0x56 ./Core/Src/accel.o
+                0x0806b53c       0x56 ./Core/Src/accel.o
  .rodata.aGpioConfigList
-                0x0806b548      0x130 ./Core/Src/app_debug.o
+                0x0806b53c      0x130 ./Core/Src/app_debug.o
  .rodata.main.str1.4
-                0x0806b678       0x2c ./Core/Src/main.o
+                0x0806b66c       0x2c ./Core/Src/main.o
  .rodata._Z18create_menu_screenv.str1.4
-                0x0806b678       0x1c ./Core/Src/menu.o
+                0x0806b66c       0x1c ./Core/Src/menu.o
  .rodata._Z14updateBleLabelP11_lv_timer_t.str1.4
-                0x0806b678       0x10 ./Core/Src/meter.o
+                0x0806b66c       0x10 ./Core/Src/meter.o
  .rodata._Z18updateBatteryLabelP11_lv_timer_t.str1.4
-                0x0806b678       0x11 ./Core/Src/meter.o
- .rodata._Z18updateSettingLabelv.str1.4
-                0x0806b678        0xf ./Core/Src/meter.o
+                0x0806b66c       0x11 ./Core/Src/meter.o
  .rodata._Z6headerv.str1.4
-                0x0806b678        0xa ./Core/Src/meter.o
+                0x0806b66c        0xf ./Core/Src/meter.o
  .rodata._Z5gaugev.str1.4
-                0x0806b678        0x7 ./Core/Src/meter.o
+                0x0806b66c        0x7 ./Core/Src/meter.o
  .rodata._Z7monitorv.str1.4
-                0x0806b678        0xa ./Core/Src/meter.o
+                0x0806b66c        0xa ./Core/Src/meter.o
  .rodata._Z6labelsv.str1.4
-                0x0806b678       0x52 ./Core/Src/meter.o
+                0x0806b66c       0x52 ./Core/Src/meter.o
  .rodata._Z7buttonsv.str1.4
-                0x0806b678        0x4 ./Core/Src/meter.o
+                0x0806b66c        0x4 ./Core/Src/meter.o
  .rodata._ZL18btnm_event_handlerP11_lv_event_t.str1.4
-                0x0806b678        0x8 ./Core/Src/settings.o
+                0x0806b66c        0x8 ./Core/Src/settings.o
  .rodata._ZL22textarea_event_handlerP11_lv_event_t.str1.4
-                0x0806b678       0x32 ./Core/Src/settings.o
+                0x0806b66c       0x32 ./Core/Src/settings.o
  .rodata._Z22create_settings_screenv.str1.4
-                0x0806b678       0x40 ./Core/Src/settings.o
+                0x0806b66c       0x40 ./Core/Src/settings.o
  .rodata.str1.4
-                0x0806b678       0x2d ./Core/Src/settings.o
+                0x0806b66c       0x2d ./Core/Src/settings.o
  .rodata.MSIRangeTable
-                0x0806b678       0x40 ./Core/Src/system_stm32wbxx.o
-                0x0806b678                MSIRangeTable
+                0x0806b66c       0x40 ./Core/Src/system_stm32wbxx.o
+                0x0806b66c                MSIRangeTable
  .rodata.APBPrescTable
-                0x0806b6b8       0x20 ./Core/Src/system_stm32wbxx.o
-                0x0806b6b8                APBPrescTable
+                0x0806b6ac       0x20 ./Core/Src/system_stm32wbxx.o
+                0x0806b6ac                APBPrescTable
  .rodata.AHBPrescTable
-                0x0806b6d8       0x40 ./Core/Src/system_stm32wbxx.o
-                0x0806b6d8                AHBPrescTable
+                0x0806b6cc       0x40 ./Core/Src/system_stm32wbxx.o
+                0x0806b6cc                AHBPrescTable
  .rodata.UARTPrescTable
-                0x0806b718       0x18 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart.o
-                0x0806b718                UARTPrescTable
+                0x0806b70c       0x18 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart.o
+                0x0806b70c                UARTPrescTable
  .rodata.denominator.0
-                0x0806b730        0x8 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart_ex.o
+                0x0806b724        0x8 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart_ex.o
  .rodata.numerator.1
-                0x0806b738        0x8 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart_ex.o
+                0x0806b72c        0x8 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart_ex.o
  .rodata.APP_BLE_Init.str1.4
-                0x0806b740        0x6 ./STM32_WPAN/App/app_ble.o
+                0x0806b734        0x6 ./STM32_WPAN/App/app_ble.o
  .rodata.getClientStatus.str1.4
-                0x0806b740       0x9c ./STM32_WPAN/App/app_ble.o
+                0x0806b734       0x9c ./STM32_WPAN/App/app_ble.o
  .rodata.getBleStatus.str1.4
-                0x0806b740       0xcc ./STM32_WPAN/App/app_ble.o
+                0x0806b734       0xcc ./STM32_WPAN/App/app_ble.o
  .rodata.a_BLE_CfgErValue
-                0x0806b740       0x10 ./STM32_WPAN/App/app_ble.o
+                0x0806b734       0x10 ./STM32_WPAN/App/app_ble.o
  .rodata.a_BLE_CfgIrValue
-                0x0806b750       0x10 ./STM32_WPAN/App/app_ble.o
+                0x0806b744       0x10 ./STM32_WPAN/App/app_ble.o
  .rodata.a_MBdAddr
-                0x0806b760        0x6 ./STM32_WPAN/App/app_ble.o
+                0x0806b754        0x6 ./STM32_WPAN/App/app_ble.o
  .rodata.CDC_Receive_FS.str1.4
-                0x0806b766       0x77 ./USB_Device/App/usbd_cdc_if.o
- *fill*         0x0806b766        0x2 
+                0x0806b75a       0x77 ./USB_Device/App/usbd_cdc_if.o
+ *fill*         0x0806b75a        0x2 
  .rodata.help_str.0
-                0x0806b768       0x2c ./USB_Device/App/usbd_cdc_if.o
+                0x0806b75c       0x2c ./USB_Device/App/usbd_cdc_if.o
  .rodata.USBD_CDC_ManufacturerStrDescriptor.str1.4
-                0x0806b794       0x13 ./USB_Device/App/usbd_desc.o
+                0x0806b788       0x13 ./USB_Device/App/usbd_desc.o
  .rodata.USBD_CDC_ProductStrDescriptor.str1.4
-                0x0806b794       0x16 ./USB_Device/App/usbd_desc.o
+                0x0806b788       0x16 ./USB_Device/App/usbd_desc.o
  .rodata.USBD_CDC_ConfigStrDescriptor.str1.4
-                0x0806b794        0xb ./USB_Device/App/usbd_desc.o
+                0x0806b788        0xb ./USB_Device/App/usbd_desc.o
  .rodata.USBD_CDC_InterfaceStrDescriptor.str1.4
-                0x0806b794        0xe ./USB_Device/App/usbd_desc.o
+                0x0806b788        0xe ./USB_Device/App/usbd_desc.o
  .rodata.str1.4
-                0x0806b794        0x7 ./lvgl/src/core/lv_obj.o
+                0x0806b788        0x7 ./lvgl/src/core/lv_obj.o
  .rodata.lv_obj_class
-                0x0806b794       0x24 ./lvgl/src/core/lv_obj.o
-                0x0806b794                lv_obj_class
+                0x0806b788       0x24 ./lvgl/src/core/lv_obj.o
+                0x0806b788                lv_obj_class
  .rodata.CSWTCH.43
-                0x0806b7b8       0x10 ./lvgl/src/core/lv_refr.o
+                0x0806b7ac       0x10 ./lvgl/src/core/lv_refr.o
  .rodata.CSWTCH.6
-                0x0806b7c8        0xc ./lvgl/src/draw/convert/lv_draw_buf_convert.o
+                0x0806b7bc        0xc ./lvgl/src/draw/convert/lv_draw_buf_convert.o
  .rodata.CSWTCH.8
-                0x0806b7d4       0x2c ./lvgl/src/draw/lv_draw.o
+                0x0806b7c8       0x2c ./lvgl/src/draw/lv_draw.o
  .rodata.CSWTCH.49
-                0x0806b800       0x10 ./lvgl/src/draw/lv_draw_buf.o
+                0x0806b7f4       0x10 ./lvgl/src/draw/lv_draw_buf.o
  .rodata.CSWTCH.35
-                0x0806b810        0xc ./lvgl/src/draw/lv_draw_buf.o
+                0x0806b804        0xc ./lvgl/src/draw/lv_draw_buf.o
  .rodata.lv_draw_sw_init.str1.4
-                0x0806b81c        0x3 ./lvgl/src/draw/sw/lv_draw_sw.o
+                0x0806b810        0x3 ./lvgl/src/draw/sw/lv_draw_sw.o
  .rodata.wcorr.0
-                0x0806b81c       0x21 ./lvgl/src/draw/sw/lv_draw_sw_line.o
- *fill*         0x0806b83d        0x3 
+                0x0806b810       0x21 ./lvgl/src/draw/sw/lv_draw_sw_line.o
+ *fill*         0x0806b831        0x3 
  .rodata.init_cmd_list
-                0x0806b840       0x46 ./lvgl/src/drivers/display/st7789/lv_st7789.o
- *fill*         0x0806b886        0x2 
+                0x0806b834       0x46 ./lvgl/src/drivers/display/st7789/lv_st7789.o
+ *fill*         0x0806b87a        0x2 
  .rodata.opa2_table
-                0x0806b888        0x4 ./lvgl/src/font/lv_font_fmt_txt.o
+                0x0806b87c        0x4 ./lvgl/src/font/lv_font_fmt_txt.o
  .rodata.opa4_table
-                0x0806b88c       0x10 ./lvgl/src/font/lv_font_fmt_txt.o
+                0x0806b880       0x10 ./lvgl/src/font/lv_font_fmt_txt.o
  .rodata.lv_font_montserrat_12
-                0x0806b89c       0x24 ./lvgl/src/font/lv_font_montserrat_12.o
-                0x0806b89c                lv_font_montserrat_12
+                0x0806b890       0x24 ./lvgl/src/font/lv_font_montserrat_12.o
+                0x0806b890                lv_font_montserrat_12
  .rodata.font_dsc
-                0x0806b8c0       0x18 ./lvgl/src/font/lv_font_montserrat_12.o
+                0x0806b8b4       0x18 ./lvgl/src/font/lv_font_montserrat_12.o
  .rodata.kern_classes
-                0x0806b8d8       0x10 ./lvgl/src/font/lv_font_montserrat_12.o
+                0x0806b8cc       0x10 ./lvgl/src/font/lv_font_montserrat_12.o
  .rodata.kern_class_values
-                0x0806b8e8      0xbad ./lvgl/src/font/lv_font_montserrat_12.o
- *fill*         0x0806c495        0x3 
+                0x0806b8dc      0xbad ./lvgl/src/font/lv_font_montserrat_12.o
+ *fill*         0x0806c489        0x3 
  .rodata.kern_right_class_mapping
-                0x0806c498       0x9e ./lvgl/src/font/lv_font_montserrat_12.o
- *fill*         0x0806c536        0x2 
+                0x0806c48c       0x9e ./lvgl/src/font/lv_font_montserrat_12.o
+ *fill*         0x0806c52a        0x2 
  .rodata.kern_left_class_mapping
-                0x0806c538       0x9e ./lvgl/src/font/lv_font_montserrat_12.o
- *fill*         0x0806c5d6        0x2 
- .rodata.cmaps  0x0806c5d8       0x28 ./lvgl/src/font/lv_font_montserrat_12.o
+                0x0806c52c       0x9e ./lvgl/src/font/lv_font_montserrat_12.o
+ *fill*         0x0806c5ca        0x2 
+ .rodata.cmaps  0x0806c5cc       0x28 ./lvgl/src/font/lv_font_montserrat_12.o
  .rodata.unicode_list_1
-                0x0806c600       0x7c ./lvgl/src/font/lv_font_montserrat_12.o
+                0x0806c5f4       0x7c ./lvgl/src/font/lv_font_montserrat_12.o
  .rodata.glyph_dsc
-                0x0806c67c      0x4f0 ./lvgl/src/font/lv_font_montserrat_12.o
+                0x0806c670      0x4f0 ./lvgl/src/font/lv_font_montserrat_12.o
  .rodata.glyph_bitmap
-                0x0806cb6c     0x1a0f ./lvgl/src/font/lv_font_montserrat_12.o
- *fill*         0x0806e57b        0x1 
+                0x0806cb60     0x1a0f ./lvgl/src/font/lv_font_montserrat_12.o
+ *fill*         0x0806e56f        0x1 
  .rodata.lv_font_montserrat_14
-                0x0806e57c       0x24 ./lvgl/src/font/lv_font_montserrat_14.o
-                0x0806e57c                lv_font_montserrat_14
+                0x0806e570       0x24 ./lvgl/src/font/lv_font_montserrat_14.o
+                0x0806e570                lv_font_montserrat_14
  .rodata.font_dsc
-                0x0806e5a0       0x18 ./lvgl/src/font/lv_font_montserrat_14.o
+                0x0806e594       0x18 ./lvgl/src/font/lv_font_montserrat_14.o
  .rodata.kern_classes
-                0x0806e5b8       0x10 ./lvgl/src/font/lv_font_montserrat_14.o
+                0x0806e5ac       0x10 ./lvgl/src/font/lv_font_montserrat_14.o
  .rodata.kern_class_values
-                0x0806e5c8      0xbad ./lvgl/src/font/lv_font_montserrat_14.o
- *fill*         0x0806f175        0x3 
+                0x0806e5bc      0xbad ./lvgl/src/font/lv_font_montserrat_14.o
+ *fill*         0x0806f169        0x3 
  .rodata.kern_right_class_mapping
-                0x0806f178       0x9e ./lvgl/src/font/lv_font_montserrat_14.o
- *fill*         0x0806f216        0x2 
+                0x0806f16c       0x9e ./lvgl/src/font/lv_font_montserrat_14.o
+ *fill*         0x0806f20a        0x2 
  .rodata.kern_left_class_mapping
-                0x0806f218       0x9e ./lvgl/src/font/lv_font_montserrat_14.o
- *fill*         0x0806f2b6        0x2 
- .rodata.cmaps  0x0806f2b8       0x28 ./lvgl/src/font/lv_font_montserrat_14.o
+                0x0806f20c       0x9e ./lvgl/src/font/lv_font_montserrat_14.o
+ *fill*         0x0806f2aa        0x2 
+ .rodata.cmaps  0x0806f2ac       0x28 ./lvgl/src/font/lv_font_montserrat_14.o
  .rodata.unicode_list_1
-                0x0806f2e0       0x7c ./lvgl/src/font/lv_font_montserrat_14.o
+                0x0806f2d4       0x7c ./lvgl/src/font/lv_font_montserrat_14.o
  .rodata.glyph_dsc
-                0x0806f35c      0x4f0 ./lvgl/src/font/lv_font_montserrat_14.o
+                0x0806f350      0x4f0 ./lvgl/src/font/lv_font_montserrat_14.o
  .rodata.glyph_bitmap
-                0x0806f84c     0x2280 ./lvgl/src/font/lv_font_montserrat_14.o
+                0x0806f840     0x2280 ./lvgl/src/font/lv_font_montserrat_14.o
  .rodata.lv_bin_decoder_info.str1.4
-                0x08071acc        0x4 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
+                0x08071ac0        0x4 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
  .rodata.lv_bin_decoder_init.str1.4
-                0x08071acc        0x4 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
+                0x08071ac0        0x4 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
  .rodata.CSWTCH.33
-                0x08071acc       0x10 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
+                0x08071ac0       0x10 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
  .rodata.CSWTCH.32
-                0x08071adc       0x10 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
+                0x08071ad0       0x10 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
  .rodata.str1.4
-                0x08071aec        0xa ./lvgl/src/libs/qrcode/lv_qrcode.o
+                0x08071ae0        0xa ./lvgl/src/libs/qrcode/lv_qrcode.o
  .rodata.lv_qrcode_class
-                0x08071aec       0x24 ./lvgl/src/libs/qrcode/lv_qrcode.o
-                0x08071aec                lv_qrcode_class
+                0x08071ae0       0x24 ./lvgl/src/libs/qrcode/lv_qrcode.o
+                0x08071ae0                lv_qrcode_class
  .rodata.table.0
-                0x08071b10       0x10 ./lvgl/src/libs/qrcode/qrcodegen.o
+                0x08071b04       0x10 ./lvgl/src/libs/qrcode/qrcodegen.o
  .rodata.temp.1
-                0x08071b20        0xc ./lvgl/src/libs/qrcode/qrcodegen.o
+                0x08071b14        0xc ./lvgl/src/libs/qrcode/qrcodegen.o
  .rodata.temp.2
-                0x08071b2c        0xc ./lvgl/src/libs/qrcode/qrcodegen.o
+                0x08071b20        0xc ./lvgl/src/libs/qrcode/qrcodegen.o
  .rodata.temp.3
-                0x08071b38        0xc ./lvgl/src/libs/qrcode/qrcodegen.o
+                0x08071b2c        0xc ./lvgl/src/libs/qrcode/qrcodegen.o
  .rodata.temp.4
-                0x08071b44        0xc ./lvgl/src/libs/qrcode/qrcodegen.o
+                0x08071b38        0xc ./lvgl/src/libs/qrcode/qrcodegen.o
  .rodata.NUM_ERROR_CORRECTION_BLOCKS
-                0x08071b50       0xa4 ./lvgl/src/libs/qrcode/qrcodegen.o
+                0x08071b44       0xa4 ./lvgl/src/libs/qrcode/qrcodegen.o
  .rodata.ECC_CODEWORDS_PER_BLOCK
-                0x08071bf4       0xa4 ./lvgl/src/libs/qrcode/qrcodegen.o
+                0x08071be8       0xa4 ./lvgl/src/libs/qrcode/qrcodegen.o
  .rodata.lv_cache_class_lru_rb_size
-                0x08071c98       0x2c ./lvgl/src/misc/cache/class/lv_cache_lru_rb.o
-                0x08071c98                lv_cache_class_lru_rb_size
+                0x08071c8c       0x2c ./lvgl/src/misc/cache/class/lv_cache_lru_rb.o
+                0x08071c8c                lv_cache_class_lru_rb_size
  .rodata.lv_cache_class_lru_rb_count
-                0x08071cc4       0x2c ./lvgl/src/misc/cache/class/lv_cache_lru_rb.o
-                0x08071cc4                lv_cache_class_lru_rb_count
+                0x08071cb8       0x2c ./lvgl/src/misc/cache/class/lv_cache_lru_rb.o
+                0x08071cb8                lv_cache_class_lru_rb_count
  .rodata.lv_image_cache_init.str1.4
-                0x08071cf0        0x6 ./lvgl/src/misc/cache/instance/lv_image_cache.o
+                0x08071ce4        0x6 ./lvgl/src/misc/cache/instance/lv_image_cache.o
  .rodata.lv_image_header_cache_init.str1.4
-                0x08071cf0        0xd ./lvgl/src/misc/cache/instance/lv_image_header_cache.o
+                0x08071ce4        0xd ./lvgl/src/misc/cache/instance/lv_image_header_cache.o
  .rodata.CSWTCH.7
-                0x08071cf0       0x30 ./lvgl/src/misc/lv_color.o
+                0x08071ce4       0x30 ./lvgl/src/misc/lv_color.o
  .rodata.lv_fs_get_ext.str1.4
-                0x08071d20        0x1 ./lvgl/src/misc/lv_fs.o
+                0x08071d14        0x1 ./lvgl/src/misc/lv_fs.o
  .rodata.sin0_90_table
-                0x08071d20       0xb6 ./lvgl/src/misc/lv_math.o
- *fill*         0x08071dd6        0x2 
+                0x08071d14       0xb6 ./lvgl/src/misc/lv_math.o
+ *fill*         0x08071dca        0x2 
  .rodata.colors.0
-                0x08071dd8       0xe4 ./lvgl/src/misc/lv_palette.o
+                0x08071dcc       0xe4 ./lvgl/src/misc/lv_palette.o
  .rodata.colors.1
-                0x08071ebc      0x11d ./lvgl/src/misc/lv_palette.o
- *fill*         0x08071fd9        0x3 
+                0x08071eb0      0x11d ./lvgl/src/misc/lv_palette.o
+ *fill*         0x08071fcd        0x3 
  .rodata.colors.2
-                0x08071fdc       0x39 ./lvgl/src/misc/lv_palette.o
- *fill*         0x08072015        0x3 
+                0x08071fd0       0x39 ./lvgl/src/misc/lv_palette.o
+ *fill*         0x08072009        0x3 
  .rodata.white.0
-                0x08072018        0x3 ./lvgl/src/misc/lv_style.o
- *fill*         0x0807201b        0x1 
+                0x0807200c        0x3 ./lvgl/src/misc/lv_style.o
+ *fill*         0x0807200f        0x1 
  .rodata.lv_style_builtin_prop_flag_lookup_table
-                0x0807201c       0x8b ./lvgl/src/misc/lv_style.o
-                0x0807201c                lv_style_builtin_prop_flag_lookup_table
+                0x08072010       0x8b ./lvgl/src/misc/lv_style.o
+                0x08072010                lv_style_builtin_prop_flag_lookup_table
  .rodata.lv_text_get_next_word.constprop.0.str1.4
-                0x080720a7        0xb ./lvgl/src/misc/lv_text.o
- *fill*         0x080720a7        0x1 
+                0x0807209b        0xb ./lvgl/src/misc/lv_text.o
+ *fill*         0x0807209b        0x1 
  .rodata.lv_text_get_encoded_length
-                0x080720a8        0x4 ./lvgl/src/misc/lv_text.o
-                0x080720a8                lv_text_get_encoded_length
+                0x0807209c        0x4 ./lvgl/src/misc/lv_text.o
+                0x0807209c                lv_text_get_encoded_length
  .rodata.lv_text_encoded_get_char_id
-                0x080720ac        0x4 ./lvgl/src/misc/lv_text.o
-                0x080720ac                lv_text_encoded_get_char_id
+                0x080720a0        0x4 ./lvgl/src/misc/lv_text.o
+                0x080720a0                lv_text_encoded_get_char_id
  .rodata.lv_text_encoded_get_byte_id
-                0x080720b0        0x4 ./lvgl/src/misc/lv_text.o
-                0x080720b0                lv_text_encoded_get_byte_id
+                0x080720a4        0x4 ./lvgl/src/misc/lv_text.o
+                0x080720a4                lv_text_encoded_get_byte_id
  .rodata.lv_text_encoded_prev
-                0x080720b4        0x4 ./lvgl/src/misc/lv_text.o
-                0x080720b4                lv_text_encoded_prev
+                0x080720a8        0x4 ./lvgl/src/misc/lv_text.o
+                0x080720a8                lv_text_encoded_prev
  .rodata.lv_text_encoded_next
-                0x080720b8        0x4 ./lvgl/src/misc/lv_text.o
-                0x080720b8                lv_text_encoded_next
+                0x080720ac        0x4 ./lvgl/src/misc/lv_text.o
+                0x080720ac                lv_text_encoded_next
  .rodata.lv_text_unicode_to_encoded
-                0x080720bc        0x4 ./lvgl/src/misc/lv_text.o
-                0x080720bc                lv_text_unicode_to_encoded
+                0x080720b0        0x4 ./lvgl/src/misc/lv_text.o
+                0x080720b0                lv_text_unicode_to_encoded
  .rodata.lv_text_encoded_size
-                0x080720c0        0x4 ./lvgl/src/misc/lv_text.o
-                0x080720c0                lv_text_encoded_size
+                0x080720b4        0x4 ./lvgl/src/misc/lv_text.o
+                0x080720b4                lv_text_encoded_size
  .rodata.lv_theme_default_init.str1.4
-                0x080720c4        0x4 ./lvgl/src/themes/default/lv_theme_default.o
+                0x080720b8        0x4 ./lvgl/src/themes/default/lv_theme_default.o
  .rodata.trans_props.0
-                0x080720c4        0xc ./lvgl/src/themes/default/lv_theme_default.o
+                0x080720b8        0xc ./lvgl/src/themes/default/lv_theme_default.o
  .rodata.str1.4
-                0x080720d0        0x7 ./lvgl/src/widgets/arc/lv_arc.o
+                0x080720c4        0x7 ./lvgl/src/widgets/arc/lv_arc.o
  .rodata.lv_arc_class
-                0x080720d0       0x24 ./lvgl/src/widgets/arc/lv_arc.o
-                0x080720d0                lv_arc_class
+                0x080720c4       0x24 ./lvgl/src/widgets/arc/lv_arc.o
+                0x080720c4                lv_arc_class
  .rodata.str1.4
-                0x080720f4        0x7 ./lvgl/src/widgets/bar/lv_bar.o
+                0x080720e8        0x7 ./lvgl/src/widgets/bar/lv_bar.o
  .rodata.lv_bar_class
-                0x080720f4       0x24 ./lvgl/src/widgets/bar/lv_bar.o
-                0x080720f4                lv_bar_class
+                0x080720e8       0x24 ./lvgl/src/widgets/bar/lv_bar.o
+                0x080720e8                lv_bar_class
  .rodata.str1.4
-                0x08072118        0xa ./lvgl/src/widgets/button/lv_button.o
+                0x0807210c        0xa ./lvgl/src/widgets/button/lv_button.o
  .rodata.lv_button_class
-                0x08072118       0x24 ./lvgl/src/widgets/button/lv_button.o
-                0x08072118                lv_button_class
+                0x0807210c       0x24 ./lvgl/src/widgets/button/lv_button.o
+                0x0807210c                lv_button_class
  .rodata.draw_main.str1.4
-                0x0807213c        0x2 ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
+                0x08072130        0x2 ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
  .rodata.str1.4
-                0x0807213c       0x39 ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
+                0x08072130       0x39 ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
  .rodata.lv_buttonmatrix_class
-                0x0807213c       0x24 ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
-                0x0807213c                lv_buttonmatrix_class
+                0x08072130       0x24 ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
+                0x08072130                lv_buttonmatrix_class
  .rodata.lv_buttonmatrix_def_map
-                0x08072160       0x1c ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
+                0x08072154       0x1c ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
  .rodata.lv_calendar_set_month_shown.part.0.str1.4
-                0x0807217c        0x3 ./lvgl/src/widgets/calendar/lv_calendar.o
+                0x08072170        0x3 ./lvgl/src/widgets/calendar/lv_calendar.o
  .rodata.lv_calendar_constructor.str1.4
-                0x0807217c        0x5 ./lvgl/src/widgets/calendar/lv_calendar.o
+                0x08072170        0x5 ./lvgl/src/widgets/calendar/lv_calendar.o
  .rodata.str1.4
-                0x0807217c       0x28 ./lvgl/src/widgets/calendar/lv_calendar.o
+                0x08072170       0x28 ./lvgl/src/widgets/calendar/lv_calendar.o
  .rodata.day_names_def
-                0x0807217c       0x1c ./lvgl/src/widgets/calendar/lv_calendar.o
+                0x08072170       0x1c ./lvgl/src/widgets/calendar/lv_calendar.o
  .rodata.lv_calendar_class
-                0x08072198       0x24 ./lvgl/src/widgets/calendar/lv_calendar.o
-                0x08072198                lv_calendar_class
+                0x0807218c       0x24 ./lvgl/src/widgets/calendar/lv_calendar.o
+                0x0807218c                lv_calendar_class
  .rodata.my_constructor.str1.4
-                0x080721bc        0x8 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
+                0x080721b0        0x8 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
  .rodata.value_changed_event_cb.str1.4
-                0x080721bc        0x6 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
+                0x080721b0        0x6 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
  .rodata.str1.4
-                0x080721bc       0x85 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
+                0x080721b0       0x85 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
  .rodata.month_names_def
-                0x080721bc       0x30 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
+                0x080721b0       0x30 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
  .rodata.lv_calendar_header_arrow_class
-                0x080721ec       0x24 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
-                0x080721ec                lv_calendar_header_arrow_class
+                0x080721e0       0x24 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
+                0x080721e0                lv_calendar_header_arrow_class
  .rodata.my_constructor.str1.4
-                0x08072210      0x298 ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
+                0x08072204      0x298 ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
  .rodata.str1.4
-                0x08072210       0x1c ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
+                0x08072204       0x1c ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
  .rodata.lv_calendar_header_dropdown_class
-                0x08072210       0x24 ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
-                0x08072210                lv_calendar_header_dropdown_class
+                0x08072204       0x24 ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
+                0x08072204                lv_calendar_header_dropdown_class
  .rodata.str1.4
-                0x08072234        0xa ./lvgl/src/widgets/canvas/lv_canvas.o
+                0x08072228        0xa ./lvgl/src/widgets/canvas/lv_canvas.o
  .rodata.lv_canvas_class
-                0x08072234       0x24 ./lvgl/src/widgets/canvas/lv_canvas.o
-                0x08072234                lv_canvas_class
+                0x08072228       0x24 ./lvgl/src/widgets/canvas/lv_canvas.o
+                0x08072228                lv_canvas_class
  .rodata.str1.4
-                0x08072258        0x9 ./lvgl/src/widgets/chart/lv_chart.o
+                0x0807224c        0x9 ./lvgl/src/widgets/chart/lv_chart.o
  .rodata.lv_chart_class
-                0x08072258       0x24 ./lvgl/src/widgets/chart/lv_chart.o
-                0x08072258                lv_chart_class
+                0x0807224c       0x24 ./lvgl/src/widgets/chart/lv_chart.o
+                0x0807224c                lv_chart_class
  .rodata.lv_checkbox_constructor.str1.4
-                0x0807227c        0xa ./lvgl/src/widgets/checkbox/lv_checkbox.o
+                0x08072270        0xa ./lvgl/src/widgets/checkbox/lv_checkbox.o
  .rodata.str1.4
-                0x0807227c        0xc ./lvgl/src/widgets/checkbox/lv_checkbox.o
+                0x08072270        0xc ./lvgl/src/widgets/checkbox/lv_checkbox.o
  .rodata.lv_checkbox_class
-                0x0807227c       0x24 ./lvgl/src/widgets/checkbox/lv_checkbox.o
-                0x0807227c                lv_checkbox_class
+                0x08072270       0x24 ./lvgl/src/widgets/checkbox/lv_checkbox.o
+                0x08072270                lv_checkbox_class
  .rodata.lv_dropdown_constructor.str1.4
-                0x080722a0       0x1f ./lvgl/src/widgets/dropdown/lv_dropdown.o
+                0x08072294       0x1f ./lvgl/src/widgets/dropdown/lv_dropdown.o
  .rodata.lv_dropdown_get_options.str1.4
-                0x080722a0        0x1 ./lvgl/src/widgets/dropdown/lv_dropdown.o
+                0x08072294        0x1 ./lvgl/src/widgets/dropdown/lv_dropdown.o
  .rodata.str1.4
-                0x080722a0       0x20 ./lvgl/src/widgets/dropdown/lv_dropdown.o
+                0x08072294       0x20 ./lvgl/src/widgets/dropdown/lv_dropdown.o
  .rodata.lv_dropdownlist_class
-                0x080722a0       0x24 ./lvgl/src/widgets/dropdown/lv_dropdown.o
-                0x080722a0                lv_dropdownlist_class
+                0x08072294       0x24 ./lvgl/src/widgets/dropdown/lv_dropdown.o
+                0x08072294                lv_dropdownlist_class
  .rodata.lv_dropdown_class
-                0x080722c4       0x24 ./lvgl/src/widgets/dropdown/lv_dropdown.o
-                0x080722c4                lv_dropdown_class
+                0x080722b8       0x24 ./lvgl/src/widgets/dropdown/lv_dropdown.o
+                0x080722b8                lv_dropdown_class
  .rodata.str1.4
-                0x080722e8        0x9 ./lvgl/src/widgets/image/lv_image.o
+                0x080722dc        0x9 ./lvgl/src/widgets/image/lv_image.o
  .rodata.lv_image_class
-                0x080722e8       0x24 ./lvgl/src/widgets/image/lv_image.o
-                0x080722e8                lv_image_class
+                0x080722dc       0x24 ./lvgl/src/widgets/image/lv_image.o
+                0x080722dc                lv_image_class
  .rodata.lv_keyboard_def_event_cb.str1.4
-                0x0807230c       0x34 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x08072300       0x34 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.default_kb_ctrl_num_map
-                0x0807230c       0x22 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x08072300       0x22 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.str1.4
-                0x0807232e      0x180 ./lvgl/src/widgets/keyboard/lv_keyboard.o
- *fill*         0x0807232e        0x2 
+                0x08072322      0x180 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+ *fill*         0x08072322        0x2 
  .rodata.default_kb_map_num
-                0x08072330       0x54 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x08072324       0x54 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.default_kb_ctrl_spec_map
-                0x08072384       0x50 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x08072378       0x50 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.default_kb_map_spec
-                0x080723d4       0xb0 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x080723c8       0xb0 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.default_kb_ctrl_uc_map
-                0x08072484       0x50 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x08072478       0x50 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.default_kb_map_uc
-                0x080724d4       0xb0 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x080724c8       0xb0 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.default_kb_ctrl_lc_map
-                0x08072584       0x50 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x08072578       0x50 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.default_kb_map_lc
-                0x080725d4       0xb0 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x080725c8       0xb0 ./lvgl/src/widgets/keyboard/lv_keyboard.o
  .rodata.lv_keyboard_class
-                0x08072684       0x24 ./lvgl/src/widgets/keyboard/lv_keyboard.o
-                0x08072684                lv_keyboard_class
+                0x08072678       0x24 ./lvgl/src/widgets/keyboard/lv_keyboard.o
+                0x08072678                lv_keyboard_class
  .rodata.lv_label_constructor.str1.4
-                0x080726a8        0x5 ./lvgl/src/widgets/label/lv_label.o
+                0x0807269c        0x5 ./lvgl/src/widgets/label/lv_label.o
  .rodata.str1.4
-                0x080726a8        0x9 ./lvgl/src/widgets/label/lv_label.o
+                0x0807269c        0x9 ./lvgl/src/widgets/label/lv_label.o
  .rodata.lv_label_class
-                0x080726a8       0x24 ./lvgl/src/widgets/label/lv_label.o
-                0x080726a8                lv_label_class
+                0x0807269c       0x24 ./lvgl/src/widgets/label/lv_label.o
+                0x0807269c                lv_label_class
  .rodata.str1.4
-                0x080726cc        0x7 ./lvgl/src/widgets/led/lv_led.o
+                0x080726c0        0x7 ./lvgl/src/widgets/led/lv_led.o
  .rodata.lv_led_class
-                0x080726cc       0x24 ./lvgl/src/widgets/led/lv_led.o
-                0x080726cc                lv_led_class
+                0x080726c0       0x24 ./lvgl/src/widgets/led/lv_led.o
+                0x080726c0                lv_led_class
  .rodata.str1.4
-                0x080726f0        0x8 ./lvgl/src/widgets/line/lv_line.o
+                0x080726e4        0x8 ./lvgl/src/widgets/line/lv_line.o
  .rodata.lv_line_class
-                0x080726f0       0x24 ./lvgl/src/widgets/line/lv_line.o
-                0x080726f0                lv_line_class
+                0x080726e4       0x24 ./lvgl/src/widgets/line/lv_line.o
+                0x080726e4                lv_line_class
  .rodata.str1.4
-                0x08072714       0x28 ./lvgl/src/widgets/list/lv_list.o
+                0x08072708       0x28 ./lvgl/src/widgets/list/lv_list.o
  .rodata.lv_list_text_class
-                0x08072714       0x24 ./lvgl/src/widgets/list/lv_list.o
-                0x08072714                lv_list_text_class
+                0x08072708       0x24 ./lvgl/src/widgets/list/lv_list.o
+                0x08072708                lv_list_text_class
  .rodata.lv_list_button_class
-                0x08072738       0x24 ./lvgl/src/widgets/list/lv_list.o
-                0x08072738                lv_list_button_class
+                0x0807272c       0x24 ./lvgl/src/widgets/list/lv_list.o
+                0x0807272c                lv_list_button_class
  .rodata.lv_list_class
-                0x0807275c       0x24 ./lvgl/src/widgets/list/lv_list.o
-                0x0807275c                lv_list_class
+                0x08072750       0x24 ./lvgl/src/widgets/list/lv_list.o
+                0x08072750                lv_list_class
  .rodata.lv_menu_constructor.str1.4
-                0x08072780        0x4 ./lvgl/src/widgets/menu/lv_menu.o
+                0x08072774        0x4 ./lvgl/src/widgets/menu/lv_menu.o
  .rodata.lv_menu_sidebar_header_cont_class
-                0x08072780       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x08072780                lv_menu_sidebar_header_cont_class
+                0x08072774       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x08072774                lv_menu_sidebar_header_cont_class
  .rodata.lv_menu_main_header_cont_class
-                0x080727a4       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x080727a4                lv_menu_main_header_cont_class
+                0x08072798       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x08072798                lv_menu_main_header_cont_class
  .rodata.lv_menu_main_cont_class
-                0x080727c8       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x080727c8                lv_menu_main_cont_class
+                0x080727bc       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x080727bc                lv_menu_main_cont_class
  .rodata.lv_menu_sidebar_cont_class
-                0x080727ec       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x080727ec                lv_menu_sidebar_cont_class
+                0x080727e0       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x080727e0                lv_menu_sidebar_cont_class
  .rodata.str1.4
-                0x08072810       0x4c ./lvgl/src/widgets/menu/lv_menu.o
+                0x08072804       0x4c ./lvgl/src/widgets/menu/lv_menu.o
  .rodata.lv_menu_separator_class
-                0x08072810       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x08072810                lv_menu_separator_class
+                0x08072804       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x08072804                lv_menu_separator_class
  .rodata.lv_menu_section_class
-                0x08072834       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x08072834                lv_menu_section_class
+                0x08072828       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x08072828                lv_menu_section_class
  .rodata.lv_menu_cont_class
-                0x08072858       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x08072858                lv_menu_cont_class
+                0x0807284c       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x0807284c                lv_menu_cont_class
  .rodata.lv_menu_page_class
-                0x0807287c       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x0807287c                lv_menu_page_class
+                0x08072870       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x08072870                lv_menu_page_class
  .rodata.lv_menu_class
-                0x080728a0       0x24 ./lvgl/src/widgets/menu/lv_menu.o
-                0x080728a0                lv_menu_class
+                0x08072894       0x24 ./lvgl/src/widgets/menu/lv_menu.o
+                0x08072894                lv_menu_class
  .rodata.str1.4
-                0x080728c4       0x8a ./lvgl/src/widgets/msgbox/lv_msgbox.o
+                0x080728b8       0x8a ./lvgl/src/widgets/msgbox/lv_msgbox.o
  .rodata.lv_msgbox_backdrop_class
-                0x080728c4       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
-                0x080728c4                lv_msgbox_backdrop_class
+                0x080728b8       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
+                0x080728b8                lv_msgbox_backdrop_class
  .rodata.lv_msgbox_header_button_class
-                0x080728e8       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
-                0x080728e8                lv_msgbox_header_button_class
+                0x080728dc       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
+                0x080728dc                lv_msgbox_header_button_class
  .rodata.lv_msgbox_footer_button_class
-                0x0807290c       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
-                0x0807290c                lv_msgbox_footer_button_class
+                0x08072900       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
+                0x08072900                lv_msgbox_footer_button_class
  .rodata.lv_msgbox_footer_class
-                0x08072930       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
-                0x08072930                lv_msgbox_footer_class
+                0x08072924       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
+                0x08072924                lv_msgbox_footer_class
  .rodata.lv_msgbox_content_class
-                0x08072954       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
-                0x08072954                lv_msgbox_content_class
+                0x08072948       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
+                0x08072948                lv_msgbox_content_class
  .rodata.lv_msgbox_header_class
-                0x08072978       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
-                0x08072978                lv_msgbox_header_class
+                0x0807296c       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
+                0x0807296c                lv_msgbox_header_class
  .rodata.lv_msgbox_class
-                0x0807299c       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
-                0x0807299c                lv_msgbox_class
+                0x08072990       0x24 ./lvgl/src/widgets/msgbox/lv_msgbox.o
+                0x08072990                lv_msgbox_class
  .rodata.lv_roller_constructor.str1.4
-                0x080729c0       0x2d ./lvgl/src/widgets/roller/lv_roller.o
+                0x080729b4       0x2d ./lvgl/src/widgets/roller/lv_roller.o
  .rodata.str1.4
-                0x080729c0       0x1a ./lvgl/src/widgets/roller/lv_roller.o
+                0x080729b4       0x1a ./lvgl/src/widgets/roller/lv_roller.o
  .rodata.lv_roller_label_class
-                0x080729c0       0x24 ./lvgl/src/widgets/roller/lv_roller.o
-                0x080729c0                lv_roller_label_class
+                0x080729b4       0x24 ./lvgl/src/widgets/roller/lv_roller.o
+                0x080729b4                lv_roller_label_class
  .rodata.lv_roller_class
-                0x080729e4       0x24 ./lvgl/src/widgets/roller/lv_roller.o
-                0x080729e4                lv_roller_class
+                0x080729d8       0x24 ./lvgl/src/widgets/roller/lv_roller.o
+                0x080729d8                lv_roller_class
  .rodata.scale_draw_indicator.str1.4
-                0x08072a08        0x4 ./lvgl/src/widgets/scale/lv_scale.o
+                0x080729fc        0x4 ./lvgl/src/widgets/scale/lv_scale.o
  .rodata.str1.4
-                0x08072a08        0x9 ./lvgl/src/widgets/scale/lv_scale.o
+                0x080729fc        0x9 ./lvgl/src/widgets/scale/lv_scale.o
  .rodata.lv_scale_class
-                0x08072a08       0x24 ./lvgl/src/widgets/scale/lv_scale.o
-                0x08072a08                lv_scale_class
+                0x080729fc       0x24 ./lvgl/src/widgets/scale/lv_scale.o
+                0x080729fc                lv_scale_class
  .rodata.str1.4
-                0x08072a2c        0xa ./lvgl/src/widgets/slider/lv_slider.o
+                0x08072a20        0xa ./lvgl/src/widgets/slider/lv_slider.o
  .rodata.lv_slider_class
-                0x08072a2c       0x24 ./lvgl/src/widgets/slider/lv_slider.o
-                0x08072a2c                lv_slider_class
+                0x08072a20       0x24 ./lvgl/src/widgets/slider/lv_slider.o
+                0x08072a20                lv_slider_class
  .rodata.lv_spinbox_updatevalue.str1.4
-                0x08072a50        0x4 ./lvgl/src/widgets/spinbox/lv_spinbox.o
+                0x08072a44        0x4 ./lvgl/src/widgets/spinbox/lv_spinbox.o
  .rodata.str1.4
-                0x08072a50        0xb ./lvgl/src/widgets/spinbox/lv_spinbox.o
+                0x08072a44        0xb ./lvgl/src/widgets/spinbox/lv_spinbox.o
  .rodata.lv_spinbox_class
-                0x08072a50       0x24 ./lvgl/src/widgets/spinbox/lv_spinbox.o
-                0x08072a50                lv_spinbox_class
+                0x08072a44       0x24 ./lvgl/src/widgets/spinbox/lv_spinbox.o
+                0x08072a44                lv_spinbox_class
  .rodata.str1.4
-                0x08072a74        0xb ./lvgl/src/widgets/spinner/lv_spinner.o
+                0x08072a68        0xb ./lvgl/src/widgets/spinner/lv_spinner.o
  .rodata.lv_spinner_class
-                0x08072a74       0x24 ./lvgl/src/widgets/spinner/lv_spinner.o
-                0x08072a74                lv_spinner_class
+                0x08072a68       0x24 ./lvgl/src/widgets/spinner/lv_spinner.o
+                0x08072a68                lv_spinner_class
  .rodata.str1.4
-                0x08072a98        0xa ./lvgl/src/widgets/switch/lv_switch.o
+                0x08072a8c        0xa ./lvgl/src/widgets/switch/lv_switch.o
  .rodata.lv_switch_class
-                0x08072a98       0x24 ./lvgl/src/widgets/switch/lv_switch.o
-                0x08072a98                lv_switch_class
+                0x08072a8c       0x24 ./lvgl/src/widgets/switch/lv_switch.o
+                0x08072a8c                lv_switch_class
  .rodata.str1.4
-                0x08072abc        0x9 ./lvgl/src/widgets/table/lv_table.o
+                0x08072ab0        0x9 ./lvgl/src/widgets/table/lv_table.o
  .rodata.lv_table_class
-                0x08072abc       0x24 ./lvgl/src/widgets/table/lv_table.o
-                0x08072abc                lv_table_class
+                0x08072ab0       0x24 ./lvgl/src/widgets/table/lv_table.o
+                0x08072ab0                lv_table_class
  .rodata.str1.4
-                0x08072ae0        0xb ./lvgl/src/widgets/tabview/lv_tabview.o
+                0x08072ad4        0xb ./lvgl/src/widgets/tabview/lv_tabview.o
  .rodata.lv_tabview_class
-                0x08072ae0       0x24 ./lvgl/src/widgets/tabview/lv_tabview.o
-                0x08072ae0                lv_tabview_class
+                0x08072ad4       0x24 ./lvgl/src/widgets/tabview/lv_tabview.o
+                0x08072ad4                lv_tabview_class
  .rodata.pwd_char_hider.part.0.str1.4
-                0x08072b04        0x8 ./lvgl/src/widgets/textarea/lv_textarea.o
+                0x08072af8        0x8 ./lvgl/src/widgets/textarea/lv_textarea.o
  .rodata.lv_textarea_constructor.str1.4
-                0x08072b04        0x1 ./lvgl/src/widgets/textarea/lv_textarea.o
+                0x08072af8        0x1 ./lvgl/src/widgets/textarea/lv_textarea.o
  .rodata.str1.4
-                0x08072b04        0xc ./lvgl/src/widgets/textarea/lv_textarea.o
+                0x08072af8        0xc ./lvgl/src/widgets/textarea/lv_textarea.o
  .rodata.lv_textarea_class
-                0x08072b04       0x24 ./lvgl/src/widgets/textarea/lv_textarea.o
-                0x08072b04                lv_textarea_class
+                0x08072af8       0x24 ./lvgl/src/widgets/textarea/lv_textarea.o
+                0x08072af8                lv_textarea_class
  .rodata.str1.4
-                0x08072b28       0x14 ./lvgl/src/widgets/tileview/lv_tileview.o
+                0x08072b1c       0x14 ./lvgl/src/widgets/tileview/lv_tileview.o
  .rodata.lv_tileview_tile_class
-                0x08072b28       0x24 ./lvgl/src/widgets/tileview/lv_tileview.o
-                0x08072b28                lv_tileview_tile_class
+                0x08072b1c       0x24 ./lvgl/src/widgets/tileview/lv_tileview.o
+                0x08072b1c                lv_tileview_tile_class
  .rodata.lv_tileview_class
-                0x08072b4c       0x24 ./lvgl/src/widgets/tileview/lv_tileview.o
-                0x08072b4c                lv_tileview_class
+                0x08072b40       0x24 ./lvgl/src/widgets/tileview/lv_tileview.o
+                0x08072b40                lv_tileview_class
  .rodata.str1.4
-                0x08072b70        0x7 ./lvgl/src/widgets/win/lv_win.o
+                0x08072b64        0x7 ./lvgl/src/widgets/win/lv_win.o
  .rodata.lv_win_class
-                0x08072b70       0x24 ./lvgl/src/widgets/win/lv_win.o
-                0x08072b70                lv_win_class
+                0x08072b64       0x24 ./lvgl/src/widgets/win/lv_win.o
+                0x08072b64                lv_win_class
  .rodata.npio2_hw
-                0x08072b94       0x80 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_rem_pio2.o)
+                0x08072b88       0x80 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_rem_pio2.o)
  .rodata.two_over_pi
-                0x08072c14      0x318 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_rem_pio2.o)
- .rodata.PIo2   0x08072f2c       0x2c C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-kf_rem_pio2.o)
+                0x08072c08      0x318 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-ef_rem_pio2.o)
+ .rodata.PIo2   0x08072f20       0x2c C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-kf_rem_pio2.o)
  .rodata.init_jk
-                0x08072f58        0xc C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-kf_rem_pio2.o)
+                0x08072f4c        0xc C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a(libm_a-kf_rem_pio2.o)
  .rodata._ctype_
-                0x08072f64      0x101 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-ctype_.o)
-                0x08072f64                _ctype_
+                0x08072f58      0x101 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-ctype_.o)
+                0x08072f58                _ctype_
  .rodata._printf_float.str1.1
-                0x08073065      0x171 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf_float.o)
+                0x08073059      0x171 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf_float.o)
                                  0x12 (size before relaxing)
  .rodata._printf_i.str1.1
-                0x080731d6       0x22 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf_i.o)
+                0x080731ca       0x22 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf_i.o)
  .rodata._dtoa_r.str1.1
-                0x080731d6       0x8f C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-dtoa.o)
+                0x080731ca       0x8f C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-dtoa.o)
  .rodata._Balloc.str1.1
-                0x080731d6       0x70 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
+                0x080731ca       0x70 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
  .rodata.__multadd.str1.1
-                0x080731d6       0x11 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
- *fill*         0x080731d6        0x2 
- .rodata.p05.0  0x080731d8        0xc C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
- *fill*         0x080731e4        0x4 
+                0x080731ca       0x11 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
+ *fill*         0x080731ca        0x2 
+ .rodata.p05.0  0x080731cc        0xc C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
  .rodata.__mprec_bigtens
-                0x080731e8       0x28 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
-                0x080731e8                __mprec_bigtens
+                0x080731d8       0x28 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
+                0x080731d8                __mprec_bigtens
  .rodata.__mprec_tens
-                0x08073210       0xc8 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
-                0x08073210                __mprec_tens
+                0x08073200       0xc8 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-mprec.o)
+                0x08073200                __mprec_tens
  .rodata._svfprintf_r.str1.1
-                0x080732d8       0x11 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-svfprintf.o)
+                0x080732c8       0x11 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-svfprintf.o)
  .rodata._vfprintf_r.str1.1
-                0x080732d8       0x11 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf.o)
+                0x080732c8       0x11 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-nano-vfprintf.o)
  .rodata._setlocale_r.str1.1
-                0x080732d8        0x9 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-locale.o)
+                0x080732c8        0x9 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-locale.o)
  .rodata.str1.1
-                0x080732d8        0x2 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-locale.o)
+                0x080732c8        0x2 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-locale.o)
  .rodata.__assert_func.str1.1
-                0x080732d8       0x3d C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-assert.o)
-                0x08073318                        . = ALIGN (0x4)
+                0x080732c8       0x3d C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-assert.o)
+                0x08073308                        . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
 
-.ARM            0x080732d8        0x8
-                0x080732d8                        __exidx_start = .
+.ARM            0x080732c8        0x8
+                0x080732c8                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x080732d8        0x8 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memchr.o)
- .ARM.exidx     0x080732e0        0x0 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-strlen.o)
+ .ARM.exidx     0x080732c8        0x8 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-memchr.o)
+ .ARM.exidx     0x080732d0        0x0 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-strlen.o)
                                   0x8 (size before relaxing)
- .ARM.exidx     0x080732e0        0x0 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x080732d0        0x0 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
                                   0x8 (size before relaxing)
-                0x080732e0                        __exidx_end = .
+                0x080732d0                        __exidx_end = .
 
-.preinit_array  0x080732e0        0x0
-                0x080732e0                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x080732d0        0x0
+                0x080732d0                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x080732e0                        PROVIDE (__preinit_array_end = .)
+                0x080732d0                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x080732e0        0xc
-                0x080732e0                        PROVIDE (__init_array_start = .)
+.init_array     0x080732d0        0xc
+                0x080732d0                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x080732e0        0x4 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .init_array    0x080732e4        0x4 ./Core/Src/BatteryMonitor.o
- .init_array    0x080732e8        0x4 ./Core/Src/Thermocouples.o
-                0x080732ec                        PROVIDE (__init_array_end = .)
+ .init_array    0x080732d0        0x4 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .init_array    0x080732d4        0x4 ./Core/Src/BatteryMonitor.o
+ .init_array    0x080732d8        0x4 ./Core/Src/Thermocouples.o
+                0x080732dc                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x080732ec        0x8
+.fini_array     0x080732dc        0x8
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x080732ec        0x4 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
- .fini_array    0x080732f0        0x4 ./Core/Src/Thermocouples.o
+ .fini_array    0x080732dc        0x4 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+ .fini_array    0x080732e0        0x4 ./Core/Src/Thermocouples.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x080732f4                        _sidata = LOADADDR (.data)
+                0x080732e4                        _sidata = LOADADDR (.data)
 
-.rel.dyn        0x080732f4        0x0
- .rel.iplt      0x080732f4        0x0 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
+.rel.dyn        0x080732e4        0x0
+ .rel.iplt      0x080732e4        0x0 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
-.data           0x20000008      0x36c load address 0x080732f4
+.data           0x20000008      0x36c load address 0x080732e4
                 0x20000008                        . = ALIGN (0x4)
                 0x20000008                        _sdata = .
  *(.data)
@@ -65668,11 +65667,11 @@ LOAD C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x20000374                        . = ALIGN (0x4)
                 0x20000374                        _edata = .
 
-.igot.plt       0x20000374        0x0 load address 0x08073660
+.igot.plt       0x20000374        0x0 load address 0x08073650
  .igot.plt      0x20000374        0x0 C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.13.3.rel1.win32_1.0.0.202411081344/tools/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 
 BLE_DRIVER_CONTEXT
-                0x20000374       0x41 load address 0x08073660
+                0x20000374       0x41 load address 0x08073650
  BLE_DRIVER_CONTEXT
                 0x20000374        0x6 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
  *fill*         0x2000037a        0x2 
@@ -65685,13 +65684,13 @@ BLE_DRIVER_CONTEXT
                 0x200003a4                UserEventFlow
 
 SYSTEM_DRIVER_CONTEXT
-                0x200003b8       0x14 load address 0x080736a1
+                0x200003b8       0x14 load address 0x08073691
  SYSTEM_DRIVER_CONTEXT
                 0x200003b8       0x14 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl.o
                 0x200003b8                SHCI_TL_UserEventFlow
                 0x200003cc                        . = ALIGN (0x4)
 
-.bss            0x200003d0    0x1de54 load address 0x080736b5
+.bss            0x200003d0    0x1de54 load address 0x080736a5
                 0x200003d0                        _sbss = .
                 0x200003d0                        __bss_start__ = _sbss
  *(.bss)
@@ -66041,7 +66040,7 @@ SYSTEM_DRIVER_CONTEXT
                 0x2001e224                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x2001e224     0x1404 load address 0x080736b5
+                0x2001e224     0x1404 load address 0x080736a5
                 0x2001e228                        . = ALIGN (0x8)
  *fill*         0x2001e224        0x4 
                 [!provide]                        PROVIDE (end = .)
@@ -66649,9 +66648,9 @@ MB_MEM1         0x20030028      0x1bb
  *(MB_MEM1)
  MB_MEM1        0x20030028       0xb0 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_mbox.o
  MB_MEM1        0x200300d8      0x10b ./STM32_WPAN/App/app_ble.o
-                0x080736b5                        _siMB_MEM2 = LOADADDR (.MB_MEM2)
+                0x080736a5                        _siMB_MEM2 = LOADADDR (.MB_MEM2)
 
-.MB_MEM2        0x200301e4      0x883 load address 0x080736b5
+.MB_MEM2        0x200301e4      0x883 load address 0x080736a5
                 0x200301e4                        _sMB_MEM2 = .
  *(MB_MEM2)
  MB_MEM2        0x200301e4       0x14 ./Core/Src/app_debug.o
@@ -68340,7 +68339,7 @@ LOAD C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x000211a1       0x4d ./lvgl/src/widgets/win/lv_win.o
 
-.debug_macro    0x00000000    0x795b0
+.debug_macro    0x00000000    0x795bb
  .debug_macro   0x00000000      0x507 ./AD7124_Library/ad7124-driver.o
  .debug_macro   0x00000507      0xbce ./AD7124_Library/ad7124-driver.o
  .debug_macro   0x000010d5       0x1c ./AD7124_Library/ad7124-driver.o
@@ -68523,300 +68522,300 @@ LOAD C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x0002c461       0x1c ./Core/Src/about.o
  .debug_macro   0x0002c47d       0xf0 ./Core/Src/about.o
  .debug_macro   0x0002c56d       0x7c ./Core/Src/about.o
- .debug_macro   0x0002c5e9     0x1417 ./Core/Src/accel.o
- .debug_macro   0x0002da00      0x4fb ./Core/Src/app_debug.o
- .debug_macro   0x0002defb      0x12e ./Core/Src/app_debug.o
- .debug_macro   0x0002e029       0x1c ./Core/Src/app_debug.o
- .debug_macro   0x0002e045      0x13a ./Core/Src/app_debug.o
- .debug_macro   0x0002e17f       0xac ./Core/Src/app_debug.o
- .debug_macro   0x0002e22b      0x415 ./Core/Src/app_debug.o
- .debug_macro   0x0002e640       0xac ./Core/Src/app_debug.o
- .debug_macro   0x0002e6ec       0x1c ./Core/Src/app_debug.o
- .debug_macro   0x0002e708      0x6de ./Core/Src/app_entry.o
- .debug_macro   0x0002ede6       0x34 ./Core/Src/app_entry.o
- .debug_macro   0x0002ee1a       0xe2 ./Core/Src/app_entry.o
- .debug_macro   0x0002eefc      0x713 ./Core/Src/app_entry.o
- .debug_macro   0x0002f60f      0x5bb ./Core/Src/app_entry.o
- .debug_macro   0x0002fbca      0x163 ./Core/Src/app_entry.o
- .debug_macro   0x0002fd2d       0x22 ./Core/Src/app_entry.o
- .debug_macro   0x0002fd4f       0x34 ./Core/Src/app_entry.o
- .debug_macro   0x0002fd83       0x1c ./Core/Src/app_entry.o
- .debug_macro   0x0002fd9f      0x11e ./Core/Src/app_entry.o
- .debug_macro   0x0002febd       0x10 ./Core/Src/app_entry.o
- .debug_macro   0x0002fecd       0x10 ./Core/Src/app_entry.o
- .debug_macro   0x0002fedd       0x67 ./Core/Src/app_entry.o
- .debug_macro   0x0002ff44       0x28 ./Core/Src/app_entry.o
- .debug_macro   0x0002ff6c       0x10 ./Core/Src/app_entry.o
- .debug_macro   0x0002ff7c      0x5cd ./Core/Src/app_entry.o
- .debug_macro   0x00030549       0x22 ./Core/Src/app_entry.o
- .debug_macro   0x0003056b       0xb2 ./Core/Src/app_entry.o
- .debug_macro   0x0003061d      0x134 ./Core/Src/app_entry.o
- .debug_macro   0x00030751      0x4a5 ./Core/Src/backlight.o
- .debug_macro   0x00030bf6      0x49b ./Core/Src/dma.o
- .debug_macro   0x00031091      0x49b ./Core/Src/gpio.o
- .debug_macro   0x0003152c      0x488 ./Core/Src/hw_timerserver.o
- .debug_macro   0x000319b4      0x49b ./Core/Src/i2c.o
- .debug_macro   0x00031e4f      0x49b ./Core/Src/ipcc.o
- .debug_macro   0x000322ea     0x1584 ./Core/Src/main.o
- .debug_macro   0x0003386e       0x5f ./Core/Src/main.o
- .debug_macro   0x000338cd      0x201 ./Core/Src/main.o
- .debug_macro   0x00033ace       0x95 ./Core/Src/main.o
- .debug_macro   0x00033b63       0x10 ./Core/Src/main.o
- .debug_macro   0x00033b73     0x142c ./Core/Src/menu.o
- .debug_macro   0x00034f9f     0x145a ./Core/Src/meter.o
- .debug_macro   0x000363f9      0x49b ./Core/Src/rf.o
- .debug_macro   0x00036894      0x49b ./Core/Src/rng.o
- .debug_macro   0x00036d2f      0x49b ./Core/Src/rtc.o
- .debug_macro   0x000371ca     0x142c ./Core/Src/settings.o
- .debug_macro   0x000385f6      0x49b ./Core/Src/spi.o
- .debug_macro   0x00038a91      0x491 ./Core/Src/stm32wbxx_hal_msp.o
- .debug_macro   0x00038f22      0x49b ./Core/Src/stm32wbxx_it.o
- .debug_macro   0x000393bd      0x274 ./Core/Src/syscalls.o
- .debug_macro   0x00039631       0x5b ./Core/Src/syscalls.o
- .debug_macro   0x0003968c       0x94 ./Core/Src/syscalls.o
- .debug_macro   0x00039720       0x57 ./Core/Src/syscalls.o
- .debug_macro   0x00039777       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00039787       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00039797       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000397a7       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x000397b7       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x000397d3       0x52 ./Core/Src/syscalls.o
- .debug_macro   0x00039825       0x22 ./Core/Src/syscalls.o
- .debug_macro   0x00039847       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00039857       0x52 ./Core/Src/syscalls.o
- .debug_macro   0x000398a9       0xcf ./Core/Src/syscalls.o
- .debug_macro   0x00039978       0x1c ./Core/Src/syscalls.o
- .debug_macro   0x00039994       0x3d ./Core/Src/syscalls.o
- .debug_macro   0x000399d1       0x35 ./Core/Src/syscalls.o
- .debug_macro   0x00039a06      0x12c ./Core/Src/syscalls.o
- .debug_macro   0x00039b32       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00039b42      0x242 ./Core/Src/syscalls.o
- .debug_macro   0x00039d84       0x10 ./Core/Src/syscalls.o
- .debug_macro   0x00039d94      0x18a ./Core/Src/syscalls.o
- .debug_macro   0x00039f1e       0x16 ./Core/Src/syscalls.o
- .debug_macro   0x00039f34       0xce ./Core/Src/syscalls.o
- .debug_macro   0x0003a002      0x112 ./Core/Src/sysmem.o
- .debug_macro   0x0003a114      0x23c ./Core/Src/sysmem.o
- .debug_macro   0x0003a350      0x2ab ./Core/Src/system_stm32wbxx.o
- .debug_macro   0x0003a5fb      0x49b ./Core/Src/tim.o
- .debug_macro   0x0003aa96      0x49b ./Core/Src/usart.o
- .debug_macro   0x0003af31     0x1448 ./Core/Src/widgets.o
- .debug_macro   0x0003c379      0x2cf ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal.o
- .debug_macro   0x0003c648      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.o
- .debug_macro   0x0003c8f3      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_dma.o
- .debug_macro   0x0003cb9e      0x2b1 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash.o
- .debug_macro   0x0003ce4f      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.o
- .debug_macro   0x0003d0fa      0x2b2 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_gpio.o
- .debug_macro   0x0003d3ac      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_hsem.o
- .debug_macro   0x0003d657      0x377 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_i2c.o
- .debug_macro   0x0003d9ce      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_i2c_ex.o
- .debug_macro   0x0003dc79      0x2bd ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_ipcc.o
- .debug_macro   0x0003df36      0x2b7 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd.o
- .debug_macro   0x0003e1ed      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd_ex.o
- .debug_macro   0x0003e498      0x31d ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr.o
- .debug_macro   0x0003e7b5      0x2bd ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.o
- .debug_macro   0x0003ea72      0x31d ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc.o
- .debug_macro   0x0003ed8f      0x300 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc_ex.o
- .debug_macro   0x0003f08f      0x2b1 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.o
- .debug_macro   0x0003f340      0x2ac ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc.o
- .debug_macro   0x0003f5ec      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc_ex.o
- .debug_macro   0x0003f897      0x2b3 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_spi.o
- .debug_macro   0x0003fb4a      0x2b3 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_tim.o
- .debug_macro   0x0003fdfd      0x2b7 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_tim_ex.o
- .debug_macro   0x000400b4      0x2d6 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart.o
- .debug_macro   0x0004038a      0x2b7 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart_ex.o
- .debug_macro   0x00040641      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.o
- .debug_macro   0x000408ec      0x43a ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_macro   0x00040d26       0x16 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_macro   0x00040d3c       0x9e ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_macro   0x00040dda      0x112 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_macro   0x00040eec       0x16 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_macro   0x00040f02      0x20f ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_macro   0x00041111      0x421 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_macro   0x00041532      0x215 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_macro   0x00041747      0x42b ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- .debug_macro   0x00041b72      0x427 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
- .debug_macro   0x00041f99      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.o
- .debug_macro   0x00042117       0x34 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.o
- .debug_macro   0x0004214b       0x46 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.o
- .debug_macro   0x00042191      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gatt_aci.o
- .debug_macro   0x0004230f      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hal_aci.o
- .debug_macro   0x0004248d      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.o
- .debug_macro   0x0004260b      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_l2cap_aci.o
- .debug_macro   0x00042789      0x10f ./Middlewares/ST/STM32_WPAN/ble/core/template/osal.o
- .debug_macro   0x00042898      0x66e ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
- .debug_macro   0x00042f06       0xa6 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
- .debug_macro   0x00042fac       0x82 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
- .debug_macro   0x0004302e      0x656 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.o
- .debug_macro   0x00043684      0x427 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.o
- .debug_macro   0x00043aab       0xe9 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.o
- .debug_macro   0x00043b94      0x503 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl.o
- .debug_macro   0x00044097      0x1db ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl_if.o
- .debug_macro   0x00044272      0x1eb ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl.o
- .debug_macro   0x0004445d      0x1e1 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl_if.o
- .debug_macro   0x0004463e      0x4b3 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_mbox.o
- .debug_macro   0x00044af1       0x88 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_mbox.o
- .debug_macro   0x00044b79      0x482 ./Middlewares/ST/STM32_WPAN/utilities/otp.o
- .debug_macro   0x00044ffb      0x494 ./Middlewares/ST/STM32_WPAN/utilities/stm_list.o
- .debug_macro   0x0004548f      0x6ef ./STM32_WPAN/App/app_ble.o
- .debug_macro   0x00045b7e      0x699 ./STM32_WPAN/App/p2p_client_app.o
- .debug_macro   0x00046217      0x668 ./STM32_WPAN/App/p2p_server_app.o
- .debug_macro   0x0004687f      0x4ae ./STM32_WPAN/Target/hw_ipcc.o
- .debug_macro   0x00046d2d       0x52 ./STM32_WPAN/Target/hw_ipcc.o
- .debug_macro   0x00046d7f      0x460 ./USB_Device/App/usb_device.o
- .debug_macro   0x000471df       0x22 ./USB_Device/App/usb_device.o
- .debug_macro   0x00047201       0x16 ./USB_Device/App/usb_device.o
- .debug_macro   0x00047217      0x4f5 ./USB_Device/App/usbd_cdc_if.o
- .debug_macro   0x0004770c       0x94 ./USB_Device/App/usbd_cdc_if.o
- .debug_macro   0x000477a0      0x45e ./USB_Device/App/usbd_desc.o
- .debug_macro   0x00047bfe       0x1c ./USB_Device/App/usbd_desc.o
- .debug_macro   0x00047c1a      0x4e8 ./USB_Device/Target/usbd_conf.o
- .debug_macro   0x00048102       0x65 ./USB_Device/Target/usbd_conf.o
- .debug_macro   0x00048167      0x427 ./Utilities/lpm/tiny_lpm/stm32_lpm.o
- .debug_macro   0x0004858e       0x4c ./Utilities/lpm/tiny_lpm/stm32_lpm.o
- .debug_macro   0x000485da      0x438 ./Utilities/sequencer/stm32_seq.o
- .debug_macro   0x00048a12       0x1c ./Utilities/sequencer/stm32_seq.o
- .debug_macro   0x00048a2e      0x740 ./lvgl/src/core/lv_group.o
- .debug_macro   0x0004916e       0x12 ./lvgl/src/core/lv_group.o
- .debug_macro   0x00049180       0x65 ./lvgl/src/core/lv_group.o
- .debug_macro   0x000491e5       0x10 ./lvgl/src/core/lv_group.o
- .debug_macro   0x000491f5       0x11 ./lvgl/src/core/lv_group.o
- .debug_macro   0x00049206      0x5ce ./lvgl/src/core/lv_obj.o
- .debug_macro   0x000497d4       0x10 ./lvgl/src/core/lv_obj.o
- .debug_macro   0x000497e4      0x52f ./lvgl/src/core/lv_obj_class.o
- .debug_macro   0x00049d13      0x4ad ./lvgl/src/core/lv_obj_draw.o
- .debug_macro   0x0004a1c0      0x13c ./lvgl/src/core/lv_obj_draw.o
- .debug_macro   0x0004a2fc       0x1c ./lvgl/src/core/lv_obj_draw.o
- .debug_macro   0x0004a318      0x535 ./lvgl/src/core/lv_obj_event.o
- .debug_macro   0x0004a84d      0x7cb ./lvgl/src/core/lv_obj_pos.o
- .debug_macro   0x0004b018      0x4f3 ./lvgl/src/core/lv_obj_scroll.o
- .debug_macro   0x0004b50b      0x799 ./lvgl/src/core/lv_obj_style.o
- .debug_macro   0x0004bca4      0x4a6 ./lvgl/src/core/lv_obj_style_gen.o
- .debug_macro   0x0004c14a      0x7c3 ./lvgl/src/core/lv_obj_tree.o
- .debug_macro   0x0004c90d      0x7a2 ./lvgl/src/core/lv_refr.o
- .debug_macro   0x0004d0af      0x809 ./lvgl/src/display/lv_display.o
- .debug_macro   0x0004d8b8      0x214 ./lvgl/src/draw/convert/lv_draw_buf_convert.o
- .debug_macro   0x0004dacc       0x88 ./lvgl/src/draw/convert/lv_draw_buf_convert.o
- .debug_macro   0x0004db54      0x7cb ./lvgl/src/draw/lv_draw.o
- .debug_macro   0x0004e31f      0x573 ./lvgl/src/draw/lv_draw_arc.o
- .debug_macro   0x0004e892      0x76c ./lvgl/src/draw/lv_draw_buf.o
- .debug_macro   0x0004effe      0x5af ./lvgl/src/draw/lv_draw_image.o
- .debug_macro   0x0004f5ad      0x788 ./lvgl/src/draw/lv_draw_label.o
- .debug_macro   0x0004fd35      0x579 ./lvgl/src/draw/lv_draw_line.o
- .debug_macro   0x000502ae      0x576 ./lvgl/src/draw/lv_draw_mask.o
- .debug_macro   0x00050824      0x592 ./lvgl/src/draw/lv_draw_rect.o
- .debug_macro   0x00050db6      0x76c ./lvgl/src/draw/lv_image_decoder.o
- .debug_macro   0x00051522       0x16 ./lvgl/src/draw/lv_image_decoder.o
- .debug_macro   0x00051538      0x51b ./lvgl/src/draw/sw/blend/lv_draw_sw_blend.o
- .debug_macro   0x00051a53      0x5f2 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.o
- .debug_macro   0x00052045      0x62c ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888.o
- .debug_macro   0x00052671      0x595 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888_premultiplied.o
- .debug_macro   0x00052c06      0x630 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_i1.o
- .debug_macro   0x00053236      0x5f1 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_l8.o
- .debug_macro   0x00053827      0x645 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.o
- .debug_macro   0x00053e6c      0x644 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565_swapped.o
- .debug_macro   0x000544b0      0x628 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb888.o
- .debug_macro   0x00054ad8      0x739 ./lvgl/src/draw/sw/lv_draw_sw.o
- .debug_macro   0x00055211      0x51e ./lvgl/src/draw/sw/lv_draw_sw_arc.o
- .debug_macro   0x0005572f      0x60c ./lvgl/src/draw/sw/lv_draw_sw_border.o
- .debug_macro   0x00055d3b      0x73b ./lvgl/src/draw/sw/lv_draw_sw_box_shadow.o
- .debug_macro   0x00056476      0x616 ./lvgl/src/draw/sw/lv_draw_sw_fill.o
- .debug_macro   0x00056a8c      0x343 ./lvgl/src/draw/sw/lv_draw_sw_grad.o
- .debug_macro   0x00056dcf      0x7b7 ./lvgl/src/draw/sw/lv_draw_sw_img.o
- .debug_macro   0x00057586      0x618 ./lvgl/src/draw/sw/lv_draw_sw_letter.o
- .debug_macro   0x00057b9e      0x615 ./lvgl/src/draw/sw/lv_draw_sw_line.o
- .debug_macro   0x000581b3      0x760 ./lvgl/src/draw/sw/lv_draw_sw_mask.o
- .debug_macro   0x00058913      0x4f1 ./lvgl/src/draw/sw/lv_draw_sw_mask_rect.o
- .debug_macro   0x00058e04       0x10 ./lvgl/src/draw/sw/lv_draw_sw_mask_rect.o
- .debug_macro   0x00058e14      0x52f ./lvgl/src/draw/sw/lv_draw_sw_transform.o
- .debug_macro   0x00059343      0x520 ./lvgl/src/draw/sw/lv_draw_sw_triangle.o
- .debug_macro   0x00059863      0x281 ./lvgl/src/draw/sw/lv_draw_sw_utils.o
- .debug_macro   0x00059ae4      0x21e ./lvgl/src/drivers/display/lcd/lv_lcd_generic_mipi.o
- .debug_macro   0x00059d02      0x2d0 ./lvgl/src/drivers/display/st7789/lv_st7789.o
- .debug_macro   0x00059fd2      0x264 ./lvgl/src/font/lv_font.o
- .debug_macro   0x0005a236      0x769 ./lvgl/src/font/lv_font_fmt_txt.o
- .debug_macro   0x0005a99f      0xe98 ./lvgl/src/font/lv_font_montserrat_12.o
- .debug_macro   0x0005b837      0xe98 ./lvgl/src/font/lv_font_montserrat_14.o
- .debug_macro   0x0005c6cf      0x804 ./lvgl/src/indev/lv_indev.o
- .debug_macro   0x0005ced3      0x4fb ./lvgl/src/indev/lv_indev_scroll.o
- .debug_macro   0x0005d3ce      0x739 ./lvgl/src/layouts/flex/lv_flex.o
- .debug_macro   0x0005db07      0x75b ./lvgl/src/layouts/grid/lv_grid.o
- .debug_macro   0x0005e262      0x759 ./lvgl/src/layouts/lv_layout.o
- .debug_macro   0x0005e9bb      0x745 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
- .debug_macro   0x0005f100      0xfc4 ./lvgl/src/libs/qrcode/lv_qrcode.o
- .debug_macro   0x000600c4       0x20 ./lvgl/src/libs/qrcode/lv_qrcode.o
- .debug_macro   0x000600e4      0xf7d ./lvgl/src/libs/qrcode/qrcodegen.o
- .debug_macro   0x00061061      0x965 ./lvgl/src/lv_init.o
- .debug_macro   0x000619c6      0x209 ./lvgl/src/misc/cache/class/lv_cache_lru_rb.o
- .debug_macro   0x00061bcf      0x76c ./lvgl/src/misc/cache/instance/lv_image_cache.o
- .debug_macro   0x0006233b      0x766 ./lvgl/src/misc/cache/instance/lv_image_header_cache.o
- .debug_macro   0x00062aa1      0x23e ./lvgl/src/misc/cache/lv_cache.o
- .debug_macro   0x00062cdf      0x1a9 ./lvgl/src/misc/cache/lv_cache_entry.o
- .debug_macro   0x00062e88      0x76a ./lvgl/src/misc/lv_anim.o
- .debug_macro   0x000635f2      0x74c ./lvgl/src/misc/lv_area.o
- .debug_macro   0x00063d3e      0x196 ./lvgl/src/misc/lv_array.o
- .debug_macro   0x00063ed4      0x1aa ./lvgl/src/misc/lv_async.o
- .debug_macro   0x0006407e      0x1bb ./lvgl/src/misc/lv_color.o
- .debug_macro   0x00064239      0x1c3 ./lvgl/src/misc/lv_color_op.o
- .debug_macro   0x000643fc       0x59 ./lvgl/src/misc/lv_color_op.o
- .debug_macro   0x00064455      0x76c ./lvgl/src/misc/lv_event.o
- .debug_macro   0x00064bc1      0x773 ./lvgl/src/misc/lv_fs.o
- .debug_macro   0x00065334      0x19d ./lvgl/src/misc/lv_iter.o
- .debug_macro   0x000654d1      0x18c ./lvgl/src/misc/lv_ll.o
- .debug_macro   0x0006565d      0x74f ./lvgl/src/misc/lv_math.o
- .debug_macro   0x00065dac       0x89 ./lvgl/src/misc/lv_math.o
- .debug_macro   0x00065e35      0x1bf ./lvgl/src/misc/lv_palette.o
- .debug_macro   0x00065ff4      0x19b ./lvgl/src/misc/lv_rb.o
- .debug_macro   0x0006618f      0x76d ./lvgl/src/misc/lv_style.o
- .debug_macro   0x000668fc      0x2f9 ./lvgl/src/misc/lv_style_gen.o
- .debug_macro   0x00066bf5      0x3bb ./lvgl/src/misc/lv_text.o
- .debug_macro   0x00066fb0      0x773 ./lvgl/src/misc/lv_timer.o
- .debug_macro   0x00067723      0x29f ./lvgl/src/misc/lv_utils.o
- .debug_macro   0x000679c2      0x73b ./lvgl/src/osal/lv_os.o
- .debug_macro   0x000680fd      0x78d ./lvgl/src/stdlib/builtin/lv_mem_core_builtin.o
- .debug_macro   0x0006888a      0x1e6 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
- .debug_macro   0x00068a70       0x89 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
- .debug_macro   0x00068af9       0x34 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
- .debug_macro   0x00068b2d      0x119 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
- .debug_macro   0x00068c46      0x1c6 ./lvgl/src/stdlib/builtin/lv_string_builtin.o
- .debug_macro   0x00068e0c      0x27f ./lvgl/src/stdlib/builtin/lv_tlsf.o
- .debug_macro   0x0006908b      0x762 ./lvgl/src/stdlib/lv_mem.o
- .debug_macro   0x000697ed     0x116a ./lvgl/src/themes/default/lv_theme_default.o
- .debug_macro   0x0006a957      0xed1 ./lvgl/src/themes/lv_theme.o
- .debug_macro   0x0006b828      0x738 ./lvgl/src/tick/lv_tick.o
- .debug_macro   0x0006bf60      0x550 ./lvgl/src/widgets/arc/lv_arc.o
- .debug_macro   0x0006c4b0      0x5c0 ./lvgl/src/widgets/bar/lv_bar.o
- .debug_macro   0x0006ca70      0x4df ./lvgl/src/widgets/button/lv_button.o
- .debug_macro   0x0006cf4f      0x54a ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
- .debug_macro   0x0006d499      0xf99 ./lvgl/src/widgets/calendar/lv_calendar.o
- .debug_macro   0x0006e432      0x564 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
- .debug_macro   0x0006e996      0x560 ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
- .debug_macro   0x0006eef6      0x6c0 ./lvgl/src/widgets/canvas/lv_canvas.o
- .debug_macro   0x0006f5b6      0x5da ./lvgl/src/widgets/chart/lv_chart.o
- .debug_macro   0x0006fb90      0x518 ./lvgl/src/widgets/checkbox/lv_checkbox.o
- .debug_macro   0x000700a8      0x65e ./lvgl/src/widgets/dropdown/lv_dropdown.o
- .debug_macro   0x00070706      0x617 ./lvgl/src/widgets/image/lv_image.o
- .debug_macro   0x00070d1d      0x56d ./lvgl/src/widgets/keyboard/lv_keyboard.o
- .debug_macro   0x0007128a      0x68f ./lvgl/src/widgets/label/lv_label.o
- .debug_macro   0x00071919      0x52e ./lvgl/src/widgets/led/lv_led.o
- .debug_macro   0x00071e47      0x4ee ./lvgl/src/widgets/line/lv_line.o
- .debug_macro   0x00072335      0x55f ./lvgl/src/widgets/list/lv_list.o
- .debug_macro   0x00072894      0x567 ./lvgl/src/widgets/menu/lv_menu.o
- .debug_macro   0x00072dfb      0x562 ./lvgl/src/widgets/msgbox/lv_msgbox.o
- .debug_macro   0x0007335d      0x699 ./lvgl/src/widgets/roller/lv_roller.o
- .debug_macro   0x000739f6      0x581 ./lvgl/src/widgets/scale/lv_scale.o
- .debug_macro   0x00073f77      0x610 ./lvgl/src/widgets/slider/lv_slider.o
- .debug_macro   0x00074587      0x7af ./lvgl/src/widgets/span/lv_span.o
- .debug_macro   0x00074d36      0x56f ./lvgl/src/widgets/spinbox/lv_spinbox.o
- .debug_macro   0x000752a5      0xf0c ./lvgl/src/widgets/spinner/lv_spinner.o
- .debug_macro   0x000761b1      0x521 ./lvgl/src/widgets/switch/lv_switch.o
- .debug_macro   0x000766d2      0x635 ./lvgl/src/widgets/table/lv_table.o
- .debug_macro   0x00076d07      0xf1c ./lvgl/src/widgets/tabview/lv_tabview.o
- .debug_macro   0x00077c23      0x59d ./lvgl/src/widgets/textarea/lv_textarea.o
- .debug_macro   0x000781c0      0x50f ./lvgl/src/widgets/tileview/lv_tileview.o
- .debug_macro   0x000786cf      0xee1 ./lvgl/src/widgets/win/lv_win.o
+ .debug_macro   0x0002c5e9     0x1422 ./Core/Src/accel.o
+ .debug_macro   0x0002da0b      0x4fb ./Core/Src/app_debug.o
+ .debug_macro   0x0002df06      0x12e ./Core/Src/app_debug.o
+ .debug_macro   0x0002e034       0x1c ./Core/Src/app_debug.o
+ .debug_macro   0x0002e050      0x13a ./Core/Src/app_debug.o
+ .debug_macro   0x0002e18a       0xac ./Core/Src/app_debug.o
+ .debug_macro   0x0002e236      0x415 ./Core/Src/app_debug.o
+ .debug_macro   0x0002e64b       0xac ./Core/Src/app_debug.o
+ .debug_macro   0x0002e6f7       0x1c ./Core/Src/app_debug.o
+ .debug_macro   0x0002e713      0x6de ./Core/Src/app_entry.o
+ .debug_macro   0x0002edf1       0x34 ./Core/Src/app_entry.o
+ .debug_macro   0x0002ee25       0xe2 ./Core/Src/app_entry.o
+ .debug_macro   0x0002ef07      0x713 ./Core/Src/app_entry.o
+ .debug_macro   0x0002f61a      0x5bb ./Core/Src/app_entry.o
+ .debug_macro   0x0002fbd5      0x163 ./Core/Src/app_entry.o
+ .debug_macro   0x0002fd38       0x22 ./Core/Src/app_entry.o
+ .debug_macro   0x0002fd5a       0x34 ./Core/Src/app_entry.o
+ .debug_macro   0x0002fd8e       0x1c ./Core/Src/app_entry.o
+ .debug_macro   0x0002fdaa      0x11e ./Core/Src/app_entry.o
+ .debug_macro   0x0002fec8       0x10 ./Core/Src/app_entry.o
+ .debug_macro   0x0002fed8       0x10 ./Core/Src/app_entry.o
+ .debug_macro   0x0002fee8       0x67 ./Core/Src/app_entry.o
+ .debug_macro   0x0002ff4f       0x28 ./Core/Src/app_entry.o
+ .debug_macro   0x0002ff77       0x10 ./Core/Src/app_entry.o
+ .debug_macro   0x0002ff87      0x5cd ./Core/Src/app_entry.o
+ .debug_macro   0x00030554       0x22 ./Core/Src/app_entry.o
+ .debug_macro   0x00030576       0xb2 ./Core/Src/app_entry.o
+ .debug_macro   0x00030628      0x134 ./Core/Src/app_entry.o
+ .debug_macro   0x0003075c      0x4a5 ./Core/Src/backlight.o
+ .debug_macro   0x00030c01      0x49b ./Core/Src/dma.o
+ .debug_macro   0x0003109c      0x49b ./Core/Src/gpio.o
+ .debug_macro   0x00031537      0x488 ./Core/Src/hw_timerserver.o
+ .debug_macro   0x000319bf      0x49b ./Core/Src/i2c.o
+ .debug_macro   0x00031e5a      0x49b ./Core/Src/ipcc.o
+ .debug_macro   0x000322f5     0x1584 ./Core/Src/main.o
+ .debug_macro   0x00033879       0x5f ./Core/Src/main.o
+ .debug_macro   0x000338d8      0x201 ./Core/Src/main.o
+ .debug_macro   0x00033ad9       0x95 ./Core/Src/main.o
+ .debug_macro   0x00033b6e       0x10 ./Core/Src/main.o
+ .debug_macro   0x00033b7e     0x142c ./Core/Src/menu.o
+ .debug_macro   0x00034faa     0x145a ./Core/Src/meter.o
+ .debug_macro   0x00036404      0x49b ./Core/Src/rf.o
+ .debug_macro   0x0003689f      0x49b ./Core/Src/rng.o
+ .debug_macro   0x00036d3a      0x49b ./Core/Src/rtc.o
+ .debug_macro   0x000371d5     0x142c ./Core/Src/settings.o
+ .debug_macro   0x00038601      0x49b ./Core/Src/spi.o
+ .debug_macro   0x00038a9c      0x491 ./Core/Src/stm32wbxx_hal_msp.o
+ .debug_macro   0x00038f2d      0x49b ./Core/Src/stm32wbxx_it.o
+ .debug_macro   0x000393c8      0x274 ./Core/Src/syscalls.o
+ .debug_macro   0x0003963c       0x5b ./Core/Src/syscalls.o
+ .debug_macro   0x00039697       0x94 ./Core/Src/syscalls.o
+ .debug_macro   0x0003972b       0x57 ./Core/Src/syscalls.o
+ .debug_macro   0x00039782       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x00039792       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x000397a2       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x000397b2       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x000397c2       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x000397de       0x52 ./Core/Src/syscalls.o
+ .debug_macro   0x00039830       0x22 ./Core/Src/syscalls.o
+ .debug_macro   0x00039852       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x00039862       0x52 ./Core/Src/syscalls.o
+ .debug_macro   0x000398b4       0xcf ./Core/Src/syscalls.o
+ .debug_macro   0x00039983       0x1c ./Core/Src/syscalls.o
+ .debug_macro   0x0003999f       0x3d ./Core/Src/syscalls.o
+ .debug_macro   0x000399dc       0x35 ./Core/Src/syscalls.o
+ .debug_macro   0x00039a11      0x12c ./Core/Src/syscalls.o
+ .debug_macro   0x00039b3d       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x00039b4d      0x242 ./Core/Src/syscalls.o
+ .debug_macro   0x00039d8f       0x10 ./Core/Src/syscalls.o
+ .debug_macro   0x00039d9f      0x18a ./Core/Src/syscalls.o
+ .debug_macro   0x00039f29       0x16 ./Core/Src/syscalls.o
+ .debug_macro   0x00039f3f       0xce ./Core/Src/syscalls.o
+ .debug_macro   0x0003a00d      0x112 ./Core/Src/sysmem.o
+ .debug_macro   0x0003a11f      0x23c ./Core/Src/sysmem.o
+ .debug_macro   0x0003a35b      0x2ab ./Core/Src/system_stm32wbxx.o
+ .debug_macro   0x0003a606      0x49b ./Core/Src/tim.o
+ .debug_macro   0x0003aaa1      0x49b ./Core/Src/usart.o
+ .debug_macro   0x0003af3c     0x1448 ./Core/Src/widgets.o
+ .debug_macro   0x0003c384      0x2cf ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal.o
+ .debug_macro   0x0003c653      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.o
+ .debug_macro   0x0003c8fe      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_dma.o
+ .debug_macro   0x0003cba9      0x2b1 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash.o
+ .debug_macro   0x0003ce5a      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.o
+ .debug_macro   0x0003d105      0x2b2 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_gpio.o
+ .debug_macro   0x0003d3b7      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_hsem.o
+ .debug_macro   0x0003d662      0x377 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_i2c.o
+ .debug_macro   0x0003d9d9      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_i2c_ex.o
+ .debug_macro   0x0003dc84      0x2bd ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_ipcc.o
+ .debug_macro   0x0003df41      0x2b7 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd.o
+ .debug_macro   0x0003e1f8      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd_ex.o
+ .debug_macro   0x0003e4a3      0x31d ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr.o
+ .debug_macro   0x0003e7c0      0x2bd ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.o
+ .debug_macro   0x0003ea7d      0x31d ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc.o
+ .debug_macro   0x0003ed9a      0x300 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc_ex.o
+ .debug_macro   0x0003f09a      0x2b1 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.o
+ .debug_macro   0x0003f34b      0x2ac ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc.o
+ .debug_macro   0x0003f5f7      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc_ex.o
+ .debug_macro   0x0003f8a2      0x2b3 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_spi.o
+ .debug_macro   0x0003fb55      0x2b3 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_tim.o
+ .debug_macro   0x0003fe08      0x2b7 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_tim_ex.o
+ .debug_macro   0x000400bf      0x2d6 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart.o
+ .debug_macro   0x00040395      0x2b7 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart_ex.o
+ .debug_macro   0x0004064c      0x2ab ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.o
+ .debug_macro   0x000408f7      0x43a ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_macro   0x00040d31       0x16 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_macro   0x00040d47       0x9e ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_macro   0x00040de5      0x112 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_macro   0x00040ef7       0x16 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_macro   0x00040f0d      0x20f ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_macro   0x0004111c      0x421 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_macro   0x0004153d      0x215 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_macro   0x00041752      0x42b ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_macro   0x00041b7d      0x427 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_macro   0x00041fa4      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.o
+ .debug_macro   0x00042122       0x34 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.o
+ .debug_macro   0x00042156       0x46 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.o
+ .debug_macro   0x0004219c      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gatt_aci.o
+ .debug_macro   0x0004231a      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hal_aci.o
+ .debug_macro   0x00042498      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.o
+ .debug_macro   0x00042616      0x17e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_l2cap_aci.o
+ .debug_macro   0x00042794      0x10f ./Middlewares/ST/STM32_WPAN/ble/core/template/osal.o
+ .debug_macro   0x000428a3      0x66e ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
+ .debug_macro   0x00042f11       0xa6 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
+ .debug_macro   0x00042fb7       0x82 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
+ .debug_macro   0x00043039      0x656 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.o
+ .debug_macro   0x0004368f      0x427 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.o
+ .debug_macro   0x00043ab6       0xe9 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.o
+ .debug_macro   0x00043b9f      0x503 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl.o
+ .debug_macro   0x000440a2      0x1db ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl_if.o
+ .debug_macro   0x0004427d      0x1eb ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl.o
+ .debug_macro   0x00044468      0x1e1 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl_if.o
+ .debug_macro   0x00044649      0x4b3 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_mbox.o
+ .debug_macro   0x00044afc       0x88 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_mbox.o
+ .debug_macro   0x00044b84      0x482 ./Middlewares/ST/STM32_WPAN/utilities/otp.o
+ .debug_macro   0x00045006      0x494 ./Middlewares/ST/STM32_WPAN/utilities/stm_list.o
+ .debug_macro   0x0004549a      0x6ef ./STM32_WPAN/App/app_ble.o
+ .debug_macro   0x00045b89      0x699 ./STM32_WPAN/App/p2p_client_app.o
+ .debug_macro   0x00046222      0x668 ./STM32_WPAN/App/p2p_server_app.o
+ .debug_macro   0x0004688a      0x4ae ./STM32_WPAN/Target/hw_ipcc.o
+ .debug_macro   0x00046d38       0x52 ./STM32_WPAN/Target/hw_ipcc.o
+ .debug_macro   0x00046d8a      0x460 ./USB_Device/App/usb_device.o
+ .debug_macro   0x000471ea       0x22 ./USB_Device/App/usb_device.o
+ .debug_macro   0x0004720c       0x16 ./USB_Device/App/usb_device.o
+ .debug_macro   0x00047222      0x4f5 ./USB_Device/App/usbd_cdc_if.o
+ .debug_macro   0x00047717       0x94 ./USB_Device/App/usbd_cdc_if.o
+ .debug_macro   0x000477ab      0x45e ./USB_Device/App/usbd_desc.o
+ .debug_macro   0x00047c09       0x1c ./USB_Device/App/usbd_desc.o
+ .debug_macro   0x00047c25      0x4e8 ./USB_Device/Target/usbd_conf.o
+ .debug_macro   0x0004810d       0x65 ./USB_Device/Target/usbd_conf.o
+ .debug_macro   0x00048172      0x427 ./Utilities/lpm/tiny_lpm/stm32_lpm.o
+ .debug_macro   0x00048599       0x4c ./Utilities/lpm/tiny_lpm/stm32_lpm.o
+ .debug_macro   0x000485e5      0x438 ./Utilities/sequencer/stm32_seq.o
+ .debug_macro   0x00048a1d       0x1c ./Utilities/sequencer/stm32_seq.o
+ .debug_macro   0x00048a39      0x740 ./lvgl/src/core/lv_group.o
+ .debug_macro   0x00049179       0x12 ./lvgl/src/core/lv_group.o
+ .debug_macro   0x0004918b       0x65 ./lvgl/src/core/lv_group.o
+ .debug_macro   0x000491f0       0x10 ./lvgl/src/core/lv_group.o
+ .debug_macro   0x00049200       0x11 ./lvgl/src/core/lv_group.o
+ .debug_macro   0x00049211      0x5ce ./lvgl/src/core/lv_obj.o
+ .debug_macro   0x000497df       0x10 ./lvgl/src/core/lv_obj.o
+ .debug_macro   0x000497ef      0x52f ./lvgl/src/core/lv_obj_class.o
+ .debug_macro   0x00049d1e      0x4ad ./lvgl/src/core/lv_obj_draw.o
+ .debug_macro   0x0004a1cb      0x13c ./lvgl/src/core/lv_obj_draw.o
+ .debug_macro   0x0004a307       0x1c ./lvgl/src/core/lv_obj_draw.o
+ .debug_macro   0x0004a323      0x535 ./lvgl/src/core/lv_obj_event.o
+ .debug_macro   0x0004a858      0x7cb ./lvgl/src/core/lv_obj_pos.o
+ .debug_macro   0x0004b023      0x4f3 ./lvgl/src/core/lv_obj_scroll.o
+ .debug_macro   0x0004b516      0x799 ./lvgl/src/core/lv_obj_style.o
+ .debug_macro   0x0004bcaf      0x4a6 ./lvgl/src/core/lv_obj_style_gen.o
+ .debug_macro   0x0004c155      0x7c3 ./lvgl/src/core/lv_obj_tree.o
+ .debug_macro   0x0004c918      0x7a2 ./lvgl/src/core/lv_refr.o
+ .debug_macro   0x0004d0ba      0x809 ./lvgl/src/display/lv_display.o
+ .debug_macro   0x0004d8c3      0x214 ./lvgl/src/draw/convert/lv_draw_buf_convert.o
+ .debug_macro   0x0004dad7       0x88 ./lvgl/src/draw/convert/lv_draw_buf_convert.o
+ .debug_macro   0x0004db5f      0x7cb ./lvgl/src/draw/lv_draw.o
+ .debug_macro   0x0004e32a      0x573 ./lvgl/src/draw/lv_draw_arc.o
+ .debug_macro   0x0004e89d      0x76c ./lvgl/src/draw/lv_draw_buf.o
+ .debug_macro   0x0004f009      0x5af ./lvgl/src/draw/lv_draw_image.o
+ .debug_macro   0x0004f5b8      0x788 ./lvgl/src/draw/lv_draw_label.o
+ .debug_macro   0x0004fd40      0x579 ./lvgl/src/draw/lv_draw_line.o
+ .debug_macro   0x000502b9      0x576 ./lvgl/src/draw/lv_draw_mask.o
+ .debug_macro   0x0005082f      0x592 ./lvgl/src/draw/lv_draw_rect.o
+ .debug_macro   0x00050dc1      0x76c ./lvgl/src/draw/lv_image_decoder.o
+ .debug_macro   0x0005152d       0x16 ./lvgl/src/draw/lv_image_decoder.o
+ .debug_macro   0x00051543      0x51b ./lvgl/src/draw/sw/blend/lv_draw_sw_blend.o
+ .debug_macro   0x00051a5e      0x5f2 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.o
+ .debug_macro   0x00052050      0x62c ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888.o
+ .debug_macro   0x0005267c      0x595 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888_premultiplied.o
+ .debug_macro   0x00052c11      0x630 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_i1.o
+ .debug_macro   0x00053241      0x5f1 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_l8.o
+ .debug_macro   0x00053832      0x645 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.o
+ .debug_macro   0x00053e77      0x644 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565_swapped.o
+ .debug_macro   0x000544bb      0x628 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb888.o
+ .debug_macro   0x00054ae3      0x739 ./lvgl/src/draw/sw/lv_draw_sw.o
+ .debug_macro   0x0005521c      0x51e ./lvgl/src/draw/sw/lv_draw_sw_arc.o
+ .debug_macro   0x0005573a      0x60c ./lvgl/src/draw/sw/lv_draw_sw_border.o
+ .debug_macro   0x00055d46      0x73b ./lvgl/src/draw/sw/lv_draw_sw_box_shadow.o
+ .debug_macro   0x00056481      0x616 ./lvgl/src/draw/sw/lv_draw_sw_fill.o
+ .debug_macro   0x00056a97      0x343 ./lvgl/src/draw/sw/lv_draw_sw_grad.o
+ .debug_macro   0x00056dda      0x7b7 ./lvgl/src/draw/sw/lv_draw_sw_img.o
+ .debug_macro   0x00057591      0x618 ./lvgl/src/draw/sw/lv_draw_sw_letter.o
+ .debug_macro   0x00057ba9      0x615 ./lvgl/src/draw/sw/lv_draw_sw_line.o
+ .debug_macro   0x000581be      0x760 ./lvgl/src/draw/sw/lv_draw_sw_mask.o
+ .debug_macro   0x0005891e      0x4f1 ./lvgl/src/draw/sw/lv_draw_sw_mask_rect.o
+ .debug_macro   0x00058e0f       0x10 ./lvgl/src/draw/sw/lv_draw_sw_mask_rect.o
+ .debug_macro   0x00058e1f      0x52f ./lvgl/src/draw/sw/lv_draw_sw_transform.o
+ .debug_macro   0x0005934e      0x520 ./lvgl/src/draw/sw/lv_draw_sw_triangle.o
+ .debug_macro   0x0005986e      0x281 ./lvgl/src/draw/sw/lv_draw_sw_utils.o
+ .debug_macro   0x00059aef      0x21e ./lvgl/src/drivers/display/lcd/lv_lcd_generic_mipi.o
+ .debug_macro   0x00059d0d      0x2d0 ./lvgl/src/drivers/display/st7789/lv_st7789.o
+ .debug_macro   0x00059fdd      0x264 ./lvgl/src/font/lv_font.o
+ .debug_macro   0x0005a241      0x769 ./lvgl/src/font/lv_font_fmt_txt.o
+ .debug_macro   0x0005a9aa      0xe98 ./lvgl/src/font/lv_font_montserrat_12.o
+ .debug_macro   0x0005b842      0xe98 ./lvgl/src/font/lv_font_montserrat_14.o
+ .debug_macro   0x0005c6da      0x804 ./lvgl/src/indev/lv_indev.o
+ .debug_macro   0x0005cede      0x4fb ./lvgl/src/indev/lv_indev_scroll.o
+ .debug_macro   0x0005d3d9      0x739 ./lvgl/src/layouts/flex/lv_flex.o
+ .debug_macro   0x0005db12      0x75b ./lvgl/src/layouts/grid/lv_grid.o
+ .debug_macro   0x0005e26d      0x759 ./lvgl/src/layouts/lv_layout.o
+ .debug_macro   0x0005e9c6      0x745 ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
+ .debug_macro   0x0005f10b      0xfc4 ./lvgl/src/libs/qrcode/lv_qrcode.o
+ .debug_macro   0x000600cf       0x20 ./lvgl/src/libs/qrcode/lv_qrcode.o
+ .debug_macro   0x000600ef      0xf7d ./lvgl/src/libs/qrcode/qrcodegen.o
+ .debug_macro   0x0006106c      0x965 ./lvgl/src/lv_init.o
+ .debug_macro   0x000619d1      0x209 ./lvgl/src/misc/cache/class/lv_cache_lru_rb.o
+ .debug_macro   0x00061bda      0x76c ./lvgl/src/misc/cache/instance/lv_image_cache.o
+ .debug_macro   0x00062346      0x766 ./lvgl/src/misc/cache/instance/lv_image_header_cache.o
+ .debug_macro   0x00062aac      0x23e ./lvgl/src/misc/cache/lv_cache.o
+ .debug_macro   0x00062cea      0x1a9 ./lvgl/src/misc/cache/lv_cache_entry.o
+ .debug_macro   0x00062e93      0x76a ./lvgl/src/misc/lv_anim.o
+ .debug_macro   0x000635fd      0x74c ./lvgl/src/misc/lv_area.o
+ .debug_macro   0x00063d49      0x196 ./lvgl/src/misc/lv_array.o
+ .debug_macro   0x00063edf      0x1aa ./lvgl/src/misc/lv_async.o
+ .debug_macro   0x00064089      0x1bb ./lvgl/src/misc/lv_color.o
+ .debug_macro   0x00064244      0x1c3 ./lvgl/src/misc/lv_color_op.o
+ .debug_macro   0x00064407       0x59 ./lvgl/src/misc/lv_color_op.o
+ .debug_macro   0x00064460      0x76c ./lvgl/src/misc/lv_event.o
+ .debug_macro   0x00064bcc      0x773 ./lvgl/src/misc/lv_fs.o
+ .debug_macro   0x0006533f      0x19d ./lvgl/src/misc/lv_iter.o
+ .debug_macro   0x000654dc      0x18c ./lvgl/src/misc/lv_ll.o
+ .debug_macro   0x00065668      0x74f ./lvgl/src/misc/lv_math.o
+ .debug_macro   0x00065db7       0x89 ./lvgl/src/misc/lv_math.o
+ .debug_macro   0x00065e40      0x1bf ./lvgl/src/misc/lv_palette.o
+ .debug_macro   0x00065fff      0x19b ./lvgl/src/misc/lv_rb.o
+ .debug_macro   0x0006619a      0x76d ./lvgl/src/misc/lv_style.o
+ .debug_macro   0x00066907      0x2f9 ./lvgl/src/misc/lv_style_gen.o
+ .debug_macro   0x00066c00      0x3bb ./lvgl/src/misc/lv_text.o
+ .debug_macro   0x00066fbb      0x773 ./lvgl/src/misc/lv_timer.o
+ .debug_macro   0x0006772e      0x29f ./lvgl/src/misc/lv_utils.o
+ .debug_macro   0x000679cd      0x73b ./lvgl/src/osal/lv_os.o
+ .debug_macro   0x00068108      0x78d ./lvgl/src/stdlib/builtin/lv_mem_core_builtin.o
+ .debug_macro   0x00068895      0x1e6 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
+ .debug_macro   0x00068a7b       0x89 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
+ .debug_macro   0x00068b04       0x34 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
+ .debug_macro   0x00068b38      0x119 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
+ .debug_macro   0x00068c51      0x1c6 ./lvgl/src/stdlib/builtin/lv_string_builtin.o
+ .debug_macro   0x00068e17      0x27f ./lvgl/src/stdlib/builtin/lv_tlsf.o
+ .debug_macro   0x00069096      0x762 ./lvgl/src/stdlib/lv_mem.o
+ .debug_macro   0x000697f8     0x116a ./lvgl/src/themes/default/lv_theme_default.o
+ .debug_macro   0x0006a962      0xed1 ./lvgl/src/themes/lv_theme.o
+ .debug_macro   0x0006b833      0x738 ./lvgl/src/tick/lv_tick.o
+ .debug_macro   0x0006bf6b      0x550 ./lvgl/src/widgets/arc/lv_arc.o
+ .debug_macro   0x0006c4bb      0x5c0 ./lvgl/src/widgets/bar/lv_bar.o
+ .debug_macro   0x0006ca7b      0x4df ./lvgl/src/widgets/button/lv_button.o
+ .debug_macro   0x0006cf5a      0x54a ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
+ .debug_macro   0x0006d4a4      0xf99 ./lvgl/src/widgets/calendar/lv_calendar.o
+ .debug_macro   0x0006e43d      0x564 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
+ .debug_macro   0x0006e9a1      0x560 ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
+ .debug_macro   0x0006ef01      0x6c0 ./lvgl/src/widgets/canvas/lv_canvas.o
+ .debug_macro   0x0006f5c1      0x5da ./lvgl/src/widgets/chart/lv_chart.o
+ .debug_macro   0x0006fb9b      0x518 ./lvgl/src/widgets/checkbox/lv_checkbox.o
+ .debug_macro   0x000700b3      0x65e ./lvgl/src/widgets/dropdown/lv_dropdown.o
+ .debug_macro   0x00070711      0x617 ./lvgl/src/widgets/image/lv_image.o
+ .debug_macro   0x00070d28      0x56d ./lvgl/src/widgets/keyboard/lv_keyboard.o
+ .debug_macro   0x00071295      0x68f ./lvgl/src/widgets/label/lv_label.o
+ .debug_macro   0x00071924      0x52e ./lvgl/src/widgets/led/lv_led.o
+ .debug_macro   0x00071e52      0x4ee ./lvgl/src/widgets/line/lv_line.o
+ .debug_macro   0x00072340      0x55f ./lvgl/src/widgets/list/lv_list.o
+ .debug_macro   0x0007289f      0x567 ./lvgl/src/widgets/menu/lv_menu.o
+ .debug_macro   0x00072e06      0x562 ./lvgl/src/widgets/msgbox/lv_msgbox.o
+ .debug_macro   0x00073368      0x699 ./lvgl/src/widgets/roller/lv_roller.o
+ .debug_macro   0x00073a01      0x581 ./lvgl/src/widgets/scale/lv_scale.o
+ .debug_macro   0x00073f82      0x610 ./lvgl/src/widgets/slider/lv_slider.o
+ .debug_macro   0x00074592      0x7af ./lvgl/src/widgets/span/lv_span.o
+ .debug_macro   0x00074d41      0x56f ./lvgl/src/widgets/spinbox/lv_spinbox.o
+ .debug_macro   0x000752b0      0xf0c ./lvgl/src/widgets/spinner/lv_spinner.o
+ .debug_macro   0x000761bc      0x521 ./lvgl/src/widgets/switch/lv_switch.o
+ .debug_macro   0x000766dd      0x635 ./lvgl/src/widgets/table/lv_table.o
+ .debug_macro   0x00076d12      0xf1c ./lvgl/src/widgets/tabview/lv_tabview.o
+ .debug_macro   0x00077c2e      0x59d ./lvgl/src/widgets/textarea/lv_textarea.o
+ .debug_macro   0x000781cb      0x50f ./lvgl/src/widgets/tileview/lv_tileview.o
+ .debug_macro   0x000786da      0xee1 ./lvgl/src/widgets/win/lv_win.o
 
-.debug_line     0x00000000   0x28abae
+.debug_line     0x00000000   0x28abb9
  .debug_line    0x00000000     0x10a8 ./AD7124_Library/ad7124-driver.o
  .debug_line    0x000010a8     0x155a ./AD7124_Library/ad7124-private.o
  .debug_line    0x00002602     0x11c6 ./AD7124_Library/ad7124.o
@@ -68825,209 +68824,209 @@ LOAD C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x00006da0     0xcaef ./Core/Src/FT5436_Touch.o
  .debug_line    0x0001388f     0xc8e8 ./Core/Src/Thermocouples.o
  .debug_line    0x00020177     0xc9b1 ./Core/Src/about.o
- .debug_line    0x0002cb28     0xc994 ./Core/Src/accel.o
- .debug_line    0x000394bc      0xfd6 ./Core/Src/app_debug.o
- .debug_line    0x0003a492     0x14a2 ./Core/Src/app_entry.o
- .debug_line    0x0003b934      0xd67 ./Core/Src/backlight.o
- .debug_line    0x0003c69b      0xc89 ./Core/Src/dma.o
- .debug_line    0x0003d324      0xdb0 ./Core/Src/gpio.o
- .debug_line    0x0003e0d4     0x1cbc ./Core/Src/hw_timerserver.o
- .debug_line    0x0003fd90      0xdea ./Core/Src/i2c.o
- .debug_line    0x00040b7a      0xd20 ./Core/Src/ipcc.o
- .debug_line    0x0004189a     0xd4ba ./Core/Src/main.o
- .debug_line    0x0004ed54     0xcac1 ./Core/Src/menu.o
- .debug_line    0x0005b815     0xd5d5 ./Core/Src/meter.o
- .debug_line    0x00068dea      0xbff ./Core/Src/rf.o
- .debug_line    0x000699e9      0xcf9 ./Core/Src/rng.o
- .debug_line    0x0006a6e2      0xdb1 ./Core/Src/rtc.o
- .debug_line    0x0006b493     0xcc4c ./Core/Src/settings.o
- .debug_line    0x000780df      0xf21 ./Core/Src/spi.o
- .debug_line    0x00079000      0xc6d ./Core/Src/stm32wbxx_hal_msp.o
- .debug_line    0x00079c6d      0xdc2 ./Core/Src/stm32wbxx_it.o
- .debug_line    0x0007aa2f      0x959 ./Core/Src/syscalls.o
- .debug_line    0x0007b388      0x5c0 ./Core/Src/sysmem.o
- .debug_line    0x0007b948      0xa48 ./Core/Src/system_stm32wbxx.o
- .debug_line    0x0007c390      0xfa7 ./Core/Src/tim.o
- .debug_line    0x0007d337      0xe22 ./Core/Src/usart.o
- .debug_line    0x0007e159     0xc879 ./Core/Src/widgets.o
- .debug_line    0x0008a9d2     0x11cf ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal.o
- .debug_line    0x0008bba1      0xf53 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.o
- .debug_line    0x0008caf4     0x14fd ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_dma.o
- .debug_line    0x0008dff1      0xf71 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash.o
- .debug_line    0x0008ef62     0x1130 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.o
- .debug_line    0x00090092     0x1198 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_gpio.o
- .debug_line    0x0009122a      0xa8b ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_hsem.o
- .debug_line    0x00091cb5     0x82a0 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_i2c.o
- .debug_line    0x00099f55      0xb47 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_i2c_ex.o
- .debug_line    0x0009aa9c     0x1098 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_ipcc.o
- .debug_line    0x0009bb34     0x2331 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd.o
- .debug_line    0x0009de65      0xbd9 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd_ex.o
- .debug_line    0x0009ea3e      0xc15 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr.o
- .debug_line    0x0009f653     0x13ff ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.o
- .debug_line    0x000a0a52     0x2b40 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc.o
- .debug_line    0x000a3592     0x2d12 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc_ex.o
- .debug_line    0x000a62a4      0xcc9 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.o
- .debug_line    0x000a6f6d     0x2060 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc.o
- .debug_line    0x000a8fcd     0x1ff1 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc_ex.o
- .debug_line    0x000aafbe     0x44e4 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_spi.o
- .debug_line    0x000af4a2     0x6951 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_tim.o
- .debug_line    0x000b5df3     0x2207 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_tim_ex.o
- .debug_line    0x000b7ffa     0x7bf6 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart.o
- .debug_line    0x000bfbf0     0x13d3 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart_ex.o
- .debug_line    0x000c0fc3     0x1ddf ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.o
- .debug_line    0x000c2da2     0x12c6 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
- .debug_line    0x000c4068     0x1343 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
- .debug_line    0x000c53ab     0x1471 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
- .debug_line    0x000c681c      0xc88 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
- .debug_line    0x000c74a4     0x26ab ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.o
- .debug_line    0x000c9b4f     0x2407 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gatt_aci.o
- .debug_line    0x000cbf56     0x104e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hal_aci.o
- .debug_line    0x000ccfa4     0x2f38 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.o
- .debug_line    0x000cfedc      0xbb1 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_l2cap_aci.o
- .debug_line    0x000d0a8d      0x5ad ./Middlewares/ST/STM32_WPAN/ble/core/template/osal.o
- .debug_line    0x000d103a     0x10e7 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
- .debug_line    0x000d2121     0x121e ./Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.o
- .debug_line    0x000d333f     0x1397 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.o
- .debug_line    0x000d46d6     0x10cb ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl.o
- .debug_line    0x000d57a1      0x68a ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl_if.o
- .debug_line    0x000d5e2b      0x9a7 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl.o
- .debug_line    0x000d67d2      0x68c ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl_if.o
- .debug_line    0x000d6e5e     0x10b0 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_mbox.o
- .debug_line    0x000d7f0e      0xc44 ./Middlewares/ST/STM32_WPAN/utilities/otp.o
- .debug_line    0x000d8b52     0x11bd ./Middlewares/ST/STM32_WPAN/utilities/stm_list.o
- .debug_line    0x000d9d0f     0x1930 ./STM32_WPAN/App/app_ble.o
- .debug_line    0x000db63f     0x1408 ./STM32_WPAN/App/p2p_client_app.o
- .debug_line    0x000dca47     0x1151 ./STM32_WPAN/App/p2p_server_app.o
- .debug_line    0x000ddb98     0x1407 ./STM32_WPAN/Target/hw_ipcc.o
- .debug_line    0x000def9f      0xc9f ./USB_Device/App/usb_device.o
- .debug_line    0x000dfc3e     0x10a8 ./USB_Device/App/usbd_cdc_if.o
- .debug_line    0x000e0ce6      0xf83 ./USB_Device/App/usbd_desc.o
- .debug_line    0x000e1c69     0x146c ./USB_Device/Target/usbd_conf.o
- .debug_line    0x000e30d5      0xe9d ./Utilities/lpm/tiny_lpm/stm32_lpm.o
- .debug_line    0x000e3f72     0x141b ./Utilities/sequencer/stm32_seq.o
- .debug_line    0x000e538d     0x32df ./lvgl/src/core/lv_group.o
- .debug_line    0x000e866c     0x44ec ./lvgl/src/core/lv_obj.o
- .debug_line    0x000ecb58     0x1a66 ./lvgl/src/core/lv_obj_class.o
- .debug_line    0x000ee5be     0x282c ./lvgl/src/core/lv_obj_draw.o
- .debug_line    0x000f0dea     0x2120 ./lvgl/src/core/lv_obj_event.o
- .debug_line    0x000f2f0a     0x7bb6 ./lvgl/src/core/lv_obj_pos.o
- .debug_line    0x000faac0     0x4998 ./lvgl/src/core/lv_obj_scroll.o
- .debug_line    0x000ff458     0x69d2 ./lvgl/src/core/lv_obj_style.o
- .debug_line    0x00105e2a     0x2366 ./lvgl/src/core/lv_obj_style_gen.o
- .debug_line    0x00108190     0x412f ./lvgl/src/core/lv_obj_tree.o
- .debug_line    0x0010c2bf     0x418d ./lvgl/src/core/lv_refr.o
- .debug_line    0x0011044c     0x56ed ./lvgl/src/display/lv_display.o
- .debug_line    0x00115b39      0xac3 ./lvgl/src/draw/convert/lv_draw_buf_convert.o
- .debug_line    0x001165fc     0x2f23 ./lvgl/src/draw/lv_draw.o
- .debug_line    0x0011951f     0x1d5d ./lvgl/src/draw/lv_draw_arc.o
- .debug_line    0x0011b27c     0x453f ./lvgl/src/draw/lv_draw_buf.o
- .debug_line    0x0011f7bb     0x1e1f ./lvgl/src/draw/lv_draw_image.o
- .debug_line    0x001215da     0x3a22 ./lvgl/src/draw/lv_draw_label.o
- .debug_line    0x00124ffc     0x175b ./lvgl/src/draw/lv_draw_line.o
- .debug_line    0x00126757     0x163d ./lvgl/src/draw/lv_draw_mask.o
- .debug_line    0x00127d94     0x1ec7 ./lvgl/src/draw/lv_draw_rect.o
- .debug_line    0x00129c5b     0x2960 ./lvgl/src/draw/lv_image_decoder.o
- .debug_line    0x0012c5bb     0x18d4 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend.o
- .debug_line    0x0012de8f     0x6ee4 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.o
- .debug_line    0x00134d73     0x8481 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888.o
- .debug_line    0x0013d1f4     0x4c3e ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888_premultiplied.o
- .debug_line    0x00141e32     0x6617 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_i1.o
- .debug_line    0x00148449     0x50c3 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_l8.o
- .debug_line    0x0014d50c     0x6ab5 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.o
- .debug_line    0x00153fc1     0x7a2b ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565_swapped.o
- .debug_line    0x0015b9ec     0x6d0a ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb888.o
- .debug_line    0x001626f6     0x2235 ./lvgl/src/draw/sw/lv_draw_sw.o
- .debug_line    0x0016492b     0x1d0c ./lvgl/src/draw/sw/lv_draw_sw_arc.o
- .debug_line    0x00166637     0x211a ./lvgl/src/draw/sw/lv_draw_sw_border.o
- .debug_line    0x00168751     0x3c07 ./lvgl/src/draw/sw/lv_draw_sw_box_shadow.o
- .debug_line    0x0016c358     0x2202 ./lvgl/src/draw/sw/lv_draw_sw_fill.o
- .debug_line    0x0016e55a     0x1208 ./lvgl/src/draw/sw/lv_draw_sw_grad.o
- .debug_line    0x0016f762     0x470c ./lvgl/src/draw/sw/lv_draw_sw_img.o
- .debug_line    0x00173e6e     0x1c1f ./lvgl/src/draw/sw/lv_draw_sw_letter.o
- .debug_line    0x00175a8d     0x21e1 ./lvgl/src/draw/sw/lv_draw_sw_line.o
- .debug_line    0x00177c6e     0x4ce7 ./lvgl/src/draw/sw/lv_draw_sw_mask.o
- .debug_line    0x0017c955     0x1511 ./lvgl/src/draw/sw/lv_draw_sw_mask_rect.o
- .debug_line    0x0017de66     0x51bf ./lvgl/src/draw/sw/lv_draw_sw_transform.o
- .debug_line    0x00183025     0x19a1 ./lvgl/src/draw/sw/lv_draw_sw_triangle.o
- .debug_line    0x001849c6     0x1cea ./lvgl/src/draw/sw/lv_draw_sw_utils.o
- .debug_line    0x001866b0     0x1331 ./lvgl/src/drivers/display/lcd/lv_lcd_generic_mipi.o
- .debug_line    0x001879e1      0xa9a ./lvgl/src/drivers/display/st7789/lv_st7789.o
- .debug_line    0x0018847b      0xfab ./lvgl/src/font/lv_font.o
- .debug_line    0x00189426     0x2e17 ./lvgl/src/font/lv_font_fmt_txt.o
- .debug_line    0x0018c23d     0x5b2a ./lvgl/src/font/lv_font_montserrat_12.o
- .debug_line    0x00191d67     0x5b2a ./lvgl/src/font/lv_font_montserrat_14.o
- .debug_line    0x00197891     0x5c5e ./lvgl/src/indev/lv_indev.o
- .debug_line    0x0019d4ef     0x2f7f ./lvgl/src/indev/lv_indev_scroll.o
- .debug_line    0x001a046e     0x3b9b ./lvgl/src/layouts/flex/lv_flex.o
- .debug_line    0x001a4009     0x3cbe ./lvgl/src/layouts/grid/lv_grid.o
- .debug_line    0x001a7cc7     0x2418 ./lvgl/src/layouts/lv_layout.o
- .debug_line    0x001aa0df     0x367a ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
- .debug_line    0x001ad759     0x757d ./lvgl/src/libs/qrcode/lv_qrcode.o
- .debug_line    0x001b4cd6     0xd269 ./lvgl/src/libs/qrcode/qrcodegen.o
- .debug_line    0x001c1f3f     0x28a6 ./lvgl/src/lv_init.o
- .debug_line    0x001c47e5     0x1424 ./lvgl/src/misc/cache/class/lv_cache_lru_rb.o
- .debug_line    0x001c5c09     0x2b44 ./lvgl/src/misc/cache/instance/lv_image_cache.o
- .debug_line    0x001c874d     0x2adb ./lvgl/src/misc/cache/instance/lv_image_header_cache.o
- .debug_line    0x001cb228     0x1362 ./lvgl/src/misc/cache/lv_cache.o
- .debug_line    0x001cc58a      0xfdc ./lvgl/src/misc/cache/lv_cache_entry.o
- .debug_line    0x001cd566     0x3b5e ./lvgl/src/misc/lv_anim.o
- .debug_line    0x001d10c4     0x3858 ./lvgl/src/misc/lv_area.o
- .debug_line    0x001d491c     0x123f ./lvgl/src/misc/lv_array.o
- .debug_line    0x001d5b5b      0x859 ./lvgl/src/misc/lv_async.o
- .debug_line    0x001d63b4     0x1079 ./lvgl/src/misc/lv_color.o
- .debug_line    0x001d742d      0x980 ./lvgl/src/misc/lv_color_op.o
- .debug_line    0x001d7dad     0x327b ./lvgl/src/misc/lv_event.o
- .debug_line    0x001db028     0x3e93 ./lvgl/src/misc/lv_fs.o
- .debug_line    0x001deebb      0xdca ./lvgl/src/misc/lv_iter.o
- .debug_line    0x001dfc85     0x1610 ./lvgl/src/misc/lv_ll.o
- .debug_line    0x001e1295     0x307f ./lvgl/src/misc/lv_math.o
- .debug_line    0x001e4314      0x7a7 ./lvgl/src/misc/lv_palette.o
- .debug_line    0x001e4abb     0x1a8f ./lvgl/src/misc/lv_rb.o
- .debug_line    0x001e654a     0x2a95 ./lvgl/src/misc/lv_style.o
- .debug_line    0x001e8fdf     0x1d03 ./lvgl/src/misc/lv_style_gen.o
- .debug_line    0x001eace2     0x2da4 ./lvgl/src/misc/lv_text.o
- .debug_line    0x001eda86     0x2f21 ./lvgl/src/misc/lv_timer.o
- .debug_line    0x001f09a7      0xbe0 ./lvgl/src/misc/lv_utils.o
- .debug_line    0x001f1587     0x22b5 ./lvgl/src/osal/lv_os.o
- .debug_line    0x001f383c     0x29df ./lvgl/src/stdlib/builtin/lv_mem_core_builtin.o
- .debug_line    0x001f621b     0x1928 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
- .debug_line    0x001f7b43     0x1667 ./lvgl/src/stdlib/builtin/lv_string_builtin.o
- .debug_line    0x001f91aa     0x39a7 ./lvgl/src/stdlib/builtin/lv_tlsf.o
- .debug_line    0x001fcb51     0x25b8 ./lvgl/src/stdlib/lv_mem.o
- .debug_line    0x001ff109     0xaae2 ./lvgl/src/themes/default/lv_theme_default.o
- .debug_line    0x00209beb     0x6315 ./lvgl/src/themes/lv_theme.o
- .debug_line    0x0020ff00     0x251b ./lvgl/src/tick/lv_tick.o
- .debug_line    0x0021241b     0x49b0 ./lvgl/src/widgets/arc/lv_arc.o
- .debug_line    0x00216dcb     0x3191 ./lvgl/src/widgets/bar/lv_bar.o
- .debug_line    0x00219f5c     0x16c2 ./lvgl/src/widgets/button/lv_button.o
- .debug_line    0x0021b61e     0x4460 ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
- .debug_line    0x0021fa7e     0x8989 ./lvgl/src/widgets/calendar/lv_calendar.o
- .debug_line    0x00228407     0x1d03 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
- .debug_line    0x0022a10a     0x1d6f ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
- .debug_line    0x0022be79     0x30f0 ./lvgl/src/widgets/canvas/lv_canvas.o
- .debug_line    0x0022ef69     0x67cd ./lvgl/src/widgets/chart/lv_chart.o
- .debug_line    0x00235736     0x204b ./lvgl/src/widgets/checkbox/lv_checkbox.o
- .debug_line    0x00237781     0x4980 ./lvgl/src/widgets/dropdown/lv_dropdown.o
- .debug_line    0x0023c101     0x40ff ./lvgl/src/widgets/image/lv_image.o
- .debug_line    0x00240200     0x24fe ./lvgl/src/widgets/keyboard/lv_keyboard.o
- .debug_line    0x002426fe     0x52ec ./lvgl/src/widgets/label/lv_label.o
- .debug_line    0x002479ea     0x1d8c ./lvgl/src/widgets/led/lv_led.o
- .debug_line    0x00249776     0x1e4b ./lvgl/src/widgets/line/lv_line.o
- .debug_line    0x0024b5c1     0x1c25 ./lvgl/src/widgets/list/lv_list.o
- .debug_line    0x0024d1e6     0x2e36 ./lvgl/src/widgets/menu/lv_menu.o
- .debug_line    0x0025001c     0x22ad ./lvgl/src/widgets/msgbox/lv_msgbox.o
- .debug_line    0x002522c9     0x4158 ./lvgl/src/widgets/roller/lv_roller.o
- .debug_line    0x00256421     0x4c48 ./lvgl/src/widgets/scale/lv_scale.o
- .debug_line    0x0025b069     0x33b7 ./lvgl/src/widgets/slider/lv_slider.o
- .debug_line    0x0025e420     0x5f51 ./lvgl/src/widgets/span/lv_span.o
- .debug_line    0x00264371     0x38fe ./lvgl/src/widgets/spinbox/lv_spinbox.o
- .debug_line    0x00267c6f     0x6f03 ./lvgl/src/widgets/spinner/lv_spinner.o
- .debug_line    0x0026eb72     0x1dc5 ./lvgl/src/widgets/switch/lv_switch.o
- .debug_line    0x00270937     0x4c57 ./lvgl/src/widgets/table/lv_table.o
- .debug_line    0x0027558e     0x79a1 ./lvgl/src/widgets/tabview/lv_tabview.o
- .debug_line    0x0027cf2f     0x580f ./lvgl/src/widgets/textarea/lv_textarea.o
- .debug_line    0x0028273e     0x1ae8 ./lvgl/src/widgets/tileview/lv_tileview.o
- .debug_line    0x00284226     0x6988 ./lvgl/src/widgets/win/lv_win.o
+ .debug_line    0x0002cb28     0xc99f ./Core/Src/accel.o
+ .debug_line    0x000394c7      0xfd6 ./Core/Src/app_debug.o
+ .debug_line    0x0003a49d     0x14a2 ./Core/Src/app_entry.o
+ .debug_line    0x0003b93f      0xd67 ./Core/Src/backlight.o
+ .debug_line    0x0003c6a6      0xc89 ./Core/Src/dma.o
+ .debug_line    0x0003d32f      0xdb0 ./Core/Src/gpio.o
+ .debug_line    0x0003e0df     0x1cbc ./Core/Src/hw_timerserver.o
+ .debug_line    0x0003fd9b      0xdea ./Core/Src/i2c.o
+ .debug_line    0x00040b85      0xd20 ./Core/Src/ipcc.o
+ .debug_line    0x000418a5     0xd4ba ./Core/Src/main.o
+ .debug_line    0x0004ed5f     0xcac1 ./Core/Src/menu.o
+ .debug_line    0x0005b820     0xd5d5 ./Core/Src/meter.o
+ .debug_line    0x00068df5      0xbff ./Core/Src/rf.o
+ .debug_line    0x000699f4      0xcf9 ./Core/Src/rng.o
+ .debug_line    0x0006a6ed      0xdb1 ./Core/Src/rtc.o
+ .debug_line    0x0006b49e     0xcc4c ./Core/Src/settings.o
+ .debug_line    0x000780ea      0xf21 ./Core/Src/spi.o
+ .debug_line    0x0007900b      0xc6d ./Core/Src/stm32wbxx_hal_msp.o
+ .debug_line    0x00079c78      0xdc2 ./Core/Src/stm32wbxx_it.o
+ .debug_line    0x0007aa3a      0x959 ./Core/Src/syscalls.o
+ .debug_line    0x0007b393      0x5c0 ./Core/Src/sysmem.o
+ .debug_line    0x0007b953      0xa48 ./Core/Src/system_stm32wbxx.o
+ .debug_line    0x0007c39b      0xfa7 ./Core/Src/tim.o
+ .debug_line    0x0007d342      0xe22 ./Core/Src/usart.o
+ .debug_line    0x0007e164     0xc879 ./Core/Src/widgets.o
+ .debug_line    0x0008a9dd     0x11cf ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal.o
+ .debug_line    0x0008bbac      0xf53 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_cortex.o
+ .debug_line    0x0008caff     0x14fd ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_dma.o
+ .debug_line    0x0008dffc      0xf71 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash.o
+ .debug_line    0x0008ef6d     0x1130 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_flash_ex.o
+ .debug_line    0x0009009d     0x1198 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_gpio.o
+ .debug_line    0x00091235      0xa8b ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_hsem.o
+ .debug_line    0x00091cc0     0x82a0 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_i2c.o
+ .debug_line    0x00099f60      0xb47 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_i2c_ex.o
+ .debug_line    0x0009aaa7     0x1098 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_ipcc.o
+ .debug_line    0x0009bb3f     0x2331 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd.o
+ .debug_line    0x0009de70      0xbd9 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pcd_ex.o
+ .debug_line    0x0009ea49      0xc15 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr.o
+ .debug_line    0x0009f65e     0x13ff ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.o
+ .debug_line    0x000a0a5d     0x2b40 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc.o
+ .debug_line    0x000a359d     0x2d12 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rcc_ex.o
+ .debug_line    0x000a62af      0xcc9 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.o
+ .debug_line    0x000a6f78     0x2060 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc.o
+ .debug_line    0x000a8fd8     0x1ff1 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rtc_ex.o
+ .debug_line    0x000aafc9     0x44e4 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_spi.o
+ .debug_line    0x000af4ad     0x6951 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_tim.o
+ .debug_line    0x000b5dfe     0x2207 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_tim_ex.o
+ .debug_line    0x000b8005     0x7bf6 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart.o
+ .debug_line    0x000bfbfb     0x13d3 ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_uart_ex.o
+ .debug_line    0x000c0fce     0x1ddf ./Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.o
+ .debug_line    0x000c2dad     0x12c6 ./Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o
+ .debug_line    0x000c4073     0x1343 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.o
+ .debug_line    0x000c53b6     0x1471 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.o
+ .debug_line    0x000c6827      0xc88 ./Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o
+ .debug_line    0x000c74af     0x26ab ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gap_aci.o
+ .debug_line    0x000c9b5a     0x2407 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_gatt_aci.o
+ .debug_line    0x000cbf61     0x104e ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hal_aci.o
+ .debug_line    0x000ccfaf     0x2f38 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_hci_le.o
+ .debug_line    0x000cfee7      0xbb1 ./Middlewares/ST/STM32_WPAN/ble/core/auto/ble_l2cap_aci.o
+ .debug_line    0x000d0a98      0x5ad ./Middlewares/ST/STM32_WPAN/ble/core/template/osal.o
+ .debug_line    0x000d1045     0x10e7 ./Middlewares/ST/STM32_WPAN/ble/svc/Src/p2p_stm.o
+ .debug_line    0x000d212c     0x121e ./Middlewares/ST/STM32_WPAN/ble/svc/Src/svc_ctl.o
+ .debug_line    0x000d334a     0x1397 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.o
+ .debug_line    0x000d46e1     0x10cb ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl.o
+ .debug_line    0x000d57ac      0x68a ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/hci_tl_if.o
+ .debug_line    0x000d5e36      0x9a7 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl.o
+ .debug_line    0x000d67dd      0x68c ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/shci_tl_if.o
+ .debug_line    0x000d6e69     0x10b0 ./Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/tl_mbox.o
+ .debug_line    0x000d7f19      0xc44 ./Middlewares/ST/STM32_WPAN/utilities/otp.o
+ .debug_line    0x000d8b5d     0x11bd ./Middlewares/ST/STM32_WPAN/utilities/stm_list.o
+ .debug_line    0x000d9d1a     0x1930 ./STM32_WPAN/App/app_ble.o
+ .debug_line    0x000db64a     0x1408 ./STM32_WPAN/App/p2p_client_app.o
+ .debug_line    0x000dca52     0x1151 ./STM32_WPAN/App/p2p_server_app.o
+ .debug_line    0x000ddba3     0x1407 ./STM32_WPAN/Target/hw_ipcc.o
+ .debug_line    0x000defaa      0xc9f ./USB_Device/App/usb_device.o
+ .debug_line    0x000dfc49     0x10a8 ./USB_Device/App/usbd_cdc_if.o
+ .debug_line    0x000e0cf1      0xf83 ./USB_Device/App/usbd_desc.o
+ .debug_line    0x000e1c74     0x146c ./USB_Device/Target/usbd_conf.o
+ .debug_line    0x000e30e0      0xe9d ./Utilities/lpm/tiny_lpm/stm32_lpm.o
+ .debug_line    0x000e3f7d     0x141b ./Utilities/sequencer/stm32_seq.o
+ .debug_line    0x000e5398     0x32df ./lvgl/src/core/lv_group.o
+ .debug_line    0x000e8677     0x44ec ./lvgl/src/core/lv_obj.o
+ .debug_line    0x000ecb63     0x1a66 ./lvgl/src/core/lv_obj_class.o
+ .debug_line    0x000ee5c9     0x282c ./lvgl/src/core/lv_obj_draw.o
+ .debug_line    0x000f0df5     0x2120 ./lvgl/src/core/lv_obj_event.o
+ .debug_line    0x000f2f15     0x7bb6 ./lvgl/src/core/lv_obj_pos.o
+ .debug_line    0x000faacb     0x4998 ./lvgl/src/core/lv_obj_scroll.o
+ .debug_line    0x000ff463     0x69d2 ./lvgl/src/core/lv_obj_style.o
+ .debug_line    0x00105e35     0x2366 ./lvgl/src/core/lv_obj_style_gen.o
+ .debug_line    0x0010819b     0x412f ./lvgl/src/core/lv_obj_tree.o
+ .debug_line    0x0010c2ca     0x418d ./lvgl/src/core/lv_refr.o
+ .debug_line    0x00110457     0x56ed ./lvgl/src/display/lv_display.o
+ .debug_line    0x00115b44      0xac3 ./lvgl/src/draw/convert/lv_draw_buf_convert.o
+ .debug_line    0x00116607     0x2f23 ./lvgl/src/draw/lv_draw.o
+ .debug_line    0x0011952a     0x1d5d ./lvgl/src/draw/lv_draw_arc.o
+ .debug_line    0x0011b287     0x453f ./lvgl/src/draw/lv_draw_buf.o
+ .debug_line    0x0011f7c6     0x1e1f ./lvgl/src/draw/lv_draw_image.o
+ .debug_line    0x001215e5     0x3a22 ./lvgl/src/draw/lv_draw_label.o
+ .debug_line    0x00125007     0x175b ./lvgl/src/draw/lv_draw_line.o
+ .debug_line    0x00126762     0x163d ./lvgl/src/draw/lv_draw_mask.o
+ .debug_line    0x00127d9f     0x1ec7 ./lvgl/src/draw/lv_draw_rect.o
+ .debug_line    0x00129c66     0x2960 ./lvgl/src/draw/lv_image_decoder.o
+ .debug_line    0x0012c5c6     0x18d4 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend.o
+ .debug_line    0x0012de9a     0x6ee4 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.o
+ .debug_line    0x00134d7e     0x8481 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888.o
+ .debug_line    0x0013d1ff     0x4c3e ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_argb8888_premultiplied.o
+ .debug_line    0x00141e3d     0x6617 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_i1.o
+ .debug_line    0x00148454     0x50c3 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_l8.o
+ .debug_line    0x0014d517     0x6ab5 ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565.o
+ .debug_line    0x00153fcc     0x7a2b ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb565_swapped.o
+ .debug_line    0x0015b9f7     0x6d0a ./lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_rgb888.o
+ .debug_line    0x00162701     0x2235 ./lvgl/src/draw/sw/lv_draw_sw.o
+ .debug_line    0x00164936     0x1d0c ./lvgl/src/draw/sw/lv_draw_sw_arc.o
+ .debug_line    0x00166642     0x211a ./lvgl/src/draw/sw/lv_draw_sw_border.o
+ .debug_line    0x0016875c     0x3c07 ./lvgl/src/draw/sw/lv_draw_sw_box_shadow.o
+ .debug_line    0x0016c363     0x2202 ./lvgl/src/draw/sw/lv_draw_sw_fill.o
+ .debug_line    0x0016e565     0x1208 ./lvgl/src/draw/sw/lv_draw_sw_grad.o
+ .debug_line    0x0016f76d     0x470c ./lvgl/src/draw/sw/lv_draw_sw_img.o
+ .debug_line    0x00173e79     0x1c1f ./lvgl/src/draw/sw/lv_draw_sw_letter.o
+ .debug_line    0x00175a98     0x21e1 ./lvgl/src/draw/sw/lv_draw_sw_line.o
+ .debug_line    0x00177c79     0x4ce7 ./lvgl/src/draw/sw/lv_draw_sw_mask.o
+ .debug_line    0x0017c960     0x1511 ./lvgl/src/draw/sw/lv_draw_sw_mask_rect.o
+ .debug_line    0x0017de71     0x51bf ./lvgl/src/draw/sw/lv_draw_sw_transform.o
+ .debug_line    0x00183030     0x19a1 ./lvgl/src/draw/sw/lv_draw_sw_triangle.o
+ .debug_line    0x001849d1     0x1cea ./lvgl/src/draw/sw/lv_draw_sw_utils.o
+ .debug_line    0x001866bb     0x1331 ./lvgl/src/drivers/display/lcd/lv_lcd_generic_mipi.o
+ .debug_line    0x001879ec      0xa9a ./lvgl/src/drivers/display/st7789/lv_st7789.o
+ .debug_line    0x00188486      0xfab ./lvgl/src/font/lv_font.o
+ .debug_line    0x00189431     0x2e17 ./lvgl/src/font/lv_font_fmt_txt.o
+ .debug_line    0x0018c248     0x5b2a ./lvgl/src/font/lv_font_montserrat_12.o
+ .debug_line    0x00191d72     0x5b2a ./lvgl/src/font/lv_font_montserrat_14.o
+ .debug_line    0x0019789c     0x5c5e ./lvgl/src/indev/lv_indev.o
+ .debug_line    0x0019d4fa     0x2f7f ./lvgl/src/indev/lv_indev_scroll.o
+ .debug_line    0x001a0479     0x3b9b ./lvgl/src/layouts/flex/lv_flex.o
+ .debug_line    0x001a4014     0x3cbe ./lvgl/src/layouts/grid/lv_grid.o
+ .debug_line    0x001a7cd2     0x2418 ./lvgl/src/layouts/lv_layout.o
+ .debug_line    0x001aa0ea     0x367a ./lvgl/src/libs/bin_decoder/lv_bin_decoder.o
+ .debug_line    0x001ad764     0x757d ./lvgl/src/libs/qrcode/lv_qrcode.o
+ .debug_line    0x001b4ce1     0xd269 ./lvgl/src/libs/qrcode/qrcodegen.o
+ .debug_line    0x001c1f4a     0x28a6 ./lvgl/src/lv_init.o
+ .debug_line    0x001c47f0     0x1424 ./lvgl/src/misc/cache/class/lv_cache_lru_rb.o
+ .debug_line    0x001c5c14     0x2b44 ./lvgl/src/misc/cache/instance/lv_image_cache.o
+ .debug_line    0x001c8758     0x2adb ./lvgl/src/misc/cache/instance/lv_image_header_cache.o
+ .debug_line    0x001cb233     0x1362 ./lvgl/src/misc/cache/lv_cache.o
+ .debug_line    0x001cc595      0xfdc ./lvgl/src/misc/cache/lv_cache_entry.o
+ .debug_line    0x001cd571     0x3b5e ./lvgl/src/misc/lv_anim.o
+ .debug_line    0x001d10cf     0x3858 ./lvgl/src/misc/lv_area.o
+ .debug_line    0x001d4927     0x123f ./lvgl/src/misc/lv_array.o
+ .debug_line    0x001d5b66      0x859 ./lvgl/src/misc/lv_async.o
+ .debug_line    0x001d63bf     0x1079 ./lvgl/src/misc/lv_color.o
+ .debug_line    0x001d7438      0x980 ./lvgl/src/misc/lv_color_op.o
+ .debug_line    0x001d7db8     0x327b ./lvgl/src/misc/lv_event.o
+ .debug_line    0x001db033     0x3e93 ./lvgl/src/misc/lv_fs.o
+ .debug_line    0x001deec6      0xdca ./lvgl/src/misc/lv_iter.o
+ .debug_line    0x001dfc90     0x1610 ./lvgl/src/misc/lv_ll.o
+ .debug_line    0x001e12a0     0x307f ./lvgl/src/misc/lv_math.o
+ .debug_line    0x001e431f      0x7a7 ./lvgl/src/misc/lv_palette.o
+ .debug_line    0x001e4ac6     0x1a8f ./lvgl/src/misc/lv_rb.o
+ .debug_line    0x001e6555     0x2a95 ./lvgl/src/misc/lv_style.o
+ .debug_line    0x001e8fea     0x1d03 ./lvgl/src/misc/lv_style_gen.o
+ .debug_line    0x001eaced     0x2da4 ./lvgl/src/misc/lv_text.o
+ .debug_line    0x001eda91     0x2f21 ./lvgl/src/misc/lv_timer.o
+ .debug_line    0x001f09b2      0xbe0 ./lvgl/src/misc/lv_utils.o
+ .debug_line    0x001f1592     0x22b5 ./lvgl/src/osal/lv_os.o
+ .debug_line    0x001f3847     0x29df ./lvgl/src/stdlib/builtin/lv_mem_core_builtin.o
+ .debug_line    0x001f6226     0x1928 ./lvgl/src/stdlib/builtin/lv_sprintf_builtin.o
+ .debug_line    0x001f7b4e     0x1667 ./lvgl/src/stdlib/builtin/lv_string_builtin.o
+ .debug_line    0x001f91b5     0x39a7 ./lvgl/src/stdlib/builtin/lv_tlsf.o
+ .debug_line    0x001fcb5c     0x25b8 ./lvgl/src/stdlib/lv_mem.o
+ .debug_line    0x001ff114     0xaae2 ./lvgl/src/themes/default/lv_theme_default.o
+ .debug_line    0x00209bf6     0x6315 ./lvgl/src/themes/lv_theme.o
+ .debug_line    0x0020ff0b     0x251b ./lvgl/src/tick/lv_tick.o
+ .debug_line    0x00212426     0x49b0 ./lvgl/src/widgets/arc/lv_arc.o
+ .debug_line    0x00216dd6     0x3191 ./lvgl/src/widgets/bar/lv_bar.o
+ .debug_line    0x00219f67     0x16c2 ./lvgl/src/widgets/button/lv_button.o
+ .debug_line    0x0021b629     0x4460 ./lvgl/src/widgets/buttonmatrix/lv_buttonmatrix.o
+ .debug_line    0x0021fa89     0x8989 ./lvgl/src/widgets/calendar/lv_calendar.o
+ .debug_line    0x00228412     0x1d03 ./lvgl/src/widgets/calendar/lv_calendar_header_arrow.o
+ .debug_line    0x0022a115     0x1d6f ./lvgl/src/widgets/calendar/lv_calendar_header_dropdown.o
+ .debug_line    0x0022be84     0x30f0 ./lvgl/src/widgets/canvas/lv_canvas.o
+ .debug_line    0x0022ef74     0x67cd ./lvgl/src/widgets/chart/lv_chart.o
+ .debug_line    0x00235741     0x204b ./lvgl/src/widgets/checkbox/lv_checkbox.o
+ .debug_line    0x0023778c     0x4980 ./lvgl/src/widgets/dropdown/lv_dropdown.o
+ .debug_line    0x0023c10c     0x40ff ./lvgl/src/widgets/image/lv_image.o
+ .debug_line    0x0024020b     0x24fe ./lvgl/src/widgets/keyboard/lv_keyboard.o
+ .debug_line    0x00242709     0x52ec ./lvgl/src/widgets/label/lv_label.o
+ .debug_line    0x002479f5     0x1d8c ./lvgl/src/widgets/led/lv_led.o
+ .debug_line    0x00249781     0x1e4b ./lvgl/src/widgets/line/lv_line.o
+ .debug_line    0x0024b5cc     0x1c25 ./lvgl/src/widgets/list/lv_list.o
+ .debug_line    0x0024d1f1     0x2e36 ./lvgl/src/widgets/menu/lv_menu.o
+ .debug_line    0x00250027     0x22ad ./lvgl/src/widgets/msgbox/lv_msgbox.o
+ .debug_line    0x002522d4     0x4158 ./lvgl/src/widgets/roller/lv_roller.o
+ .debug_line    0x0025642c     0x4c48 ./lvgl/src/widgets/scale/lv_scale.o
+ .debug_line    0x0025b074     0x33b7 ./lvgl/src/widgets/slider/lv_slider.o
+ .debug_line    0x0025e42b     0x5f51 ./lvgl/src/widgets/span/lv_span.o
+ .debug_line    0x0026437c     0x38fe ./lvgl/src/widgets/spinbox/lv_spinbox.o
+ .debug_line    0x00267c7a     0x6f03 ./lvgl/src/widgets/spinner/lv_spinner.o
+ .debug_line    0x0026eb7d     0x1dc5 ./lvgl/src/widgets/switch/lv_switch.o
+ .debug_line    0x00270942     0x4c57 ./lvgl/src/widgets/table/lv_table.o
+ .debug_line    0x00275599     0x79a1 ./lvgl/src/widgets/tabview/lv_tabview.o
+ .debug_line    0x0027cf3a     0x580f ./lvgl/src/widgets/textarea/lv_textarea.o
+ .debug_line    0x00282749     0x1ae8 ./lvgl/src/widgets/tileview/lv_tileview.o
+ .debug_line    0x00284231     0x6988 ./lvgl/src/widgets/win/lv_win.o
 
 .debug_str      0x00000000   0x1483c4
  .debug_str     0x00000000   0x1483c4 ./AD7124_Library/ad7124-driver.o
@@ -69039,7 +69038,7 @@ LOAD C:/ST/STM32CubeIDE_1.18.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_str     0x001483c4    0xfc61b ./Core/Src/FT5436_Touch.o
  .debug_str     0x001483c4   0x103930 ./Core/Src/Thermocouples.o
  .debug_str     0x001483c4   0x101eae ./Core/Src/about.o
- .debug_str     0x001483c4   0x101717 ./Core/Src/accel.o
+ .debug_str     0x001483c4   0x101725 ./Core/Src/accel.o
  .debug_str     0x001483c4    0xef444 ./Core/Src/app_debug.o
  .debug_str     0x001483c4    0xf84e4 ./Core/Src/app_entry.o
  .debug_str     0x001483c4    0xece2e ./Core/Src/backlight.o

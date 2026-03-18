@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         0006a434  08000140  08000140  00001140  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       00008d60  0806a578  0806a578  0006b578  2**3
+  2 .rodata       00008d50  0806a578  0806a578  0006b578  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM          00000008  080732d8  080732d8  000742d8  2**2
+  3 .ARM          00000008  080732c8  080732c8  000742c8  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  4 .init_array   0000000c  080732e0  080732e0  000742e0  2**2
+  4 .init_array   0000000c  080732d0  080732d0  000742d0  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .fini_array   00000008  080732ec  080732ec  000742ec  2**2
+  5 .fini_array   00000008  080732dc  080732dc  000742dc  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  6 .data         0000036c  20000008  080732f4  00075008  2**2
+  6 .data         0000036c  20000008  080732e4  00075008  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 BLE_DRIVER_CONTEXT 00000041  20000374  08073660  00075374  2**2
+  7 BLE_DRIVER_CONTEXT 00000041  20000374  08073650  00075374  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 SYSTEM_DRIVER_CONTEXT 00000014  200003b8  080736a1  000753b8  2**2
+  8 SYSTEM_DRIVER_CONTEXT 00000014  200003b8  08073691  000753b8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          0001de54  200003d0  080736b5  000753d0  2**3
+  9 .bss          0001de54  200003d0  080736a5  000753d0  2**3
                   ALLOC
- 10 ._user_heap_stack 00001404  2001e224  080736b5  00076224  2**0
+ 10 ._user_heap_stack 00001404  2001e224  080736a5  00076224  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00076a67  2**0
                   CONTENTS, READONLY
@@ -31,7 +31,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  13 MB_MEM1       000001bb  20030028  20030028  00077000  2**2
                   ALLOC
- 14 .MB_MEM2      00000883  200301e4  080736b5  000761e4  2**2
+ 14 .MB_MEM2      00000883  200301e4  080736a5  000761e4  2**2
                   CONTENTS, ALLOC, LOAD, DATA
  15 .debug_info   001fc511  00000000  00000000  00076a97  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -43,15 +43,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  19 .debug_rnglists 000211ee  00000000  00000000  003cea10  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_macro  000795b0  00000000  00000000  003efbfe  2**0
+ 20 .debug_macro  000795bb  00000000  00000000  003efbfe  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line   0028abae  00000000  00000000  004691ae  2**0
+ 21 .debug_line   0028abb9  00000000  00000000  004691b9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_str    001483c4  00000000  00000000  006f3d5c  2**0
+ 22 .debug_str    001483c4  00000000  00000000  006f3d72  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .comment      00000043  00000000  00000000  0083c120  2**0
+ 23 .comment      00000043  00000000  00000000  0083c136  2**0
                   CONTENTS, READONLY
- 24 .debug_frame  0001c7b4  00000000  00000000  0083c164  2**2
+ 24 .debug_frame  0001c7b4  00000000  00000000  0083c17c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -2297,7 +2297,7 @@ void Ad7124Register::fillAllRegsWithDefault(Ad7124Register *allregs)
  8001566:	f44f 722b 	mov.w	r2, #684	@ 0x2ac
  800156a:	f066 bfc2 	b.w	80684f2 <memcpy>
  800156e:	bf00      	nop
- 8001570:	0806b29c 	.word	0x0806b29c
+ 8001570:	0806b290 	.word	0x0806b290
 
 08001574 <_ZN10Ad7124Chip5beginEi>:
 //
@@ -4562,8 +4562,8 @@ static inline void lv_obj_set_style_pad_all(lv_obj_t * obj, int32_t value, lv_st
  8002554:	0806a704 	.word	0x0806a704
  8002558:	0800421d 	.word	0x0800421d
  800255c:	00f0ead0 	.word	0x00f0ead0
- 8002560:	0806e57c 	.word	0x0806e57c
- 8002564:	0806b89c 	.word	0x0806b89c
+ 8002560:	0806e570 	.word	0x0806e570
+ 8002564:	0806b890 	.word	0x0806b890
 
   return about_screen;
 }
@@ -4689,7 +4689,7 @@ void accelHandler(void)
  8002600:	20000821 	.word	0x20000821
 
 08002604 <diagnoseAccelerometer>:
-    //updateSettingLabel();
+
 }
 
 
@@ -8221,13 +8221,13 @@ void EnterDFUMode(void)
  8003ada:	f002 fd6f 	bl	80065bc <HAL_FLASH_OB_Unlock>
 	OBInit.OptionType = OPTIONBYTE_USER;
  8003ade:	2104      	movs	r1, #4
-	OBInit.UserType   = OB_USER_nSWBOOT0;
- 8003ae0:	f04f 6280 	mov.w	r2, #67108864	@ 0x4000000
+	OBInit.UserType   = OB_USER_nSWBOOT0 | OB_USER_nBOOT0;
+ 8003ae0:	f04f 6240 	mov.w	r2, #201326592	@ 0xc000000
  8003ae4:	2300      	movs	r3, #0
 	OBInit.UserConfig = 0x00; // set to option bit to tell bootloader to use dfu
 	HAL_FLASHEx_OBProgram(&OBInit);
  8003ae6:	4668      	mov	r0, sp
-	OBInit.UserType   = OB_USER_nSWBOOT0;
+	OBInit.UserType   = OB_USER_nSWBOOT0 | OB_USER_nBOOT0;
  8003ae8:	e9cd 2305 	strd	r2, r3, [sp, #20]
 	OBInit.OptionType = OPTIONBYTE_USER;
  8003aec:	9100      	str	r1, [sp, #0]
@@ -9202,7 +9202,7 @@ lv_obj_t *create_menu_screen(void)
  8004208:	0806a79c 	.word	0x0806a79c
  800420c:	0036454f 	.word	0x0036454f
  8004210:	001976d2 	.word	0x001976d2
- 8004214:	0806e57c 	.word	0x0806e57c
+ 8004214:	0806e570 	.word	0x0806e570
  8004218:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
 
 0800421c <_Z12load_menu_cbP11_lv_event_t>:
@@ -9823,10 +9823,14 @@ void header(void)
  8004698:	6820      	ldr	r0, [r4, #0]
  800469a:	2110      	movs	r1, #16
  800469c:	f00d fb38 	bl	8011d10 <lv_obj_remove_flag>
+#ifdef USE_SERVER
   lv_label_set_text(settingLabel, "LOW");
+#else
+  lv_label_set_text(settingLabel, "--");
  80046a0:	6820      	ldr	r0, [r4, #0]
  80046a2:	4923      	ldr	r1, [pc, #140]	@ (8004730 <_Z6headerv+0x274>)
  80046a4:	f05a feea 	bl	805f47c <lv_label_set_text>
+#endif
   lv_obj_set_size(settingLabel, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
  80046a8:	f06f 4240 	mvn.w	r2, #3221225472	@ 0xc0000000
  80046ac:	6820      	ldr	r0, [r4, #0]
@@ -9874,14 +9878,14 @@ void header(void)
  8004708:	20001390 	.word	0x20001390
  800470c:	00f0ead0 	.word	0x00f0ead0
  8004710:	200013cc 	.word	0x200013cc
- 8004714:	0806a7dc 	.word	0x0806a7dc
+ 8004714:	0806a7cc 	.word	0x0806a7cc
  8004718:	0806a7c4 	.word	0x0806a7c4
  800471c:	200013c8 	.word	0x200013c8
  8004720:	2000138c 	.word	0x2000138c
- 8004724:	0806a7e4 	.word	0x0806a7e4
+ 8004724:	0806a7d4 	.word	0x0806a7d4
  8004728:	0806a7a8 	.word	0x0806a7a8
  800472c:	200013d0 	.word	0x200013d0
- 8004730:	0806a7d4 	.word	0x0806a7d4
+ 8004730:	0806a7d8 	.word	0x0806a7d8
  8004734:	0806a7b8 	.word	0x0806a7b8
  8004738:	0806a7bc 	.word	0x0806a7bc
  800473c:	0800425d 	.word	0x0800425d
@@ -10159,9 +10163,9 @@ void gauge(void)
  8004984:	0036454f 	.word	0x0036454f
  8004988:	00f0ead0 	.word	0x00f0ead0
  800498c:	200013b8 	.word	0x200013b8
- 8004990:	0806aa54 	.word	0x0806aa54
+ 8004990:	0806aa48 	.word	0x0806aa48
  8004994:	2000139c 	.word	0x2000139c
- 8004998:	0806a7e8 	.word	0x0806a7e8
+ 8004998:	0806a7dc 	.word	0x0806a7dc
  800499c:	20001398 	.word	0x20001398
  80049a0:	20000bbc 	.word	0x20000bbc
  80049a4:	200011f8 	.word	0x200011f8
@@ -10603,7 +10607,7 @@ void monitor(void)
  8004d58:	200013a4 	.word	0x200013a4
  8004d5c:	200013c4 	.word	0x200013c4
  8004d60:	2000096c 	.word	0x2000096c
- 8004d64:	0806a7ec 	.word	0x0806a7ec
+ 8004d64:	0806a7e0 	.word	0x0806a7e0
 
 08004d68 <_Z6labelsv>:
 
@@ -10855,10 +10859,10 @@ void labels(void)
  8004f58:	200013b4 	.word	0x200013b4
  8004f5c:	200013c0 	.word	0x200013c0
  8004f60:	0806a66c 	.word	0x0806a66c
- 8004f64:	0806e57c 	.word	0x0806e57c
+ 8004f64:	0806e570 	.word	0x0806e570
  8004f68:	200013bc 	.word	0x200013bc
- 8004f6c:	0806a7f8 	.word	0x0806a7f8
- 8004f70:	0806b89c 	.word	0x0806b89c
+ 8004f6c:	0806a7ec 	.word	0x0806a7ec
+ 8004f70:	0806b890 	.word	0x0806b890
 
 08004f74 <_Z7buttonsv>:
 
@@ -11084,7 +11088,7 @@ void buttons()
  8005130:	0036454f 	.word	0x0036454f
  8005134:	001976d2 	.word	0x001976d2
  8005138:	0806a704 	.word	0x0806a704
- 800513c:	0806e57c 	.word	0x0806e57c
+ 800513c:	0806e570 	.word	0x0806e570
  8005140:	0800421d 	.word	0x0800421d
 
 08005144 <_Z19create_meter_screenv>:
@@ -11460,8 +11464,8 @@ static void disconnect_cb(lv_event_t *e)
  800534c:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
      else lv_textarea_add_text(ta, txt);
  8005350:	f060 be30 	b.w	8065fb4 <lv_textarea_add_text>
- 8005354:	0806a83c 	.word	0x0806a83c
- 8005358:	0806a840 	.word	0x0806a840
+ 8005354:	0806a830 	.word	0x0806a830
+ 8005358:	0806a834 	.word	0x0806a834
 
 0800535c <_Z18updateClientStatusP11_lv_timer_t>:
   if (settings_screen != NULL)
@@ -11536,10 +11540,10 @@ static void textarea_event_handler(lv_event_t * e) {
         lv_label_set_text(statusLabel, status);
  80053da:	f05a b84f 	b.w	805f47c <lv_label_set_text>
  80053de:	bf00      	nop
- 80053e0:	0806a844 	.word	0x0806a844
+ 80053e0:	0806a838 	.word	0x0806a838
  80053e4:	2000140c 	.word	0x2000140c
  80053e8:	20001450 	.word	0x20001450
- 80053ec:	0806a85c 	.word	0x0806a85c
+ 80053ec:	0806a850 	.word	0x0806a850
 
 080053f0 <_Z22create_settings_screenv>:
 }
@@ -11983,11 +11987,11 @@ lv_obj_t * create_settings_screen(void)
  80057ae:	bf00      	nop
  80057b0:	00f0ead0 	.word	0x00f0ead0
  80057b4:	0806a79c 	.word	0x0806a79c
- 80057b8:	0806e57c 	.word	0x0806e57c
+ 80057b8:	0806e570 	.word	0x0806e570
  80057bc:	0036454f 	.word	0x0036454f
- 80057c0:	0806a878 	.word	0x0806a878
+ 80057c0:	0806a86c 	.word	0x0806a86c
  80057c4:	08005389 	.word	0x08005389
- 80057c8:	0806a890 	.word	0x0806a890
+ 80057c8:	0806a884 	.word	0x0806a884
  80057cc:	080052fd 	.word	0x080052fd
  80057d0:	20000018 	.word	0x20000018
  80057d4:	00df571d 	.word	0x00df571d
@@ -12104,7 +12108,7 @@ lv_obj_t * create_settings_screen(void)
  80058c2:	e7ee      	b.n	80058a2 <_Z22create_settings_screenv+0x4b2>
  80058c4:	0036454f 	.word	0x0036454f
  80058c8:	00cc3333 	.word	0x00cc3333
- 80058cc:	0806a8a4 	.word	0x0806a8a4
+ 80058cc:	0806a898 	.word	0x0806a898
  80058d0:	2000144c 	.word	0x2000144c
  80058d4:	080052f9 	.word	0x080052f9
  80058d8:	20001454 	.word	0x20001454
@@ -13569,10 +13573,10 @@ void point_at_distance(float x0, float y0, float x1, float y1, float distance, f
  8006008:	20030000 	.word	0x20030000
  800600c:	20000008 	.word	0x20000008
  8006010:	20000374 	.word	0x20000374
- 8006014:	080732f4 	.word	0x080732f4
+ 8006014:	080732e4 	.word	0x080732e4
  8006018:	200301e4 	.word	0x200301e4
  800601c:	20030a67 	.word	0x20030a67
- 8006020:	080736b5 	.word	0x080736b5
+ 8006020:	080736a5 	.word	0x080736a5
  8006024:	200003d0 	.word	0x200003d0
  8006028:	2001e224 	.word	0x2001e224
 
@@ -21200,8 +21204,8 @@ void HAL_PWREx_EnableVddUSB(void)
  8009002:	e7f5      	b.n	8008ff0 <RCC_SetFlashLatencyFromMSIRange+0xb0>
  8009004:	2302      	movs	r3, #2
  8009006:	e7f3      	b.n	8008ff0 <RCC_SetFlashLatencyFromMSIRange+0xb0>
- 8009008:	0806b678 	.word	0x0806b678
- 800900c:	0806b6d8 	.word	0x0806b6d8
+ 8009008:	0806b66c 	.word	0x0806b66c
+ 800900c:	0806b6cc 	.word	0x0806b6cc
  8009010:	0806a5a0 	.word	0x0806a5a0
  8009014:	006acfc0 	.word	0x006acfc0
  8009018:	58004000 	.word	0x58004000
@@ -21274,7 +21278,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  8009092:	bf00      	nop
  8009094:	01e84800 	.word	0x01e84800
  8009098:	00f42400 	.word	0x00f42400
- 800909c:	0806b678 	.word	0x0806b678
+ 800909c:	0806b66c 	.word	0x0806b66c
 
 080090a0 <HAL_RCC_OscConfig>:
   if (RCC_OscInitStruct == NULL)
@@ -21824,7 +21828,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
  8009504:	6823      	ldr	r3, [r4, #0]
  8009506:	e67f      	b.n	8009208 <HAL_RCC_OscConfig+0x168>
  8009508:	58000400 	.word	0x58000400
- 800950c:	0806b6d8 	.word	0x0806b6d8
+ 800950c:	0806b6cc 	.word	0x0806b6cc
  8009510:	20000058 	.word	0x20000058
  8009514:	20000060 	.word	0x20000060
  8009518:	eefefffc 	.word	0xeefefffc
@@ -22086,7 +22090,7 @@ uint32_t HAL_RCC_GetSysClockFreq(void)
 }
  800973c:	4770      	bx	lr
  800973e:	bf00      	nop
- 8009740:	0806b678 	.word	0x0806b678
+ 8009740:	0806b66c 	.word	0x0806b66c
  8009744:	01e84800 	.word	0x01e84800
  8009748:	00f42400 	.word	0x00f42400
 
@@ -22435,8 +22439,8 @@ __STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PPRE2(void)
  80099ca:	bf00      	nop
  80099cc:	58004000 	.word	0x58004000
  80099d0:	20000058 	.word	0x20000058
- 80099d4:	0806b6d8 	.word	0x0806b6d8
- 80099d8:	0806b678 	.word	0x0806b678
+ 80099d4:	0806b6cc 	.word	0x0806b6cc
+ 80099d8:	0806b66c 	.word	0x0806b66c
  80099dc:	01e84800 	.word	0x01e84800
  80099e0:	00f42400 	.word	0x00f42400
 
@@ -22480,7 +22484,7 @@ __STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PPRE2(void)
 }
  8009a24:	4770      	bx	lr
  8009a26:	bf00      	nop
- 8009a28:	0806b678 	.word	0x0806b678
+ 8009a28:	0806b66c 	.word	0x0806b66c
  8009a2c:	01e84800 	.word	0x01e84800
  8009a30:	00f42400 	.word	0x00f42400
 
@@ -22535,8 +22539,8 @@ __STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PPRE2(void)
  8009a8a:	4618      	moveq	r0, r3
  8009a8c:	e7e3      	b.n	8009a56 <HAL_RCC_GetHCLKFreq+0x22>
  8009a8e:	bf00      	nop
- 8009a90:	0806b678 	.word	0x0806b678
- 8009a94:	0806b6d8 	.word	0x0806b6d8
+ 8009a90:	0806b66c 	.word	0x0806b66c
+ 8009a94:	0806b6cc 	.word	0x0806b6cc
  8009a98:	00f42400 	.word	0x00f42400
  8009a9c:	01e84800 	.word	0x01e84800
 
@@ -22603,9 +22607,9 @@ __STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PPRE2(void)
  8009b0a:	4618      	moveq	r0, r3
  8009b0c:	e7d9      	b.n	8009ac2 <HAL_RCC_GetPCLK1Freq+0x22>
  8009b0e:	bf00      	nop
- 8009b10:	0806b678 	.word	0x0806b678
- 8009b14:	0806b6d8 	.word	0x0806b6d8
- 8009b18:	0806b6b8 	.word	0x0806b6b8
+ 8009b10:	0806b66c 	.word	0x0806b66c
+ 8009b14:	0806b6cc 	.word	0x0806b6cc
+ 8009b18:	0806b6ac 	.word	0x0806b6ac
  8009b1c:	00f42400 	.word	0x00f42400
  8009b20:	01e84800 	.word	0x01e84800
 
@@ -22672,9 +22676,9 @@ __STATIC_INLINE uint32_t LL_RCC_IsActiveFlag_PPRE2(void)
  8009b8e:	4618      	moveq	r0, r3
  8009b90:	e7d9      	b.n	8009b46 <HAL_RCC_GetPCLK2Freq+0x22>
  8009b92:	bf00      	nop
- 8009b94:	0806b678 	.word	0x0806b678
- 8009b98:	0806b6d8 	.word	0x0806b6d8
- 8009b9c:	0806b6b8 	.word	0x0806b6b8
+ 8009b94:	0806b66c 	.word	0x0806b66c
+ 8009b98:	0806b6cc 	.word	0x0806b6cc
+ 8009b9c:	0806b6ac 	.word	0x0806b6ac
  8009ba0:	00f42400 	.word	0x00f42400
  8009ba4:	01e84800 	.word	0x01e84800
 
@@ -30080,7 +30084,7 @@ __weak void HAL_UART_AbortTransmitCpltCallback(UART_HandleTypeDef *huart)
  800cba0:	0800cbc1 	.word	0x0800cbc1
  800cba4:	0800cbc5 	.word	0x0800cbc5
  800cba8:	0800b7fd 	.word	0x0800b7fd
- 800cbac:	0806b718 	.word	0x0806b718
+ 800cbac:	0806b70c 	.word	0x0806b70c
  800cbb0:	00f42400 	.word	0x00f42400
  800cbb4:	000ffcff 	.word	0x000ffcff
  800cbb8:	08005e69 	.word	0x08005e69
@@ -30288,8 +30292,8 @@ __weak void HAL_UARTEx_TxFifoEmptyCallback(UART_HandleTypeDef *huart)
  800cc7c:	2002      	movs	r0, #2
 }
  800cc7e:	4770      	bx	lr
- 800cc80:	0806b730 	.word	0x0806b730
- 800cc84:	0806b738 	.word	0x0806b738
+ 800cc80:	0806b724 	.word	0x0806b724
+ 800cc84:	0806b72c 	.word	0x0806b72c
 
 0800cc88 <HAL_UARTEx_SetRxFifoThreshold>:
   __HAL_LOCK(huart);
@@ -30374,8 +30378,8 @@ __weak void HAL_UARTEx_TxFifoEmptyCallback(UART_HandleTypeDef *huart)
  800cd00:	2002      	movs	r0, #2
 }
  800cd02:	4770      	bx	lr
- 800cd04:	0806b730 	.word	0x0806b730
- 800cd08:	0806b738 	.word	0x0806b738
+ 800cd04:	0806b724 	.word	0x0806b724
+ 800cd08:	0806b72c 	.word	0x0806b72c
 
 0800cd0c <USB_EnableGlobalInt>:
   *         Enables the controller's Global Int in the AHB Config reg
@@ -38494,9 +38498,9 @@ __STATIC_INLINE uint32_t LL_FLASH_GetSTCompanyID(void)
  800fba8:	0800f2cd 	.word	0x0800f2cd
  800fbac:	1fff7000 	.word	0x1fff7000
  800fbb0:	2001441c 	.word	0x2001441c
- 800fbb4:	0806b750 	.word	0x0806b750
- 800fbb8:	0806b740 	.word	0x0806b740
- 800fbbc:	0806a8c8 	.word	0x0806a8c8
+ 800fbb4:	0806b744 	.word	0x0806b744
+ 800fbb8:	0806b734 	.word	0x0806b734
+ 800fbbc:	0806a8bc 	.word	0x0806a8bc
  800fbc0:	20014384 	.word	0x20014384
  800fbc4:	0001b207 	.word	0x0001b207
  800fbc8:	08000101 	.word	0x08000101
@@ -38504,7 +38508,7 @@ __STATIC_INLINE uint32_t LL_FLASH_GetSTCompanyID(void)
  800fbd0:	0800f965 	.word	0x0800f965
  800fbd4:	0800fa0d 	.word	0x0800fa0d
  800fbd8:	20014405 	.word	0x20014405
- 800fbdc:	0806b760 	.word	0x0806b760
+ 800fbdc:	0806b754 	.word	0x0806b754
 
 0800fbe0 <SVCCTL_App_Notification>:
 {
@@ -38826,13 +38830,13 @@ __STATIC_INLINE uint32_t LL_FLASH_GetSTCompanyID(void)
  800fdee:	4a08      	ldr	r2, [pc, #32]	@ (800fe10 <getClientStatus+0x70>)
  800fdf0:	f058 ba26 	b.w	8068240 <sniprintf>
  800fdf4:	20014384 	.word	0x20014384
- 800fdf8:	0806a95c 	.word	0x0806a95c
- 800fdfc:	0806a948 	.word	0x0806a948
- 800fe00:	0806a930 	.word	0x0806a930
- 800fe04:	0806a904 	.word	0x0806a904
- 800fe08:	0806a8d0 	.word	0x0806a8d0
- 800fe0c:	0806a8ec 	.word	0x0806a8ec
- 800fe10:	0806a91c 	.word	0x0806a91c
+ 800fdf8:	0806a950 	.word	0x0806a950
+ 800fdfc:	0806a93c 	.word	0x0806a93c
+ 800fe00:	0806a924 	.word	0x0806a924
+ 800fe04:	0806a8f8 	.word	0x0806a8f8
+ 800fe08:	0806a8c4 	.word	0x0806a8c4
+ 800fe0c:	0806a8e0 	.word	0x0806a8e0
+ 800fe10:	0806a910 	.word	0x0806a910
 
 0800fe14 <hci_notify_asynch_evt>:
   UTIL_SEQ_SetTask(1 << CFG_TASK_HCI_ASYNCH_EVT_ID, CFG_SCH_PRIO_0);
@@ -39006,18 +39010,18 @@ void getBleStatus(char *statusStr, size_t maxLen)
             break;
  800fefa:	e7b8      	b.n	800fe6e <getBleStatus+0x2a>
  800fefc:	20014384 	.word	0x20014384
- 800ff00:	0806a990 	.word	0x0806a990
- 800ff04:	0806a970 	.word	0x0806a970
- 800ff08:	0806a99c 	.word	0x0806a99c
- 800ff0c:	0806a9b0 	.word	0x0806a9b0
- 800ff10:	0806a984 	.word	0x0806a984
- 800ff14:	0806a96c 	.word	0x0806a96c
- 800ff18:	0806a978 	.word	0x0806a978
- 800ff1c:	0806a9c4 	.word	0x0806a9c4
- 800ff20:	0806a9d8 	.word	0x0806a9d8
- 800ff24:	0806a9f8 	.word	0x0806a9f8
- 800ff28:	0806aa14 	.word	0x0806aa14
- 800ff2c:	0806aa30 	.word	0x0806aa30
+ 800ff00:	0806a984 	.word	0x0806a984
+ 800ff04:	0806a964 	.word	0x0806a964
+ 800ff08:	0806a990 	.word	0x0806a990
+ 800ff0c:	0806a9a4 	.word	0x0806a9a4
+ 800ff10:	0806a978 	.word	0x0806a978
+ 800ff14:	0806a960 	.word	0x0806a960
+ 800ff18:	0806a96c 	.word	0x0806a96c
+ 800ff1c:	0806a9b8 	.word	0x0806a9b8
+ 800ff20:	0806a9cc 	.word	0x0806a9cc
+ 800ff24:	0806a9ec 	.word	0x0806a9ec
+ 800ff28:	0806aa08 	.word	0x0806aa08
+ 800ff2c:	0806aa24 	.word	0x0806aa24
 
 0800ff30 <Update_Service>:
 
@@ -40387,20 +40391,20 @@ static int8_t CDC_DeInit_FS(void)
  8010778:	e76e      	b.n	8010658 <CDC_Receive_FS+0xb4>
  801077a:	bf00      	nop
  801077c:	20014458 	.word	0x20014458
- 8010780:	0806aa38 	.word	0x0806aa38
- 8010784:	0806aa90 	.word	0x0806aa90
- 8010788:	0806aa40 	.word	0x0806aa40
- 801078c:	0806aaa8 	.word	0x0806aaa8
- 8010790:	0806aa48 	.word	0x0806aa48
- 8010794:	0806aa60 	.word	0x0806aa60
- 8010798:	0806aa70 	.word	0x0806aa70
- 801079c:	0806aa80 	.word	0x0806aa80
- 80107a0:	0806aa88 	.word	0x0806aa88
- 80107a4:	0806b768 	.word	0x0806b768
- 80107a8:	0806aa50 	.word	0x0806aa50
- 80107ac:	0806aa58 	.word	0x0806aa58
- 80107b0:	0806aa78 	.word	0x0806aa78
- 80107b4:	0806aa68 	.word	0x0806aa68
+ 8010780:	0806aa2c 	.word	0x0806aa2c
+ 8010784:	0806aa84 	.word	0x0806aa84
+ 8010788:	0806aa34 	.word	0x0806aa34
+ 801078c:	0806aa9c 	.word	0x0806aa9c
+ 8010790:	0806aa3c 	.word	0x0806aa3c
+ 8010794:	0806aa54 	.word	0x0806aa54
+ 8010798:	0806aa64 	.word	0x0806aa64
+ 801079c:	0806aa74 	.word	0x0806aa74
+ 80107a0:	0806aa7c 	.word	0x0806aa7c
+ 80107a4:	0806b75c 	.word	0x0806b75c
+ 80107a8:	0806aa44 	.word	0x0806aa44
+ 80107ac:	0806aa4c 	.word	0x0806aa4c
+ 80107b0:	0806aa6c 	.word	0x0806aa6c
+ 80107b4:	0806aa5c 	.word	0x0806aa5c
 
 080107b8 <CDC_Transmit_FS>:
 {
@@ -40485,7 +40489,7 @@ uint8_t * USBD_CDC_ManufacturerStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *
  801080c:	bd10      	pop	{r4, pc}
  801080e:	bf00      	nop
  8010810:	20015734 	.word	0x20015734
- 8010814:	0806aab0 	.word	0x0806aab0
+ 8010814:	0806aaa4 	.word	0x0806aaa4
 
 08010818 <USBD_CDC_ProductStrDescriptor>:
 {
@@ -40503,7 +40507,7 @@ uint8_t * USBD_CDC_ManufacturerStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *
  8010828:	bd10      	pop	{r4, pc}
  801082a:	bf00      	nop
  801082c:	20015734 	.word	0x20015734
- 8010830:	0806aac4 	.word	0x0806aac4
+ 8010830:	0806aab8 	.word	0x0806aab8
 
 08010834 <USBD_CDC_ConfigStrDescriptor>:
   * @param  speed : Current device speed
@@ -40533,7 +40537,7 @@ uint8_t * USBD_CDC_ConfigStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *length
  8010844:	bd10      	pop	{r4, pc}
  8010846:	bf00      	nop
  8010848:	20015734 	.word	0x20015734
- 801084c:	0806aadc 	.word	0x0806aadc
+ 801084c:	0806aad0 	.word	0x0806aad0
 
 08010850 <USBD_CDC_InterfaceStrDescriptor>:
   * @param  speed : Current device speed
@@ -40563,7 +40567,7 @@ uint8_t * USBD_CDC_InterfaceStrDescriptor(USBD_SpeedTypeDef speed, uint16_t *len
  8010860:	bd10      	pop	{r4, pc}
  8010862:	bf00      	nop
  8010864:	20015734 	.word	0x20015734
- 8010868:	0806aae8 	.word	0x0806aae8
+ 8010868:	0806aadc 	.word	0x0806aadc
 
 0801086c <USBD_CDC_SerialStrDescriptor>:
 {
@@ -43950,7 +43954,7 @@ static inline lv_part_t lv_obj_style_get_selector_part(lv_style_selector_t selec
  8011cf4:	bd10      	pop	{r4, pc}
     LV_ASSERT_NULL(obj);
  8011cf6:	e7fe      	b.n	8011cf6 <lv_obj_create+0x16>
- 8011cf8:	0806b794 	.word	0x0806b794
+ 8011cf8:	0806b788 	.word	0x0806b788
 
 08011cfc <lv_obj_add_flag>:
 {
@@ -57552,7 +57556,7 @@ static lv_style_res_t get_selector_style_prop(const lv_obj_t * obj, lv_style_sel
  80179f0:	d0f9      	beq.n	80179e6 <get_selector_style_prop+0x76>
  80179f2:	e7f5      	b.n	80179e0 <get_selector_style_prop+0x70>
  80179f4:	20015ed0 	.word	0x20015ed0
- 80179f8:	0807201c 	.word	0x0807201c
+ 80179f8:	08072010 	.word	0x08072010
 
 080179fc <refresh_children_style>:
 {
@@ -58355,7 +58359,7 @@ static lv_style_res_t get_selector_style_prop(const lv_obj_t * obj, lv_style_sel
  8018026:	4625      	mov	r5, r4
  8018028:	e7bc      	b.n	8017fa4 <lv_obj_calculate_style_text_align+0x44>
  801802a:	bf00      	nop
- 801802c:	0807201c 	.word	0x0807201c
+ 801802c:	08072010 	.word	0x08072010
 
 08018030 <lv_obj_get_style_opa_recursive>:
     LV_ASSERT_NULL(obj)
@@ -58549,7 +58553,7 @@ static lv_style_res_t get_selector_style_prop(const lv_obj_t * obj, lv_style_sel
  8018152:	d1ad      	bne.n	80180b0 <lv_obj_get_style_opa_recursive+0x80>
  8018154:	e7e0      	b.n	8018118 <lv_obj_get_style_opa_recursive+0xe8>
  8018156:	bf00      	nop
- 8018158:	0807201c 	.word	0x0807201c
+ 8018158:	08072010 	.word	0x08072010
 
 0801815c <lv_obj_update_layer_type>:
     LV_ASSERT_NULL(obj)
@@ -58919,7 +58923,7 @@ static lv_style_res_t get_selector_style_prop(const lv_obj_t * obj, lv_style_sel
     if(obj->spec_attr) obj->spec_attr->layer_type = layer_type;
  80183b8:	2401      	movs	r4, #1
  80183ba:	e7c4      	b.n	8018346 <lv_obj_update_layer_type+0x1ea>
- 80183bc:	0807201c 	.word	0x0807201c
+ 80183bc:	08072010 	.word	0x08072010
     return lv_style_prop_get_default(prop);
  80183c0:	2075      	movs	r0, #117	@ 0x75
  80183c2:	f037 ff1f 	bl	8050204 <lv_style_prop_get_default>
@@ -58982,7 +58986,7 @@ static lv_style_res_t get_selector_style_prop(const lv_obj_t * obj, lv_style_sel
  801841c:	2b00      	cmp	r3, #0
  801841e:	f47f aedf 	bne.w	80181e0 <lv_obj_update_layer_type+0x84>
  8018422:	e6e3      	b.n	80181ec <lv_obj_update_layer_type+0x90>
- 8018424:	0807201c 	.word	0x0807201c
+ 8018424:	08072010 	.word	0x08072010
 
 08018428 <lv_obj_refresh_style.part.0>:
 void lv_obj_refresh_style(lv_obj_t * obj, lv_part_t part, lv_style_prop_t prop)
@@ -61373,7 +61377,7 @@ static inline bool lv_style_prop_has_flag(lv_style_prop_t prop, uint8_t flag)
  801962e:	9307      	str	r3, [sp, #28]
  8019630:	e7eb      	b.n	801960a <lv_obj_style_apply_recolor+0xce>
  8019632:	bf00      	nop
- 8019634:	0807201c 	.word	0x0807201c
+ 8019634:	08072010 	.word	0x08072010
 
 08019638 <lv_obj_get_style_recolor_recursive>:
     LV_ASSERT_NULL(obj)
@@ -61665,7 +61669,7 @@ static inline bool lv_style_prop_has_flag(lv_style_prop_t prop, uint8_t flag)
  8019826:	900b      	str	r0, [sp, #44]	@ 0x2c
  8019828:	4603      	mov	r3, r0
  801982a:	e7b8      	b.n	801979e <lv_obj_get_style_recolor_recursive+0x166>
- 801982c:	0807201c 	.word	0x0807201c
+ 801982c:	08072010 	.word	0x08072010
 
 08019830 <lv_obj_set_style_width>:
 
@@ -65938,7 +65942,7 @@ void lv_display_refr_timer(lv_timer_t * tmr)
  801b3a0:	e0ad      	b.n	801b4fe <lv_display_refr_timer.part.0+0x46e>
  801b3a2:	bf00      	nop
  801b3a4:	20015ed0 	.word	0x20015ed0
- 801b3a8:	0806b7b8 	.word	0x0806b7b8
+ 801b3a8:	0806b7ac 	.word	0x0806b7ac
     if(lv_display_is_double_buffered(disp_refr) && disp_refr->render_mode == LV_DISPLAY_RENDER_MODE_DIRECT) {
  801b3ac:	f895 303d 	ldrb.w	r3, [r5, #61]	@ 0x3d
  801b3b0:	2b01      	cmp	r3, #1
@@ -66832,7 +66836,7 @@ static inline void lv_memzero(void * dst, size_t len)
  801ba60:	20015ed8 	.word	0x20015ed8
  801ba64:	20015ed0 	.word	0x20015ed0
  801ba68:	0801b681 	.word	0x0801b681
- 801ba6c:	0806e57c 	.word	0x0806e57c
+ 801ba6c:	0806e570 	.word	0x0806e570
  801ba70:	0801b6c5 	.word	0x0801b6c5
 
 0801ba74 <lv_display_delete>:
@@ -68539,7 +68543,7 @@ lv_result_t lv_draw_buf_convert_premultiply(lv_draw_buf_t * draw_buf)
  801c60c:	2001      	movs	r0, #1
  801c60e:	b003      	add	sp, #12
  801c610:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
- 801c614:	0806b7c8 	.word	0x0806b7c8
+ 801c614:	0806b7bc 	.word	0x0806b7bc
 
 0801c618 <lv_draw_init>:
 void lv_draw_init(void)
@@ -68682,7 +68686,7 @@ lv_draw_task_t * lv_draw_add_task(lv_layer_t * layer, const lv_area_t * coords, 
         layer->draw_task_head = new_task;
  801c6c6:	f8c6 c004 	str.w	ip, [r6, #4]
  801c6ca:	e7f7      	b.n	801c6bc <lv_draw_add_task+0x7c>
- 801c6cc:	0806b7d4 	.word	0x0806b7d4
+ 801c6cc:	0806b7c8 	.word	0x0806b7c8
 
 0801c6d0 <lv_draw_dispatch_layer>:
     }
@@ -70455,8 +70459,8 @@ static uint32_t width_to_stride(uint32_t w, lv_color_format_t color_format)
  801d27e:	46b0      	mov	r8, r6
  801d280:	e7f6      	b.n	801d270 <buf_copy+0x178>
  801d282:	bf00      	nop
- 801d284:	0806b810 	.word	0x0806b810
- 801d288:	0806b800 	.word	0x0806b800
+ 801d284:	0806b804 	.word	0x0806b804
+ 801d288:	0806b7f4 	.word	0x0806b7f4
 
 0801d28c <lv_draw_buf_init_handlers>:
 {
@@ -70781,7 +70785,7 @@ static void draw_buf_get_full_area(const lv_draw_buf_t * draw_buf, lv_area_t * f
  801d4aa:	e7fe      	b.n	801d4aa <lv_draw_buf_clear+0x132>
  801d4ac:	f3af 8000 	nop.w
 	...
- 801d4b8:	0806b800 	.word	0x0806b800
+ 801d4b8:	0806b7f4 	.word	0x0806b7f4
 
 0801d4bc <lv_draw_buf_init>:
 {
@@ -71004,7 +71008,7 @@ static void draw_buf_get_full_area(const lv_draw_buf_t * draw_buf, lv_area_t * f
     else return NULL;
  801d628:	4610      	mov	r0, r2
  801d62a:	e7ca      	b.n	801d5c2 <lv_draw_buf_create+0x7a>
- 801d62c:	0806b810 	.word	0x0806b810
+ 801d62c:	0806b804 	.word	0x0806b804
  801d630:	20015f9c 	.word	0x20015f9c
  801d634:	20015ed0 	.word	0x20015ed0
 
@@ -71143,7 +71147,7 @@ static void draw_buf_get_full_area(const lv_draw_buf_t * draw_buf, lv_area_t * f
     else return NULL;
  801d71c:	4618      	mov	r0, r3
  801d71e:	e7c9      	b.n	801d6b4 <lv_draw_buf_create_ex+0x7c>
- 801d720:	0806b810 	.word	0x0806b810
+ 801d720:	0806b804 	.word	0x0806b804
  801d724:	20015ed0 	.word	0x20015ed0
 
 0801d728 <lv_draw_buf_dup_ex>:
@@ -71300,7 +71304,7 @@ static void draw_buf_get_full_area(const lv_draw_buf_t * draw_buf, lv_area_t * f
     else return NULL;
  801d830:	4618      	mov	r0, r3
  801d832:	e7bb      	b.n	801d7ac <lv_draw_buf_dup_ex+0x84>
- 801d834:	0806b810 	.word	0x0806b810
+ 801d834:	0806b804 	.word	0x0806b804
  801d838:	20015ed0 	.word	0x20015ed0
 
 0801d83c <lv_draw_buf_reshape>:
@@ -71412,7 +71416,7 @@ static void draw_buf_get_full_area(const lv_draw_buf_t * draw_buf, lv_area_t * f
  801d8e2:	e7cd      	b.n	801d880 <lv_draw_buf_reshape+0x44>
  801d8e4:	4606      	mov	r6, r0
  801d8e6:	e7b6      	b.n	801d856 <lv_draw_buf_reshape+0x1a>
- 801d8e8:	0806b810 	.word	0x0806b810
+ 801d8e8:	0806b804 	.word	0x0806b804
  801d8ec:	20015ed0 	.word	0x20015ed0
 
 0801d8f0 <lv_draw_buf_destroy>:
@@ -71521,7 +71525,7 @@ static void draw_buf_get_full_area(const lv_draw_buf_t * draw_buf, lv_area_t * f
 }
  801d97c:	4628      	mov	r0, r5
  801d97e:	bd38      	pop	{r3, r4, r5, pc}
- 801d980:	0806b800 	.word	0x0806b800
+ 801d980:	0806b7f4 	.word	0x0806b7f4
 
 0801d984 <lv_draw_buf_adjust_stride>:
     LV_ASSERT_NULL(src);
@@ -71717,8 +71721,8 @@ static void draw_buf_get_full_area(const lv_draw_buf_t * draw_buf, lv_area_t * f
  801dab2:	fb07 2203 	mla	r2, r7, r3, r2
  801dab6:	e7ad      	b.n	801da14 <lv_draw_buf_adjust_stride+0x90>
  801dab8:	20015ed0 	.word	0x20015ed0
- 801dabc:	0806b810 	.word	0x0806b810
- 801dac0:	0806b800 	.word	0x0806b800
+ 801dabc:	0806b804 	.word	0x0806b804
+ 801dac0:	0806b7f4 	.word	0x0806b7f4
 
 0801dac4 <lv_draw_buf_premultiply>:
     LV_ASSERT_NULL(draw_buf);
@@ -72939,7 +72943,7 @@ void lv_draw_label_dsc_init(lv_draw_label_dsc_t * dsc)
 }
  801e2f0:	bd10      	pop	{r4, pc}
  801e2f2:	bf00      	nop
- 801e2f4:	0806e57c 	.word	0x0806e57c
+ 801e2f4:	0806e570 	.word	0x0806e570
 
 0801e2f8 <lv_draw_task_get_label_dsc>:
 
@@ -73792,7 +73796,7 @@ static inline bool lv_text_is_marker(uint32_t letter)
         if(g.format == LV_FONT_GLYPH_FORMAT_VECTOR) {
  801e85e:	f000 80dd 	beq.w	801ea1c <lv_draw_label_iterate_characters+0x6b8>
  801e862:	e003      	b.n	801e86c <lv_draw_label_iterate_characters+0x508>
- 801e864:	080720ac 	.word	0x080720ac
+ 801e864:	080720a0 	.word	0x080720a0
  801e868:	55555556 	.word	0x55555556
     else {
         dsc->format = LV_FONT_GLYPH_FORMAT_NONE;
@@ -75742,7 +75746,7 @@ void LV_ATTRIBUTE_FAST_MEM lv_draw_rect_dsc_init(lv_draw_rect_dsc_t * dsc)
 }
  801f66c:	bd38      	pop	{r3, r4, r5, pc}
  801f66e:	bf00      	nop
- 801f670:	0806e57c 	.word	0x0806e57c
+ 801f670:	0806e570 	.word	0x0806e570
 
 0801f674 <lv_draw_fill_dsc_init>:
 
@@ -132792,7 +132796,7 @@ static void execute_drawing(lv_draw_task_t * t)
  803b272:	bf00      	nop
  803b274:	0803b10d 	.word	0x0803b10d
  803b278:	0803b14d 	.word	0x0803b14d
- 803b27c:	0806ab00 	.word	0x0806ab00
+ 803b27c:	0806aaf4 	.word	0x0806aaf4
  803b280:	2001601c 	.word	0x2001601c
 
 0803b284 <lv_draw_sw_get_blend_handler>:
@@ -142475,7 +142479,7 @@ void lv_draw_sw_line(lv_draw_task_t * t, const lv_draw_line_dsc_t * dsc)
  803f382:	4770      	bx	lr
  803f384:	f3af 8000 	nop.w
 	...
- 803f390:	0806b81c 	.word	0x0806b81c
+ 803f390:	0806b810 	.word	0x0806b810
     int32_t w = dsc->width - 1;
  803f394:	6b27      	ldr	r7, [r4, #48]	@ 0x30
  803f396:	3f01      	subs	r7, #1
@@ -153046,7 +153050,7 @@ lv_display_t * lv_st7789_create(uint32_t hor_res, uint32_t ver_res, lv_lcd_flag_
  804428a:	b002      	add	sp, #8
  804428c:	bd10      	pop	{r4, pc}
  804428e:	bf00      	nop
- 8044290:	0806b840 	.word	0x0806b840
+ 8044290:	0806b834 	.word	0x0806b834
 
 08044294 <lv_font_get_glyph_dsc.part.0>:
     if(font != NULL && font->release_glyph) {
@@ -154038,8 +154042,8 @@ static uint32_t get_glyph_dsc_id(const lv_font_t * font, uint32_t letter)
  804488a:	3601      	adds	r6, #1
  804488c:	e6ef      	b.n	804466e <lv_font_get_bitmap_fmt_txt+0x12e>
  804488e:	bf00      	nop
- 8044890:	0806b888 	.word	0x0806b888
- 8044894:	0806b88c 	.word	0x0806b88c
+ 8044890:	0806b87c 	.word	0x0806b87c
+ 8044894:	0806b880 	.word	0x0806b880
 
 08044898 <lv_font_get_glyph_dsc_fmt_txt>:
 {
@@ -164913,7 +164917,7 @@ lv_result_t lv_bin_decoder_info(lv_image_decoder_t * decoder, lv_image_decoder_d
  80495f6:	d0da      	beq.n	80495ae <lv_bin_decoder_info+0x42>
  80495f8:	e7c8      	b.n	804958c <lv_bin_decoder_info+0x20>
  80495fa:	bf00      	nop
- 80495fc:	0806ab04 	.word	0x0806ab04
+ 80495fc:	0806aaf8 	.word	0x0806aaf8
 
 08049600 <decode_indexed.isra.0>:
     lv_free(decoder_data->palette);
@@ -165056,8 +165060,8 @@ static lv_fs_res_t fs_read_file_at(lv_fs_file_t * f, uint32_t pos, void * buff, 
         decoder_data->palette = (void *)palette; /*Need to free when decoder closes*/
  80496a2:	f8c6 8004 	str.w	r8, [r6, #4]
  80496a6:	e7d1      	b.n	804964c <decode_indexed.isra.0+0x4c>
- 80496a8:	08071adc 	.word	0x08071adc
- 80496ac:	08071acc 	.word	0x08071acc
+ 80496a8:	08071ad0 	.word	0x08071ad0
+ 80496ac:	08071ac0 	.word	0x08071ac0
 
 080496b0 <decode_alpha_only.isra.0>:
 static lv_result_t decode_alpha_only(lv_image_decoder_t * decoder, lv_image_decoder_dsc_t * dsc)
@@ -166142,7 +166146,7 @@ static lv_result_t decode_alpha_only(lv_image_decoder_t * decoder, lv_image_deco
         LV_ASSERT_MALLOC(data);
  8049dbc:	e7fe      	b.n	8049dbc <lv_bin_decoder_open+0x2d4>
  8049dbe:	bf00      	nop
- 8049dc0:	0806ab04 	.word	0x0806ab04
+ 8049dc0:	0806aaf8 	.word	0x0806aaf8
 
 08049dc4 <lv_bin_decoder_init>:
 {
@@ -166178,7 +166182,7 @@ static lv_result_t decode_alpha_only(lv_image_decoder_t * decoder, lv_image_deco
  8049df8:	08049ae9 	.word	0x08049ae9
  8049dfc:	080497e9 	.word	0x080497e9
  8049e00:	08049aa1 	.word	0x08049aa1
- 8049e04:	0806ab08 	.word	0x0806ab08
+ 8049e04:	0806aafc 	.word	0x0806aafc
 
 08049e08 <lv_qrcode_destructor>:
     lv_qrcode_set_dark_color(obj, lv_color_black());
@@ -166681,7 +166685,7 @@ static int32_t get_satisfied_size(int32_t min_version, int32_t size, int32_t * s
 }
  804a1a4:	4620      	mov	r0, r4
  804a1a6:	bd10      	pop	{r4, pc}
- 804a1a8:	08071aec 	.word	0x08071aec
+ 804a1a8:	08071ae0 	.word	0x08071ae0
 
 0804a1ac <lv_qrcode_set_size>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -168973,7 +168977,7 @@ static void drawFormatBits(enum qrcodegen_Ecc ecl, enum qrcodegen_Mask mask, uin
     LV_ASSERT((qrcodegen_VERSION_MIN * 4 + 17) <= result
  804b414:	e7fe      	b.n	804b414 <drawFormatBits.part.0+0x2d4>
  804b416:	bf00      	nop
- 804b418:	08071b10 	.word	0x08071b10
+ 804b418:	08071b04 	.word	0x08071b04
  804b41c:	f1ac 0407 	sub.w	r4, ip, #7
         qrcode[byteIndex] |= 1 << bitIndex;
  804b420:	2601      	movs	r6, #1
@@ -169468,14 +169472,14 @@ static int numCharCountBits(enum qrcodegen_Mode mode, int version)
     int result = (16 * ver + 128) * ver + 64;
  804b788:	23d0      	movs	r3, #208	@ 0xd0
  804b78a:	e7e5      	b.n	804b758 <qrcodegen_encodeSegmentsAdvanced.part.0+0x2b8>
- 804b78c:	08071bf4 	.word	0x08071bf4
- 804b790:	08071b50 	.word	0x08071b50
+ 804b78c:	08071be8 	.word	0x08071be8
+ 804b790:	08071b44 	.word	0x08071b44
  804b794:	24924925 	.word	0x24924925
  804b798:	f0f0f0f1 	.word	0xf0f0f0f1
- 804b79c:	08071b2c 	.word	0x08071b2c
- 804b7a0:	08071b38 	.word	0x08071b38
- 804b7a4:	08071b44 	.word	0x08071b44
- 804b7a8:	08071b20 	.word	0x08071b20
+ 804b79c:	08071b20 	.word	0x08071b20
+ 804b7a0:	08071b2c 	.word	0x08071b2c
+ 804b7a4:	08071b38 	.word	0x08071b38
+ 804b7a8:	08071b14 	.word	0x08071b14
     int terminatorBits = dataCapacityBits - bitLen;
  804b7ac:	eba4 010b 	sub.w	r1, r4, fp
  804b7b0:	2904      	cmp	r1, #4
@@ -170065,10 +170069,10 @@ static int numCharCountBits(enum qrcodegen_Mode mode, int version)
  804bbe4:	e705      	b.n	804b9f2 <qrcodegen_encodeSegmentsAdvanced.part.0+0x552>
     LV_ASSERT(21 <= qrsize && qrsize <= 177 && 0 <= x && x < qrsize && 0 <= y && y < qrsize);
  804bbe6:	e7fe      	b.n	804bbe6 <qrcodegen_encodeSegmentsAdvanced.part.0+0x746>
- 804bbe8:	08071b2c 	.word	0x08071b2c
- 804bbec:	08071b38 	.word	0x08071b38
- 804bbf0:	08071b44 	.word	0x08071b44
- 804bbf4:	08071b20 	.word	0x08071b20
+ 804bbe8:	08071b20 	.word	0x08071b20
+ 804bbec:	08071b2c 	.word	0x08071b2c
+ 804bbf0:	08071b38 	.word	0x08071b38
+ 804bbf4:	08071b14 	.word	0x08071b14
     LV_ASSERT((qrcodegen_VERSION_MIN * 4 + 17) <= result
  804bbf8:	f1a3 0215 	sub.w	r2, r3, #21
  804bbfc:	2a9c      	cmp	r2, #156	@ 0x9c
@@ -171259,9 +171263,9 @@ int qrcodegen_getMinFitVersion(enum qrcodegen_Ecc ecl, size_t dataLen)
  804c4b4:	f04f 3cff 	mov.w	ip, #4294967295
  804c4b8:	e79e      	b.n	804c3f8 <qrcodegen_getMinFitVersion+0x14>
  804c4ba:	bf00      	nop
- 804c4bc:	08071bf4 	.word	0x08071bf4
- 804c4c0:	08071b50 	.word	0x08071b50
- 804c4c4:	08071b2c 	.word	0x08071b2c
+ 804c4bc:	08071be8 	.word	0x08071be8
+ 804c4c0:	08071b44 	.word	0x08071b44
+ 804c4c4:	08071b20 	.word	0x08071b20
  804c4c8:	f0f0f0f1 	.word	0xf0f0f0f1
  804c4cc:	24924925 	.word	0x24924925
 
@@ -172169,8 +172173,8 @@ static void image_cache_free_cb(lv_image_cache_data_t * entry, void * user_data)
  804c9da:	bd10      	pop	{r4, pc}
  804c9dc:	20015ed0 	.word	0x20015ed0
  804c9e0:	0806a5fc 	.word	0x0806a5fc
- 804c9e4:	08071c98 	.word	0x08071c98
- 804c9e8:	0806ab18 	.word	0x0806ab18
+ 804c9e4:	08071c8c 	.word	0x08071c8c
+ 804c9e8:	0806ab0c 	.word	0x0806ab0c
 
 0804c9ec <lv_image_cache_drop>:
 {
@@ -172335,8 +172339,8 @@ static void image_header_cache_free_cb(lv_image_header_cache_data_t * entry, voi
  804cada:	bd10      	pop	{r4, pc}
  804cadc:	20015ed0 	.word	0x20015ed0
  804cae0:	0806a608 	.word	0x0806a608
- 804cae4:	08071cc4 	.word	0x08071cc4
- 804cae8:	0806ab20 	.word	0x0806ab20
+ 804cae4:	08071cb8 	.word	0x08071cb8
+ 804cae8:	0806ab14 	.word	0x0806ab14
 
 0804caec <lv_image_header_cache_drop>:
 {
@@ -176404,7 +176408,7 @@ uint8_t lv_color_format_get_bpp(lv_color_format_t cf)
     }
 }
  804e332:	4770      	bx	lr
- 804e334:	08071cf0 	.word	0x08071cf0
+ 804e334:	08071ce4 	.word	0x08071ce4
 
 0804e338 <lv_color_format_has_alpha>:
 
@@ -176507,7 +176511,7 @@ uint8_t lv_color_format_get_size(lv_color_format_t cf)
  804e3bc:	2000      	movs	r0, #0
 }
  804e3be:	4770      	bx	lr
- 804e3c0:	08071cf0 	.word	0x08071cf0
+ 804e3c0:	08071ce4 	.word	0x08071ce4
 
 0804e3c4 <lv_color_eq>:
 
@@ -178722,7 +178726,7 @@ static lv_fs_res_t lv_fs_seek_cached(lv_fs_file_t * file_p, uint32_t pos, lv_fs_
 }
  804f0fc:	bd10      	pop	{r4, pc}
  804f0fe:	bf00      	nop
- 804f100:	0806aa5c 	.word	0x0806aa5c
+ 804f100:	0806aa50 	.word	0x0806aa50
 
 0804f104 <lv_iter_create>:
  *   GLOBAL FUNCTIONS
@@ -179942,7 +179946,7 @@ int32_t lv_cubic_bezier(int32_t x, int32_t x1, int32_t y1, int32_t x2, int32_t y
  804f7fc:	4618      	moveq	r0, r3
 }
  804f7fe:	4770      	bx	lr
- 804f800:	08071d20 	.word	0x08071d20
+ 804f800:	08071d14 	.word	0x08071d14
  804f804:	ffff8001 	.word	0xffff8001
  804f808:	ffff8000 	.word	0xffff8000
 
@@ -180331,7 +180335,7 @@ int32_t LV_ATTRIBUTE_FAST_MEM lv_trigo_cos(int16_t angle)
 }
  804f9f8:	4770      	bx	lr
  804f9fa:	bf00      	nop
- 804f9fc:	08071d20 	.word	0x08071d20
+ 804f9fc:	08071d14 	.word	0x08071d14
  804fa00:	ffff8001 	.word	0xffff8001
  804fa04:	ffff8000 	.word	0xffff8000
 
@@ -180370,7 +180374,7 @@ int32_t LV_ATTRIBUTE_FAST_MEM lv_trigo_cos(int16_t angle)
  804fa3a:	4770      	bx	lr
         return lv_color_black();
  804fa3c:	f7fe bd2e 	b.w	804e49c <lv_color_black>
- 804fa40:	08071fdc 	.word	0x08071fdc
+ 804fa40:	08071fd0 	.word	0x08071fd0
 
 0804fa44 <lv_palette_lighten>:
         {LV_COLOR_MAKE(0x8D, 0x6E, 0x63), LV_COLOR_MAKE(0xA1, 0x88, 0x7F), LV_COLOR_MAKE(0xBC, 0xAA, 0xA4), LV_COLOR_MAKE(0xD7, 0xCC, 0xC8), LV_COLOR_MAKE(0xEF, 0xEB, 0xE9)},
@@ -180419,7 +180423,7 @@ int32_t LV_ATTRIBUTE_FAST_MEM lv_trigo_cos(int16_t angle)
         return lv_color_black();
  804fa86:	f7fe bd09 	b.w	804e49c <lv_color_black>
  804fa8a:	bf00      	nop
- 804fa8c:	08071ebc 	.word	0x08071ebc
+ 804fa8c:	08071eb0 	.word	0x08071eb0
 
 0804fa90 <lv_palette_darken>:
         {LV_COLOR_MAKE(0x6D, 0x4C, 0x41), LV_COLOR_MAKE(0x5D, 0x40, 0x37), LV_COLOR_MAKE(0x4E, 0x34, 0x2E), LV_COLOR_MAKE(0x3E, 0x27, 0x23)},
@@ -180467,7 +180471,7 @@ int32_t LV_ATTRIBUTE_FAST_MEM lv_trigo_cos(int16_t angle)
  804fad2:	4770      	bx	lr
         return lv_color_black();
  804fad4:	f7fe bce2 	b.w	804e49c <lv_color_black>
- 804fad8:	08071dd8 	.word	0x08071dd8
+ 804fad8:	08071dcc 	.word	0x08071dcc
 
 0804fadc <rb_delete_color.part.0>:
     }
@@ -182047,8 +182051,8 @@ lv_style_value_t lv_style_prop_get_default(lv_style_prop_t prop)
  805034c:	00082081 	.word	0x00082081
  8050350:	08220201 	.word	0x08220201
  8050354:	00110100 	.word	0x00110100
- 8050358:	0806e57c 	.word	0x0806e57c
- 805035c:	08072018 	.word	0x08072018
+ 8050358:	0806e570 	.word	0x0806e570
+ 805035c:	0807200c 	.word	0x0807200c
 
 08050360 <lv_style_is_empty>:
 
@@ -182107,7 +182111,7 @@ uint8_t lv_style_prop_lookup_flags(lv_style_prop_t prop)
  8050394:	203f      	movs	r0, #63	@ 0x3f
  8050396:	4770      	bx	lr
  8050398:	20015ed0 	.word	0x20015ed0
- 805039c:	0807201c 	.word	0x0807201c
+ 805039c:	08072010 	.word	0x08072010
 
 080503a0 <lv_style_set_width>:
 
@@ -184094,7 +184098,7 @@ static inline bool lv_text_is_a_word(uint32_t letter)
     if(break_index == NO_BREAK_FOUND) {
  8050db8:	e7eb      	b.n	8050d92 <lv_text_get_next_word.constprop.0+0x2fa>
  8050dba:	bf00      	nop
- 8050dbc:	0806ab30 	.word	0x0806ab30
+ 8050dbc:	0806ab24 	.word	0x0806ab24
  8050dc0:	9b01      	ldr	r3, [sp, #4]
  8050dc2:	1c58      	adds	r0, r3, #1
  8050dc4:	d004      	beq.n	8050dd0 <lv_text_get_next_word.constprop.0+0x338>
@@ -190860,23 +190864,23 @@ static void theme_apply(lv_theme_t * th, lv_obj_t * obj)
  8053996:	f7c4 bf6b 	b.w	8018870 <lv_obj_add_style>
  805399a:	bf00      	nop
  805399c:	20015ed0 	.word	0x20015ed0
- 80539a0:	0806b794 	.word	0x0806b794
- 80539a4:	08072ae0 	.word	0x08072ae0
- 80539a8:	08072b70 	.word	0x08072b70
- 80539ac:	08072198 	.word	0x08072198
- 80539b0:	08072118 	.word	0x08072118
- 80539b4:	08072780 	.word	0x08072780
- 80539b8:	080727a4 	.word	0x080727a4
- 80539bc:	080726f0 	.word	0x080726f0
- 80539c0:	0807213c 	.word	0x0807213c
+ 80539a0:	0806b788 	.word	0x0806b788
+ 80539a4:	08072ad4 	.word	0x08072ad4
+ 80539a8:	08072b64 	.word	0x08072b64
+ 80539ac:	0807218c 	.word	0x0807218c
+ 80539b0:	0807210c 	.word	0x0807210c
+ 80539b4:	08072774 	.word	0x08072774
+ 80539b8:	08072798 	.word	0x08072798
+ 80539bc:	080726e4 	.word	0x080726e4
+ 80539c0:	08072130 	.word	0x08072130
  80539c4:	00050080 	.word	0x00050080
  80539c8:	00050020 	.word	0x00050020
  80539cc:	00050001 	.word	0x00050001
  80539d0:	00050004 	.word	0x00050004
  80539d4:	00050008 	.word	0x00050008
  80539d8:	00010040 	.word	0x00010040
- 80539dc:	080720f4 	.word	0x080720f4
- 80539e0:	08072a2c 	.word	0x08072a2c
+ 80539dc:	080720e8 	.word	0x080720e8
+ 80539e0:	08072a20 	.word	0x08072a20
  80539e4:	00030020 	.word	0x00030020
         lv_obj_add_style(obj, &theme->styles.bg_color_primary_muted, 0);
  80539e8:	4642      	mov	r2, r8
@@ -191304,18 +191308,18 @@ static void theme_apply(lv_theme_t * th, lv_obj_t * obj)
  8053dbc:	f7c4 bd58 	b.w	8018870 <lv_obj_add_style>
  8053dc0:	00050020 	.word	0x00050020
  8053dc4:	00050080 	.word	0x00050080
- 8053dc8:	08072ae0 	.word	0x08072ae0
- 8053dcc:	08072abc 	.word	0x08072abc
+ 8053dc8:	08072ad4 	.word	0x08072ad4
+ 8053dcc:	08072ab0 	.word	0x08072ab0
  8053dd0:	00010040 	.word	0x00010040
  8053dd4:	00050004 	.word	0x00050004
  8053dd8:	00050008 	.word	0x00050008
- 8053ddc:	0807227c 	.word	0x0807227c
+ 8053ddc:	08072270 	.word	0x08072270
  8053de0:	00020080 	.word	0x00020080
  8053de4:	00020001 	.word	0x00020001
  8053de8:	00020020 	.word	0x00020020
- 8053dec:	08072a98 	.word	0x08072a98
- 8053df0:	08072258 	.word	0x08072258
- 8053df4:	080729e4 	.word	0x080729e4
+ 8053dec:	08072a8c 	.word	0x08072a8c
+ 8053df0:	0807224c 	.word	0x0807224c
+ 8053df4:	080729d8 	.word	0x080729d8
     else if(lv_obj_check_type(obj, &lv_dropdown_class)) {
  8053df8:	49d7      	ldr	r1, [pc, #860]	@ (8054158 <theme_apply+0xaec>)
  8053dfa:	4620      	mov	r0, r4
@@ -191692,27 +191696,27 @@ static void theme_apply(lv_theme_t * th, lv_obj_t * obj)
  805414e:	2200      	movs	r2, #0
  8054150:	f507 7144 	add.w	r1, r7, #784	@ 0x310
  8054154:	f7ff bba8 	b.w	80538a8 <theme_apply+0x23c>
- 8054158:	080722c4 	.word	0x080722c4
- 805415c:	080722a0 	.word	0x080722a0
+ 8054158:	080722b8 	.word	0x080722b8
+ 805415c:	08072294 	.word	0x08072294
  8054160:	00010040 	.word	0x00010040
  8054164:	00040001 	.word	0x00040001
  8054168:	00040020 	.word	0x00040020
- 805416c:	080720d0 	.word	0x080720d0
- 8054170:	08072a74 	.word	0x08072a74
- 8054174:	08072b04 	.word	0x08072b04
+ 805416c:	080720c4 	.word	0x080720c4
+ 8054170:	08072a68 	.word	0x08072a68
+ 8054174:	08072af8 	.word	0x08072af8
  8054178:	00060002 	.word	0x00060002
- 805417c:	08072198 	.word	0x08072198
- 8054180:	080721ec 	.word	0x080721ec
- 8054184:	08072210 	.word	0x08072210
- 8054188:	08072684 	.word	0x08072684
+ 805417c:	0807218c 	.word	0x0807218c
+ 8054180:	080721e0 	.word	0x080721e0
+ 8054184:	08072204 	.word	0x08072204
+ 8054188:	08072678 	.word	0x08072678
  805418c:	00050080 	.word	0x00050080
  8054190:	00050020 	.word	0x00050020
  8054194:	00050001 	.word	0x00050001
  8054198:	00050004 	.word	0x00050004
  805419c:	00050008 	.word	0x00050008
- 80541a0:	080726a8 	.word	0x080726a8
- 80541a4:	0807275c 	.word	0x0807275c
- 80541a8:	08072714 	.word	0x08072714
+ 80541a0:	0807269c 	.word	0x0807269c
+ 80541a4:	08072750 	.word	0x08072750
+ 80541a8:	08072708 	.word	0x08072708
     else if(lv_obj_check_type(obj, &lv_list_button_class)) {
  80541ac:	49d1      	ldr	r1, [pc, #836]	@ (80544f4 <theme_apply+0xe88>)
  80541ae:	4620      	mov	r0, r4
@@ -192102,29 +192106,29 @@ static void theme_apply(lv_theme_t * th, lv_obj_t * obj)
  80544ec:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
         lv_obj_add_style(obj, &theme->styles.clip_corner, 0);
  80544f0:	f7c4 b9be 	b.w	8018870 <lv_obj_add_style>
- 80544f4:	08072738 	.word	0x08072738
- 80544f8:	080728a0 	.word	0x080728a0
- 80544fc:	080727ec 	.word	0x080727ec
- 8054500:	080727c8 	.word	0x080727c8
- 8054504:	08072858 	.word	0x08072858
- 8054508:	08072780 	.word	0x08072780
- 805450c:	080727a4 	.word	0x080727a4
- 8054510:	0807287c 	.word	0x0807287c
- 8054514:	08072834 	.word	0x08072834
- 8054518:	08072810 	.word	0x08072810
- 805451c:	0807299c 	.word	0x0807299c
- 8054520:	080728c4 	.word	0x080728c4
- 8054524:	08072978 	.word	0x08072978
- 8054528:	08072930 	.word	0x08072930
- 805452c:	08072954 	.word	0x08072954
- 8054530:	080728e8 	.word	0x080728e8
- 8054534:	0807290c 	.word	0x0807290c
- 8054538:	08072a50 	.word	0x08072a50
- 805453c:	08072b4c 	.word	0x08072b4c
- 8054540:	08072b28 	.word	0x08072b28
- 8054544:	08072ae0 	.word	0x08072ae0
+ 80544f4:	0807272c 	.word	0x0807272c
+ 80544f8:	08072894 	.word	0x08072894
+ 80544fc:	080727e0 	.word	0x080727e0
+ 8054500:	080727bc 	.word	0x080727bc
+ 8054504:	0807284c 	.word	0x0807284c
+ 8054508:	08072774 	.word	0x08072774
+ 805450c:	08072798 	.word	0x08072798
+ 8054510:	08072870 	.word	0x08072870
+ 8054514:	08072828 	.word	0x08072828
+ 8054518:	08072804 	.word	0x08072804
+ 805451c:	08072990 	.word	0x08072990
+ 8054520:	080728b8 	.word	0x080728b8
+ 8054524:	0807296c 	.word	0x0807296c
+ 8054528:	08072924 	.word	0x08072924
+ 805452c:	08072948 	.word	0x08072948
+ 8054530:	080728dc 	.word	0x080728dc
+ 8054534:	08072900 	.word	0x08072900
+ 8054538:	08072a44 	.word	0x08072a44
+ 805453c:	08072b40 	.word	0x08072b40
+ 8054540:	08072b1c 	.word	0x08072b1c
+ 8054544:	08072ad4 	.word	0x08072ad4
  8054548:	00010040 	.word	0x00010040
- 805454c:	08072b70 	.word	0x08072b70
+ 805454c:	08072b64 	.word	0x08072b64
     else if(lv_obj_check_type(obj, &lv_led_class)) {
  8054550:	4914      	ldr	r1, [pc, #80]	@ (80545a4 <theme_apply+0xf38>)
  8054552:	4620      	mov	r0, r4
@@ -192164,8 +192168,8 @@ static void theme_apply(lv_theme_t * th, lv_obj_t * obj)
  805459c:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
         lv_obj_add_style(obj, &theme->styles.scale, LV_PART_ITEMS);
  80545a0:	f7c4 b966 	b.w	8018870 <lv_obj_add_style>
- 80545a4:	080726cc 	.word	0x080726cc
- 80545a8:	08072a08 	.word	0x08072a08
+ 80545a4:	080726c0 	.word	0x080726c0
+ 80545a8:	080729fc 	.word	0x080729fc
 
 080545ac <lv_theme_default_init>:
 {
@@ -192558,7 +192562,7 @@ static inline void lv_style_set_pad_all(lv_style_t * style, int32_t value)
  80548f0:	00282b30 	.word	0x00282b30
  80548f4:	002f3237 	.word	0x002f3237
  80548f8:	0804cd79 	.word	0x0804cd79
- 80548fc:	080720c4 	.word	0x080720c4
+ 80548fc:	080720b8 	.word	0x080720b8
  8054900:	cccccccd 	.word	0xcccccccd
         lv_style_init(style);
  8054904:	f7fb fb8e 	bl	8050024 <lv_style_init>
@@ -194028,7 +194032,7 @@ static inline void lv_style_set_pad_gap(lv_style_t * style, int32_t value)
  8055604:	e006      	b.n	8055614 <lv_theme_default_init+0x1068>
  8055606:	bf00      	nop
  8055608:	cccccccd 	.word	0xcccccccd
- 805560c:	0806a840 	.word	0x0806a840
+ 805560c:	0806a834 	.word	0x0806a834
  8055610:	66666667 	.word	0x66666667
         lv_style_init(style);
  8055614:	f7fa fd06 	bl	8050024 <lv_style_init>
@@ -198858,7 +198862,7 @@ static void lv_arc_event(const lv_obj_class_t * class_p, lv_event_t * e)
  8057bf2:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
  8057bf6:	f7ff bc5b 	b.w	80574b0 <lv_arc_event.part.0>
  8057bfa:	bf00      	nop
- 8057bfc:	080720d0 	.word	0x080720d0
+ 8057bfc:	080720c4 	.word	0x080720c4
 
 08057c00 <draw_indic>:
     lv_anim_delete(&bar->cur_value_anim, NULL);
@@ -200155,7 +200159,7 @@ static void lv_bar_set_value_with_anim(lv_obj_t * obj, int32_t new_value, int32_
  80583aa:	1b1b      	subs	r3, r3, r4
  80583ac:	602b      	str	r3, [r5, #0]
  80583ae:	e76e      	b.n	805828e <lv_bar_event+0x12>
- 80583b0:	080720f4 	.word	0x080720f4
+ 80583b0:	080720e8 	.word	0x080720e8
 
 080583b4 <lv_bar_constructor>:
     bar->mode = LV_BAR_MODE_NORMAL;
@@ -200521,7 +200525,7 @@ static void lv_button_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj
 }
  80585d4:	4620      	mov	r0, r4
  80585d6:	bd10      	pop	{r4, pc}
- 80585d8:	08072118 	.word	0x08072118
+ 80585d8:	0807210c 	.word	0x0807210c
 
 080585dc <get_button_from_point>:
  * @param obj pointer to a button matrix object
@@ -202069,7 +202073,7 @@ static void free_map(lv_buttonmatrix_t * btnm)
  8058f98:	f880 2044 	strb.w	r2, [r0, #68]	@ 0x44
     if(map == NULL) return;
  8058f9c:	f7ff bf7e 	b.w	8058e9c <lv_buttonmatrix_set_map.part.0>
- 8058fa0:	08072160 	.word	0x08072160
+ 8058fa0:	08072154 	.word	0x08072154
 
 08058fa4 <lv_buttonmatrix_event>:
 {
@@ -202399,7 +202403,7 @@ static void free_map(lv_buttonmatrix_t * btnm)
  805927e:	d18d      	bne.n	805919c <lv_buttonmatrix_event+0x1f8>
  8059280:	e792      	b.n	80591a8 <lv_buttonmatrix_event+0x204>
  8059282:	bf00      	nop
- 8059284:	0807213c 	.word	0x0807213c
+ 8059284:	08072130 	.word	0x08072130
  8059288:	0806a640 	.word	0x0806a640
         if(btnm->btn_id_sel != LV_BUTTONMATRIX_BUTTON_NONE) {
  805928c:	6c05      	ldr	r5, [r0, #64]	@ 0x40
@@ -202959,7 +202963,7 @@ static void free_map(lv_buttonmatrix_t * btnm)
 }
  80596ac:	4620      	mov	r0, r4
  80596ae:	bd10      	pop	{r4, pc}
- 80596b0:	0807213c 	.word	0x0807213c
+ 80596b0:	08072130 	.word	0x08072130
 
 080596b4 <lv_buttonmatrix_set_map>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -204165,7 +204169,7 @@ void lv_calendar_set_month_shown(lv_obj_t * obj, uint32_t year, uint32_t month)
  8059f48:	51eb851f 	.word	0x51eb851f
  8059f4c:	aaaaaaab 	.word	0xaaaaaaab
  8059f50:	24924925 	.word	0x24924925
- 8059f54:	0806a8e8 	.word	0x0806a8e8
+ 8059f54:	0806a8dc 	.word	0x0806a8dc
 
 08059f58 <lv_calendar_constructor>:
 {
@@ -204437,12 +204441,12 @@ static inline void lv_memzero(void * dst, size_t len)
  805a136:	d1ef      	bne.n	805a118 <lv_calendar_constructor+0x1c0>
 }
  805a138:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
- 805a13c:	0807217c 	.word	0x0807217c
+ 805a13c:	08072170 	.word	0x08072170
  805a140:	0806a640 	.word	0x0806a640
- 805a144:	0806aa5c 	.word	0x0806aa5c
+ 805a144:	0806aa50 	.word	0x0806aa50
  805a148:	08059a5d 	.word	0x08059a5d
  805a14c:	010107e8 	.word	0x010107e8
- 805a150:	0806a8e8 	.word	0x0806a8e8
+ 805a150:	0806a8dc 	.word	0x0806a8dc
 
 0805a154 <lv_calendar_set_month_shown>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -204595,9 +204599,9 @@ static void my_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  805a230:	2123      	movs	r1, #35	@ 0x23
  805a232:	f7b9 b8bb 	b.w	80133ac <lv_obj_send_event>
  805a236:	bf00      	nop
- 805a238:	0806abb8 	.word	0x0806abb8
+ 805a238:	0806abac 	.word	0x0806abac
  805a23c:	0805a28d 	.word	0x0805a28d
- 805a240:	0806abbc 	.word	0x0806abbc
+ 805a240:	0806abb0 	.word	0x0806abb0
  805a244:	0805a249 	.word	0x0805a249
 
 0805a248 <value_changed_event_cb>:
@@ -204641,8 +204645,8 @@ static void value_changed_event_cb(lv_event_t * e)
     lv_label_set_text_fmt(label, "%d %s", date->year, month_names_def[date->month - 1]);
  805a27e:	f005 b963 	b.w	805f548 <lv_label_set_text_fmt>
  805a282:	bf00      	nop
- 805a284:	080721bc 	.word	0x080721bc
- 805a288:	0806abc0 	.word	0x0806abc0
+ 805a284:	080721b0 	.word	0x080721b0
+ 805a288:	0806abb4 	.word	0x0806abb4
 
 0805a28c <month_event_cb>:
 {
@@ -204719,8 +204723,8 @@ static void value_changed_event_cb(lv_event_t * e)
  805a30e:	240b      	movs	r4, #11
  805a310:	220c      	movs	r2, #12
  805a312:	e7db      	b.n	805a2cc <month_event_cb+0x40>
- 805a314:	080721bc 	.word	0x080721bc
- 805a318:	0806abc0 	.word	0x0806abc0
+ 805a314:	080721b0 	.word	0x080721b0
+ 805a318:	0806abb4 	.word	0x0806abb4
 
 0805a31c <my_constructor>:
 /**********************
@@ -204809,9 +204813,9 @@ static void my_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  805a390:	2123      	movs	r1, #35	@ 0x23
  805a392:	f7b9 b80b 	b.w	80133ac <lv_obj_send_event>
  805a396:	bf00      	nop
- 805a398:	0806ac50 	.word	0x0806ac50
+ 805a398:	0806ac44 	.word	0x0806ac44
  805a39c:	0805a455 	.word	0x0805a455
- 805a3a0:	0806aec4 	.word	0x0806aec4
+ 805a3a0:	0806aeb8 	.word	0x0806aeb8
  805a3a4:	0805a425 	.word	0x0805a425
  805a3a8:	0805a3ad 	.word	0x0805a3ad
 
@@ -206327,7 +206331,7 @@ static int32_t value_to_y(lv_obj_t * obj, lv_chart_series_t * ser, int32_t v, in
  805ad9c:	f7b8 fb06 	bl	80133ac <lv_obj_send_event>
  805ada0:	e688      	b.n	805aab4 <lv_chart_event+0x14>
  805ada2:	bf00      	nop
- 805ada4:	08072258 	.word	0x08072258
+ 805ada4:	0807224c 	.word	0x0807224c
         invalidate_point(obj, chart->pressed_point_id);
  805ada8:	6e41      	ldr	r1, [r0, #100]	@ 0x64
     if(i >= chart->point_cnt) return;
@@ -208927,7 +208931,7 @@ static int32_t value_to_y(lv_obj_t * obj, lv_chart_series_t * ser, int32_t v, in
     lv_obj_remove_flag(obj, LV_OBJ_FLAG_SCROLLABLE);
  805c0e2:	f7b5 be15 	b.w	8011d10 <lv_obj_remove_flag>
  805c0e6:	bf00      	nop
- 805c0e8:	0806af1c 	.word	0x0806af1c
+ 805c0e8:	0806af10 	.word	0x0806af10
 
 0805c0ec <lv_checkbox_event>:
     }
@@ -209477,7 +209481,7 @@ inline static void lv_area_copy(lv_area_t * dest, const lv_area_t * src)
  805c400:	f10c 0c01 	add.w	ip, ip, #1
  805c404:	e710      	b.n	805c228 <lv_checkbox_event+0x13c>
  805c406:	bf00      	nop
- 805c408:	0807227c 	.word	0x0807227c
+ 805c408:	08072270 	.word	0x08072270
 
 0805c40c <lv_checkbox_destructor>:
 {
@@ -210288,9 +210292,9 @@ void lv_dropdown_open(lv_obj_t * dropdown_obj)
  805c97e:	d1cd      	bne.n	805c91c <lv_dropdown_constructor+0x3c>
  805c980:	e7d2      	b.n	805c928 <lv_dropdown_constructor+0x48>
  805c982:	bf00      	nop
- 805c984:	0806af34 	.word	0x0806af34
- 805c988:	0806af38 	.word	0x0806af38
- 805c98c:	080722a0 	.word	0x080722a0
+ 805c984:	0806af28 	.word	0x0806af28
+ 805c988:	0806af2c 	.word	0x0806af2c
+ 805c98c:	08072294 	.word	0x08072294
 
 0805c990 <btn_release_handler.isra.0>:
 static lv_result_t btn_release_handler(lv_obj_t * obj)
@@ -210744,7 +210748,7 @@ static lv_result_t btn_release_handler(lv_obj_t * obj)
  805cccc:	f7b8 fdd4 	bl	8015878 <lv_obj_invalidate>
  805ccd0:	e797      	b.n	805cc02 <lv_dropdown_list_event+0x1d2>
  805ccd2:	bf00      	nop
- 805ccd4:	080722a0 	.word	0x080722a0
+ 805ccd4:	08072294 	.word	0x08072294
 
 0805ccd8 <lv_dropdown_create>:
 {
@@ -210759,7 +210763,7 @@ static lv_result_t btn_release_handler(lv_obj_t * obj)
 }
  805cce8:	4620      	mov	r0, r4
  805ccea:	bd10      	pop	{r4, pc}
- 805ccec:	080722c4 	.word	0x080722c4
+ 805ccec:	080722b8 	.word	0x080722b8
 
 0805ccf0 <lv_dropdown_set_options>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -210904,7 +210908,7 @@ static lv_result_t btn_release_handler(lv_obj_t * obj)
  805cdc4:	4770      	bx	lr
     LV_ASSERT_OBJ(obj, MY_CLASS);
  805cdc6:	e7fe      	b.n	805cdc6 <lv_dropdown_get_options+0xe>
- 805cdc8:	0806aa5c 	.word	0x0806aa5c
+ 805cdc8:	0806aa50 	.word	0x0806aa50
 
 0805cdcc <lv_dropdown_get_selected>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -211693,7 +211697,7 @@ static inline lv_base_dir_t lv_obj_get_style_base_dir(const lv_obj_t * obj, lv_p
  805d38e:	6c73      	ldr	r3, [r6, #68]	@ 0x44
  805d390:	6433      	str	r3, [r6, #64]	@ 0x40
  805d392:	e74d      	b.n	805d230 <lv_dropdown_event+0xe8>
- 805d394:	080722c4 	.word	0x080722c4
+ 805d394:	080722b8 	.word	0x080722b8
 
 0805d398 <lv_image_constructor>:
 /**********************
@@ -211992,7 +211996,7 @@ static void scale_update(lv_obj_t * obj, int32_t scale_x, int32_t scale_y)
 }
  805d544:	4620      	mov	r0, r4
  805d546:	bd10      	pop	{r4, pc}
- 805d548:	080722e8 	.word	0x080722e8
+ 805d548:	080722dc 	.word	0x080722dc
 
 0805d54c <lv_image_set_rotation>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -213119,7 +213123,7 @@ static inline int32_t lv_obj_get_style_text_line_space(const lv_obj_t * obj, lv_
  805dd20:	f5b3 7f80 	cmp.w	r3, #256	@ 0x100
  805dd24:	d186      	bne.n	805dc34 <lv_image_event+0x200>
  805dd26:	e693      	b.n	805da50 <lv_image_event+0x1c>
- 805dd28:	080722e8 	.word	0x080722e8
+ 805dd28:	080722dc 	.word	0x080722dc
         lv_cover_check_info_t * info = lv_event_get_param(e);
  805dd2c:	4620      	mov	r0, r4
  805dd2e:	f7f0 ffa1 	bl	804ec74 <lv_event_get_param>
@@ -214100,19 +214104,19 @@ static void lv_keyboard_update_ctrl_map(lv_obj_t * obj)
             lv_textarea_add_char(keyboard->ta, '+');
  805e418:	212b      	movs	r1, #43	@ 0x2b
  805e41a:	e7ee      	b.n	805e3fa <lv_keyboard_def_event_cb+0x19a>
- 805e41c:	0806af80 	.word	0x0806af80
- 805e420:	0806af84 	.word	0x0806af84
- 805e424:	0806af88 	.word	0x0806af88
- 805e428:	0806a8a4 	.word	0x0806a8a4
- 805e42c:	0806af8c 	.word	0x0806af8c
- 805e430:	0806a840 	.word	0x0806a840
- 805e434:	0806af90 	.word	0x0806af90
- 805e438:	0806af98 	.word	0x0806af98
+ 805e41c:	0806af74 	.word	0x0806af74
+ 805e420:	0806af78 	.word	0x0806af78
+ 805e424:	0806af7c 	.word	0x0806af7c
+ 805e428:	0806a898 	.word	0x0806a898
+ 805e42c:	0806af80 	.word	0x0806af80
+ 805e430:	0806a834 	.word	0x0806a834
+ 805e434:	0806af84 	.word	0x0806af84
+ 805e438:	0806af8c 	.word	0x0806af8c
  805e43c:	20000184 	.word	0x20000184
- 805e440:	0806abb8 	.word	0x0806abb8
- 805e444:	0806abbc 	.word	0x0806abbc
- 805e448:	0806a83c 	.word	0x0806a83c
- 805e44c:	0806af9c 	.word	0x0806af9c
+ 805e440:	0806abac 	.word	0x0806abac
+ 805e444:	0806abb0 	.word	0x0806abb0
+ 805e448:	0806a830 	.word	0x0806a830
+ 805e44c:	0806af90 	.word	0x0806af90
 
 0805e450 <lv_keyboard_constructor>:
 {
@@ -214604,8 +214608,8 @@ static void calculate_x_coordinate(int32_t * x, const lv_text_align_t align, con
  805e752:	4626      	mov	r6, r4
  805e754:	4625      	mov	r5, r4
  805e756:	e769      	b.n	805e62c <lv_label_get_letter_on.part.0+0x14c>
- 805e758:	080720b4 	.word	0x080720b4
- 805e75c:	080720ac 	.word	0x080720ac
+ 805e758:	080720a8 	.word	0x080720a8
+ 805e75c:	080720a0 	.word	0x080720a0
 
 0805e760 <lv_label_refr_text.part.0>:
 static void lv_label_refr_text(lv_obj_t * obj)
@@ -215478,9 +215482,9 @@ static inline uint32_t lv_obj_get_style_anim_duration(const lv_obj_t * obj, lv_p
         for(; i < LV_LABEL_DOT_NUM && label->text[dot_begin + i]; i++) {
  805ed88:	2301      	movs	r3, #1
  805ed8a:	e7c6      	b.n	805ed1a <lv_label_refr_text.part.0+0x5ba>
- 805ed8c:	080720a8 	.word	0x080720a8
- 805ed90:	080720b0 	.word	0x080720b0
- 805ed94:	080720b4 	.word	0x080720b4
+ 805ed8c:	0807209c 	.word	0x0807209c
+ 805ed90:	080720a4 	.word	0x080720a4
+ 805ed94:	080720a8 	.word	0x080720a8
  805ed98:	0805e4b9 	.word	0x0805e4b9
  805ed9c:	0805e4b1 	.word	0x0805e4b1
 
@@ -215953,7 +215957,7 @@ static inline void lv_bidi_calculate_align(lv_text_align_t * align, lv_base_dir_
  805f148:	2301      	movgt	r3, #1
  805f14a:	f88d 308c 	strbgt.w	r3, [sp, #140]	@ 0x8c
  805f14e:	e780      	b.n	805f052 <lv_label_event+0x1f6>
- 805f150:	080726a8 	.word	0x080726a8
+ 805f150:	0807269c 	.word	0x0807269c
  805f154:	225a      	movs	r2, #90	@ 0x5a
  805f156:	2100      	movs	r1, #0
  805f158:	f7b8 fd98 	bl	8017c8c <lv_obj_get_style_prop>
@@ -216384,7 +216388,7 @@ static inline void lv_bidi_calculate_align(lv_text_align_t * align, lv_base_dir_
  805f456:	bf00      	nop
  805f458:	0805e4b9 	.word	0x0805e4b9
  805f45c:	0805e4b1 	.word	0x0805e4b1
- 805f460:	0806b0a8 	.word	0x0806b0a8
+ 805f460:	0806b09c 	.word	0x0806b09c
 
 0805f464 <lv_label_create>:
 {
@@ -216399,7 +216403,7 @@ static inline void lv_bidi_calculate_align(lv_text_align_t * align, lv_base_dir_
 }
  805f474:	4620      	mov	r0, r4
  805f476:	bd10      	pop	{r4, pc}
- 805f478:	080726a8 	.word	0x080726a8
+ 805f478:	0807269c 	.word	0x0807269c
 
 0805f47c <lv_label_set_text>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -217073,7 +217077,7 @@ static inline void lv_bidi_calculate_align(lv_text_align_t * align, lv_base_dir_
     uint32_t line_start = 0;
  805f8e8:	4623      	mov	r3, r4
  805f8ea:	e77b      	b.n	805f7e4 <lv_label_get_letter_pos+0x130>
- 805f8ec:	080720b0 	.word	0x080720b0
+ 805f8ec:	080720a4 	.word	0x080720a4
 
 0805f8f0 <lv_label_get_letter_on>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -217502,7 +217506,7 @@ static inline void lv_bidi_calculate_align(lv_text_align_t * align, lv_base_dir_
 }
  805fbd0:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  805fbd2:	bf00      	nop
- 805fbd4:	080720a8 	.word	0x080720a8
+ 805fbd4:	0807209c 	.word	0x0807209c
 
 0805fbd8 <lv_led_event>:
     led->color = lv_theme_get_color_primary(obj);
@@ -217832,7 +217836,7 @@ static void lv_led_event(const lv_obj_class_t * class_p, lv_event_t * e)
 }
  805ff7c:	b032      	add	sp, #200	@ 0xc8
  805ff7e:	bd70      	pop	{r4, r5, r6, pc}
- 805ff80:	080726cc 	.word	0x080726cc
+ 805ff80:	080726c0 	.word	0x080726c0
  805ff84:	5d9f7391 	.word	0x5d9f7391
 
 0805ff88 <lv_led_constructor>:
@@ -218238,7 +218242,7 @@ static inline int32_t lv_obj_get_style_line_width(const lv_obj_t * obj, lv_part_
  806027c:	e9c0 5400 	strd	r5, r4, [r0]
  8060280:	e6ad      	b.n	805ffde <lv_line_event+0x12>
  8060282:	bf00      	nop
- 8060284:	080726f0 	.word	0x080726f0
+ 8060284:	080726e4 	.word	0x080726e4
  8060288:	51eb851f 	.word	0x51eb851f
 
 0806028c <lv_line_create>:
@@ -218254,7 +218258,7 @@ static inline int32_t lv_obj_get_style_line_width(const lv_obj_t * obj, lv_part_
 }
  806029c:	4620      	mov	r0, r4
  806029e:	bd10      	pop	{r4, pc}
- 80602a0:	080726f0 	.word	0x080726f0
+ 80602a0:	080726e4 	.word	0x080726e4
 
 080602a4 <lv_line_set_points>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -218500,10 +218504,10 @@ static void lv_menu_section_constructor(const lv_obj_class_t * class_p, lv_obj_t
  806042a:	f7b3 b88f 	b.w	801354c <lv_obj_add_event_cb>
  806042e:	bf00      	nop
  8060430:	20000064 	.word	0x20000064
- 8060434:	080727c8 	.word	0x080727c8
- 8060438:	080727a4 	.word	0x080727a4
+ 8060434:	080727bc 	.word	0x080727bc
+ 8060438:	08072798 	.word	0x08072798
  806043c:	0806064d 	.word	0x0806064d
- 8060440:	0806abb8 	.word	0x0806abb8
+ 8060440:	0806abac 	.word	0x0806abac
  8060444:	08060449 	.word	0x08060449
 
 08060448 <lv_menu_value_changed_event_cb>:
@@ -219971,7 +219975,7 @@ static inline uint32_t lv_obj_get_style_anim_duration(const lv_obj_t * obj, lv_p
         layer->_clip_area = clip_area_ori2;
  8060dd0:	e7c9      	b.n	8060d66 <lv_roller_label_event+0x112>
  8060dd2:	bf00      	nop
- 8060dd4:	080729c0 	.word	0x080729c0
+ 8060dd4:	080729b4 	.word	0x080729b4
 
 08060dd8 <lv_roller_constructor>:
     roller->mode = LV_ROLLER_MODE_NORMAL;
@@ -220056,8 +220060,8 @@ static inline uint32_t lv_obj_get_style_anim_duration(const lv_obj_t * obj, lv_p
  8060e56:	2b00      	cmp	r3, #0
  8060e58:	d1e2      	bne.n	8060e20 <lv_roller_constructor+0x48>
  8060e5a:	e7e7      	b.n	8060e2c <lv_roller_constructor+0x54>
- 8060e5c:	080729c0 	.word	0x080729c0
- 8060e60:	0806b1cc 	.word	0x0806b1cc
+ 8060e5c:	080729b4 	.word	0x080729b4
+ 8060e60:	0806b1c0 	.word	0x0806b1c0
 
 08060e64 <lv_roller_event>:
 {
@@ -220400,7 +220404,7 @@ static inline uint32_t lv_obj_get_style_anim_duration(const lv_obj_t * obj, lv_p
  806115a:	d3be      	bcc.n	80610da <lv_roller_event+0x276>
  806115c:	1e79      	subs	r1, r7, #1
  806115e:	e7bc      	b.n	80610da <lv_roller_event+0x276>
- 8061160:	080729e4 	.word	0x080729e4
+ 8061160:	080729d8 	.word	0x080729d8
  8061164:	080606e9 	.word	0x080606e9
         if(roller->moved == 0) {
  8061168:	f896 303c 	ldrb.w	r3, [r6, #60]	@ 0x3c
@@ -220748,7 +220752,7 @@ static inline uint32_t lv_obj_get_style_anim_duration(const lv_obj_t * obj, lv_p
                 else sel_opt_signed -= real_option_cnt;
  80613d4:	1a8a      	subcs	r2, r1, r2
  80613d6:	e7f3      	b.n	80613c0 <lv_roller_event+0x55c>
- 80613d8:	080720b8 	.word	0x080720b8
+ 80613d8:	080720ac 	.word	0x080720ac
  80613dc:	51eb851f 	.word	0x51eb851f
 
 080613e0 <scale_find_section_tick_idx>:
@@ -222879,7 +222883,7 @@ static inline int32_t lv_obj_get_style_radial_offset(const lv_obj_t * obj, lv_pa
  806236a:	4630      	mov	r0, r6
  806236c:	4410      	add	r0, r2
  806236e:	e739      	b.n	80621e4 <scale_draw_indicator+0x468>
- 8062370:	0806b218 	.word	0x0806b218
+ 8062370:	0806b20c 	.word	0x0806b20c
 
 08062374 <scale_draw_main>:
 {
@@ -223638,7 +223642,7 @@ static inline int32_t lv_obj_get_style_radial_offset(const lv_obj_t * obj, lv_pa
  80628b0:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
                 scale_draw_main(obj, event);
  80628b4:	f7ff bd5e 	b.w	8062374 <scale_draw_main>
- 80628b8:	08072a08 	.word	0x08072a08
+ 80628b8:	080729fc 	.word	0x080729fc
 
 080628bc <position_knob>:
         lv_draw_rect(layer, &knob_rect_dsc, &slider->left_knob_area);
@@ -225069,7 +225073,7 @@ inline static void lv_area_copy(lv_area_t * dest, const lv_area_t * src)
  8063332:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
  8063336:	f7ff bd35 	b.w	8062da4 <lv_slider_event.part.0>
  806333a:	bf00      	nop
- 806333c:	08072a2c 	.word	0x08072a2c
+ 806333c:	08072a20 	.word	0x08072a20
 
 08063340 <lv_span_stack_init>:
 
@@ -225393,7 +225397,7 @@ static void lv_spinbox_updatevalue(lv_obj_t * obj)
  8063578:	b00a      	add	sp, #40	@ 0x28
  806357a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
  806357e:	bf00      	nop
- 8063580:	0806b218 	.word	0x0806b218
+ 8063580:	0806b20c 	.word	0x0806b20c
  8063584:	cccccccd 	.word	0xcccccccd
     for(i = 0; i < (int32_t)int_digits && digits[i] != '\0'; i++) {
  8063588:	ea5f 161c 	movs.w	r6, ip, lsr #4
@@ -226191,7 +226195,7 @@ static void lv_spinbox_updatevalue(lv_obj_t * obj)
  8063b6c:	e8bd 40f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, lr}
             lv_textarea_add_char(obj, c);
  8063b70:	f002 b89a 	b.w	8065ca8 <lv_textarea_add_char>
- 8063b74:	08072a50 	.word	0x08072a50
+ 8063b74:	08072a44 	.word	0x08072a44
  8063b78:	66666667 	.word	0x66666667
 
 08063b7c <arc_anim_start_angle>:
@@ -226844,7 +226848,7 @@ static void lv_switch_trigger_anim(lv_obj_t * obj)
             anim_start = chk ? LV_SWITCH_ANIM_STATE_START : LV_SWITCH_ANIM_STATE_END;
  8063fa4:	463d      	mov	r5, r7
  8063fa6:	e7d4      	b.n	8063f52 <lv_switch_event+0x10e>
- 8063fa8:	08072a98 	.word	0x08072a98
+ 8063fa8:	08072a8c 	.word	0x08072a8c
  8063fac:	08063c55 	.word	0x08063c55
  8063fb0:	08063c49 	.word	0x08063c49
 
@@ -229109,7 +229113,7 @@ static void refr_size_form_row(lv_obj_t * obj, uint32_t start_row)
  8064f3e:	3801      	subs	r0, #1
  8064f40:	e7d5      	b.n	8064eee <lv_table_event+0x2c6>
  8064f42:	bf00      	nop
- 8064f44:	08072abc 	.word	0x08072abc
+ 8064f44:	08072ab0 	.word	0x08072ab0
         else if(col < 0) {
  8064f48:	2800      	cmp	r0, #0
  8064f4a:	dad9      	bge.n	8064f00 <lv_table_event+0x2d8>
@@ -229320,7 +229324,7 @@ static inline lv_base_dir_t lv_obj_get_style_base_dir(const lv_obj_t * obj, lv_p
  8065080:	f7b1 ffae 	bl	8016fe0 <lv_obj_scroll_to_x>
  8065084:	e7dc      	b.n	8065040 <lv_tabview_set_active.part.0+0xa0>
  8065086:	bf00      	nop
- 8065088:	08072118 	.word	0x08072118
+ 8065088:	0807210c 	.word	0x0807210c
 
 0806508c <cont_scroll_end_event_cb>:
         lv_obj_send_event(tv, LV_EVENT_VALUE_CHANGED, NULL);
@@ -229483,7 +229487,7 @@ static void cont_scroll_end_event_cb(lv_event_t * e)
     LV_ASSERT_OBJ(obj, MY_CLASS);
  8065188:	e7fe      	b.n	8065188 <lv_tabview_event+0x30>
  806518a:	bf00      	nop
- 806518c:	08072ae0 	.word	0x08072ae0
+ 806518c:	08072ad4 	.word	0x08072ad4
 
 08065190 <lv_tabview_set_tab_bar_position>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -229936,7 +229940,7 @@ static inline lv_color_t lv_obj_get_style_text_color(const lv_obj_t * obj, lv_pa
  8065494:	b049      	add	sp, #292	@ 0x124
  8065496:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
  806549a:	bf00      	nop
- 806549c:	080720c0 	.word	0x080720c0
+ 806549c:	080720b4 	.word	0x080720b4
 
 080654a0 <refr_cursor_area>:
 {
@@ -230246,9 +230250,9 @@ static inline int32_t lv_obj_get_style_text_line_space(const lv_obj_t * obj, lv_
             tmp = ' ';
  8065698:	2120      	movs	r1, #32
  806569a:	e77e      	b.n	806559a <refr_cursor_area+0xfa>
- 806569c:	080720b0 	.word	0x080720b0
- 80656a0:	080720b8 	.word	0x080720b8
- 80656a4:	080720c0 	.word	0x080720c0
+ 806569c:	080720a4 	.word	0x080720a4
+ 80656a0:	080720ac 	.word	0x080720ac
+ 80656a4:	080720b4 	.word	0x080720b4
 
 080656a8 <lv_textarea_destructor>:
     if(ta->pwd_tmp != NULL) {
@@ -230660,10 +230664,10 @@ static void pwd_char_hider(lv_obj_t * obj)
  806592e:	4692      	movne	sl, r2
  8065930:	469a      	moveq	sl, r3
  8065932:	e7be      	b.n	80658b2 <pwd_char_hider.part.0+0x22>
- 8065934:	080720a8 	.word	0x080720a8
+ 8065934:	0807209c 	.word	0x0807209c
  8065938:	08065371 	.word	0x08065371
- 806593c:	0806b270 	.word	0x0806b270
- 8065940:	0806afa8 	.word	0x0806afa8
+ 806593c:	0806b264 	.word	0x0806b264
+ 8065940:	0806af9c 	.word	0x0806af9c
 
 08065944 <pwd_char_hider_anim_completed>:
     lv_obj_t * obj = a->var;
@@ -230832,9 +230836,9 @@ static void pwd_char_hider(lv_obj_t * obj)
  8065a70:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
     start_cursor_blink(obj);
  8065a74:	f7ff be52 	b.w	806571c <start_cursor_blink>
- 8065a78:	0806aa5c 	.word	0x0806aa5c
+ 8065a78:	0806aa50 	.word	0x0806aa50
  8065a7c:	08065859 	.word	0x08065859
- 8065a80:	080720a8 	.word	0x080720a8
+ 8065a80:	0807209c 	.word	0x0807209c
 
 08065a84 <lv_textarea_cursor_up.part.0>:
 void lv_textarea_cursor_up(lv_obj_t * obj)
@@ -230919,7 +230923,7 @@ void lv_textarea_cursor_up(lv_obj_t * obj)
  8065b0a:	4628      	movne	r0, r5
  8065b0c:	462f      	movne	r7, r5
  8065b0e:	e7ed      	b.n	8065aec <lv_textarea_cursor_up.part.0+0x68>
- 8065b10:	080720a8 	.word	0x080720a8
+ 8065b10:	0807209c 	.word	0x0807209c
 
 08065b14 <lv_textarea_delete_char.part.0>:
 void lv_textarea_delete_char(lv_obj_t * obj)
@@ -231042,7 +231046,7 @@ void lv_textarea_delete_char(lv_obj_t * obj)
  8065be6:	42a8      	cmp	r0, r5
  8065be8:	d1aa      	bne.n	8065b40 <lv_textarea_delete_char.part.0+0x2c>
  8065bea:	e7b3      	b.n	8065b54 <lv_textarea_delete_char.part.0+0x40>
- 8065bec:	080720a8 	.word	0x080720a8
+ 8065bec:	0807209c 	.word	0x0807209c
 
 08065bf0 <lv_textarea_cursor_down.part.0>:
 void lv_textarea_cursor_down(lv_obj_t * obj)
@@ -231138,7 +231142,7 @@ void lv_textarea_cursor_down(lv_obj_t * obj)
  8065c86:	4627      	movne	r7, r4
  8065c88:	e7ed      	b.n	8065c66 <lv_textarea_cursor_down.part.0+0x76>
  8065c8a:	bf00      	nop
- 8065c8c:	080720a8 	.word	0x080720a8
+ 8065c8c:	0807209c 	.word	0x0807209c
 
 08065c90 <lv_textarea_create>:
 {
@@ -231153,7 +231157,7 @@ void lv_textarea_cursor_down(lv_obj_t * obj)
 }
  8065ca0:	4620      	mov	r0, r4
  8065ca2:	bd10      	pop	{r4, pc}
- 8065ca4:	08072b04 	.word	0x08072b04
+ 8065ca4:	08072af8 	.word	0x08072af8
 
 08065ca8 <lv_textarea_add_char>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -231388,8 +231392,8 @@ void lv_textarea_cursor_down(lv_obj_t * obj)
  8065e28:	e7b0      	b.n	8065d8c <lv_textarea_add_char+0xe4>
  8065e2a:	bf00      	nop
  8065e2c:	2001e0d4 	.word	0x2001e0d4
- 8065e30:	080720b8 	.word	0x080720b8
- 8065e34:	080720a8 	.word	0x080720a8
+ 8065e30:	080720ac 	.word	0x080720ac
+ 8065e34:	0807209c 	.word	0x0807209c
 
 08065e38 <lv_textarea_add_text.part.0>:
 void lv_textarea_add_text(lv_obj_t * obj, const char * txt)
@@ -231608,10 +231612,10 @@ void lv_textarea_add_text(lv_obj_t * obj, const char * txt)
  8065fa0:	e7a3      	b.n	8065eea <lv_textarea_add_text.part.0+0xb2>
         LV_ASSERT_MALLOC(ta->pwd_tmp);
  8065fa2:	e7fe      	b.n	8065fa2 <lv_textarea_add_text.part.0+0x16a>
- 8065fa4:	080720b8 	.word	0x080720b8
- 8065fa8:	080720bc 	.word	0x080720bc
+ 8065fa4:	080720ac 	.word	0x080720ac
+ 8065fa8:	080720b0 	.word	0x080720b0
  8065fac:	2001e0d4 	.word	0x2001e0d4
- 8065fb0:	080720a8 	.word	0x080720a8
+ 8065fb0:	0807209c 	.word	0x0807209c
 
 08065fb4 <lv_textarea_add_text>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -232055,8 +232059,8 @@ void lv_textarea_add_text(lv_obj_t * obj, const char * txt)
  806630c:	f7b7 fffe 	bl	801e30c <lv_draw_label>
  8066310:	e689      	b.n	8066026 <lv_textarea_event+0x12>
  8066312:	bf00      	nop
- 8066314:	08072b04 	.word	0x08072b04
- 8066318:	080720a8 	.word	0x080720a8
+ 8066314:	08072af8 	.word	0x08072af8
+ 8066318:	0807209c 	.word	0x0807209c
         uint32_t c = *((uint32_t *)lv_event_get_param(e)); /*uint32_t because can be UTF-8*/
  806631c:	4628      	mov	r0, r5
  806631e:	f7e8 fca9 	bl	804ec74 <lv_event_get_param>
@@ -232436,7 +232440,7 @@ void lv_textarea_add_text(lv_obj_t * obj, const char * txt)
  80665c8:	f7ff faa4 	bl	8065b14 <lv_textarea_delete_char.part.0>
  80665cc:	e52b      	b.n	8066026 <lv_textarea_event+0x12>
  80665ce:	bf00      	nop
- 80665d0:	080720a8 	.word	0x080720a8
+ 80665d0:	0807209c 	.word	0x0807209c
  80665d4:	2001e0d4 	.word	0x2001e0d4
 
 080665d8 <lv_textarea_set_text>:
@@ -232619,10 +232623,10 @@ void lv_textarea_add_text(lv_obj_t * obj, const char * txt)
  8066708:	f7af f8b6 	bl	8015878 <lv_obj_invalidate>
  806670c:	e7bc      	b.n	8066688 <lv_textarea_set_text+0xb0>
  806670e:	bf00      	nop
- 8066710:	0806aa5c 	.word	0x0806aa5c
- 8066714:	080720a8 	.word	0x080720a8
- 8066718:	080720b8 	.word	0x080720b8
- 806671c:	080720bc 	.word	0x080720bc
+ 8066710:	0806aa50 	.word	0x0806aa50
+ 8066714:	0807209c 	.word	0x0807209c
+ 8066718:	080720ac 	.word	0x080720ac
+ 806671c:	080720b0 	.word	0x080720b0
 
 08066720 <lv_textarea_set_placeholder_text>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -232727,7 +232731,7 @@ void lv_textarea_add_text(lv_obj_t * obj, const char * txt)
 }
  80667b8:	bd70      	pop	{r4, r5, r6, pc}
  80667ba:	bf00      	nop
- 80667bc:	080720a8 	.word	0x080720a8
+ 80667bc:	0807209c 	.word	0x0807209c
 
 080667c0 <lv_textarea_set_cursor_click_pos>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -232898,7 +232902,7 @@ void lv_textarea_add_text(lv_obj_t * obj, const char * txt)
  80668ca:	462e      	movne	r6, r5
  80668cc:	e7ed      	b.n	80668aa <lv_textarea_cursor_right+0x22>
  80668ce:	bf00      	nop
- 80668d0:	080720a8 	.word	0x080720a8
+ 80668d0:	0807209c 	.word	0x0807209c
 
 080668d4 <lv_textarea_cursor_left>:
     LV_ASSERT_OBJ(obj, MY_CLASS);
@@ -232950,7 +232954,7 @@ void lv_textarea_add_text(lv_obj_t * obj, const char * txt)
  806691a:	462e      	movne	r6, r5
  806691c:	e7ee      	b.n	80668fc <lv_textarea_cursor_left+0x28>
  806691e:	bf00      	nop
- 8066920:	080720a8 	.word	0x080720a8
+ 8066920:	0807209c 	.word	0x0807209c
 
 08066924 <lv_tileview_constructor>:
  **********************/
@@ -233597,11 +233601,11 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8066f98:	2e85a308 	.word	0x2e85a308
  8066f9c:	43490f80 	.word	0x43490f80
  8066fa0:	3f22f984 	.word	0x3f22f984
- 8066fa4:	08072b94 	.word	0x08072b94
+ 8066fa4:	08072b88 	.word	0x08072b88
  8066fa8:	2e85a300 	.word	0x2e85a300
  8066fac:	248d3132 	.word	0x248d3132
  8066fb0:	43800000 	.word	0x43800000
- 8066fb4:	08072c14 	.word	0x08072c14
+ 8066fb4:	08072c08 	.word	0x08072c08
 
 08066fb8 <fabsf>:
  8066fb8:	ee10 3a10 	vmov	r3, s0
@@ -233871,8 +233875,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80672a8:	3401      	adds	r4, #1
  80672aa:	eee6 7a87 	vfma.f32	s15, s13, s14
  80672ae:	e7f0      	b.n	8067292 <__kernel_rem_pio2f+0x2ca>
- 80672b0:	08072f58 	.word	0x08072f58
- 80672b4:	08072f2c 	.word	0x08072f2c
+ 80672b0:	08072f4c 	.word	0x08072f4c
+ 80672b4:	08072f20 	.word	0x08072f20
  80672b8:	43800000 	.word	0x43800000
  80672bc:	3b800000 	.word	0x3b800000
  80672c0:	00000000 	.word	0x00000000
@@ -234255,7 +234259,7 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80676dc:	d1f6      	bne.n	80676cc <_strtol_l.isra.0+0xd8>
  80676de:	f8c8 1000 	str.w	r1, [r8]
  80676e2:	e794      	b.n	806760e <_strtol_l.isra.0+0x1a>
- 80676e4:	08072f65 	.word	0x08072f65
+ 80676e4:	08072f59 	.word	0x08072f59
 
 080676e8 <strtol>:
  80676e8:	4613      	mov	r3, r2
@@ -234355,7 +234359,7 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80677ce:	1e69      	subs	r1, r5, #1
  80677d0:	6011      	str	r1, [r2, #0]
  80677d2:	e7f5      	b.n	80677c0 <_strtoul_l.isra.0+0xc4>
- 80677d4:	08072f65 	.word	0x08072f65
+ 80677d4:	08072f59 	.word	0x08072f59
 
 080677d8 <strtoul>:
  80677d8:	4613      	mov	r3, r2
@@ -234788,11 +234792,11 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8067bf0:	e7ee      	b.n	8067bd0 <_printf_float+0x2a4>
  8067bf2:	bf00      	nop
  8067bf4:	7fefffff 	.word	0x7fefffff
- 8067bf8:	08073069 	.word	0x08073069
- 8067bfc:	08073065 	.word	0x08073065
- 8067c00:	08073071 	.word	0x08073071
- 8067c04:	0807306d 	.word	0x0807306d
- 8067c08:	08073075 	.word	0x08073075
+ 8067bf8:	0807305d 	.word	0x0807305d
+ 8067bfc:	08073059 	.word	0x08073059
+ 8067c00:	08073065 	.word	0x08073065
+ 8067c04:	08073061 	.word	0x08073061
+ 8067c08:	08073069 	.word	0x08073069
  8067c0c:	6da3      	ldr	r3, [r4, #88]	@ 0x58
  8067c0e:	f8dd a028 	ldr.w	sl, [sp, #40]	@ 0x28
  8067c12:	4553      	cmp	r3, sl
@@ -235270,8 +235274,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8068088:	2500      	movs	r5, #0
  806808a:	f104 0619 	add.w	r6, r4, #25
  806808e:	e7f5      	b.n	806807c <_printf_i+0x220>
- 8068090:	08073077 	.word	0x08073077
- 8068094:	08073088 	.word	0x08073088
+ 8068090:	0807306b 	.word	0x0807306b
+ 8068094:	0807307c 	.word	0x0807307c
 
 08068098 <std>:
  8068098:	2300      	movs	r3, #0
@@ -235763,10 +235767,10 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80684d6:	4798      	blx	r3
  80684d8:	3601      	adds	r6, #1
  80684da:	e7f2      	b.n	80684c2 <__libc_init_array+0x1e>
- 80684dc:	080732e0 	.word	0x080732e0
- 80684e0:	080732e0 	.word	0x080732e0
- 80684e4:	080732e0 	.word	0x080732e0
- 80684e8:	080732ec 	.word	0x080732ec
+ 80684dc:	080732d0 	.word	0x080732d0
+ 80684e0:	080732d0 	.word	0x080732d0
+ 80684e4:	080732d0 	.word	0x080732d0
+ 80684e8:	080732dc 	.word	0x080732dc
 
 080684ec <__retarget_lock_init_recursive>:
  80684ec:	4770      	bx	lr
@@ -236174,15 +236178,15 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80688e4:	3fc68a28 	.word	0x3fc68a28
  80688e8:	509f79fb 	.word	0x509f79fb
  80688ec:	3fd34413 	.word	0x3fd34413
- 80688f0:	080730a6 	.word	0x080730a6
- 80688f4:	080730bd 	.word	0x080730bd
+ 80688f0:	0807309a 	.word	0x0807309a
+ 80688f4:	080730b1 	.word	0x080730b1
  80688f8:	7ff00000 	.word	0x7ff00000
- 80688fc:	08073076 	.word	0x08073076
+ 80688fc:	0807306a 	.word	0x0807306a
  8068900:	3ff80000 	.word	0x3ff80000
- 8068904:	08073210 	.word	0x08073210
- 8068908:	08073115 	.word	0x08073115
- 806890c:	080730a2 	.word	0x080730a2
- 8068910:	08073075 	.word	0x08073075
+ 8068904:	08073200 	.word	0x08073200
+ 8068908:	08073109 	.word	0x08073109
+ 806890c:	08073096 	.word	0x08073096
+ 8068910:	08073069 	.word	0x08073069
  8068914:	f8d9 301c 	ldr.w	r3, [r9, #28]
  8068918:	6018      	str	r0, [r3, #0]
  806891a:	9b03      	ldr	r3, [sp, #12]
@@ -236411,8 +236415,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8068b98:	e9cd 0104 	strd	r0, r1, [sp, #16]
  8068b9c:	e7c4      	b.n	8068b28 <_dtoa_r+0x508>
  8068b9e:	bf00      	nop
- 8068ba0:	08073210 	.word	0x08073210
- 8068ba4:	080731e8 	.word	0x080731e8
+ 8068ba0:	08073200 	.word	0x08073200
+ 8068ba4:	080731d8 	.word	0x080731d8
  8068ba8:	3ff00000 	.word	0x3ff00000
  8068bac:	40240000 	.word	0x40240000
  8068bb0:	401c0000 	.word	0x401c0000
@@ -237041,8 +237045,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80691b0:	f000 f968 	bl	8069484 <__multadd>
  80691b4:	9002      	str	r0, [sp, #8]
  80691b6:	e7eb      	b.n	8069190 <_dtoa_r+0xb70>
- 80691b8:	08073115 	.word	0x08073115
- 80691bc:	08073099 	.word	0x08073099
+ 80691b8:	08073109 	.word	0x08073109
+ 80691bc:	0807308d 	.word	0x0807308d
 
 080691c0 <_free_r>:
  80691c0:	b538      	push	{r3, r4, r5, lr}
@@ -237326,8 +237330,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8069430:	e9c0 3303 	strd	r3, r3, [r0, #12]
  8069434:	e7f7      	b.n	8069426 <_Balloc+0x66>
  8069436:	bf00      	nop
- 8069438:	080730a6 	.word	0x080730a6
- 806943c:	08073126 	.word	0x08073126
+ 8069438:	0807309a 	.word	0x0807309a
+ 806943c:	0807311a 	.word	0x0807311a
 
 08069440 <_Bfree>:
  8069440:	b570      	push	{r4, r5, r6, lr}
@@ -237355,8 +237359,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8069474:	6021      	str	r1, [r4, #0]
  8069476:	f843 4022 	str.w	r4, [r3, r2, lsl #2]
  806947a:	bd70      	pop	{r4, r5, r6, pc}
- 806947c:	080730a6 	.word	0x080730a6
- 8069480:	08073126 	.word	0x08073126
+ 806947c:	0807309a 	.word	0x0807309a
+ 8069480:	0807311a 	.word	0x0807311a
 
 08069484 <__multadd>:
  8069484:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
@@ -237410,8 +237414,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8069500:	6125      	str	r5, [r4, #16]
  8069502:	4620      	mov	r0, r4
  8069504:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
- 8069508:	08073115 	.word	0x08073115
- 806950c:	08073126 	.word	0x08073126
+ 8069508:	08073109 	.word	0x08073109
+ 806950c:	0807311a 	.word	0x0807311a
 
 08069510 <__hi0bits>:
  8069510:	f5b0 3f80 	cmp.w	r0, #65536	@ 0x10000
@@ -237501,8 +237505,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80695c6:	6103      	str	r3, [r0, #16]
  80695c8:	bd10      	pop	{r4, pc}
  80695ca:	bf00      	nop
- 80695cc:	08073115 	.word	0x08073115
- 80695d0:	08073126 	.word	0x08073126
+ 80695cc:	08073109 	.word	0x08073109
+ 80695d0:	0807311a 	.word	0x0807311a
 
 080695d4 <__multiply>:
  80695d4:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -237621,8 +237625,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  806970a:	e79f      	b.n	806964c <__multiply+0x78>
  806970c:	3e01      	subs	r6, #1
  806970e:	e7a1      	b.n	8069654 <__multiply+0x80>
- 8069710:	08073115 	.word	0x08073115
- 8069714:	08073126 	.word	0x08073126
+ 8069710:	08073109 	.word	0x08073109
+ 8069714:	0807311a 	.word	0x0807311a
 
 08069718 <__pow5mult>:
  8069718:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -237690,9 +237694,9 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80697b8:	4630      	mov	r0, r6
  80697ba:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
  80697be:	bf00      	nop
- 80697c0:	080731d8 	.word	0x080731d8
- 80697c4:	080730a6 	.word	0x080730a6
- 80697c8:	08073126 	.word	0x08073126
+ 80697c0:	080731cc 	.word	0x080731cc
+ 80697c4:	0807309a 	.word	0x0807309a
+ 80697c8:	0807311a 	.word	0x0807311a
 
 080697cc <__lshift>:
  80697cc:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -237771,8 +237775,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8069896:	d8f9      	bhi.n	806988c <__lshift+0xc0>
  8069898:	e7ea      	b.n	8069870 <__lshift+0xa4>
  806989a:	bf00      	nop
- 806989c:	08073115 	.word	0x08073115
- 80698a0:	08073126 	.word	0x08073126
+ 806989c:	08073109 	.word	0x08073109
+ 80698a0:	0807311a 	.word	0x0807311a
 
 080698a4 <__mcmp>:
  80698a4:	690a      	ldr	r2, [r1, #16]
@@ -237908,8 +237912,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  80699f6:	3f01      	subs	r7, #1
  80699f8:	e7e7      	b.n	80699ca <__mdiff+0xee>
  80699fa:	bf00      	nop
- 80699fc:	08073115 	.word	0x08073115
- 8069a00:	08073126 	.word	0x08073126
+ 80699fc:	08073109 	.word	0x08073109
+ 8069a00:	0807311a 	.word	0x0807311a
 
 08069a04 <__d2b>:
  8069a04:	e92d 43f7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, lr}
@@ -237975,8 +237979,8 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8069aa2:	f7ff fd35 	bl	8069510 <__hi0bits>
  8069aa6:	ebc0 1042 	rsb	r0, r0, r2, lsl #5
  8069aaa:	e7e5      	b.n	8069a78 <__d2b+0x74>
- 8069aac:	08073115 	.word	0x08073115
- 8069ab0:	08073126 	.word	0x08073126
+ 8069aac:	08073109 	.word	0x08073109
+ 8069ab0:	0807311a 	.word	0x0807311a
 
 08069ab4 <__ssputs_r>:
  8069ab4:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -238253,11 +238257,11 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8069d48:	4638      	mov	r0, r7
  8069d4a:	f7fe f887 	bl	8067e5c <_printf_i>
  8069d4e:	e7ed      	b.n	8069d2c <_svfiprintf_r+0x1c0>
- 8069d50:	0807317f 	.word	0x0807317f
- 8069d54:	08073189 	.word	0x08073189
+ 8069d50:	08073173 	.word	0x08073173
+ 8069d54:	0807317d 	.word	0x0807317d
  8069d58:	0806792d 	.word	0x0806792d
  8069d5c:	08069ab5 	.word	0x08069ab5
- 8069d60:	08073185 	.word	0x08073185
+ 8069d60:	08073179 	.word	0x08073179
 
 08069d64 <__sfputc_r>:
  8069d64:	6893      	ldr	r3, [r2, #8]
@@ -238523,11 +238527,11 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  8069fcc:	4630      	mov	r0, r6
  8069fce:	f7fd ff45 	bl	8067e5c <_printf_i>
  8069fd2:	e7e4      	b.n	8069f9e <_vfiprintf_r+0x1e6>
- 8069fd4:	0807317f 	.word	0x0807317f
- 8069fd8:	08073189 	.word	0x08073189
+ 8069fd4:	08073173 	.word	0x08073173
+ 8069fd8:	0807317d 	.word	0x0807317d
  8069fdc:	0806792d 	.word	0x0806792d
  8069fe0:	08069d93 	.word	0x08069d93
- 8069fe4:	08073185 	.word	0x08073185
+ 8069fe4:	08073179 	.word	0x08073179
 
 08069fe8 <__sflush_r>:
  8069fe8:	f9b1 200c 	ldrsh.w	r2, [r1, #12]
@@ -238855,9 +238859,9 @@ static void lv_win_constructor(const lv_obj_class_t * class_p, lv_obj_t * obj)
  806a2b0:	e7f3      	b.n	806a29a <__assert_func+0x12>
  806a2b2:	bf00      	nop
  806a2b4:	200001b8 	.word	0x200001b8
- 806a2b8:	0807319a 	.word	0x0807319a
- 806a2bc:	080731a7 	.word	0x080731a7
- 806a2c0:	080731d5 	.word	0x080731d5
+ 806a2b8:	0807318e 	.word	0x0807318e
+ 806a2bc:	0807319b 	.word	0x0807319b
+ 806a2c0:	080731c9 	.word	0x080731c9
 
 0806a2c4 <_calloc_r>:
  806a2c4:	b570      	push	{r4, r5, r6, lr}
