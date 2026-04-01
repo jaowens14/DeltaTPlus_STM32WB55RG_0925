@@ -36,7 +36,7 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-//#define USE_SERVER
+#define USE_SERVER
 
 extern uint32_t SERIAL_NUMBER;
 

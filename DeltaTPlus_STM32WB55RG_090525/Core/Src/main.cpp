@@ -301,7 +301,7 @@ volatile int run_lv_timer_handler = 0;
 volatile uint32_t loopCounter = 0;
 volatile uint32_t loopsPerSecond = 0;
 volatile uint8_t measureFlag = 0;
-uint32_t SERIAL_NUMBER = 0;
+uint32_t SERIAL_NUMBER = 1234;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -657,6 +657,7 @@ int main(void)
       measureFlag = 0;
       snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
       HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 30);
+      debug_printf((const char *)UART_BUFFER);
 
     }
 
