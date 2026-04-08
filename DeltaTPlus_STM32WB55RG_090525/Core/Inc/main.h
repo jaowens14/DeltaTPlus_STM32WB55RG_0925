@@ -53,6 +53,7 @@ extern uint32_t SERIAL_NUMBER;
 #define MANUFACTURED_DATE "03 2026"
 #define FIRMWARE_VERSION "1.1.0"
 
+void debug_printf(const char *format, ...);
 
 /* USER CODE END Includes */
 

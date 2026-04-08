@@ -1,5 +1,0 @@
-../lvgl/src/drivers/display/st7789/lv_st7789.c:87:16:lv_st7789_create	1
-../lvgl/src/drivers/display/st7789/lv_st7789.c:95:6:lv_st7789_set_gap	1
-../lvgl/src/drivers/display/st7789/lv_st7789.c:100:6:lv_st7789_set_invert	1
-../lvgl/src/drivers/display/st7789/lv_st7789.c:105:6:lv_st7789_set_gamma_curve	1
-../lvgl/src/drivers/display/st7789/lv_st7789.c:110:6:lv_st7789_send_cmd_list	1

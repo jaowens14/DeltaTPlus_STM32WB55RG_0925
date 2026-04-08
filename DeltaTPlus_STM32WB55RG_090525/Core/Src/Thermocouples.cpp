@@ -26,6 +26,7 @@ KALMAN_T lf; //left front (lf) thermocouple measurements
 //Set up flags
 volatile int thermocouple_data_ready = 0;
 volatile int ad7124_rdy_flag = 0;
+volatile int thermocoupleDelay = 0;
 int direction = 1;
 
 //Set up Function
@@ -59,7 +60,9 @@ void Thermocouples::setup()
 
 #if 1 // setup from 'putting screws in and sending it'
     // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
-    // thermocoupleADC.reset();
+    //thermocoupleADC.reset();
+
+
     // HAL_Delay(200);
     // Configure Setup 0 for Thermocouples
     // High gain (128) with internal reference for maximum sensitivity to µV signals
@@ -80,9 +83,21 @@ void Thermocouples::setup()
     // HAL_Delay(200);
     //
     // thermocoupleADC.setCurrentSource(0, Ad7124::IoutCh4, Ad7124::Current500uA);
-    // HAL_Delay(200);
+
+    thermocoupleADC.setBiasPins(Ad7124::AIN1Input | Ad7124::AIN3Input);
+
 
     thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
+
+     HAL_Delay(200);
+
+     rawData = thermocoupleADC.getData();
+     HAL_Delay(200);
+
+
+//    int res1 = thermocoupleADC.internalCalibration(channel0);
+//    int res2 = thermocoupleADC.internalCalibration(channel1);
+
     HAL_Delay(200);
 
     // int ch_0_cal = thermocoupleADC.internalCalibration(0);
@@ -232,13 +247,13 @@ void Thermocouples::setup()
 #endif
     rf.error = 0.0f;
     rf.estimate = 0.0f;
-    rf.process_variance = 1.0f;     // was 2 and
-    rf.measurement_variance = 5.0f; // 50
+    rf.process_variance = 0.05f;     // was 2 first and later was 1....was 0.1..
+    rf.measurement_variance = 20.0f; // 50 .... was 5....
 
     lf.error = 0.0f;
     lf.estimate = 0.0f;
-    lf.process_variance = 1.0f;
-    lf.measurement_variance = 5.0f;
+    lf.process_variance = 0.05f;
+    lf.measurement_variance = 20.0f;
 
     // diameter = 0.000812f;                // 20 gauge wire diameter, meters
     // length = 0.0254f;                    // 1 inch in meters
@@ -258,8 +273,11 @@ void Thermocouples::stateMachine(void)
     //{
       // HAL_NVIC_DisableIRQ(ADC_DRDY_EXTI_IRQn); // Temporarily disable interrupt
 
-       if (thermocoupleADC.isConversionReady())
-       {
+       //if (thermocoupleADC.isConversionReady())
+         if(!thermocoupleDelay) {
+
+
+         thermocoupleDelay = 15; // ms
 
         //thermocoupleADC.waitEndOfConversion(10);
        rawData = thermocoupleADC.getData();
@@ -332,7 +350,9 @@ void Thermocouples::stateMachine(void)
         // gain is estimated at 1789473 intercept at 120 pixels when deltat is zero
 
 
-        deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+        //deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>> (04/01/2026 reduced gain below)
+        deltaTemp = ((rf.estimate - lf.estimate) * 750000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+
 #else // CLIENT
         { // horrible hack
         deltaTemp = GetDeltaTData();
@@ -370,7 +390,8 @@ void Thermocouples::stateMachine(void)
 
 
 
-        //snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+        debug_printf((const char *)UART_BUFFER);
         //if(uart_ready){
        //HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);
         //uart_ready = 0;

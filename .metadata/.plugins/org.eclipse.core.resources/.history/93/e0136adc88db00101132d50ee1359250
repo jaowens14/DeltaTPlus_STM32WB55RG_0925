@@ -1,4 +1,0 @@
-../AD7124_Library/ad7124-driver.cpp:43:6:bool Ad7124Driver::init(uint8_t, bool, uint32_t, uint8_t, uint8_t)	16	static
-../AD7124_Library/ad7124-driver.cpp:64:5:int Ad7124Driver::read(uint8_t*, uint8_t)	32	dynamic
-../AD7124_Library/ad7124-driver.cpp:86:5:int Ad7124Driver::write(const uint8_t*, uint8_t)	16	static
-../AD7124_Library/ad7124-driver.cpp:100:5:int Ad7124Driver::delay(long unsigned int)	8	static

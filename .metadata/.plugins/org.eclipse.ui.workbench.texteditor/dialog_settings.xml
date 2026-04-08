@@ -3,6 +3,10 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="debug_printf"/>
+		<item value="delay"/>
+		<item value="readRegister"/>
+		<item value="debug"/>
 		<item value="lcd_color_transfer_ready_cb"/>
 		<item value="lcd_bus_busy"/>
 		<item value="send_color"/>
@@ -14,10 +18,6 @@
 		<item value="st7789_send_color"/>
 		<item value="st7789_send_cmd"/>
 		<item value="lcd_send_color"/>
-		<item value="size"/>
-		<item value="monitor"/>
-		<item value="create_men"/>
-		<item value="menu_screen"/>
 	</list>
 	<list key="replacehistory">
 		<item value="meter_screen"/>

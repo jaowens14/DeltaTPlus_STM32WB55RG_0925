@@ -12,6 +12,7 @@
 
 extern volatile int thermocouple_data_ready;
 extern volatile int ad7124_rdy_flag;
+extern volatile int thermocoupleDelay;
 
 class Thermocouples
 {

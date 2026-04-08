@@ -1,4 +1,0 @@
-../Core/Src/accel.cpp:71:6:void accelMain()	6
-../Core/Src/accel.cpp:85:6:void accelHandler()	4
-../Core/Src/accel.cpp:120:6:void diagnoseAccelerometer()	1
-../Core/Src/accel.cpp:18:6:void accelSetup()	1

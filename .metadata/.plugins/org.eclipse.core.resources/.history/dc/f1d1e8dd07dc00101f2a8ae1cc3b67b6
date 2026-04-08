@@ -1,5 +1,0 @@
-../Core/Src/lv_port_disp.c:68:6:lv_port_display_init	4
-../Core/Src/lv_port_disp.c:106:13:lcd_color_transfer_ready_cb	1
-../Core/Src/lv_port_disp.c:115:16:lcd_io_init	1
-../Core/Src/lv_port_disp.c:133:13:lcd_send_cmd	3
-../Core/Src/lv_port_disp.c:161:13:lcd_send_color	3

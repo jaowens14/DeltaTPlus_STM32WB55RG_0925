@@ -380,12 +380,18 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
       {
         run_lv_timer_handler = 1;
       }
+
+
+      if (thermocoupleDelay) {
+    	  thermocoupleDelay--;
+      }
+
     }
 
-    if (myThermocouples.delay)
-    {
-      myThermocouples.delay--;
-    }
+    //if (myThermocouples.delay)
+    //{
+    //  myThermocouples.delay--;
+    //}
 
     if (ble_delay)
     {

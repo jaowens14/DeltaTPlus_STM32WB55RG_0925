@@ -1,5 +1,0 @@
-../lvgl/src/osal/lv_os.c:38:6:lv_os_init	1
-../lvgl/src/osal/lv_os.c:46:6:lv_lock	1
-../lvgl/src/osal/lv_os.c:53:13:lv_lock_isr	1
-../lvgl/src/osal/lv_os.c:62:6:lv_unlock	1
-../lvgl/src/osal/lv_os.c:70:6:lv_sleep_ms	1
