@@ -169,6 +169,7 @@ RM := rm -rf
 -include USB_Device/App/subdir.mk
 -include STM32_WPAN/Target/subdir.mk
 -include STM32_WPAN/App/subdir.mk
+-include NHB_AD7124-main/src/subdir.mk
 -include Middlewares/ST/STM32_WPAN/utilities/subdir.mk
 -include Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl/subdir.mk
 -include Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/subdir.mk
@@ -181,8 +182,6 @@ RM := rm -rf
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include Adafruit_1704X_Library/subdir.mk
--include AD7124_Library/examples/ad7124-cn0381/subdir.mk
--include AD7124_Library/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

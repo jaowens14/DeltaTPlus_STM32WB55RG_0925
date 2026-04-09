@@ -4,4 +4,4 @@
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c:157:20:USBD_CtlContinueRx	8	static
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c:171:20:USBD_CtlSendStatus	8	static
 ../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c:188:20:USBD_CtlReceiveStatus	8	static
-../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c:206:10:USBD_GetRxCount	0	static
+../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c:206:10:USBD_GetRxCount	8	static

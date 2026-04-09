@@ -1,9 +1,12 @@
-../lvgl/src/widgets/imagebutton/lv_imagebutton.c:146:13:lv_imagebutton_constructor	8	static
 ../lvgl/src/widgets/imagebutton/lv_imagebutton.c:277:31:suggest_state	0	static
-../lvgl/src/widgets/imagebutton/lv_imagebutton.c:256:13:refr_image.part.0	16	static
-../lvgl/src/widgets/imagebutton/lv_imagebutton.c:157:13:lv_imagebutton_event	200	static
+../lvgl/src/widgets/imagebutton/lv_imagebutton.c:308:31:get_state	8	static
+../lvgl/src/widgets/imagebutton/lv_imagebutton.c:256:13:refr_image	16	static
+../lvgl/src/widgets/imagebutton/lv_imagebutton.c:188:13:draw_main	200	static
+../lvgl/src/widgets/imagebutton/lv_imagebutton.c:157:13:lv_imagebutton_event	16	static
+../lvgl/src/widgets/imagebutton/lv_imagebutton.c:146:13:lv_imagebutton_constructor	8	static
+../lvgl/src/widgets/imagebutton/lv_imagebutton.c:329:13:update_src_info	16	static
 ../lvgl/src/widgets/imagebutton/lv_imagebutton.c:63:12:lv_imagebutton_create	8	static
-../lvgl/src/widgets/imagebutton/lv_imagebutton.c:75:6:lv_imagebutton_set_src	24	static
+../lvgl/src/widgets/imagebutton/lv_imagebutton.c:75:6:lv_imagebutton_set_src	16	static
 ../lvgl/src/widgets/imagebutton/lv_imagebutton.c:93:6:lv_imagebutton_set_state	16	static
 ../lvgl/src/widgets/imagebutton/lv_imagebutton.c:117:14:lv_imagebutton_get_src_left	0	static
 ../lvgl/src/widgets/imagebutton/lv_imagebutton.c:126:14:lv_imagebutton_get_src_middle	0	static

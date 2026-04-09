@@ -1,5 +1,5 @@
-../lvgl/src/themes/lv_theme.c:100:13:apply_theme	24	static
-../lvgl/src/themes/lv_theme.c:106:13:apply_theme_recursion	24	static
+../lvgl/src/themes/lv_theme.c:100:13:apply_theme	16	static
+../lvgl/src/themes/lv_theme.c:106:13:apply_theme_recursion	16	static
 ../lvgl/src/themes/lv_theme.c:40:15:lv_theme_get_from_obj	8	static
 ../lvgl/src/themes/lv_theme.c:46:6:lv_theme_apply	16	static
 ../lvgl/src/themes/lv_theme.c:56:6:lv_theme_set_parent	0	static

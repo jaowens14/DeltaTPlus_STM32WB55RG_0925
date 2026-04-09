@@ -29,4 +29,4 @@
 ../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.c:611:18:SHCI_C2_Config	24	static
 ../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.c:629:18:SHCI_C2_802_15_4_DeInit	24	static
 ../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.c:647:18:SHCI_C2_SetSystemClock	24	static
-../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.c:672:18:SHCI_GetWirelessFwInfo	20	static
+../Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci/shci.c:672:18:SHCI_GetWirelessFwInfo	8	static

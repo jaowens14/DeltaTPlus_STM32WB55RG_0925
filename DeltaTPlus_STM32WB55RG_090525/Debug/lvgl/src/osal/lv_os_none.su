@@ -1,1 +1,1 @@
-../lvgl/src/osal/lv_os_none.c:40:10:lv_os_get_idle_percent	0	static
+../lvgl/src/osal/lv_os_none.c:40:10:lv_os_get_idle_percent	8	static

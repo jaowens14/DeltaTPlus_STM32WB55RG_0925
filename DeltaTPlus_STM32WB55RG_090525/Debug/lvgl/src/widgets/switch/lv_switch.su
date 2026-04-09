@@ -1,9 +1,10 @@
-../lvgl/src/widgets/switch/lv_switch.c:285:13:lv_switch_anim_completed	0	static
-../lvgl/src/widgets/switch/lv_switch.c:275:13:lv_switch_anim_exec_cb	0	static
-../lvgl/src/widgets/switch/lv_switch.c:130:13:lv_switch_destructor	0	static
-../lvgl/src/widgets/switch/lv_switch.c:175:13:draw_main	352	static
+../lvgl/src/widgets/switch/lv_switch.c:285:13:lv_switch_anim_completed	8	static
+../lvgl/src/widgets/switch/lv_switch.c:275:13:lv_switch_anim_exec_cb	8	static
+../lvgl/src/widgets/switch/lv_switch.c:130:13:lv_switch_destructor	8	static
+../lvgl/src/widgets/switch/lv_switch.c:296:13:lv_switch_trigger_anim	120	static
+../lvgl/src/widgets/switch/lv_switch.c:175:13:draw_main	360	static
+../lvgl/src/widgets/switch/lv_switch.c:138:13:lv_switch_event	32	static
 ../lvgl/src/widgets/switch/lv_switch.c:113:13:lv_switch_constructor	8	static
-../lvgl/src/widgets/switch/lv_switch.c:138:13:lv_switch_event	120	static
 ../lvgl/src/widgets/switch/lv_switch.c:76:12:lv_switch_create	8	static
-../lvgl/src/widgets/switch/lv_switch.c:88:6:lv_switch_set_orientation	0	static
+../lvgl/src/widgets/switch/lv_switch.c:88:6:lv_switch_set_orientation	8	static
 ../lvgl/src/widgets/switch/lv_switch.c:101:25:lv_switch_get_orientation	0	static

@@ -38,7 +38,7 @@
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c:861:19:HAL_PWREx_ConfigSMPS	16	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c:921:6:HAL_PWREx_SMPS_SetMode	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c:946:10:HAL_PWREx_SMPS_GetEffectiveMode	0	static
-../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c:974:6:HAL_PWREx_EnableWakeUpPin	0	static
+../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c:974:6:HAL_PWREx_EnableWakeUpPin	4	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c:1004:11:HAL_PWREx_GetWakeupFlag	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c:1020:19:HAL_PWREx_ClearWakeupFlag	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_pwr_ex.c:1043:6:HAL_PWREx_EnableLowPowerRunMode	0	static

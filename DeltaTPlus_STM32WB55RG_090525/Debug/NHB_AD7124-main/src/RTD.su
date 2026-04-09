@@ -1,0 +1,2 @@
+../NHB_AD7124-main/src/RTD.cpp:33:7:float RTD::adcRawToResistance(float, float, float)	0	static
+../NHB_AD7124-main/src/RTD.cpp:38:7:float RTD::resistanceToTemperature(float, RtdTypes)	0	static

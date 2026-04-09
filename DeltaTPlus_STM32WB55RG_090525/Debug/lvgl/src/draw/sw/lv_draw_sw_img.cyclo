@@ -1,4 +1,11 @@
-../lvgl/src/draw/sw/lv_draw_sw_img.c:774:13:recolor	55
-../lvgl/src/draw/sw/lv_draw_sw_img.c:219:13:img_draw_core	131
-../lvgl/src/draw/sw/lv_draw_sw_img.c:107:6:lv_draw_sw_layer	12
+../lvgl/src/draw/sw/blend/../../../misc/lv_color.h:338:20:lv_color_is_in_range	7
+../lvgl/src/draw/sw/lv_draw_sw_img.c:955:13:apply_mask	8
+../lvgl/src/draw/sw/lv_draw_sw_img.c:774:13:recolor	25
+../lvgl/src/draw/sw/lv_draw_sw_img.c:395:13:recolor_only	7
+../lvgl/src/draw/sw/lv_draw_sw_img.c:314:13:radius_only	8
+../lvgl/src/draw/sw/blend/../../../misc/lv_color.h:353:26:lv_color16_to_color	1
+../lvgl/src/draw/sw/lv_draw_sw_img.c:581:13:colorkey_and_recolor	26
+../lvgl/src/draw/sw/lv_draw_sw_img.c:464:13:transform_and_recolor	19
+../lvgl/src/draw/sw/lv_draw_sw_img.c:219:13:img_draw_core	26
 ../lvgl/src/draw/sw/lv_draw_sw_img.c:204:6:lv_draw_sw_image	2
+../lvgl/src/draw/sw/lv_draw_sw_img.c:107:6:lv_draw_sw_layer	4

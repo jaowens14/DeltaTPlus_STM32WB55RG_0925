@@ -1,10 +1,11 @@
-../lvgl/src/misc/lv_style.c:179:6:lv_style_init	0	static
+../lvgl/src/misc/lv_style.h:489:30:lv_style_get_prop_inlined	8	static
+../lvgl/src/misc/lv_style.c:179:6:lv_style_init	8	static
 ../lvgl/src/misc/lv_style.c:193:6:lv_style_reset	8	static
 ../lvgl/src/misc/lv_style.c:251:17:lv_style_register_prop	16	static
 ../lvgl/src/misc/lv_style.c:287:17:lv_style_get_num_custom_props	0	static
 ../lvgl/src/misc/lv_style.c:292:6:lv_style_remove_prop	24	static
 ../lvgl/src/misc/lv_style.c:345:6:lv_style_set_prop	24	static
-../lvgl/src/misc/lv_style.c:217:6:lv_style_merge	40	static
+../lvgl/src/misc/lv_style.c:217:6:lv_style_merge	24	static
 ../lvgl/src/misc/lv_style.c:205:6:lv_style_copy	16	static
 ../lvgl/src/misc/lv_style.c:400:16:lv_style_get_prop	8	static
 ../lvgl/src/misc/lv_style.c:405:6:lv_style_transition_dsc_init	24	static

@@ -1,5 +1,4 @@
 ../Core/Src/FT5436_Touch.c:8:6:Touch_FT5436_Init	0	static
-../Core/Src/FT5436_Touch.c:33:6:Touch_FT5436_Begin	32	static
 ../Core/Src/FT5436_Touch.c:60:8:Touch_FT5436_JitterMargin	0	static
 ../Core/Src/FT5436_Touch.c:71:9:Touch_FT5436_MaxPointCount	0	static
 ../Core/Src/FT5436_Touch.c:135:9:Touch_FT5436_ReleaseCount	0	static
@@ -7,9 +6,10 @@
 ../Core/Src/FT5436_Touch.c:159:9:Touch_FT5436_GetPointX	0	static
 ../Core/Src/FT5436_Touch.c:170:9:Touch_FT5436_GetPointY	0	static
 ../Core/Src/FT5436_Touch.c:181:9:Touch_FT5436_GetGesture	0	static
-../Core/Src/FT5436_Touch.c:191:6:Touch_FT5436_ReadPoints	80	static
-../Core/Src/FT5436_Touch.c:82:6:Touch_FT5436_PointDetected	16	static
+../Core/Src/FT5436_Touch.c:191:6:Touch_FT5436_ReadPoints	24	static
+../Core/Src/FT5436_Touch.c:82:6:Touch_FT5436_PointDetected	24	static
 ../Core/Src/FT5436_Touch.c:227:6:Touch_FT5436_WriteReg	24	static
+../Core/Src/FT5436_Touch.c:33:6:Touch_FT5436_Begin	16	static
 ../Core/Src/FT5436_Touch.c:237:6:Touch_FT5436_IRQHandler	0	static
-../Core/Src/FT5436_Touch.c:247:6:ft5436_setup	40	static
-../Core/Src/FT5436_Touch.c:264:6:ft5436_read_touch_points	32	static
+../Core/Src/FT5436_Touch.c:247:6:ft5436_setup	16	static
+../Core/Src/FT5436_Touch.c:264:6:ft5436_read_touch_points	16	static

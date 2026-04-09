@@ -8,4 +8,4 @@
 ../lvgl/src/draw/lv_draw_rect.c:111:6:lv_draw_box_shadow_dsc_init	1
 ../lvgl/src/draw/lv_draw_rect.c:118:28:lv_draw_task_get_box_shadow_dsc	2
 ../lvgl/src/draw/lv_draw_rect.c:123:6:lv_draw_box_shadow	2
-../lvgl/src/draw/lv_draw_rect.c:136:6:lv_draw_rect	36
+../lvgl/src/draw/lv_draw_rect.c:136:6:lv_draw_rect	34

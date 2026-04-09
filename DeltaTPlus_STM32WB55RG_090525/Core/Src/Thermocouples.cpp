@@ -29,6 +29,21 @@ volatile int ad7124_rdy_flag = 0;
 volatile int thermocoupleDelay = 0;
 int direction = 1;
 
+//#define CONVMODE  AD7124_OpMode_SingleConv
+#define CONVMODE AD7124_OpMode_Continuous
+#define CH_COUNT 3
+int filterSelBits = 20;
+
+//theta_t = 270.0 + theta_0 + omega*(dt)*userGain + 0.5*alpha*(dt)*(dt);
+float theta_0 = 0;
+float omega = 1.0;
+float dt = 0;
+//float lastTime = 0;
+float alpha = 1.0;
+float targetAngle = 0;
+float angleError = 0;
+
+
 //Set up Function
 void Thermocouples::setup()
 {
@@ -43,12 +58,33 @@ void Thermocouples::setup()
     //   20 |  300  |    50
     filterWord = 100;
 
+#ifndef USE_NHB_LIB
     int state = thermocoupleADC.begin(0);
     while (state < 0)
     {
         HAL_Delay(100);
         state = thermocoupleADC.begin(0);
     }
+#endif
+
+    adc.begin();
+
+    adc.setAdcControl(CONVMODE, AD7124_FullPower, true);
+
+    adc.setup[0].setConfig(AD7124_Ref_Internal, AD7124_Gain_1, true);  // IC Temp sensor:      Internal reference, Gain = 1, Bipolar = True
+    adc.setup[1].setConfig(AD7124_Ref_Internal, AD7124_Gain_32, true); // Thermocouple:        Internal reference, Gain = 32, Bipolar = True
+
+    adc.setup[0].setFilter(AD7124_Filter_FAST4, filterSelBits);
+    adc.setup[1].setFilter(AD7124_Filter_FAST4, filterSelBits);
+
+    adc.setChannel(0, 1, AD7124_Input_AIN0, AD7124_Input_AIN1, true); //Channel 1 - Type K Thermocouple 1
+    adc.setChannel(1, 1, AD7124_Input_AIN2, AD7124_Input_AIN3, true); //Channel 2 - Type K Thermocouple 2
+    adc.setChannel(2, 0, AD7124_Input_TEMP, AD7124_Input_AVSS, true); //Channel 5 - ADC IC temperature
+
+    adc.setVBias(AD7124_VBias_AIN1,true);
+    adc.setVBias(AD7124_VBias_AIN3,true);
+
+    //adc.setPWRSW(1);
 
     int setup0 = 0;
     int setup1 = 1;
@@ -56,6 +92,7 @@ void Thermocouples::setup()
     int channel0 = 0;
     int channel1 = 1;
 
+#ifndef USE_NHB_LIB
 
 
 #if 1 // setup from 'putting screws in and sending it'
@@ -240,20 +277,20 @@ void Thermocouples::setup()
     thermocoupleADC.enableChannel(14, false); // Disabled
     thermocoupleADC.enableChannel(15, false); // Disabled
 
-
+#endif
     // Allow settling time
     HAL_Delay(200);
     //HAL_NVIC_EnableIRQ(ADC_DRDY_EXTI_IRQn); // Temporarily disable interrupt
 #endif
     rf.error = 0.0f;
     rf.estimate = 0.0f;
-    rf.process_variance = 0.05f;     // was 2 first and later was 1....was 0.1..
-    rf.measurement_variance = 20.0f; // 50 .... was 5....
+    rf.process_variance = 0.1f;     // was 2 first and later was 1....was 0.1..
+    rf.measurement_variance = 100.0f; // 50 .... was 5....
 
     lf.error = 0.0f;
     lf.estimate = 0.0f;
-    lf.process_variance = 0.05f;
-    lf.measurement_variance = 20.0f;
+    lf.process_variance = 0.1f;
+    lf.measurement_variance = 100.0f;
 
     // diameter = 0.000812f;                // 20 gauge wire diameter, meters
     // length = 0.0254f;                    // 1 inch in meters
@@ -278,6 +315,18 @@ void Thermocouples::stateMachine(void)
 
 
          thermocoupleDelay = 15; // ms
+
+         Ad7124_Readings readings[CH_COUNT];
+         adc.readVolts(readings,CH_COUNT);
+
+         readings[2].value = adc.scaleIcTemp(readings[2].value) + 30;
+         readings[0].value = adc.scaleTC(readings[0].value,readings[2].value, Type_K);
+         readings[1].value = adc.scaleTC(readings[1].value,readings[2].value, Type_K);
+
+
+
+#ifndef USE_NHB_LIB
+
 
         //thermocoupleADC.waitEndOfConversion(10);
        rawData = thermocoupleADC.getData();
@@ -311,7 +360,7 @@ void Thermocouples::stateMachine(void)
             // }
         }
 
-
+#endif
 
         // if (channel == 2)
         //{
@@ -333,8 +382,8 @@ void Thermocouples::stateMachine(void)
         // rf.measurement = voltage[0] + coldJunctionVoltage; // voltage
         // lf.measurement = voltage[1] + coldJunctionVoltage; // voltage
 
-        lf.measurement = voltage[0]; // voltage
-        rf.measurement = voltage[1]; // voltage
+        lf.measurement = readings[0].value; // voltage
+        rf.measurement = readings[1].value; // voltage
 
         // the current voltage is estimated to be the last voltage + volt/second ratio (velocity) * time
         rf.error = rf.error + rf.process_variance;
@@ -350,8 +399,24 @@ void Thermocouples::stateMachine(void)
         // gain is estimated at 1789473 intercept at 120 pixels when deltat is zero
 
 
+        // 1. Get your clean target from Kalman (what you already have)
+        //float targetAngle = 270.0 + (rf.estimate - lf.estimate) * sensitivityGain;
+        //targetAngle = ( (rf.estimate - lf.estimate) * 20.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+
+
+        // 2. Separately animate the needle toward that target
+        //angleError = targetAngle - deltaTemp;
+        //deltaTemp += angleError * 0.5; // 0.0–1.0, controls lag/responsiveness
+
+        deltaTemp = ( (rf.estimate - lf.estimate) * 20.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f, %f, %f, %f\r\n", lf.estimate, rf.estimate, readings[0].value, readings[1].value, readings[2].value, deltaTemp);
+        debug_printf((const char *)UART_BUFFER);
+
         //deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>> (04/01/2026 reduced gain below)
-        deltaTemp = ((rf.estimate - lf.estimate) * 750000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+        //deltaTemp = ( (rf.estimate - lf.estimate) * 20.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+
+
 
 #else // CLIENT
         { // horrible hack
@@ -390,8 +455,9 @@ void Thermocouples::stateMachine(void)
 
 
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
-        debug_printf((const char *)UART_BUFFER);
+        //snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+        //debug_printf((const char *)UART_BUFFER);
+
         //if(uart_ready){
        //HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);
         //uart_ready = 0;

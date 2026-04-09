@@ -1,9 +1,9 @@
-../lvgl/src/draw/lv_draw_image.c:337:13:img_decode_and_draw	136	static
+../lvgl/src/draw/lv_draw_image.c:337:13:img_decode_and_draw	128	static
 ../lvgl/src/draw/lv_draw_image.c:50:6:lv_draw_image_dsc_init	8	static
 ../lvgl/src/draw/lv_draw_image.c:62:23:lv_draw_task_get_image_dsc	0	static
 ../lvgl/src/draw/lv_draw_image.c:190:16:lv_image_src_get_type	0	static
-../lvgl/src/draw/lv_draw_image.c:247:6:lv_draw_image_tiled_helper	192	static
+../lvgl/src/draw/lv_draw_image.c:247:6:lv_draw_image_tiled_helper	176	static
 ../lvgl/src/draw/lv_draw_image.c:306:6:lv_image_buf_get_transformed_area	72	static
 ../lvgl/src/draw/lv_draw_image.c:67:6:lv_draw_layer	48	static
-../lvgl/src/draw/lv_draw_image.c:98:6:lv_draw_image	312	static
+../lvgl/src/draw/lv_draw_image.c:98:6:lv_draw_image	304	static
 ../lvgl/src/draw/lv_draw_image.c:207:6:lv_draw_image_normal_helper	152	static

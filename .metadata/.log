@@ -8410,3 +8410,27 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-04-08 05:49:08.333
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 4 0 2026-04-08 16:54:41.872
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 4 0 2026-04-08 16:54:41.884
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 4 0 2026-04-08 16:54:41.885
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-04-08 16:54:44.575
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (635 sources, 1,379 headers) in 17.4 sec: 108,070 declarations; 383,496 references; 9 unresolved inclusions; 155 syntax errors; 1,069 unresolved names (0.22%)
+
+!ENTRY org.eclipse.cdt.core 4 0 2026-04-08 16:59:15.282
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 4 0 2026-04-08 16:59:15.286
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 4 0 2026-04-08 16:59:15.287
+!MESSAGE Unexpected overload for binary operator 28: 'operator =='
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-04-08 16:59:17.298
+!MESSAGE Indexed 'DeltaTPlus_STM32WB55RG_090525' (635 sources, 1,379 headers) in 13.2 sec: 108,070 declarations; 383,496 references; 9 unresolved inclusions; 155 syntax errors; 1,069 unresolved names (0.22%)

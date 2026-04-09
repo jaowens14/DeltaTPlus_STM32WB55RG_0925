@@ -44,7 +44,7 @@
 
 #include "Thermocouples.hpp"
 // #include "Thermocouples2.h"
-#include "ad7124-driver.h"
+//#include "ad7124-driver.h"
 #include "DeltaT.h"
 #include "BatteryMonitor.h"
 #include "FT5436_Touch.h"

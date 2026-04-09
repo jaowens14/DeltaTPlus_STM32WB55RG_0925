@@ -7,4 +7,4 @@
 ../lvgl/src/misc/lv_iter.c:137:13:lv_iter_peek	24	static
 ../lvgl/src/misc/lv_iter.c:157:13:lv_iter_peek_advance	16	static
 ../lvgl/src/misc/lv_iter.c:168:13:lv_iter_peek_reset	0	static
-../lvgl/src/misc/lv_iter.c:179:6:lv_iter_inspect	24	static
+../lvgl/src/misc/lv_iter.c:179:6:lv_iter_inspect	16	static

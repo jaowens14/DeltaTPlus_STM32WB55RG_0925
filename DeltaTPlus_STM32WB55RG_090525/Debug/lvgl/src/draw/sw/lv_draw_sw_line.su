@@ -1,1 +1,4 @@
-../lvgl/src/draw/sw/lv_draw_sw_line.c:50:6:lv_draw_sw_line	432	static
+../lvgl/src/draw/sw/lv_draw_sw_line.c:105:35:draw_line_hor	96	static
+../lvgl/src/draw/sw/lv_draw_sw_line.c:180:35:draw_line_ver	96	static
+../lvgl/src/draw/sw/lv_draw_sw_line.c:251:35:draw_line_skew	392	static
+../lvgl/src/draw/sw/lv_draw_sw_line.c:50:6:lv_draw_sw_line	144	static

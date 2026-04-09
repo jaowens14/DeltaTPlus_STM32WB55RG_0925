@@ -1,3 +1,11 @@
-../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:725:35:rgb888_image_blend	96	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:950:42:lv_color_16a_16a_mix	40	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:1008:42:blend_non_normal_pixel	24	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:990:6:lv_color_mix_with_alpha_cache_init	8	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:448:35:l8_image_blend	72	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:541:35:al88_image_blend	72	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:355:35:i1_image_blend	72	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:629:35:rgb565_image_blend	80	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:725:35:rgb888_image_blend	88	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:827:35:argb8888_image_blend	80	static
 ../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:197:28:lv_draw_sw_blend_color_to_al88	64	static
-../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:309:28:lv_draw_sw_blend_image_to_al88	144	static
+../lvgl/src/draw/sw/blend/lv_draw_sw_blend_to_al88.c:309:28:lv_draw_sw_blend_image_to_al88	8	static

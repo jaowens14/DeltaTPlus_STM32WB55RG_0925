@@ -1,10 +1,10 @@
 ../lvgl/src/libs/qrcode/lv_qrcode.c:235:13:lv_qrcode_destructor	2
-../lvgl/src/libs/qrcode/lv_qrcode.c:223:13:lv_qrcode_constructor	4
-../lvgl/src/libs/qrcode/lv_qrcode.c:95:13:lv_qrcode_update.part.0	27
+../lvgl/src/libs/qrcode/lv_qrcode.c:247:16:get_satisfied_size	7
 ../lvgl/src/libs/qrcode/lv_qrcode.c:53:12:lv_qrcode_create	1
 ../lvgl/src/libs/qrcode/lv_qrcode.c:61:6:lv_qrcode_set_size	4
 ../lvgl/src/libs/qrcode/lv_qrcode.c:81:6:lv_qrcode_set_dark_color	2
 ../lvgl/src/libs/qrcode/lv_qrcode.c:88:6:lv_qrcode_set_light_color	2
-../lvgl/src/libs/qrcode/lv_qrcode.c:95:13:lv_qrcode_update	2
-../lvgl/src/libs/qrcode/lv_qrcode.c:207:6:lv_qrcode_set_data	3
+../lvgl/src/libs/qrcode/lv_qrcode.c:223:13:lv_qrcode_constructor	1
+../lvgl/src/libs/qrcode/lv_qrcode.c:95:13:lv_qrcode_update	23
+../lvgl/src/libs/qrcode/lv_qrcode.c:207:6:lv_qrcode_set_data	2
 ../lvgl/src/libs/qrcode/lv_qrcode.c:213:6:lv_qrcode_set_quiet_zone	1

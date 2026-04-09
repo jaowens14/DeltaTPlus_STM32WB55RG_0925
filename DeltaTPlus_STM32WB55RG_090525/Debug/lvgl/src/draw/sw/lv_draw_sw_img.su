@@ -1,4 +1,11 @@
+../lvgl/src/draw/sw/blend/../../../misc/lv_color.h:338:20:lv_color_is_in_range	16	static
+../lvgl/src/draw/sw/lv_draw_sw_img.c:955:13:apply_mask	184	static
 ../lvgl/src/draw/sw/lv_draw_sw_img.c:774:13:recolor	80	static
-../lvgl/src/draw/sw/lv_draw_sw_img.c:219:13:img_draw_core	408	static
-../lvgl/src/draw/sw/lv_draw_sw_img.c:107:6:lv_draw_sw_layer	232	static
-../lvgl/src/draw/sw/lv_draw_sw_img.c:204:6:lv_draw_sw_image	0	static
+../lvgl/src/draw/sw/lv_draw_sw_img.c:395:13:recolor_only	160	static
+../lvgl/src/draw/sw/lv_draw_sw_img.c:314:13:radius_only	168	static
+../lvgl/src/draw/sw/blend/../../../misc/lv_color.h:353:26:lv_color16_to_color	16	static
+../lvgl/src/draw/sw/lv_draw_sw_img.c:581:13:colorkey_and_recolor	136	static
+../lvgl/src/draw/sw/lv_draw_sw_img.c:464:13:transform_and_recolor	192	static
+../lvgl/src/draw/sw/lv_draw_sw_img.c:219:13:img_draw_core	120	static
+../lvgl/src/draw/sw/lv_draw_sw_img.c:204:6:lv_draw_sw_image	8	static
+../lvgl/src/draw/sw/lv_draw_sw_img.c:107:6:lv_draw_sw_layer	136	static

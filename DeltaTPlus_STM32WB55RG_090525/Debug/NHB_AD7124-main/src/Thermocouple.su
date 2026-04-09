@@ -1,0 +1,4 @@
+../NHB_AD7124-main/src/Thermocouple.cpp:41:7:float Thermocouple::voltageToTempDegC(float, TcTypes)	24	static
+../NHB_AD7124-main/src/Thermocouple.cpp:63:7:float Thermocouple::tempToVoltageDegC(float, TcTypes)	16	static
+../NHB_AD7124-main/src/Thermocouple.cpp:32:7:float Thermocouple::voltageToTempDegC(float, float, TcTypes)	24	static
+../NHB_AD7124-main/src/Thermocouple.cpp:83:7:float Thermocouple::power_series(int, float, float*)	24	static

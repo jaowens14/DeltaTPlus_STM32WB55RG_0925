@@ -5,9 +5,8 @@
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:154:19:USB_DevInit	8	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:183:19:USB_FlushTxFifo	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:202:19:USB_FlushRxFifo	0	static
-../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:223:19:USB_ActivateEndpoint	16	static
-../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:360:19:USB_DeactivateEndpoint	4	static
-../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:419:19:USB_EPStartXfer	48	static
+../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:223:19:USB_ActivateEndpoint	8	static
+../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:360:19:USB_DeactivateEndpoint	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:633:19:USB_EPSetStall	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:653:19:USB_EPClearStall	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:682:19:USB_EPStopXfer	0	static
@@ -19,4 +18,5 @@
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:803:19:USB_ActivateRemoteWakeup	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:815:19:USB_DeActivateRemoteWakeup	0	static
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:830:6:USB_WritePMA	0	static
-../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:865:6:USB_ReadPMA	16	static
+../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:419:19:USB_EPStartXfer	16	static
+../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_ll_usb.c:865:6:USB_ReadPMA	4	static

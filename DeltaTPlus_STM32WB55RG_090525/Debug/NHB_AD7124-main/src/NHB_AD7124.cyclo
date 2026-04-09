@@ -1,0 +1,44 @@
+../NHB_AD7124-main/src/NHB_AD7124.cpp:141:8:double Ad7124Setup::refV()	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:147:6:bool Ad7124Setup::bipolar()	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:153:9:uint8_t Ad7124Setup::gain()	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:160:1:Ad7124::Ad7124()	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:457:23:AD7124_OperatingModes Ad7124::mode()	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:510:6:bool Ad7124::enabled(uint8_t)	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:516:5:int Ad7124::channelSetup(uint8_t)	2
+../NHB_AD7124-main/src/NHB_AD7124.cpp:536:5:int Ad7124::currentChannel()	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:566:8:double Ad7124::toVolts(double, uint8_t)	5
+../NHB_AD7124-main/src/NHB_AD7124.cpp:594:8:double Ad7124::scaleTC(double, double, TcTypes)	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:599:8:double Ad7124::scaleFB(double, double, double)	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:605:8:double Ad7124::scaleIcTemp(double)	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:637:5:int Ad7124::noCheckReadRegister(Ad7124_Register*)	25
+../NHB_AD7124-main/src/NHB_AD7124.cpp:545:9:int32_t Ad7124::getData()	2
+../NHB_AD7124-main/src/NHB_AD7124.cpp:191:5:int Ad7124::reset()	9
+../NHB_AD7124-main/src/NHB_AD7124.cpp:177:5:int Ad7124::begin()	9
+../NHB_AD7124-main/src/NHB_AD7124.cpp:531:5:int Ad7124::status()	6
+../NHB_AD7124-main/src/NHB_AD7124.cpp:611:9:int32_t Ad7124::pubreadRegister(AD7124_regIDs)	6
+../NHB_AD7124-main/src/NHB_AD7124.cpp:692:5:int Ad7124::noCheckWriteRegister(Ad7124_Register)	28
+../NHB_AD7124-main/src/NHB_AD7124.cpp:447:5:int Ad7124::setMode(AD7124_OperatingModes)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:204:5:int Ad7124::setPWRSW(bool)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:219:5:int Ad7124::setVBias(AD7124_VBiasPins, bool)	5
+../NHB_AD7124-main/src/NHB_AD7124.cpp:113:5:int Ad7124Setup::setOffsetCal(uint32_t)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:128:5:int Ad7124Setup::setGainCal(uint32_t)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:424:5:int Ad7124::setAdcControl(AD7124_OperatingModes, AD7124_PowerModes, bool, AD7124_ClkSources)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:411:5:int Ad7124::setExCurrent(AD7124_ExCurrentOutputChannel, AD7124_ExCurrentSource, AD7124_ExCurrent)	5
+../NHB_AD7124-main/src/NHB_AD7124.cpp:462:5:int Ad7124::setChannel(uint8_t, uint8_t, AD7124_InputSel, AD7124_InputSel, bool)	6
+../NHB_AD7124-main/src/NHB_AD7124.cpp:60:5:int Ad7124Setup::setConfig(AD7124_RefSources, AD7124_GainSel, bool, AD7124_BurnoutCurrents, double)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:87:5:int Ad7124Setup::setFilter(AD7124_Filters, uint16_t, AD7124_PostFilters, bool, bool)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:482:5:int Ad7124::enableChannel(uint8_t, bool)	12
+../NHB_AD7124-main/src/NHB_AD7124.cpp:302:5:int Ad7124::readRaw(Ad7124_Readings*, uint8_t)	31
+../NHB_AD7124-main/src/NHB_AD7124.cpp:376:5:int Ad7124::readVolts(Ad7124_Readings*, uint8_t)	8
+../NHB_AD7124-main/src/NHB_AD7124.cpp:234:5:int Ad7124::readRaw(uint8_t)	19
+../NHB_AD7124-main/src/NHB_AD7124.cpp:368:8:double Ad7124::readVolts(uint8_t)	5
+../NHB_AD7124-main/src/NHB_AD7124.cpp:441:8:double Ad7124::readIcTemp(uint8_t)	1
+../NHB_AD7124-main/src/NHB_AD7124.cpp:405:8:double Ad7124::readFB(uint8_t, double, double)	5
+../NHB_AD7124-main/src/NHB_AD7124.cpp:397:8:double Ad7124::readTC(uint8_t, double, TcTypes)	5
+../NHB_AD7124-main/src/NHB_AD7124.cpp:731:9:int32_t Ad7124::readRegister(AD7124_regIDs)	6
+../NHB_AD7124-main/src/NHB_AD7124.cpp:749:5:int Ad7124::writeRegister(AD7124_regIDs)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:765:5:int Ad7124::waitForSpiReady(uint32_t)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:799:5:int Ad7124::waitForPowerOn(uint32_t)	9
+../NHB_AD7124-main/src/NHB_AD7124.cpp:834:5:int Ad7124::waitForConvReady(uint32_t)	4
+../NHB_AD7124-main/src/NHB_AD7124.cpp:867:9:uint8_t Ad7124::computeCRC8(uint8_t*, uint8_t)	10
+../NHB_AD7124-main/src/NHB_AD7124.cpp:893:6:void Ad7124::spiWriteAndRead(uint8_t*, uint8_t)	2

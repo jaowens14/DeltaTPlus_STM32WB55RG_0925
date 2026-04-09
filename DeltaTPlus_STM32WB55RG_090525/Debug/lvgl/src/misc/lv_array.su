@@ -2,11 +2,11 @@
 ../lvgl/src/misc/lv_array.c:49:6:lv_array_init_from_buf	4	static
 ../lvgl/src/misc/lv_array.c:60:6:lv_array_deinit	8	static
 ../lvgl/src/misc/lv_array.c:71:6:lv_array_copy	16	static
-../lvgl/src/misc/lv_array.c:82:6:lv_array_shrink	16	static
-../lvgl/src/misc/lv_array.c:89:13:lv_array_remove	16	static
-../lvgl/src/misc/lv_array.c:111:13:lv_array_erase	16	static
 ../lvgl/src/misc/lv_array.c:137:6:lv_array_resize	16	static
-../lvgl/src/misc/lv_array.c:157:13:lv_array_concat	24	static
+../lvgl/src/misc/lv_array.c:82:6:lv_array_shrink	8	static
+../lvgl/src/misc/lv_array.c:157:13:lv_array_concat	16	static
 ../lvgl/src/misc/lv_array.c:174:13:lv_array_push_back	16	static
 ../lvgl/src/misc/lv_array.c:196:8:lv_array_at	0	static
-../lvgl/src/misc/lv_array.c:206:13:lv_array_assign	8	static
+../lvgl/src/misc/lv_array.c:89:13:lv_array_remove	16	static
+../lvgl/src/misc/lv_array.c:111:13:lv_array_erase	24	static
+../lvgl/src/misc/lv_array.c:206:13:lv_array_assign	16	static

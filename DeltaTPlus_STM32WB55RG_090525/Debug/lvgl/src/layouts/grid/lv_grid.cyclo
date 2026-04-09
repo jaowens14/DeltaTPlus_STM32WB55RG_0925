@@ -1,4 +1,15 @@
-../lvgl/src/layouts/grid/lv_grid.c:187:13:grid_update	107
+../lvgl/src/layouts/grid/lv_grid.c:594:16:grid_align	14
+../lvgl/src/layouts/grid/lv_grid.c:663:17:count_tracks	2
+../lvgl/src/layouts/grid/lv_grid.c:271:13:calc_free	1
+../lvgl/src/layouts/grid/lv_grid.c:373:20:calc_rows	19
+../lvgl/src/layouts/grid/../../core/lv_obj_style.h:324:23:lv_obj_get_style_space_left	2
+../lvgl/src/layouts/grid/../../core/lv_obj_style.h:340:23:lv_obj_get_style_space_top	2
+../lvgl/src/layouts/grid/lv_grid.c:107:23:get_margin_hor	1
+../lvgl/src/layouts/grid/lv_grid.c:112:23:get_margin_ver	1
+../lvgl/src/layouts/grid/lv_grid.c:279:20:calc_cols	19
+../lvgl/src/layouts/grid/lv_grid.c:230:20:calc	8
+../lvgl/src/layouts/grid/lv_grid.c:470:13:item_repos	23
+../lvgl/src/layouts/grid/lv_grid.c:187:13:grid_update	5
 ../lvgl/src/layouts/grid/lv_grid.c:144:6:lv_grid_init	1
 ../lvgl/src/layouts/grid/lv_grid.c:150:6:lv_obj_set_grid_dsc_array	1
 ../lvgl/src/layouts/grid/lv_grid.c:157:6:lv_obj_set_grid_align	1

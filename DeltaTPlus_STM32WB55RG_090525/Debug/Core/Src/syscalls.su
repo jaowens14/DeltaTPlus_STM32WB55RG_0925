@@ -2,7 +2,7 @@
 ../Core/Src/syscalls.c:48:5:_getpid	0	static
 ../Core/Src/syscalls.c:53:5:_kill	8	static
 ../Core/Src/syscalls.c:61:6:_exit	8	static
-../Core/Src/syscalls.c:67:27:_read	8	static
+../Core/Src/syscalls.c:67:27:_read	16	static
 ../Core/Src/syscalls.c:82:27:_write	16	static
 ../Core/Src/syscalls.c:94:5:_close	0	static
 ../Core/Src/syscalls.c:101:5:_fstat	0	static

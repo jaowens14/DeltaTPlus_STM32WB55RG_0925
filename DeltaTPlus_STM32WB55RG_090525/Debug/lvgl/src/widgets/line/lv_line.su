@@ -1,9 +1,11 @@
-../lvgl/src/widgets/line/lv_line.c:143:13:lv_line_constructor	0	static
+../lvgl/src/widgets/line/lv_line.c:174:34:resolve_point_coord	0	static
 ../lvgl/src/widgets/line/lv_line.c:184:13:lv_line_event	128	static
+../lvgl/src/widgets/line/lv_line.c:143:13:lv_line_constructor	8	static
+../lvgl/src/widgets/line/lv_line.c:160:13:line_set_points	8	static
 ../lvgl/src/widgets/line/lv_line.c:56:12:lv_line_create	8	static
 ../lvgl/src/widgets/line/lv_line.c:68:6:lv_line_set_points	8	static
 ../lvgl/src/widgets/line/lv_line.c:73:6:lv_line_set_points_mutable	8	static
-../lvgl/src/widgets/line/lv_line.c:78:6:lv_line_set_y_invert	0	static
+../lvgl/src/widgets/line/lv_line.c:78:6:lv_line_set_y_invert	8	static
 ../lvgl/src/widgets/line/lv_line.c:94:28:lv_line_get_points	0	static
 ../lvgl/src/widgets/line/lv_line.c:102:10:lv_line_get_point_count	0	static
 ../lvgl/src/widgets/line/lv_line.c:110:6:lv_line_is_point_array_mutable	0	static

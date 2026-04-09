@@ -2,7 +2,7 @@
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.c:155:19:HAL_RNG_Init	3
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.c:282:13:HAL_RNG_MspDeInit	1
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.c:219:19:HAL_RNG_DeInit	2
-../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.c:549:19:HAL_RNG_GenerateRandomNumber	7
+../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.c:549:19:HAL_RNG_GenerateRandomNumber	6
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.c:607:19:HAL_RNG_GenerateRandomNumber_IT	3
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.c:731:10:HAL_RNG_ReadLastRandomNumber	1
 ../Drivers/STM32WBxx_HAL_Driver/Src/stm32wbxx_hal_rng.c:748:13:HAL_RNG_ReadyDataCallback	1

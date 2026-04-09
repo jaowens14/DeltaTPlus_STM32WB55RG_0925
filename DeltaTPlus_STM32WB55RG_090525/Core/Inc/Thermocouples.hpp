@@ -8,17 +8,26 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-#include <ad7124.h>
 
+//#include <ad7124.h>
+
+#include "NHB_AD7124.h"
 extern volatile int thermocouple_data_ready;
 extern volatile int ad7124_rdy_flag;
 extern volatile int thermocoupleDelay;
+#define USE_NHB_LIB
+
 
 class Thermocouples
 {
 
 public:
+
+#ifdef USE_NHB_LIB
+    Ad7124 adc;
+#else
     Ad7124Chip thermocoupleADC;
+#endif
 
     volatile int delay = 1;
     void setup(void);

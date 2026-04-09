@@ -40,8 +40,6 @@ CPP_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-AD7124_Library \
-AD7124_Library/examples/ad7124-cn0381 \
 Adafruit_1704X_Library \
 Core/Src \
 Core/Startup \
@@ -54,6 +52,7 @@ Middlewares/ST/STM32_WPAN/ble/svc/Src \
 Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/shci \
 Middlewares/ST/STM32_WPAN/interface/patterns/ble_thread/tl \
 Middlewares/ST/STM32_WPAN/utilities \
+NHB_AD7124-main/src \
 STM32_WPAN/App \
 STM32_WPAN/Target \
 USB_Device/App \
