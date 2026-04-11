@@ -41,6 +41,7 @@ void Thermocouples::setup()
     //  100 |   60  |    10
     //   40 |  156  |    26
     //   20 |  300  |    50
+	// 100 has worked well
     filterWord = 100;
 
     int state = thermocoupleADC.begin(0);
@@ -60,17 +61,19 @@ void Thermocouples::setup()
 
 #if 1 // setup from 'putting screws in and sending it'
     // thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
-    //thermocoupleADC.reset();
+    //int res3 = thermocoupleADC.reset();
 
+    //printf("res3 %d\r\n", res3);
 
+    HAL_Delay(500);
     // HAL_Delay(200);
     // Configure Setup 0 for Thermocouples
     // High gain (128) with internal reference for maximum sensitivity to µV signals
-    thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, true);
+    thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, false);
     thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc4FastFilter, filterWord);
 
-    thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
-    thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4FastFilter, filterWord);
+    //thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
+    //thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4FastFilter, filterWord);
 
     // Configure Channel 0: Thermocouple 1 (AIN0+/AIN1-) using Setup 0
     thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN0Input, Ad7124::AIN1Input, true);
@@ -84,8 +87,10 @@ void Thermocouples::setup()
     //
     // thermocoupleADC.setCurrentSource(0, Ad7124::IoutCh4, Ad7124::Current500uA);
 
-    thermocoupleADC.setBiasPins(Ad7124::AIN1Input | Ad7124::AIN3Input);
+    //thermocoupleADC.setBiasPins(Ad7124::AIN1Input | Ad7124::AIN3Input);
+    //thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN1Input | Ad7124::AIN2Input | Ad7124::AIN3Input);
 
+    //thermocoupleADC.setBiasPins(Ad7124::AIN0Input | Ad7124::AIN2Input);
 
     thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
 
@@ -95,8 +100,8 @@ void Thermocouples::setup()
      HAL_Delay(200);
 
 
-//    int res1 = thermocoupleADC.internalCalibration(channel0);
-//    int res2 = thermocoupleADC.internalCalibration(channel1);
+    //int res1 = thermocoupleADC.internalCalibration(channel0);
+   //int res2 = thermocoupleADC.internalCalibration(channel1);
 
     HAL_Delay(200);
 
@@ -353,6 +358,7 @@ void Thermocouples::stateMachine(void)
         //deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>> (04/01/2026 reduced gain below)
         deltaTemp = ((rf.estimate - lf.estimate) * 750000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
 
+
 #else // CLIENT
         { // horrible hack
         deltaTemp = GetDeltaTData();
@@ -390,7 +396,7 @@ void Thermocouples::stateMachine(void)
 
 
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "$%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
         debug_printf((const char *)UART_BUFFER);
         //if(uart_ready){
        //HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);

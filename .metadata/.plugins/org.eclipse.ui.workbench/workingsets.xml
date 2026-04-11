@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
-<workingSet editPageId="org.eclipse.cdt.ui.CElementWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1766028089644_5" label="delta-t-working-set" name="delta-t-working-set">
-<item factoryID="org.eclipse.cdt.ui.PersistableCElementFactory" path="/DeltaTPlus_STM32WB55RG_090525" type="4"/>
-</workingSet>
+<workingSet editPageId="org.eclipse.cdt.ui.CElementWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1766028089644_5" label="delta-t-working-set" name="delta-t-working-set"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1757068073465_0" label="Window Working Set" name="Aggregate for window 1757068073465"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1757588510167_1" label="Window Working Set" name="Aggregate for window 1757588510167"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1758674235892_2" label="Window Working Set" name="Aggregate for window 1758674235891"/>
