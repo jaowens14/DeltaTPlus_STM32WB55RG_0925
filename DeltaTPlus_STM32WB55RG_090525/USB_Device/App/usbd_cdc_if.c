@@ -23,6 +23,7 @@
 
 /* USER CODE BEGIN INCLUDE */
 #include "main.h"
+
 /* USER CODE END INCLUDE */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -279,8 +280,20 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
       uint8_t msg[] = "ping\r\n";
       CDC_Transmit_FS(msg, sizeof(msg) - 1);
   }
-  /* USER CODE END 6 */
 
+  if (strncmp((char *)Buf, "$sen", 4) == 0)
+  {
+      // Expect something like: "$sen,12345"
+      char *p = (char *)Buf + 4;   // points to ",12345..."
+      if (*p == ',') {
+          p++;                     // points to "12345..."
+          //char *str = "3.14";
+          char *end;
+          scaleFactor = strtof(p, &end);
+
+
+      }
+  }
 
   if (strncmp((char *)Buf, "$ver", 4) == 0)
   {

@@ -19,6 +19,9 @@
 // Define static member variables
 float Thermocouples::deltaTemp = 0.0; //deltaTemp stores temperature difference
 float Thermocouples::userGain = 1.0; //userGain stores the adjustment value for calibration
+//float Thermocouples::scaleFactor = 750000.0;
+float scaleFactor = 300000.0;
+
 float Thermocouples::deltaTempOffset = 0.0; //deltaTempOffset stores zero offset correction value
 KALMAN_T rf; //right front (rf) thermocouple measurements
 KALMAN_T lf; //left front (lf) thermocouple measurements
@@ -28,6 +31,8 @@ volatile int thermocouple_data_ready = 0;
 volatile int ad7124_rdy_flag = 0;
 volatile int thermocoupleDelay = 0;
 int direction = 1;
+
+bool BIPOLAR = FALSE;
 
 //Set up Function
 void Thermocouples::setup()
@@ -69,7 +74,7 @@ void Thermocouples::setup()
     // HAL_Delay(200);
     // Configure Setup 0 for Thermocouples
     // High gain (128) with internal reference for maximum sensitivity to µV signals
-    thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, false);
+    thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, BIPOLAR);
     thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc4FastFilter, filterWord);
 
     //thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
@@ -291,7 +296,7 @@ void Thermocouples::stateMachine(void)
         if (channel == 0)
         {
             raw[channel] = rawData;
-            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 128, 2.5, true);
+            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 128, 2.5, BIPOLAR);
 
             // temp_temp = thermocoupleVoltageToTemp(voltage[channel], 20.0);
             // temperature[channel] = temp_temp;
@@ -305,7 +310,7 @@ void Thermocouples::stateMachine(void)
         if (channel == 1)
         {
             raw[channel] = rawData;
-            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 128, 2.5, true);
+            voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 128, 2.5, BIPOLAR);
 
             // temp_temp = thermocoupleVoltageToTemp(voltage[channel], 20.0);
             // temperature[channel] = temp_temp;
@@ -355,8 +360,8 @@ void Thermocouples::stateMachine(void)
         // gain is estimated at 1789473 intercept at 120 pixels when deltat is zero
 
 
-        //deltaTemp = ((rf.estimate - lf.estimate) * 1000000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>> (04/01/2026 reduced gain below)
-        deltaTemp = ((rf.estimate - lf.estimate) * 750000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+        //deltaTemp = ((rf.estimate - lf.estimate) * 1000 000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>> (04/01/2026 reduced gain below)
+        deltaTemp = ((rf.estimate - lf.estimate) * scaleFactor * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
 
 
 #else // CLIENT

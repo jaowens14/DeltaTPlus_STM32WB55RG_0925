@@ -68,6 +68,7 @@ public:
     float leftTemp;
     float rightTemp;
     static float userGain;
+    //static float scaleFactor;
 };
 
 typedef struct

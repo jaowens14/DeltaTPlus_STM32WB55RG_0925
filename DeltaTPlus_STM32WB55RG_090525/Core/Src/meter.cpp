@@ -79,12 +79,12 @@ void updateSettingLabel(void)
     if (accelSwitchState)
     {
       switchState = "HIGH";
-      // Thermocouples::userGain = 2.0;
+      Thermocouples::userGain = 2.0;
     }
     else
     {
       switchState = "LOW";
-      // Thermocouples::userGain = 1.0;
+      Thermocouples::userGain = 1.0;
     }
 
     // lv_obj_t *ta = (lv_obj_t *)lv_timer_get_user_data(timer);

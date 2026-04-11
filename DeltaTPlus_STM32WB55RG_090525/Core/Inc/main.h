@@ -40,6 +40,7 @@ extern "C" {
 
 extern uint32_t SERIAL_NUMBER;
 
+extern float scaleFactor;
 
 #ifdef USE_SERVER
 //#define SERVER_SN 0001u

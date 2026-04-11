@@ -24,7 +24,7 @@ void accelSetup(void)
     HAL_I2C_Mem_Write(&hi2c1, ADXL343_ADDR, 0x2D, I2C_MEMADD_SIZE_8BIT, &powerCtl, 1, 100);
 
     // ===== Configure TAP detection parameters =====
-    uint8_t thresh_tap = 0x18; // ~1.5g threshold (62.5mg/LSB)
+    uint8_t thresh_tap = 0x30; // ~1.5g threshold (62.5mg/LSB) was 0x18, ed asked for more force
     uint8_t dur = 0x10;        // 10ms duration (625μs/LSB)
     uint8_t latent = 0x50;     // 100ms latent (1.25ms/LSB)
     uint8_t window = 0xF0;     // 300ms window (1.25ms/LSB)
