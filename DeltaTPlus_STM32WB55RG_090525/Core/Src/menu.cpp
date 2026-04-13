@@ -19,6 +19,12 @@ void avert_cb(lv_event_t *e)
 	load_screen(METER);
 }
 
+void calibrate_cb(lv_event_t *e){
+	calibrate = 1;
+	load_screen(METER);
+
+}
+
 // Button event callbacks
 void menu_about_cb(lv_event_t *e)
 {
@@ -130,6 +136,24 @@ lv_obj_t *create_menu_screen(void)
 
     lv_obj_set_style_text_font(settings_label, &lv_font_montserrat_14, 0);
     lv_obj_center(settings_label);
+
+
+#ifdef USE_SERVER
+    // Create "Calibrate" button
+    lv_obj_t *calibrate_btn = lv_btn_create(menuContainer);
+    lv_obj_set_size(calibrate_btn, btn_width, btn_height);
+    lv_obj_set_style_radius(calibrate_btn, 8, 0);
+    lv_obj_set_style_bg_color(calibrate_btn, lv_color_hex(Charcoal), 0);
+    lv_obj_set_style_shadow_width(calibrate_btn, 10, 0);
+    lv_obj_set_style_shadow_color(calibrate_btn, lv_color_hex(0x000000), 0);
+    lv_obj_set_style_shadow_opa(calibrate_btn, LV_OPA_30, 0);
+    lv_obj_set_style_bg_color(calibrate_btn, lv_color_hex(0x1976D2), LV_STATE_PRESSED);
+    lv_obj_align_to(calibrate_btn, settings_btn, LV_ALIGN_OUT_BOTTOM_MID, 0, btn_spacing);
+    lv_obj_add_event_cb(calibrate_btn, calibrate_cb, LV_EVENT_CLICKED, NULL);
+    lv_obj_t *cali_btn_label = lv_label_create(calibrate_btn);
+    lv_label_set_text(cali_btn_label, "Calibrate");
+#endif
+
 
     lv_obj_null_on_delete(&menu_screen);
 

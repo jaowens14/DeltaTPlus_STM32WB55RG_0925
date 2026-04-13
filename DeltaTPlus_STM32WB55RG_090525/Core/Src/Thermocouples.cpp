@@ -32,7 +32,20 @@ volatile int ad7124_rdy_flag = 0;
 volatile int thermocoupleDelay = 0;
 int direction = 1;
 
-bool BIPOLAR = FALSE;
+uint32_t offset;
+float sum;
+float ave;
+int n_samples =0;
+
+bool BIPOLAR = true;
+int setup0;
+
+
+
+int cal_sum;
+int cal_count;
+
+#define CAL_SAMPLES 128
 
 //Set up Function
 void Thermocouples::setup()
@@ -56,7 +69,7 @@ void Thermocouples::setup()
         state = thermocoupleADC.begin(0);
     }
 
-    int setup0 = 0;
+    setup0 = 0;
     int setup1 = 1;
 
     int channel0 = 0;
@@ -76,15 +89,18 @@ void Thermocouples::setup()
     // High gain (128) with internal reference for maximum sensitivity to µV signals
     thermocoupleADC.setConfig(setup0, Ad7124::RefInternal, Ad7124::Pga128, BIPOLAR);
     thermocoupleADC.setConfigFilter(setup0, Ad7124::Sinc4FastFilter, filterWord);
+    if (storage.calibration != 0){
+        thermocoupleADC.setConfigOffset(setup0, storage.calibration);
+    }
 
     //thermocoupleADC.setConfig(setup1, Ad7124::RefInternal, Ad7124::Pga1, true);
     //thermocoupleADC.setConfigFilter(setup1, Ad7124::Sinc4FastFilter, filterWord);
 
     // Configure Channel 0: Thermocouple 1 (AIN0+/AIN1-) using Setup 0
-    thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN0Input, Ad7124::AIN1Input, true);
+    thermocoupleADC.setChannel(channel0, setup0, Ad7124::AIN2Input, Ad7124::AIN0Input, true);
 
     // Configure Channel 1: Thermocouple 2 (AIN2+/AIN3-) using Setup 0
-    thermocoupleADC.setChannel(channel1, setup0, Ad7124::AIN2Input, Ad7124::AIN3Input, true);
+    //thermocoupleADC.setChannel(channel1, setup0, Ad7124::AIN2Input, Ad7124::AIN3Input, true);
 
     // Configure Channel 2: Thermistor (AIN5+/AIN6-) using Setup 1
     // thermocoupleADC.setChannel(channel2, setup1, Ad7124::AIN5Input, Ad7124::AIN6Input, true);
@@ -105,6 +121,7 @@ void Thermocouples::setup()
      HAL_Delay(200);
 
 
+
     //int res1 = thermocoupleADC.internalCalibration(channel0);
    //int res2 = thermocoupleADC.internalCalibration(channel1);
 
@@ -119,7 +136,7 @@ void Thermocouples::setup()
 
     // Enable only the channels we're using
     thermocoupleADC.enableChannel(0, true);   // Thermocouple 1
-    thermocoupleADC.enableChannel(1, true);   // Thermocouple 2
+    thermocoupleADC.enableChannel(1, false);   // Thermocouple 2
     thermocoupleADC.enableChannel(2, false);  // Thermistor (cold junction)
     thermocoupleADC.enableChannel(3, false);  // Disabled
     thermocoupleADC.enableChannel(4, false);  // Disabled
@@ -298,6 +315,31 @@ void Thermocouples::stateMachine(void)
             raw[channel] = rawData;
             voltage[channel] = Ad7124Chip::toVoltage(raw[channel], 128, 2.5, BIPOLAR);
 
+            if (calibrate)
+            {
+                cal_sum += (int32_t)rawData;
+                cal_count++;
+
+                if (cal_count >= CAL_SAMPLES)
+                {
+                    int32_t avg_raw = cal_sum / CAL_SAMPLES;
+
+                    int32_t offset_reg = storage.calibration + (avg_raw - 0x800000);
+
+                    thermocoupleADC.setAdcControl(Ad7124::StandbyMode, Ad7124::FullPower, true);
+                    thermocoupleADC.setConfigOffset(0, offset_reg);
+                    thermocoupleADC.setAdcControl(Ad7124::ContinuousMode, Ad7124::FullPower, true);
+
+                    storage.calibration = offset_reg;
+                    Flash_Write(&storage);
+
+                    // Reset state
+                    calibrate  = 0;
+                    cal_sum    = 0;
+                    cal_count  = 0;
+                }
+            }
+
             // temp_temp = thermocoupleVoltageToTemp(voltage[channel], 20.0);
             // temperature[channel] = temp_temp;
 
@@ -361,7 +403,8 @@ void Thermocouples::stateMachine(void)
 
 
         //deltaTemp = ((rf.estimate - lf.estimate) * 1000 000.0 * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>> (04/01/2026 reduced gain below)
-        deltaTemp = ((rf.estimate - lf.estimate) * scaleFactor * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+        //deltaTemp = ((rf.estimate - lf.estimate) * scaleFactor * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
+        deltaTemp = (lf.estimate * scaleFactor * userGain) + 270.0; // SEEMS REALLLY FAST>>>>>>
 
 
 #else // CLIENT
@@ -401,7 +444,7 @@ void Thermocouples::stateMachine(void)
 
 
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "$%f, %f, %f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "$%.9f, %f, %.9f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
         debug_printf((const char *)UART_BUFFER);
         //if(uart_ready){
        //HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);

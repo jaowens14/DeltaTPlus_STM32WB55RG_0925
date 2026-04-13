@@ -290,9 +290,18 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
           //char *str = "3.14";
           char *end;
           scaleFactor = strtof(p, &end);
-
-
       }
+  }
+
+  if (strncmp((char *)Buf, "$cal", 4) == 0)
+  {
+      // Expect something like: "$cal"
+
+	  calibrate = 1;
+	  // get the delta voltage.
+	  // calc offset
+	  // save offset to flash, on next boot it will pull it in?
+
   }
 
   if (strncmp((char *)Buf, "$ver", 4) == 0)
@@ -316,7 +325,9 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
   if (strncmp((char *)Buf, "$rsn", 4) == 0)
   {
 	  char buffer[20];
-	  int len = snprintf(buffer, sizeof(buffer), "%lu\r\n", (unsigned long)SerialNumber_Read());
+      Flash_Read(&storage);
+
+	  int len = snprintf(buffer, sizeof(buffer), "%lu\r\n", (unsigned long)storage.serialNumber);
 	  if (len > 0 && len < sizeof(buffer)) {
 	      CDC_Transmit_FS((uint8_t*)buffer, (uint16_t)len);
 	  }
@@ -330,13 +341,40 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
           p++;                     // points to "12345..."
           unsigned long new_sn = strtoul(p, NULL, 10);
 
-          SerialNumber_Save(new_sn);   // store the new serial number
+          //SerialNumber_Save(new_sn);   // store the new serial number44
+
+          storage.serialNumber = new_sn;   // update just what you need
+          Flash_Write(&storage);         // write everything back
+
+          Flash_Read(&storage);
+
 
           // Optionally read back and confirm to host
           char buffer[32];
           int len = snprintf(buffer, sizeof(buffer),
                              "%lu\r\n",
-                             (unsigned long)SerialNumber_Read());
+                             (unsigned long)storage.serialNumber);
+          if (len > 0 && len < (int)sizeof(buffer)) {
+              CDC_Transmit_FS((uint8_t *)buffer, (uint16_t)len);
+          }
+      }
+  }
+
+  if (strncmp((char *)Buf, "$setcal", 7) == 0)
+  {
+      // Expect something like: "$wsn,12345"
+      char *p = (char *)Buf + 7;   // points to ",12345..."
+      if (*p == ',') {
+          p++;                     // points to "12345..."
+
+          //calibrate = 1;
+          storage.calibration = strtoul(p, NULL, 16);;   // update just what you need
+          Flash_Write(&storage);         // write everything back
+
+          Flash_Read(&storage);
+
+          char buffer[32];
+          int len = snprintf(buffer, sizeof(buffer),"%lu\r\n",(unsigned long)storage.calibration);
           if (len > 0 && len < (int)sizeof(buffer)) {
               CDC_Transmit_FS((uint8_t *)buffer, (uint16_t)len);
           }

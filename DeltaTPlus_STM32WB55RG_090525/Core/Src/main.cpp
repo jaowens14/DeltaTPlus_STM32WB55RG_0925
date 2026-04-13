@@ -50,6 +50,11 @@
 #include "FT5436_Touch.h"
 #include <stdarg.h>  //
 
+FlashStorage_t storage;
+uint8_t calibrationSamples = 0;
+uint8_t calibrationReady = 0;
+uint8_t calibrate = 0;
+
 #ifdef USE_SERVER
 #include "p2p_server_app.h"
 #else
@@ -478,33 +483,39 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 }
 
 
-#define SN_FLASH_ADDR   0x080BFE50
+#define STORAGE_FLASH_ADDR  0x080BFE50
 
-uint32_t SerialNumber_Read(void) {
-    uint32_t value = *(uint32_t*)SN_FLASH_ADDR;
 
-    if (value == 0xFFFFFFFF) {
-    	return 0;
-    }
-    return value;
+void Flash_Read(FlashStorage_t *out) {
+    FlashStorage_t *stored = (FlashStorage_t *)STORAGE_FLASH_ADDR;
+    *out = *stored;
+    // check for blank flash
+    if (out->serialNumber == 0xFFFFFFFF) out->serialNumber = 0;
+    if (out->calibration  == 0xFFFFFFFF) out->calibration  = 0x80000000;
 }
 
-void SerialNumber_Save(uint32_t serial) {
+void Flash_Write(FlashStorage_t *data) {
     HAL_FLASH_Unlock();
 
     FLASH_EraseInitTypeDef erase = {
         .TypeErase = FLASH_TYPEERASE_PAGES,
-        .Page      = (SN_FLASH_ADDR - FLASH_BASE) / FLASH_PAGE_SIZE,
+        .Page      = (STORAGE_FLASH_ADDR - FLASH_BASE) / FLASH_PAGE_SIZE,
         .NbPages   = 1
     };
     uint32_t pageError;
     HAL_FLASHEx_Erase(&erase, &pageError);
 
-    // Must write as 64-bit double-word
-    HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, SN_FLASH_ADDR, (uint64_t)serial);
+    // Write as series of 64-bit double-words
+    uint64_t *src = (uint64_t *)data;
+    uint32_t addr = STORAGE_FLASH_ADDR;
+    for (int i = 0; i < sizeof(FlashStorage_t) / 8; i++) {
+        HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, addr, src[i]);
+        addr += 8;
+    }
 
     HAL_FLASH_Lock();
 }
+
 /*
 
 
@@ -531,7 +542,13 @@ int main(void)
 
 	HAL_Init();
 
-	  SERIAL_NUMBER = SerialNumber_Read();
+	Flash_Read(&storage);          // read current values
+
+
+	 SERIAL_NUMBER = storage.serialNumber;
+
+
+
 
 
 	SystemClock_Config();

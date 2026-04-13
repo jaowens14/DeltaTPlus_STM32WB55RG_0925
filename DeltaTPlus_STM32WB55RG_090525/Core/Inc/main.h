@@ -124,9 +124,27 @@ void Error_Handler(void);
   void EnterDFUMode(void);
 
   //uint32_t SerialNumber_Read(void);
-  void SerialNumber_Save(uint32_t serial);
 
-  uint32_t SerialNumber_Read(void);
+
+
+  typedef struct {
+      uint32_t serialNumber;
+      uint32_t calibration;
+      uint32_t checksum;      // optional sanity check
+      uint32_t reserved;      // pad to 64-bit boundary
+  } FlashStorage_t;
+
+  extern FlashStorage_t storage;
+
+
+
+  extern uint8_t calibrationSamples;
+  extern uint8_t calibrationReady;
+  extern uint8_t calibrate;
+
+  void Flash_Read(FlashStorage_t *out);
+
+  void Flash_Write(FlashStorage_t *data);
 
 
 #ifdef __cplusplus
