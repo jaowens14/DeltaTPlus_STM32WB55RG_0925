@@ -152,6 +152,8 @@ lv_obj_t *create_menu_screen(void)
     lv_obj_add_event_cb(calibrate_btn, calibrate_cb, LV_EVENT_CLICKED, NULL);
     lv_obj_t *cali_btn_label = lv_label_create(calibrate_btn);
     lv_label_set_text(cali_btn_label, "Calibrate");
+    lv_obj_center(cali_btn_label);
+
 #endif
 
 

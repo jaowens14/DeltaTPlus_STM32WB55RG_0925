@@ -59,8 +59,8 @@ int meter_angle;
 int meter_angle_width;
 int angle;
 int xValue;
-int temperatureAngle;
-int lastTemperatureAngle;
+float temperatureAngle;
+float lastTemperatureAngle;
 int lastXValue;
 int minXValue = 20; // zero is vertical i think
 int maxXValue = 220;
@@ -147,7 +147,7 @@ void updateNeedle(void)
 
   if (meter_screen != NULL)
   {
-    temperatureAngle = int(myThermocouples.deltaTemp);
+    temperatureAngle = myThermocouples.deltaTemp;
     // temperatureAngle = 270;
     if (temperatureAngle != lastTemperatureAngle)
     {
