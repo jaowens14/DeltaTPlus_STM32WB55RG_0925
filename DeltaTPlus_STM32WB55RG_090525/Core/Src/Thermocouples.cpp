@@ -60,7 +60,7 @@ void Thermocouples::setup()
     //   40 |  156  |    26
     //   20 |  300  |    50
 	// 100 has worked well
-    filterWord = 100;
+    filterWord = 60;
 
     int state = thermocoupleADC.begin(0);
     while (state < 0)
@@ -331,7 +331,7 @@ void Thermocouples::stateMachine(void)
 
 
 
-        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "$%.9f, %f, %.9f ,%f, %f\r\n", voltage[0], voltage[1], lf.estimate, rf.estimate, deltaTemp);
+        snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%.9f, %.9f ,%f\r\n", voltage[0], lf.estimate, deltaTemp);
         debug_printf((const char *)UART_BUFFER);
         //if(uart_ready){
        //HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);

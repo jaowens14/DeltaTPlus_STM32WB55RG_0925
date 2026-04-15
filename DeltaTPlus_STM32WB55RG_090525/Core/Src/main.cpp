@@ -678,9 +678,9 @@ int main(void)
     {
       // uart_ready = 0;
       measureFlag = 0;
-      snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
-      HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 30);
-      debug_printf((const char *)UART_BUFFER);
+      //snprintf((char *)UART_BUFFER, 64, "Main loop: %lu Hz\r\n", loopsPerSecond);
+      //HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 30);
+      //debug_printf((const char *)UART_BUFFER);
 
     }
 

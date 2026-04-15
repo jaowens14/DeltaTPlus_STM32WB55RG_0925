@@ -1,7 +1,6 @@
 ../Core/Src/main.cpp:227:6:void lcd_send_cmd(lv_display_t*, const uint8_t*, size_t, const uint8_t*, size_t)	3
 ../Core/Src/main.cpp:255:6:void lcd_send_color(lv_display_t*, const uint8_t*, size_t, uint8_t*, size_t)	3
 ../Core/Src/main.cpp:161:6:)	2
-../Core/Src/main.cpp:161:6:)	2
 ../Core/Src/main.cpp:178:6:void lv_port_disp_init()	1
 ../Core/Src/main.cpp:198:6:void lcd_color_transfer_ready_cb(SPI_HandleTypeDef*)	1
 ../Core/Src/main.cpp:207:9:int32_t lcd_io_init()	1
