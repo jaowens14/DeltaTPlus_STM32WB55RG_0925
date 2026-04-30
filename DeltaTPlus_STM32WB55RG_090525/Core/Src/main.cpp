@@ -391,6 +391,10 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     	  thermocoupleDelay--;
       }
 
+      if(backlightDelay){
+    	  backlightDelay--;
+      }
+
     }
 
     //if (myThermocouples.delay)

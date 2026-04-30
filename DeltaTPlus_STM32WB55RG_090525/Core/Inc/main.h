@@ -51,8 +51,9 @@ extern float scaleFactor;
 //#define SERIAL_NUMBER CLIENT_SN
 #endif
 
-#define MANUFACTURED_DATE "03 2026"
-#define FIRMWARE_VERSION "1.1.0"
+#define MANUFACTURED_DATE "04 2026"
+//#define FIRMWARE_VERSION "1.1.2" // initial release
+#define FIRMWARE_VERSION "1.1.3" // attempting to address display fade-stuck issue
 
 void debug_printf(const char *format, ...);
 

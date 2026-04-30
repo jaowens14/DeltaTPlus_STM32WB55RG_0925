@@ -332,7 +332,7 @@ void Thermocouples::stateMachine(void)
 
 
         snprintf((char *)UART_BUFFER, sizeof(UART_BUFFER), "%.9f, %.9f ,%f\r\n", voltage[0], lf.estimate, deltaTemp);
-        debug_printf((const char *)UART_BUFFER);
+       // debug_printf((const char *)UART_BUFFER);
         //if(uart_ready){
        //HAL_UART_Transmit(&huart1, UART_BUFFER, strlen((char *)UART_BUFFER), 20);
         //uart_ready = 0;

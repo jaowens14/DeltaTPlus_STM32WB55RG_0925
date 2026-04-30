@@ -19,7 +19,7 @@ void backlightSetup(void)
 
     __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 0); // turn off screen to start
 
-    backlightState = LOW;
+    backlightState = HIGH;
 
     backlightDelay = 0;
 }
@@ -31,34 +31,26 @@ void backlightMain(void)
     {
 
     case LOW:
-        if (!backlightDelay)
-        {
             desired_brightness = low_brightness;
-        }
         break;
     case MID:
-        if (!backlightDelay)
-        {
             desired_brightness = mid_brightness;
-        }
         break;
     case HIGH:
-        if (!backlightDelay)
-        {
-            desired_brightness = hi_brightness;
-        }
+    	desired_brightness = hi_brightness;
         break;
     case OFF:
-        if (!backlightDelay)
-        {
             desired_brightness = off;
-        }
         break;
     default:
         break;
     }
 
+    if(!backlightDelay){
+
     backlightFade(desired_brightness);
+    backlightDelay = 2; // ms
+    }
 }
 
 void backlightFade(int target_brightness)
